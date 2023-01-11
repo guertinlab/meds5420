@@ -111,7 +111,6 @@ The final project is analysis of RNA-seq data. Each student is provided with RNA
 
 For additional information on graduate grading policies see here (note that effective Fall, 2020, the grade of A+ no longer exists) https://gradcatalog.uconn.edu/grad-school-info/academic-regulations/#Grades 
 
-
 Grading Scale for MED 5420: 
 [redacted]
 
@@ -133,31 +132,31 @@ Module 1: Command Line
 Module 2: ChIP-seq analysis
 Module 3: RNA-seq analysis
 Calendar and Class Meeting Schedule 
-Proposed meeting times: MW 1-3pm
-January 18
-Overview of Molecular Genomics and High Throughput Sequencing Technology
-23
-Introduction to the Command Line: navigating in the Terminal and basic utilities
-25
-Introduction to the Command Line: parsing text files and piping (Homework 1 assigned)
-30
-Introduction to the Command Line: constructing scripts and running loops
-February 1
-Introduction to the Command Line: installing programs and editing the $PATH
-6
-Introduction to the Command Line: remote access and remote transfers 
-8
-Introduction to the Command Line: job submissions
-13
-Quality Control and preprocessing of HTS data (Homework 2 assigned)
-15
-Aligning HTS data: aligning ChIP-seq data
-20
-ChIP-seq lecture
-22
-Processing of ChIP-seq data (Homework 2 due)
-27
-UCSC Genome Browser (Homework 3 assigned)
+Proposed meeting times: MW 1:15-3:15pm
+January 18: Overview of Molecular Genomics and High Throughput Sequencing Technology
+
+January 23: Introduction to the Command Line: navigating in the Terminal and basic utilities
+
+January 25: Introduction to the Command Line: parsing text files and piping (Homework 1 assigned)
+
+January 30: Introduction to the Command Line: constructing scripts and running loops
+
+February 1: Introduction to the Command Line: installing programs and editing the $PATH
+
+February 6: Introduction to the Command Line: remote access and remote transfers 
+
+February 8: Introduction to the Command Line: job submissions
+
+February 13: Quality Control and preprocessing of HTS data (Homework 2 assigned)
+
+February 15: Aligning HTS data: aligning ChIP-seq data
+
+February 20: ChIP-seq lecture
+
+February 22:  Processing of ChIP-seq data (Homework 2 due)
+
+February 27: UCSC Genome Browser (Homework 3 assigned)
+
 March 1
 ChIP-seq Analysis: calling peaks
 6
