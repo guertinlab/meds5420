@@ -21,19 +21,28 @@ Class size is limited to 15 total students and priority is given to students sup
 Course and Instructor Information
 
 Course Title:  Molecular Genomics Practicum
+
 Course Number: MEDS 5420
+
 Credits:  3
+
 Time: 1:15-3:15 pm, Monday and Wednesday
+
 Room: R1401 Cell and Genome Sciences Building 400 Farmington Ave.
-Format:  Lecture and immersive in class application. The class will be offered both in-person and remotely at:
+
+Format:  Lecture and immersive in class application. 
+
+The class will be offered both in-person and remotely at:
 [redacted]
    
 Prerequisites:  none
 
 Professor/Instructor/Facilitator:  Michael Guertin 
+
 Pronouns: he/him/his
 
 Email: [redacted]
+
 Student Hours: Students are encouraged to reach out by email to schedule one-on-one video meetings or in-person traditional office hours.
 
 
