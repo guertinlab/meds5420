@@ -10,7 +10,7 @@ Center for Cell Analysis and Modeling
 Until further notice, to ensure a safe learning environment for everyone, Dr. Guertin requests that approved masks/face coverings must be worn at all times in the classroom, regardless of vaccination status. No eating is permitted in the classroom; brief unmasking to drink is permitted. For any other activities that require unmasking, please leave the classroom. If an instructor is not wearing a mask/face covering, students should feel comfortable asking the instructor to put one on immediately.  More information about proper usage of masks is available from the following link: https://health.uconn.edu/coronavirus/mask-protocol/
 Although social distancing will not be required inside classrooms for vaccinated individuals, please be respectful of the wishes of others who prefer to maintain social distancing. For their own protection, unvaccinated individuals are requested to maintain 6 feet social distancing from others. 
 
-# Syllabus -- Semester Year
+# Syllabus Spring 2023
 
 Excluding materials for purchase, syllabus information may be subject to change. The most up-to-date syllabus is located within the course in HuskyCT.
 
