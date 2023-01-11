@@ -157,36 +157,35 @@ February 22:  Processing of ChIP-seq data (Homework 2 due)
 
 February 27: UCSC Genome Browser (Homework 3 assigned)
 
-March 1
-ChIP-seq Analysis: calling peaks
-6
-ChIP-seq Analysis: gene proximity
-8
-ChIP-seq Analysis: motif analysis (Homework 3 due)
-20
-ChIP-seq Analysis: motif analysis continued
-22
-ChIP-seq Analysis: catching up
-27
-Introduction to R
-29
-Plotting in R continued
-April 3
-Writing functions in R
-5
-Overview of RNA-seq lecture
-10
-RNA-seq Analysis: alignment (Homework 4 assigned)
-12
-RNA-seq Analysis: differential expression
-17
-RNA-seq Analysis: gene set enrichment analysis
-19
-RNA-seq Analysis: continued (Homework 4 due)
-24
-RNA-seq Analysis: continued 
-26
-RNA-seq Analysis: continued 
+March 1: ChIP-seq Analysis: calling peaks
+
+March 6: ChIP-seq Analysis: gene proximity
+
+March 8: ChIP-seq Analysis: motif analysis (Homework 3 due)
+
+March 20: ChIP-seq Analysis: motif analysis continued
+
+March 22: ChIP-seq Analysis: catching up
+
+March 27: Introduction to R
+
+March 29: Plotting in R continued
+
+April 3: Writing functions in R
+
+April 5: Overview of RNA-seq lecture
+
+April 10: RNA-seq Analysis: alignment (Homework 4 assigned)
+
+April 12: RNA-seq Analysis: differential expression
+
+April 17: RNA-seq Analysis: gene set enrichment analysis
+
+April 19: RNA-seq Analysis: continued (Homework 4 due)
+
+April 24: RNA-seq Analysis: continued 
+
+April 26: RNA-seq Analysis: continued 
 
 # Resources for Students Experiencing Distress
 The University of Connecticut is committed to supporting students in their mental health, their psychological and social well-being, and their connection to their academic experience and overall wellness. The university believes that academic, personal, and professional development can flourish only when each member of our community is assured equitable access to mental health services. The university aims to make access to mental health attainable while fostering a community reflecting equity and diversity and understands that good mental health may lead to personal and professional growth, greater self-awareness, increased social engagement, enhanced academic success, and campus and community involvement. Students experiencing personal difficulties during the course may utilize the following services. Please familiarize yourself with these offices and the services they provide.
@@ -224,7 +223,7 @@ Student Responsibilities and Resources
 
 As a member of the University of Connecticut student community, you are held to certain standards and academic policies. In addition, there are numerous resources available to help you succeed in your academic work. Review these important standards, policies and resources, which include:
 
-The Student Code
+# The Student Code
 Academic Integrity
 Resources on Avoiding Cheating and Plagiarism
 Copyrighted Materials
@@ -240,7 +239,7 @@ The University of Connecticut is committed to protecting the rights of individua
 
 Blackboard measures and evaluates accessibility using two sets of standards: the WCAG 2.0 standards issued by the World Wide Web Consortium (W3C) and Section 508 of the Rehabilitation Act issued in the United States federal government.” (Retrieved March 24, 2013 from Blackboard's website)
 
-Software/Technical Requirements (with Accessibility and Privacy Information)
+# Software/Technical Requirements (with Accessibility and Privacy Information)
 
 In addition to the computing environment outlined above, the software/technical requirements for this course include:
 Equipment Recommendations (https://remotework.uconn.edu/equipment-recommendations/) 
@@ -257,7 +256,7 @@ Contact AITS at UConn Health https://health.uconn.edu/aits/technical-support/ fo
 
 This course uses the learning management platform, HuskyCT. If you have difficulty accessing HuskyCT, you have access to the in person/live person support options available during regular business hours through the Help Center.  You also have 24x7 Course Support including access to live chat, phone, and support documents.
 
-Evaluation of Course Experience
+# Evaluation of Course Experience
 
 Students will be given an opportunity to provide feedback on their course experience and instruction through a survey that will be available at the end of the course. Please complete the course survey. Courses are modified according to student feedback to provide a positive and effective learning experience.
 
