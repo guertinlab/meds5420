@@ -61,20 +61,29 @@ Coupling classical molecular biology techniques to high throughput sequencing fo
 # Instructor Thoughts
 
 The study of biology has been completely transformed with the data revolution. Analysis is often rate-limiting scientific progress, not data acquisition. Classically trained molecular biologists, biochemists, and cell biologists are often the best equipped to articulate and ask the most relevant questions regarding a dataset, but they may lack the expertise to carry out the appropriate analyses. The mere thought of analyzing such massive datasets can be intimidating. The main goal of this class is to prepare students so that they are comfortable navigating and analyzing massive datasets and to effectively remove any intimidation barrier.  
-Course Objectives
+
+# Course Objectives
 
 By the end of the semester, you should be able to: 
 
 Comfortably navigate the command line.
+
 Use shell scripting to automate parsing, processing, and analysis of genomics data.
+
 Design ChIP-seq and RNA-seq analyses, with an emphasis on control experiments/conditions.
+
 Align sequencing reads to reference genomes.
+
 Retrieve publicly available genomic data sets.
+
 Visualize genomics data on a browser.
+
 Perform alignment, peak calling, and motif analysis starting of raw ChIP-seq data.
+
 Perform alignment, differential expression, and gene set enrichment analysis of raw RNA-seq data. 
 
 # Course Format
+
 Each class will begin with a short lecture. The instructor will walk through analyses in real-time and the students will spend the majority of class time walking through exercises in parallel with the instructor and learning the skills that are necessary to analyze genomics data.
 At the end of each class students may be at different places depending on the speed of their progress during class. Students are expected to finish any of the in-class exercises at home prior to the next class so that everyone will be at the same point at the beginning of the next class. Please come with questions about the previous exercises, but do not expect to use in class time to catch up. 
 Useful links from the UConn Computational Biology Core
