@@ -107,15 +107,14 @@ Course Requirements and Grading
 # Summary of Course Grading:
 
 Course Components
-Weight
-In class exercises
-20%
-Homework
-30%
-Midterm project
-25%
-Final project
-25%
+
+In class exercises 20%
+
+Homework 30%
+
+Midterm project 25%
+
+Final project 25%
 
 
 # In class exercises
