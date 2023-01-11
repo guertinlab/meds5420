@@ -12,7 +12,7 @@ Although social distancing will not be required inside classrooms for vaccinated
 
 # Syllabus Spring 2023
 
-Excluding materials for purchase, syllabus information may be subject to change. The most up-to-date syllabus is located within the course in HuskyCT.
+Excluding materials for purchase, syllabus information may be subject to change. The most up-to-date syllabus is located within the course here on GitHub.
 
 # Program Information
 
