@@ -728,11 +728,12 @@ function toggle_visibility(id1) {
 </ul></li>
 <li><a href="#manipulation-parsing-of-tables-with-awk" id="toc-manipulation-parsing-of-tables-with-awk"><span class="toc-section-number">7</span> Manipulation / parsing of tables with awk</a>
 <ul>
-<li><a href="#more-awk-usage-and-syntax" id="toc-more-awk-usage-and-syntax"><span class="toc-section-number">7.1</span> More <code>awk</code> usage and syntax:</a></li>
-<li><a href="#passing-shell-variables-to-awk" id="toc-passing-shell-variables-to-awk"><span class="toc-section-number">7.2</span> Passing shell variables to awk:</a></li>
-<li><a href="#running-simple-tests-before-function-in-awk" id="toc-running-simple-tests-before-function-in-awk"><span class="toc-section-number">7.3</span> Running simple tests before function in awk:</a></li>
-<li><a href="#common-uses-for-awk-we-will-use-in-this-course" id="toc-common-uses-for-awk-we-will-use-in-this-course"><span class="toc-section-number">7.4</span> Common uses for <code>awk</code> we will use in this course:</a></li>
-<li><a href="#in-class-exercise-3-splitting-strings-and-parsing-files." id="toc-in-class-exercise-3-splitting-strings-and-parsing-files."><span class="toc-section-number">7.5</span> In class exercise 3: Splitting strings and parsing files.</a></li>
+<li><a href="#feedback-drop-the-awk" id="toc-feedback-drop-the-awk"><span class="toc-section-number">7.1</span> Feedback: drop the <strong>awk</strong></a></li>
+<li><a href="#more-awk-usage-and-syntax" id="toc-more-awk-usage-and-syntax"><span class="toc-section-number">7.2</span> More <code>awk</code> usage and syntax:</a></li>
+<li><a href="#passing-shell-variables-to-awk" id="toc-passing-shell-variables-to-awk"><span class="toc-section-number">7.3</span> Passing shell variables to awk:</a></li>
+<li><a href="#running-simple-tests-before-function-in-awk" id="toc-running-simple-tests-before-function-in-awk"><span class="toc-section-number">7.4</span> Running simple tests before function in awk:</a></li>
+<li><a href="#common-uses-for-awk-we-will-use-in-this-course" id="toc-common-uses-for-awk-we-will-use-in-this-course"><span class="toc-section-number">7.5</span> Common uses for <code>awk</code> we will use in this course:</a></li>
+<li><a href="#in-class-exercise-3-splitting-strings-and-parsing-files." id="toc-in-class-exercise-3-splitting-strings-and-parsing-files."><span class="toc-section-number">7.6</span> In class exercise 3: Splitting strings and parsing files.</a></li>
 </ul></li>
 <li><a href="#answers-to-in-class-questions" id="toc-answers-to-in-class-questions"><span class="toc-section-number">8</span> Answers to in class questions:</a>
 <ul>
@@ -757,7 +758,7 @@ function toggle_visibility(id1) {
 <p>Whole sentences or lists can be designated as variables:</p>
 <pre class="bash"><code>fileList=*.txt
 echo $fileList</code></pre>
-<pre><code>## SC_example.txt TS_example.txt Thoreau_quotes.txt Wonderful_world.txt animals.txt color-table.txt haiku.txt mm9_genes.txt the_raven.txt</code></pre>
+<pre><code>## SC_example.txt TS_example.txt Thoreau_quotes.txt Wonderful_world.txt animals.txt color-table.txt haiku.txt mm9_genes.txt newTable.txt the_raven.txt</code></pre>
 <p>If your variable is going to be combined with another string, make sure you surround the variable with a curly bracket. For instance:</p>
 <pre class="bash"><code>School=MEDS
 echo listing: $School
@@ -792,10 +793,10 @@ echo The date and time is: $info</code></pre>
 <p>vs.</p>
 <pre class="bash"><code>info=`date`
 echo The date and time is: $info</code></pre>
-<pre><code>## The date and time is: Tue Jan 17 13:49:18 EST 2023</code></pre>
+<pre><code>## The date and time is: Tue Jan 17 14:06:44 EST 2023</code></pre>
 <p>Backticks can cause problems when using other quotations, so there is another way to run a command in place:</p>
 <pre class="bash"><code>echo The date and time is: $(date)</code></pre>
-<pre><code>## The date and time is: Tue Jan 17 13:49:18 EST 2023</code></pre>
+<pre><code>## The date and time is: Tue Jan 17 14:06:44 EST 2023</code></pre>
 </div>
 </div>
 <div id="scripting-in-the-shell." class="section level1" number="2">
@@ -960,9 +961,9 @@ echo &quot;the time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4  
 </code></pre>
 <pre><code>## the date and time is:
-## Tue Jan 17 13:49:18 EST 2023
+## Tue Jan 17 14:06:44 EST 2023
 ## the time is:
-## 13:49:18</code></pre>
+## 14:06:44</code></pre>
 <p><em>-d</em>: is the delimiter set by user. Default is tab: <code>\t</code><br />
 <em>-f</em>: the fields to select for after splitting. Can list each (1,2,3) or list a range (1-3)<br />
 <br />
@@ -972,16 +973,16 @@ echo $(date) | cut -d &quot; &quot; -f 4
 
 echo `date` | rev
 </code></pre>
-<pre><code>## 3202 TSE 81:94:31 71 naJ euT</code></pre>
+<pre><code>## 3202 TSE 44:60:41 71 naJ euT</code></pre>
 <p>Can be done on any part of a pipe</p>
 <pre class="bash"><code>echo $(date)
 
 echo &quot;the reverse time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4 |rev
 </code></pre>
-<pre><code>## Tue Jan 17 13:49:18 EST 2023
+<pre><code>## Tue Jan 17 14:06:44 EST 2023
 ## the reverse time is:
-## 91:94:31</code></pre>
+## 44:60:41</code></pre>
 <p><strong>Extracting columns from tables:</strong> Cut can also be used to extract columns from tables.<br />
 </p>
 <p>Let’s just get the first column of <code>color-table.txt</code>:</p>
@@ -1097,8 +1098,12 @@ Devise a way to split the string and report the filename without referencing the
 <li><code>&quot;\t&quot;</code> specifies tabs in between fields.</li>
 </ul>
 <p><strong>awk</strong> has very cryptic syntax. Therefore, I recommend learning as needed for specific tasks and keeping track of useful operations by creating a repository to store them. For instance, I have an “awk one-liners” file where I keep useful operations.</p>
-<div id="more-awk-usage-and-syntax" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> More <code>awk</code> usage and syntax:</h2>
+<div id="feedback-drop-the-awk" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Feedback: drop the <strong>awk</strong></h2>
+<p>The only class feedback I ignored from last years evaluations is to not teach <strong>awk</strong>. I view computational analyses for genomics in two parts: 1) perform basic, routine, data processing that can usually be automated by using shell scripts; 2) exploratory data analyses in your favorite programming language, such as <code>python</code> or <code>R</code>. <strong>awk</strong> is extremely useful for shell scripting and you will learn 15 years of my accumulated <strong>awk</strong> knowledge from this class. Exploratory data analysis in <code>R</code> or <code>python</code> would be another class entirely. It is true that many tasks that <strong>awk</strong> performs can be performed in <code>R</code> or <code>python</code> and <strong>awk</strong> is more <em>awk</em>ward. However, <strong>awk</strong> is faster and easier to implement into workflows.</p>
+</div>
+<div id="more-awk-usage-and-syntax" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> More <code>awk</code> usage and syntax:</h2>
 <p><strong>Outer Field Separator (OFS)</strong> can be used to specify the delimiter</p>
 <pre class="bash"><code>cat color-table.txt | awk &#39;{OFS=&quot;\t&quot;;} {print $3, $1, $2}&#39; &gt; newTable.txt
 head -3 newTable.txt</code></pre>
@@ -1123,8 +1128,8 @@ head -3 newTable.txt</code></pre>
 - $0 prints the entire line instead of a specific column.<br />
 - The double equal sign “==” signifies that you are asking if the two items are equal to each other rather than setting the value of a variable.</p>
 </div>
-<div id="passing-shell-variables-to-awk" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Passing shell variables to awk:</h2>
+<div id="passing-shell-variables-to-awk" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Passing shell variables to awk:</h2>
 <p>There are times when you want to use a variable created in <code>shell</code> in an <code>awk</code> command. Try:</p>
 <pre class="bash"><code>y=yellow
 cat color-table.txt | awk &#39;{ if($3 == $y) print $0}&#39;</code></pre>
@@ -1133,8 +1138,8 @@ cat color-table.txt | awk &#39;{ if($3 == $y) print $0}&#39;</code></pre>
 cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}&#39; #readable to awk</code></pre>
 <p>In this case, the <code>-v</code> option allows you to create an awk variable from a shell variable. <strong>Note:</strong> this is done before the rest of the awk statement is wrapped in <code>&#39;{}&#39;</code>. I randomly named the variable <code>cols</code> within awk, but we can use any designation, including <code>y</code>.</p>
 </div>
-<div id="running-simple-tests-before-function-in-awk" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Running simple tests before function in awk:</h2>
+<div id="running-simple-tests-before-function-in-awk" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Running simple tests before function in awk:</h2>
 <p><strong>Example</strong> sometimes we will want to work on the beginning of a file in order to add, remove, or alter the header for columns. We can run a simple test to determine which lines to work with in awk using the <strong><code>NR</code></strong> (row number) argument before we start awk functions.</p>
 <pre class="bash"><code>head -3 mm9_genes.txt</code></pre>
 <pre><code>## genename geneID  chr strand  start   stop
@@ -1145,8 +1150,8 @@ cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}
 ## Zfp85-rs1    NM_001001130    chr13   -   67848736    67856071
 ## Scap NM_001001144    chr9    +   110235821   110287450</code></pre>
 </div>
-<div id="common-uses-for-awk-we-will-use-in-this-course" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Common uses for <code>awk</code> we will use in this course:</h2>
+<div id="common-uses-for-awk-we-will-use-in-this-course" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Common uses for <code>awk</code> we will use in this course:</h2>
 <p><strong>1.</strong> Reordering columns<br />
 <strong>2.</strong> Simple math with columns<br />
 <strong>3.</strong> Printing certain rows of columns<br />
@@ -1154,8 +1159,8 @@ cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}
 <strong>5.</strong> Adding/removing headers from large files<br />
 </p>
 </div>
-<div id="in-class-exercise-3-splitting-strings-and-parsing-files." class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> In class exercise 3: Splitting strings and parsing files.</h2>
+<div id="in-class-exercise-3-splitting-strings-and-parsing-files." class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> In class exercise 3: Splitting strings and parsing files.</h2>
 <p>Consider the example path to the mm9_genes.txt:  <code>/users/tempdata3/MEDS5420/annotations/mm9-genes.txt</code></p>
 <p><strong>1.</strong> Use <code>cut</code> to get the file name without the extension (.txt)<br />
 Download the mm9_genes.txt.zip file from HuskyCT and unzip it to your MEDS5420 folder.<br />
