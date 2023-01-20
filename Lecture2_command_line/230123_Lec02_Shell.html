@@ -739,6 +739,7 @@ function toggle_visibility(id1) {
 <li><a href="#answers-to-exercises" id="toc-answers-to-exercises"><span class="toc-section-number">8</span> Answers to Exercises</a>
 <ul>
 <li><a href="#answers-to-exercise-1" id="toc-answers-to-exercise-1"><span class="toc-section-number">8.1</span> Answers to Exercise 1</a></li>
+<li><a href="#answers-to-exercise-2" id="toc-answers-to-exercise-2"><span class="toc-section-number">8.2</span> Answers to Exercise 2</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1037,7 +1038,10 @@ home directory, which is:</p>
 <p>We’re going to start using more system utilities or command line utilities. 
 The general format is:</p>
 <pre class="bash"><code>command [options] target_file(s)</code></pre>
-<p>Go to GitHub <em>/guertinlab/meds5420/Lecture2_command_line/</em> and download the <em>lec02_files.zip</em>. If your browser automatically unzips compressed files, you need to change this preference (on Safari: Preferences&gt;General&gt;uncheck open “safe” files after downloading</p>
+<p>First we will make a MEDS5420 folder in our home directory:</p>
+<pre class="bash"><code>cd ~
+mkdir MEDS5420</code></pre>
+<p>Go to GitHub <em>/guertinlab/meds5420/Lecture2_command_line/</em> and download the <em>lec02_files.zip</em>. If your browser automatically unzips compressed files, you need to change this preference (on Safari: Preferences &gt; General &gt; uncheck open “safe” files after downloading)</p>
 <p>Use the <strong>Terminal</strong> window to list the contents of the downloads folder to confirm the download.</p>
 <p>Let’s move the dowloaded file to the ‘MEDS5420’ folder you created:<br />
 </p>
@@ -1164,6 +1168,16 @@ Can also use Sublime or Visual Studio</p>
 <li>Yes: shortcut to go back to the home directory</li>
 <li>Yes: goes up one level</li>
 </ol>
+</div>
+<div id="answers-to-exercise-2" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Answers to Exercise 2</h2>
+<p>What does <code>cp</code> do when given several filenames and a directory
+name?<br />
+</p>
+<p>Each file is copied into the directory</p>
+<p>What does <code>cp</code> do when given three or more filenames?<br />
+</p>
+<p>In this scenario we failed to provide a location for where to put the files after they are copied. Since the last argument is supposed to be this directory, the file <code>animal.txt</code> is thought to be the destination directory, but you get an error because this is not a directory.</p>
 </div>
 </div>
 
