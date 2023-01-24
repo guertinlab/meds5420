@@ -712,6 +712,7 @@ function toggle_visibility(id1) {
 <li><a href="#last-time" id="toc-last-time"><span class="toc-section-number">2</span> Last Time:</a>
 <ul>
 <li><a href="#command-line-navigation" id="toc-command-line-navigation"><span class="toc-section-number">2.1</span> Command line navigation:</a></li>
+<li><a href="#command-line-utlities-so-far" id="toc-command-line-utlities-so-far"><span class="toc-section-number">2.2</span> Command line utlities so far:</a></li>
 </ul></li>
 <li><a href="#pipes-filtering-with-wildcards-redirecting-outputs-to-files" id="toc-pipes-filtering-with-wildcards-redirecting-outputs-to-files"><span class="toc-section-number">3</span> Pipes, filtering with wildcards, redirecting outputs to files</a>
 <ul>
@@ -720,11 +721,10 @@ function toggle_visibility(id1) {
 <li><a href="#part-1" id="toc-part-1"><span class="toc-section-number">3.1.1</span> Part 1:</a></li>
 <li><a href="#part-2" id="toc-part-2"><span class="toc-section-number">3.1.2</span> Part 2:</a></li>
 </ul></li>
-<li><a href="#command-line-utlities-so-far" id="toc-command-line-utlities-so-far"><span class="toc-section-number">3.2</span> Command line utlities so far:</a></li>
 </ul></li>
-<li><a href="#todays-commands-and-concepts" id="toc-todays-commands-and-concepts"><span class="toc-section-number">4</span> Today’s commands and concepts:</a>
+<li><a href="#additional-commands" id="toc-additional-commands"><span class="toc-section-number">4</span> Additional Commands:</a>
 <ul>
-<li><a href="#commands---file-compression" id="toc-commands---file-compression"><span class="toc-section-number">4.1</span> Commands - File Compression</a></li>
+<li><a href="#file-compression" id="toc-file-compression"><span class="toc-section-number">4.1</span> File Compression</a></li>
 <li><a href="#finding-things" id="toc-finding-things"><span class="toc-section-number">4.2</span> Finding things:</a></li>
 <li><a href="#concepts" id="toc-concepts"><span class="toc-section-number">4.3</span> Concepts:</a></li>
 </ul></li>
@@ -769,19 +769,33 @@ head /Users/username/MEDS5420/lec02_files/the_raven.txt
 </code></pre>
 <pre class="bash"><code>head ~/MEDS5420/lec02_files/the_raven.txt</code></pre>
 <p><strong>OR</strong><br />
+<br />
+2. By using the <strong>relative path</strong> starting from where you are:<br />
 </p>
-<ol start="2" style="list-style-type: decimal">
-<li>By using the <strong>relative path</strong> starting from where you are.
-relative path:</li>
-</ol>
 <pre class="bash"><code>head ./username/MEDS5420/lec02_files/the_raven.txt</code></pre>
 <pre class="bash"><code>head username/MEDS5420/lec02_files/the_raven.txt</code></pre>
-<hr />
+</div>
+<div id="command-line-utlities-so-far" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Command line utlities so far:</h2>
+<p><strong>1.</strong> <code>pwd</code> - print working directory<br />
+<strong>2.</strong> <code>ls</code> - list directory contents<br />
+<strong>3.</strong> <code>mkdir</code> - create a directory<br />
+<strong>4.</strong> <code>unzip</code> - decompression<br />
+<strong>5.</strong> <code>mv</code> - move file<br />
+<strong>6.</strong> <code>cp</code> - copy file<br />
+<strong>7.</strong> <code>cat</code> - print contents of file<br />
+<strong>8.</strong> <code>touch</code> - create empty file<br />
+<strong>9.</strong> <code>rm</code> - remove file<br />
+<strong>10.</strong> <code>wc</code> - count lines/words/characters/ in file<br />
+<strong>11.</strong> <code>&gt;</code> - redirects output to new file<br />
+<strong>12.</strong> <code>&gt;&gt;</code> - redirects output to append to existing file<br />
+<strong>13.</strong> <code>*</code> - wildcard that specifies any input<br />
+</p>
 </div>
 </div>
 <div id="pipes-filtering-with-wildcards-redirecting-outputs-to-files" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Pipes, filtering with wildcards, redirecting outputs to files</h1>
-<p>One can select multiple files using the * wildcard.</p>
+<p>One can select multiple files using the <code>*</code> wildcard. Navigate to the <code>~/MEDS5420/lec02_files</code> directory and type:</p>
 <pre class="bash"><code>wc *.txt</code></pre>
 <p>Instead of seeing the 3 columns of numbers for the number of lines,
 words and characters, we can limit the <code>wc</code> command to only show us
@@ -817,7 +831,7 @@ rabbit
 bear</code></pre>
 <div id="part-1" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Part 1:</h3>
-<p>What text passes through each of the pipes and the final redirect in the pipeline below?</p>
+<p>What text passes through each of the pipes and the final redirect in the pipeline below? Manually rearrange and parse the input before you run or deconstruct the command.</p>
 <pre class="bash"><code>cat animals.txt | head -n 5 | tail -n 3 | sort &gt; final.txt</code></pre>
 </div>
 <div id="part-2" class="section level3" number="3.1.2">
@@ -825,28 +839,11 @@ bear</code></pre>
 <p>Alter the commands to get only all three rabbits as the final output.</p>
 </div>
 </div>
-<div id="command-line-utlities-so-far" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Command line utlities so far:</h2>
-<p><strong>1.</strong> pwd - print working directory<br />
-<strong>2.</strong> ls - list directory contents<br />
-<strong>3.</strong> mkdir - create a directory<br />
-<strong>4.</strong> unzip - decompression<br />
-<strong>5.</strong> mv - move file<br />
-<strong>6.</strong> cp - copy file<br />
-<strong>7.</strong> cat - print contents of file<br />
-<strong>8.</strong> touch - create empty file<br />
-<strong>9.</strong> rm - remove file<br />
-<strong>10.</strong> wc - count lines/words/characters/ in file<br />
-<strong>11.</strong> ‘&gt;’ - redirects output to new file<br />
-<strong>12.</strong> ‘&gt;&gt;’ - redirects output to append to existing file<br />
-<strong>13.</strong> ’*’ - wildcard that specifies any input<br />
-</p>
 </div>
-</div>
-<div id="todays-commands-and-concepts" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Today’s commands and concepts:</h1>
-<div id="commands---file-compression" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Commands - File Compression</h2>
+<div id="additional-commands" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Additional Commands:</h1>
+<div id="file-compression" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> File Compression</h2>
 <div class='horizontal-scroll'><table>
 <colgroup>
 <col width="47%" />
@@ -909,8 +906,7 @@ bear</code></pre>
 <div id="dealing-with-compressed-files-archives" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Dealing with compressed files (archives)</h1>
 <p>Download and move the <em>data-shell.tar</em> from GitHub to your MEDS5420 folder. See the third code chunk of section 6 of Lecture 2 for how to accomplish this for Windows OS.<br />
-<strong>OR</strong><br />
-If you are on the server, copy (<code>cp</code>) the data-shell.tar to your home directory. It is located at <code>/home/FCAM/meds5420/in_class</code></p>
+</p>
 <p>We already unzipped a file using <strong>unzip</strong>:</p>
 <pre class="bash"><code>unzip -d Example_files Example_files.zip</code></pre>
 <p>Other types of archives you will encounter:<br />
@@ -928,7 +924,7 @@ Figure 1: <span class="caption-title">XKCD: valid <code>tar</code> command</span
 <p>To extract contents of archive:</p>
 <pre class="bash"><code>tar -xvf data-shell.tar # extracts contents into original directories</code></pre>
 <p>To combine contents of a directory:</p>
-<pre class="bash"><code>tar -cvf data-shell.tar data-shell 
+<pre class="bash"><code>tar -cvf data-shell_retar.tar data-shell 
 
 #format is &lt;target.tar&gt; &lt;directory-to-be-tarred&gt;
 #For directories, execute command in parent directory (one level up). 
@@ -940,15 +936,15 @@ Figure 1: <span class="caption-title">XKCD: valid <code>tar</code> command</span
 
 ls</code></pre>
 <p>To view contents of a gzipped file (linux):</p>
-<pre class="bash"><code>zcat filename | head</code></pre>
+<pre class="bash"><code>zcat haiku.txt.gz | head</code></pre>
 <p>On a Mac use this instead:</p>
-<pre class="bash"><code>gunzip -c filename | head</code></pre>
+<pre class="bash"><code>gunzip -c haiku.txt.gz | head</code></pre>
 <p><strong>OR</strong><br />
 <code>gzcat</code> on a Mac</p>
-<pre class="bash"><code>gzcat filename | head</code></pre>
+<pre class="bash"><code>gzcat haiku.txt.gz | head</code></pre>
 <p><strong>Note:</strong> These commands are useful because they allow you to glance at or access the contents of large compressed files without spending the time of decompressing them.</p>
 <p>To extract gzipped files:</p>
-<pre class="bash"><code>gunzip filename #decompresses file</code></pre>
+<pre class="bash"><code>gunzip haiku.txt.gz #decompresses file</code></pre>
 </div>
 <div id="finding-things-1" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Finding things</h1>
@@ -969,6 +965,9 @@ Have a look at <code>haiku.txt</code>:</p>
 ## Yesterday it worked
 ## Today it is not working
 ## Software is like that.</code></pre>
+<p>When was <code>haiku.txt</code> last modified?</p>
+<pre class="bash"><code>ls -l haiku.txt</code></pre>
+<pre><code>## -rwxr--r--@ 1 mikeguertin  staff  216 Sep  9  2020 haiku.txt</code></pre>
 <pre class="bash"><code>grep mask haiku.txt</code></pre>
 <pre><code>## wear a mask dammit</code></pre>
 <p>In the above command, the first argument “mask” is the pattern we are searching for. The default action for <code>grep</code> is to return the entire line in which the pattern was found.</p>
@@ -1042,8 +1041,9 @@ but for now just know that they exist. If you want to make use of them, check ou
 <h2><span class="header-section-number">6.3</span> Exercise 3: Command practice and ‘grepping’ patterns</h2>
 <p>Look in the <code>song_lyrics</code> folder inside the data-shell folder and you should see a single file: <code>TS_example.txt</code>
 The TS_example.txt file contains lyrics to a song by a well-known contemporary female artist. Using the command line utilities you have learned, try the following:</p>
-<p><strong>1.</strong> Print the number of lines in the file.  
-<strong>2.</strong> Print the lines <strong>and line number</strong> that have the word ‘shake’ in them to a new file called <code>shake-lines.txt</code>.<br />
+<p><strong>1.</strong> Print the number of lines in the file.<br />
+</p>
+<p><strong>2.</strong> Print the lines <strong>and line number</strong> that have the word ‘shake’ in them to a new file called <code>shake-lines.txt</code>.<br />
 <strong>3.</strong> Print the number of lines that have the word ‘shake’ in them.<br />
 <strong>4.</strong> Devise a way to print the <strong>number of times</strong> ‘shake’ appears in the song. Be sure to include all instances or forms of the word.<br />
 </p>
