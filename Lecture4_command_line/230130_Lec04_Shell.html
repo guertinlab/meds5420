@@ -793,10 +793,10 @@ echo The date and time is: $info</code></pre>
 <p>vs.</p>
 <pre class="bash"><code>info=`date`
 echo The date and time is: $info</code></pre>
-<pre><code>## The date and time is: Tue Jan 17 14:14:26 EST 2023</code></pre>
+<pre><code>## The date and time is: Wed Jan 25 10:21:53 EST 2023</code></pre>
 <p>Backticks can cause problems when using other quotations, so there is another way to run a command in place:</p>
 <pre class="bash"><code>echo The date and time is: $(date)</code></pre>
-<pre><code>## The date and time is: Tue Jan 17 14:14:27 EST 2023</code></pre>
+<pre><code>## The date and time is: Wed Jan 25 10:21:53 EST 2023</code></pre>
 </div>
 </div>
 <div id="scripting-in-the-shell." class="section level1" number="2">
@@ -961,9 +961,9 @@ echo &quot;the time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4  
 </code></pre>
 <pre><code>## the date and time is:
-## Tue Jan 17 14:14:27 EST 2023
+## Wed Jan 25 10:21:53 EST 2023
 ## the time is:
-## 14:14:27</code></pre>
+## 10:21:53</code></pre>
 <p><em>-d</em>: is the delimiter set by user. Default is tab: <code>\t</code><br />
 <em>-f</em>: the fields to select for after splitting. Can list each (1,2,3) or list a range (1-3)<br />
 <br />
@@ -973,16 +973,16 @@ echo $(date) | cut -d &quot; &quot; -f 4
 
 echo `date` | rev
 </code></pre>
-<pre><code>## 3202 TSE 72:41:41 71 naJ euT</code></pre>
+<pre><code>## 3202 TSE 35:12:01 52 naJ deW</code></pre>
 <p>Can be done on any part of a pipe</p>
 <pre class="bash"><code>echo $(date)
 
 echo &quot;the reverse time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4 |rev
 </code></pre>
-<pre><code>## Tue Jan 17 14:14:27 EST 2023
+<pre><code>## Wed Jan 25 10:21:53 EST 2023
 ## the reverse time is:
-## 72:41:41</code></pre>
+## 35:12:01</code></pre>
 <p><strong>Extracting columns from tables:</strong> Cut can also be used to extract columns from tables.<br />
 </p>
 <p>Let’s just get the first column of <code>color-table.txt</code>:</p>
@@ -1104,13 +1104,14 @@ Devise a way to split the string and report the filename without referencing the
 </div>
 <div id="more-awk-usage-and-syntax" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> More <code>awk</code> usage and syntax:</h2>
-<p><strong>Outer Field Separator (OFS)</strong> can be used to specify the delimiter</p>
+<p><strong>Outer Field Separator (OFS)</strong> can be used to specify the delimiter<br />
+</p>
 <pre class="bash"><code>cat color-table.txt | awk &#39;{OFS=&quot;\t&quot;;} {print $3, $1, $2}&#39; &gt; newTable.txt
 head -3 newTable.txt</code></pre>
 <pre><code>## red  This    1
 ## orange   is  2
 ## yellow   a   4</code></pre>
-<p><strong>Input files</strong> can be passed in at the end of command instead of a pipe <code>|</code> with <code>cat</code>.</p>
+<p><strong>Input files</strong> can be passed in at the end of command instead of using a pipe <code>|</code> and <code>cat</code>:</p>
 <pre class="bash"><code>awk &#39;{OFS=&quot;\t&quot;;} {print $3, $1, $2}&#39; &lt; color-table.txt &gt; newTable.txt
 head -3 newTable.txt</code></pre>
 <pre><code>## red  This    1
@@ -1125,8 +1126,8 @@ head -3 newTable.txt</code></pre>
 ## test 100 yellow
 ## real     4   yellow</code></pre>
 <p>In this example, the if statement is followed by a test (in parentheses), followed by the desired action if the test result is true.<br />
-- $0 prints the entire line instead of a specific column.<br />
-- The double equal sign “==” signifies that you are asking if the two items are equal to each other rather than setting the value of a variable.</p>
+- <code>$0</code> prints the entire line instead of a specific column.<br />
+- The double equal sign <code>==</code> signifies that you are asking if the two items are equal to each other rather than setting the value of a variable.</p>
 </div>
 <div id="passing-shell-variables-to-awk" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Passing shell variables to awk:</h2>
@@ -1140,7 +1141,7 @@ cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}
 </div>
 <div id="running-simple-tests-before-function-in-awk" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Running simple tests before function in awk:</h2>
-<p><strong>Example</strong> sometimes we will want to work on the beginning of a file in order to add, remove, or alter the header for columns. We can run a simple test to determine which lines to work with in awk using the <strong><code>NR</code></strong> (row number) argument before we start awk functions.</p>
+<p><strong>Example</strong>: sometimes we will want to work on the beginning of a file in order to add, remove, or alter the header for columns. We can run a simple test to determine which lines to work with in awk using the <strong><code>NR</code></strong> (row number) argument before we start awk functions.</p>
 <pre class="bash"><code>head -3 mm9_genes.txt</code></pre>
 <pre><code>## genename geneID  chr strand  start   stop
 ## 4930594M22Rik    AK157947    chr14   +   123312252   123328664
@@ -1163,7 +1164,7 @@ cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}
 <h2><span class="header-section-number">7.6</span> In class exercise 3: Splitting strings and parsing files.</h2>
 <p>Consider the example path to the mm9_genes.txt:  <code>/users/tempdata3/MEDS5420/annotations/mm9-genes.txt</code></p>
 <p><strong>1.</strong> Use <code>cut</code> to get the file name without the extension (.txt)<br />
-Download the mm9_genes.txt.zip file from GitHub and unzip it to your MEDS5420 folder.<br />
+Download the mm9_genes.txt file from GitHub and move it to your MEDS5420 folder.<br />
 <strong>2.</strong> Determine size of your list by counting the number of lines in the file.<br />
 <strong>3.</strong> The number of genes names in the list (column 1) is not the same as the number of gene IDs (column 2). Determine how many redundant gene names are listed in the table.<br />
 <strong>4.</strong> Use awk to move genes on the plus strand to another file - call it <code>PlusStrandGenes.txt</code><br />
