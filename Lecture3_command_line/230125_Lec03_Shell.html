@@ -734,16 +734,12 @@ function toggle_visibility(id1) {
 <li><a href="#searching-inside-files-using-grep" id="toc-searching-inside-files-using-grep"><span class="toc-section-number">6.1</span> Searching inside files using <code>grep</code></a></li>
 <li><a href="#exercise-2-regex-with-grep" id="toc-exercise-2-regex-with-grep"><span class="toc-section-number">6.2</span> Exercise 2: ‘regex’ with grep</a></li>
 <li><a href="#exercise-3-command-practice-and-grepping-patterns" id="toc-exercise-3-command-practice-and-grepping-patterns"><span class="toc-section-number">6.3</span> Exercise 3: Command practice and ‘grepping’ patterns</a></li>
-<li><a href="#searching-for-file-or-directories-using-find" id="toc-searching-for-file-or-directories-using-find"><span class="toc-section-number">6.4</span> Searching for file or directories using <code>find</code></a></li>
-<li><a href="#exercise-4-finding-files-with-different-properties" id="toc-exercise-4-finding-files-with-different-properties"><span class="toc-section-number">6.5</span> Exercise 4: Finding Files With Different Properties</a></li>
 </ul></li>
 <li><a href="#answers-to-in-class-exercises" id="toc-answers-to-in-class-exercises"><span class="toc-section-number">7</span> Answers to in class exercises</a>
 <ul>
-<li><a href="#answers-to-lecture-2-exercise-2" id="toc-answers-to-lecture-2-exercise-2"><span class="toc-section-number">7.1</span> Answers to Lecture 2 Exercise 2</a></li>
-<li><a href="#answers-to-exercise-1" id="toc-answers-to-exercise-1"><span class="toc-section-number">7.2</span> Answers to Exercise 1</a></li>
-<li><a href="#exercise-2-grep-with-regex" id="toc-exercise-2-grep-with-regex"><span class="toc-section-number">7.3</span> Exercise 2: Grep with ‘regex’</a></li>
-<li><a href="#exercise-3-grepping-patterns" id="toc-exercise-3-grepping-patterns"><span class="toc-section-number">7.4</span> Exercise 3: ‘grepping’ patterns</a></li>
-<li><a href="#exercise-4-finding-files" id="toc-exercise-4-finding-files"><span class="toc-section-number">7.5</span> Exercise 4: finding files</a></li>
+<li><a href="#answers-to-exercise-1" id="toc-answers-to-exercise-1"><span class="toc-section-number">7.1</span> Answers to Exercise 1</a></li>
+<li><a href="#exercise-2-grep-with-regex" id="toc-exercise-2-grep-with-regex"><span class="toc-section-number">7.2</span> Exercise 2: Grep with ‘regex’</a></li>
+<li><a href="#exercise-3-grepping-patterns" id="toc-exercise-3-grepping-patterns"><span class="toc-section-number">7.3</span> Exercise 3: ‘grepping’ patterns</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1048,50 +1044,13 @@ The TS_example.txt file contains lyrics to a song by a well-known contemporary f
 <strong>4.</strong> Devise a way to print the <strong>number of times</strong> ‘shake’ appears in the song. Be sure to include all instances or forms of the word.<br />
 </p>
 <p><strong>*hint:</strong> use the manuals for different functions to see what your options could be.</p>
-</div>
-<div id="searching-for-file-or-directories-using-find" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Searching for file or directories using <code>find</code></h2>
-<pre class="bash"><code>find .</code></pre>
-<p><code>find</code> shows us files and directories.
-This may seem like overkill, but the power of find is in specifying “tests” or “filters”.</p>
-<pre class="bash"><code>find . -type f</code></pre>
-<pre class="bash"><code>find . -type d</code></pre>
-<p>The above filters search for files and directories, respectively.</p>
-<p><strong>Search depth:</strong><br />
-One can specify how far down the file hierarchy to go by controlling <code>depth</code>:</p>
-<pre class="bash"><code>find ./data-shell -maxdepth 2 -mindepth 2 -type f</code></pre>
-<p>The above command searches for all files two directory levels within the data-shell folder.<br />
-<strong>Quick try:</strong> Try other combinations of levels and types and verify by counting number of items in output.</p>
-<p>Let’s try matching by name:</p>
-<pre class="bash"><code>find ./data-shell *.txt</code></pre>
-<p><strong>Quick try:</strong> Combine <code>find</code> and <code>grep</code> to find the number of text files within 2 and 3 levels inside of the data-shell folder.</p>
-</div>
-<div id="exercise-4-finding-files-with-different-properties" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Exercise 4: Finding Files With Different Properties</h2>
-<p>The find command can be given several other criteria known as “tests”
-to locate files with specific attributes, such as creation time, size,
-permissions, or ownership. Use <code>man find</code> to explore these, and then
-write a single command to find all <strong>.txt</strong> files in or below the current
-directory that were modified in the last 72 hours.</p>
-<p>Hint 1: you will need to use three tests: <code>-type</code>, <code>-name</code>, and <code>-mtime</code></p>
-<p>Hint 2: The value for <code>-mtime</code> will need to be negative - why?</p>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 <div id="answers-to-in-class-exercises" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> Answers to in class exercises</h1>
-<div id="answers-to-lecture-2-exercise-2" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Answers to Lecture 2 Exercise 2</h2>
-<p>In the first instance, <code>cp</code> will make a copy of each of the files,
-<code>citations.txt</code> and <code>quotations.txt</code> into the directory <code>backup/</code>.</p>
-<p>In the second instances, <code>cp</code> gives an error when we provide 3 files
-as arguments. To understand the error, see the output of <code>cp --help</code>
-or <code>man cp</code>. The usage line towards the top indicates that the last
-argument must be a directory when we are providing more than 2
-arguments.</p>
-</div>
-<div id="answers-to-exercise-1" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Answers to Exercise 1</h2>
+<div id="answers-to-exercise-1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Answers to Exercise 1</h2>
 <p>Part1:<br />
 <code>cat</code> prints all the contents of <code>animals.txt</code> and passes it on to
 <code>head</code>. Standard output from <code>cat</code> (or standard input to <code>head</code>):</p>
@@ -1124,8 +1083,8 @@ raccoon</code></pre>
 </p>
 <pre class="bash"><code>cat animals.txt | sort | tail -4 | head -3</code></pre>
 </div>
-<div id="exercise-2-grep-with-regex" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Exercise 2: Grep with ‘regex’</h2>
+<div id="exercise-2-grep-with-regex" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Exercise 2: Grep with ‘regex’</h2>
 <ol style="list-style-type: decimal">
 <li>Use the criteria below to print the appropriate lines from <code>haiku.txt</code>:</li>
 </ol>
@@ -1140,20 +1099,16 @@ raccoon</code></pre>
 <code>grep -i &#39;\&lt;n&#39; haiku.txt</code> or <code>grep -w -i &quot;n.*&quot;</code></li>
 </ul>
 </div>
-<div id="exercise-3-grepping-patterns" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Exercise 3: ‘grepping’ patterns</h2>
-<p>Download, move, and unzip the <em>Example_file2.zip</em> from the HuskyCT site to your MEDS5420 folder.
-The TS_example.txt file contains lyrics to a song by a well-known contemporary female artist. Using the command line utilities you just learned, try the following:<br />
+<div id="exercise-3-grepping-patterns" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Exercise 3: ‘grepping’ patterns</h2>
+<p>The TS_example.txt file contains lyrics to a song by a well-known contemporary female artist. Using the command line utilities you just learned, try the following:<br />
 <strong>1.</strong> Print the number of lines in the file: <code>wc -l TS_example.txt</code><br />
-<strong>2.</strong> Print the lines <strong>and line number</strong> that have the word ‘shake’ in them: <code>grep -n shake TS_example.txt</code><br />
-<strong>3.</strong> Print the number of lines that have the word ‘shake’ in them: <code>grep -c shake TS_example.txt</code><br />
-<strong>4.</strong> Devise a way to print the <strong>number of times</strong> ‘shake’ appears in the song: <code>grep -oi shake TS_example.txt | wc -w</code><br />
+<strong>2.</strong> Print the lines <strong>and line number</strong> that have the word ‘shake’ in them to a new file called <code>shake-lines.txt</code>: <code>grep -n -i shake  TS_example.txt &gt; shake-lines.txt</code> -this answer will print all instances of <em>shake</em> regardless of upper and lowercase letters due to the <code>-i</code> option.<br />
+<strong>3.</strong> Print the number of lines that have the word ‘shake’ in them: <code>grep -c shake TS_example.txt</code> -this answer is not sensitive to upper and lowercase<br />
+<strong>4.</strong> Devise a way to print the <strong>number of times</strong> ‘shake’ appears in the song: <code>grep -o -i shake TS_example.txt | wc -w</code><br />
+-here the <code>-o</code> will only print the <em>shake</em> part of the line to a new line in the output and we can pipe to <code>wc</code> and count the number of words<br />
 </p>
 <p><strong>*Hint:</strong> use the manuals for different functions to see what your options could be.</p>
-</div>
-<div id="exercise-4-finding-files" class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> Exercise 4: finding files</h2>
-<pre class="bash"><code>find . -type f -name &#39;*.txt&#39; -mtime -3</code></pre>
 </div>
 </div>
 
