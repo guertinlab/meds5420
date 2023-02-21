@@ -2,7 +2,7 @@
 Course material for UCHC MEDS5420
 
 # Accessing the HTML lecture "handouts"
-The HTML documents are accessible on GitHub, but they don't render well unless you download them. They are also posted here:
+The HTML documents are posted here:
 
 http://guertinlab.cam.uchc.edu/meds5420_2023/
 
