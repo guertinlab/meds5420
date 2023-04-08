@@ -18,7 +18,7 @@ library(knitr)
 opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
 ```
 
-```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="RNAseq workflows"}
+```{r  out.width = "99%", echo=F, fig.align = "center", fig.cap="RNAseq workflows"}
 #library(knitr)
 knitr::include_graphics("./RNA_Workflow_2016.png") 
 ```
