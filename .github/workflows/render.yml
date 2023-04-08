@@ -13,7 +13,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install r-base pandoc pandoc-citeproc
-          Rscript -e 'install.packages(c("rmarkdown", "knitr", "BiocManager", "BiocStyle"))' 
+          Rscript -e 'install.packages(c("rmarkdown", "knitr", "BiocManager", "BiocStyle"), lib = "./R_libs")' 
       - name: Render Rmd to HTML
         run: Rscript -e 'rmarkdown::render("Lecture_21/230405_Lecs21_to_24_RNAseq.Rmd", BiocStyle::html_document())'
       - name: Commit and push changes
