@@ -1,10 +1,10 @@
 # meds5420
 Course material for UCHC MEDS5420
 
-# Accessing the HTML lecture "handouts"
-The HTML documents are posted here:
+# Accessing the HTML lecture "handouts" and PDF slides
+All documents are posted here:
 
-http://guertinlab.cam.uchc.edu/meds5420_2023/
+http://guertinlab.cam.uchc.edu/meds5420_2023/MEDS5420_2023_landing.html
 
 You should bookmark this site.
 
