@@ -23,7 +23,7 @@ jobs:
           sudo Rscript -e 'rmarkdown::render("Lecture_21/230405_Lecs21_to_24_RNAseq.Rmd", BiocStyle::html_document())'
       - name: Commit and push changes
         run: |
-          git add meds5420/Lecture_21/230405_Lecs21_to_24_RNAseq*
+          git add Lecture_21/230405_Lecs21_to_24_RNAseq*
           git commit -m 'Re-build Lecture_21/230405_Lecs21_to_24_RNAseq' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
 
