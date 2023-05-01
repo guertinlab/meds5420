@@ -6,6 +6,10 @@ All documents are posted here:
 
 http://guertinlab.cam.uchc.edu/meds5420_2023/MEDS5420_2023_landing.html
 
+In 2024 all HTML files will be hosted from GitHub with automatic updates:
+https://guertinlab.github.io/meds5420/Lecture_21/230405_Lecs21_to_24_RNAseq.html
+
+
 You should bookmark this site.
 
 # MEDS 5420
