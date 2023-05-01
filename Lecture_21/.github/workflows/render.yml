@@ -17,9 +17,7 @@ jobs:
       - name: Render Rmd to HTML
         run: Rscript -e 'rmarkdown::render("230405_Lecs21_to_24_RNAseq.Rmd", BiocStyle::html_document())'
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Rendered Rmd to HTML
-          commit_options: '--no-verify'
-          repository: ${{ github.repository }}
-          branch: ${{ github.ref }}
+        run: |
+        git add 230405_Lecs21_to_24_RNAseq*
+        git commit -m 'Re-build 230405_Lecs21_to_24_RNAseq' || echo "No changes to commit"
+        git push origin || echo "No changes to commit"
