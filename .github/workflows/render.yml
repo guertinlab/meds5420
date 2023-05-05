@@ -23,6 +23,6 @@ jobs:
           sudo Rscript -e 'rmarkdown::render("${{ github.event.inputs.path }}", BiocStyle::html_document())'
       - name: Commit and push changes
         run: |
-          git add Lecture_21/230405_Lecs21_to_24_RNAseq*
-          git commit -m 'Re-build Lecture_21/230405_Lecs21_to_24_RNAseq' || echo "No changes to commit"
+          git add ${{ github.event.inputs.path }}
+          git commit -m "Re-build ${{ github.event.inputs.path }}" || echo "No changes to commit"
           git push origin || echo "No changes to commit"
