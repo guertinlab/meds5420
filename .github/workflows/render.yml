@@ -26,6 +26,7 @@ jobs:
           echo "YYYY this is what is in workspace"
           ls
           echo "github.event.inputs.path"
+          echo ${{ github.event.head_commit.modified }}
           echo ${{ inputs }}
           sudo Rscript -e "rmarkdown::render(input = ${{ inputs }}, output_format = BiocStyle::html_document())"
       - name: Commit and push changes
