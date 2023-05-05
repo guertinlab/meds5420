@@ -24,7 +24,7 @@ jobs:
           echo "XXXX THIS IS GITHUB WORKSPACE:" 
           echo $GITHUB_WORKSPACE
           echo "{{ inputs.deploy_target }}"
-          echo ${{ github.event.head_commit.modified }}
+          echo ${{ github.event_path }}
           sudo Rscript -e "rmarkdown::render(input = ${{ inputs }}, output_format = BiocStyle::html_document())"
       - name: Commit and push changes
         run: |
