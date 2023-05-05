@@ -2,7 +2,7 @@ name: Render Rmd to HTML
 on:
   push:
     paths:
-      - '**/*.Rmd'
+      - 'meds5420/**/*.Rmd'
 jobs:
   build:
     runs-on: macOS-latest
