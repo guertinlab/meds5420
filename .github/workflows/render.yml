@@ -23,8 +23,8 @@ jobs:
           cd $GITHUB_WORKSPACE
           echo "XXXX THIS IS GITHUB WORKSPACE:" 
           echo $GITHUB_WORKSPACE
-          echo "PWD:"
-          pwd
+          echo "{{ inputs.deploy_target }}"
+          echo ${{ inputs.deploy_target }}
           sudo Rscript -e "rmarkdown::render(input = ${{ inputs }}, output_format = BiocStyle::html_document())"
       - name: Commit and push changes
         run: |
