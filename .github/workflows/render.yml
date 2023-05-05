@@ -27,15 +27,12 @@ jobs:
           ls
           echo "github.event.inputs.path"
           echo ${{ inputs }}
-          modified_file=$(echo ${{ github.event.inputs.path }} | awk -F/ '{print $NF}')
-          echo $modified_file
-          dir=$(echo ${{ github.event.inputs.path }} | awk -F/ '{print $(NF-1)}')
-          sudo Rscript -e "rmarkdown::render(input = '$dir/$modified_file', output_format = BiocStyle::html_document(), output_file = paste0('$dir/', sub('.Rmd', '.html', '$modified_file')))"
+          sudo Rscript -e "rmarkdown::render(input = ${{ inputs }}, output_format = BiocStyle::html_document())"
       - name: Commit and push changes
         run: |
           cd $GITHUB_WORKSPACE
-          modified_file=$(echo ${{ github.event.inputs.path }} | awk -F/ '{print $NF}')
-          dir=$(echo ${{ github.event.inputs.path }} | awk -F/ '{print $(NF-1)}')
-          git add $dir/$(echo ${{ github.event.inputs.path }} | awk -F/ '{print $NF}' | sed 's/.Rmd/.html/')
+          modified_file=$(echo ${{ inputs }} | awk -F/ '{print $NF}')
+          dir=$(echo ${{ inputs }} | awk -F/ '{print $(NF-1)}')
+          git add $dir/$(echo ${{ inputs }} | awk -F/ '{print $NF}' | sed 's/.Rmd/.html/')
           git commit -m "Render $dir/$modified_file to HTML"
           git push origin HEAD:master
