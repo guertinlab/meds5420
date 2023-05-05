@@ -1,0 +1,28 @@
+name: Render Rmd to HTML
+on:
+  push:
+    paths:
+      - '**.Rmd'
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+      - name: Setup pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+      - name: Setup TinyTeX
+        uses: r-lib/actions/setup-tinytex@v2
+      - name: Install R and dependencies
+        run: |
+          sudo Rscript -e 'install.packages(c("knitr", "BiocManager"), repos="http://cran.rstudio.com/")' 
+          sudo Rscript -e 'BiocManager::install("BiocStyle")'
+          sudo Rscript -e 'install.packages("rmarkdown", repos="http://cran.rstudio.com/")'
+          sudo Rscript -e 'rmarkdown::render("Lecture_21/230405_Lecs21_to_24_RNAseq.Rmd", BiocStyle::html_document())'
+      - name: Commit and push changes
+        run: |
+          git add Lecture_21/230405_Lecs21_to_24_RNAseq*
+          git commit -m 'Re-build Lecture_21/230405_Lecs21_to_24_RNAseq' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
