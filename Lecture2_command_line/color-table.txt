@@ -1,0 +1,17 @@
+This	1	red
+is	2	orange
+a	4	yellow	
+test	4	green	
+this	7 	blue
+is	6	purple
+only	80	red
+a	19	orange
+test	100	yellow
+if 	6	green
+this	4	blue
+had	54	purple
+been	23	red
+a	60	orange
+real 	4	yellow
+emergency	5	green
+	
