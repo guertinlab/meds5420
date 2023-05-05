@@ -26,7 +26,9 @@ jobs:
           echo "YYYY this is what is in workspace"
           ls
           echo "github.event.inputs.path"
-          echo ${{ github.event.inputs.path }}
+          echo github.event.head_commit.modified
+          echo $github.event.head_commit.modified
+          echo ${{ github.event.head_commit.modified }}
           modified_file=$(echo ${{ github.event.inputs.path }} | awk -F/ '{print $NF}')
           echo $modified_file
           dir=$(echo ${{ github.event.inputs.path }} | awk -F/ '{print $(NF-1)}')
