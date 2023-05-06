@@ -7,14 +7,6 @@ jobs:
   build:
     runs-on: macOS-latest
     steps:
-      - name: Print RMD file path
-        run: echo "The path to the RMD file that triggered this action is $(dirname $GITHUB_EVENT_PATH)"
-        env:
-          GITHUB_EVENT_PATH: ${{ github.event_path }}
-      - name: echo some stuff
-        run: ls $GITHUB_WORKSPACE
-        env:
-          GITHUB_EVENT_PATH: ${{ github.event_path }}
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Setup R
@@ -33,7 +25,7 @@ jobs:
           echo $GITHUB_WORKSPACE
           echo "{{ inputs.deploy_target }}"
           echo $GITHUB_EVENT_PATH
-          sudo Rscript -e "rmarkdown::render(input = ${{ inputs }}, output_format = BiocStyle::html_document())"
+          sudo Rscript -e "rmarkdown::render(input = HERE, output_format = BiocStyle::html_document())"
       - name: Commit and push changes
         run: |
           cd $GITHUB_WORKSPACE
