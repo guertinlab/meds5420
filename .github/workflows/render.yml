@@ -25,10 +25,13 @@ jobs:
           sudo Rscript -e "system('ls')"
       - name: Render Rmd to HTML
         run: |
-          echo "HERE"
-          sudo Rscript -e "system('pwd')"
-          sudo Rscript -e "system('ls')"
-          sudo Rscript -e "rmarkdown::render(input = '${{ github.event.inputs.path }}', output_format = BiocStyle::html_document())"
+          for file in $(git diff-tree --no-commit-id --name-only -r HEAD | grep .Rmd$); do
+            FILENAME=$(basename $file .Rmd)
+            echo $file
+            echo $FILENAME
+            DIRNAME=$(dirname $file)
+            Rscript -e "rmarkdown::render(input = '$file', output_file = '${DIRNAME}/${FILENAME}.html', output_format = BiocStyle::html_document())"
+          done
       - name: Commit and push changes
         run: |
           cd $GITHUB_WORKSPACE
