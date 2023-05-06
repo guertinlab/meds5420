@@ -35,8 +35,6 @@ jobs:
       - name: Commit and push changes
         run: |
           cd $GITHUB_WORKSPACE
-          modified_file=$(echo ${{ inputs }} | awk -F/ '{print $NF}')
-          dir=$(echo ${{ inputs }} | awk -F/ '{print $(NF-1)}')
-          git add $dir/$(echo ${{ inputs }} | awk -F/ '{print $NF}' | sed 's/.Rmd/.html/')
-          git commit -m "Render $dir/$modified_file to HTML"
-          git push origin HEAD:master
+          git add $(git diff-tree --no-commit-id --name-only -r HEAD | grep .html$)
+          git commit -m "Render Rmd to HTML"
+          git push origin HEAD:main
