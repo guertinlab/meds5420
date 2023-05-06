@@ -12,7 +12,7 @@ jobs:
         env:
           GITHUB_EVENT_PATH: ${{ github.event_path }}
       - name: echo some stuff
-        run: cat $GITHUB_WORKSPACE/$(dirname $GITHUB_EVENT_PATH)/$(basename $GITHUB_EVENT_PATH)
+        run: ls $GITHUB_WORKSPACE
         env:
           GITHUB_EVENT_PATH: ${{ github.event_path }}
       - name: Checkout code
