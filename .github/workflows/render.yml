@@ -12,9 +12,9 @@ jobs:
         env:
           GITHUB_EVENT_PATH: ${{ github.event_path }}
       - name: echo some stuff
-        run: |
-          echo $GITHUB_EVENT_PATH
-          ls $GITHUB_EVENT_PATH
+        run: cat $GITHUB_WORKSPACE/$(dirname $GITHUB_EVENT_PATH)/$(basename $GITHUB_EVENT_PATH)
+        env:
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Setup R
