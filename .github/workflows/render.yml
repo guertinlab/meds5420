@@ -25,7 +25,7 @@ jobs:
           echo $GITHUB_WORKSPACE
           echo "{{ inputs.deploy_target }}"
           echo $GITHUB_EVENT_PATH
-          sudo Rscript -e "rmarkdown::render(input = HERE, output_format = BiocStyle::html_document())"
+          sudo Rscript -e "rmarkdown::render(input = $(dirname $GITHUB_EVENT_PATH)/$(basename $GITHUB_EVENT_PATH), output_format = BiocStyle::html_document())"
       - name: Commit and push changes
         run: |
           cd $GITHUB_WORKSPACE
