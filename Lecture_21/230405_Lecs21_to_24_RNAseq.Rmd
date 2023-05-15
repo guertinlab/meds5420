@@ -5,9 +5,8 @@ header-includes:
 - \usepackage{float}
 date: "April 5, 10, 12, and 17 2023"
 output:
-  bookdown::html_document2: 
-fontsize: 14pt
-geometry: margin=1in
+  bookdown::html_document2:
+    toc: true
 ---
 
 ```{r, echo=F, eval=T}
