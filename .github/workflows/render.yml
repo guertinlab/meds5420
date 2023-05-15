@@ -23,7 +23,7 @@ jobs:
       - name: Render Rmd to HTML
         run: |
           sudo Rscript -e 'system("ls")'
-          sudo Rscript -e "rmarkdown::render(input = 'Lecture_21/230405_Lecs21_to_24_RNAseq.Rmd', output = 'Lecture_21/230405_Lecs21_to_24_RNAseq.html', output_format = BiocStyle::html_document())"
+          sudo Rscript -e "rmarkdown::render(input = 'Lecture_21/230405_Lecs21_to_24_RNAseq.Rmd', output_format = BiocStyle::html_document('Lecture_21/230405_Lecs21_to_24_RNAseq.html'))"
       - name: Commit and push changes
         run: |
           git add Lecture_21/230405_Lecs21_to_24_RNAseq.html
