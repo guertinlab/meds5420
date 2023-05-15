@@ -6,6 +6,9 @@ header-includes:
 date: "April 5, 10, 12, and 17 2023"
 output:
   bookdown::html_document2:
+    toc: true
+fontsize: 14pt
+geometry: margin=1in
 ---
 
 ```{r, echo=F, eval=T}
