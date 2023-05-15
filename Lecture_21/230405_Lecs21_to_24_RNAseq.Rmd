@@ -3,7 +3,6 @@ title: \sf MEDS5420 - Lectures 21, 22, 23, & 24 -- RNA-seq mapping,  visualizati
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
-- \DeclareUnicodeCharacter{2212}{-}
 date: "April 5, 10, 12, and 17 2023"
 output:
   bookdown::html_document2: 
