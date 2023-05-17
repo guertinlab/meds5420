@@ -1,0 +1,17 @@
+red	This	1
+orange	is	2
+yellow	a	4
+green	test	4
+blue	this	7
+purple	is	6
+red	only	80
+orange	a	19
+yellow	test	100
+green	if	6
+blue	this	4
+purple	had	54
+red	been	23
+orange	a	60
+yellow	real	4
+green	emergency	5
+		
