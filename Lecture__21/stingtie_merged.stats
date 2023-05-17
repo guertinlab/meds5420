@@ -1,0 +1,30 @@
+# gffcompare v0.12.6 | Command line was:
+#gffcompare -R -r /home/FCAM/meds5420/annotations/gencode.v39.annotation.gtf -o stingtie_merged stringtie_merged.gtf
+#
+
+#= Summary for dataset: stringtie_merged.gtf 
+#     Query mRNAs :  245645 in   57989 loci  (218720 multi-exon transcripts)
+#            (22471 multi-transcript loci, ~4.2 transcripts per locus)
+# Reference mRNAs :  242722 in   57415 loci  (216649 multi-exon)
+# Super-loci w/ reference transcripts:    57413
+#-----------------| Sensitivity | Precision  |
+        Base level:   100.0     |    99.7    |
+        Exon level:    99.7     |    99.4    |
+      Intron level:   100.0     |    99.5    |
+Intron chain level:   100.0     |    99.1    |
+  Transcript level:   100.0     |    98.8    |
+       Locus level:    99.9     |    98.9    |
+
+     Matching intron chains:  216647
+       Matching transcripts:  242608
+              Matching loci:   57373
+
+          Missed exons:       0/652609	(  0.0%)
+           Novel exons:    2570/655065	(  0.4%)
+        Missed introns:       0/395147	(  0.0%)
+         Novel introns:    1901/397160	(  0.5%)
+           Missed loci:       0/57415	(  0.0%)
+            Novel loci:     576/57989	(  1.0%)
+
+ Total union super-loci across all input datasets: 57989 
+245645 out of 245645 consensus transcripts written in stingtie_merged.annotated.gtf (0 discarded as redundant)
