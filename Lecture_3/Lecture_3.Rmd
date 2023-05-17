@@ -1,5 +1,5 @@
 ---
-title: \sf MEDS5420 -  The Shell Part 2
+title: \sf MEDS5420 -- The Shell Part 2
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
