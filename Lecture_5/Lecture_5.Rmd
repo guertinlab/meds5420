@@ -1,5 +1,5 @@
 ---
-title: \sf MEDS5420 -  awk
+title: \sf MEDS5420 - awk
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
