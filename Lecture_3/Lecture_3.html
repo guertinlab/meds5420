@@ -508,6 +508,10 @@ code > span.paren { color: #000000;}
 padding-left: 65px;
 }
 
+.references {
+padding-right: 150px;
+}
+
 .margin-toggle {
 display: none;
 }
@@ -521,6 +525,8 @@ width: auto;
 p {
 padding-left: 0;
 padding-right: 0;
+}
+.references { padding-right: 0;
 }
 h1, h2, h3, h4, h5, h6 {
 width: 100%;
@@ -636,23 +642,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -963,7 +963,7 @@ Have a look at <code>haiku.txt</code>:</p>
 ## Software is like that.</code></pre>
 <p>When was <code>haiku.txt</code> last modified?</p>
 <pre class="bash"><code>ls -l haiku.txt</code></pre>
-<pre><code>## -rwxr--r--@ 1 mikeguertin  staff  216 Sep  9  2020 haiku.txt</code></pre>
+<pre><code>## -rw-r--r--  1 runner  staff  216 May 17 17:26 haiku.txt</code></pre>
 <pre class="bash"><code>grep mask haiku.txt</code></pre>
 <pre><code>## wear a mask dammit</code></pre>
 <p>In the above command, the first argument “mask” is the pattern we are searching for. The default action for <code>grep</code> is to return the entire line in which the pattern was found.</p>
