@@ -1,0 +1,399 @@
+---
+title: \sf MEDS5420 - More shell scripting and logging into to the server and tranferring data
+header-includes:
+- \usepackage{color}
+- \usepackage{float}
+- \DeclareUnicodeCharacter{2212}{-}
+date: "February 6, 2023"
+output:
+  bookdown::html_document2:
+    toc: true
+fontsize: 14pt
+geometry: margin=1in
+---
+\sffamily
+
+
+# Last Time:
+**awk** for parsing text files
+
+# Today
+**1.** Conditional expressions and tests in shell scripts\
+**2.** Practicing good habits in shell scripts \
+**3.** Logging into the Xanadu cluster \
+**4.** Moving data to and from the Xanadu cluster \
+
+
+# Logical tests in `Shell`
+We've learn some basics of shell scripting with loops.  Let's add more sophistication by adding conditional statements.
+
+## Example: **`if/else`**
+
+```{r engine='bash', eval=T, echo=TRUE}
+snow="1 2 3 4 6 8 10"
+for x in $snow
+  do
+    echo "There are ${x} inches of snow"
+    if [ $x -lt 3 ]
+      then
+      echo 'stay calm'
+    else
+      echo 'panic'
+    fi
+  done
+```
+*Note: the test statement must be separated from the square brackets by a space.\
+End `if` loops with `fi`\
+\
+
+To get a list of operators for numerical tests use:
+```{r engine='bash', eval=F, echo=TRUE}
+man test
+```
+
+What if I want to add a layer(s) of contingency here: `elif`
+```{r engine='bash', eval=T, echo=TRUE}
+snow="1 2 3 4 6 8 10"
+type=windy
+for x in $snow
+  do
+    echo "There are ${x} inches of snow"
+    if [ $x -lt 3 ]
+      then
+      echo 'stay calm'
+    elif [ $x -lt 8 ] && [ ${type}=windy ]
+      then
+      echo 'it is windy, take cover'
+    else
+      echo 'ignore the wind and grab your sled'
+    fi
+  done
+```
+
+Note that I also included a variable that is used for interpretation.
+\
+\
+`&&` represents *and* creating an **if/and** statement \
+`||` represents *or* creating an **if/or** statement
+
+# Passing files and options into scripts from command line:
+
+I uploaded a file to the Lecture 6 directory in GitHub with rain data and I want to process with this script.
+```{r engine='bash', eval=T, echo=TRUE}
+cat rain_data.txt
+```
+I could read it in directly:
+```{r engine='bash', eval=T, echo=TRUE}
+rain=$(cat rain_data.txt | cut -f 2)
+cond=windy
+for x in $rain
+  do
+    echo "There are ${x} inches of rain"
+    if [ $x -lt 3 ]
+      then
+      echo 'stay calm'
+    elif [ $x -gt 5 ] && [ ${cond} == windy ]
+      then
+      echo 'it is windy, take cover'
+    else
+      echo 'get in a boat'
+    fi
+  done
+```
+Or, I could set a variable as below and save this as **`rain.sh`** script.
+
+```{r engine='bash', eval=F, echo=TRUE}
+#! /usr/bin/sh
+
+rain=$(cat "$1" | cut -f "$2")
+cond=$3
+for x in $rain
+  do
+    echo "There are ${x} inches of rain"
+    if [ $x -lt 3 ]
+      then
+      echo 'stay calm'
+    elif [ $x -gt 5 ] && [ $cond == windy ]
+      then
+      echo 'it is windy, take cover'
+    else
+      echo 'get in a boat'
+    fi
+  done
+```
+**Note:** the `$1` usage here is a shortcut that allows the user to add an input file in the first argument.  The usage would then be: `<script_name> ARG1 ARG2 ARG3 ` \
+`$1` refers to `rain_data.txt` \
+`$2` refers to the number `2`, which happens to be our second argument and in the script it is used to parse out the second column \
+`$3` refers to the condition, which is the third argument
+
+
+Then I would run:
+```{r engine='bash', eval=F, echo=TRUE}
+# script input1 input2
+bash rain.sh rain_data.txt 2 calm
+# OR
+bash rain.sh rain_data.txt 2 windy
+# OR
+chmod +x rain.sh
+./rain.sh rain_data.txt 2 windy
+
+```
+
+More arguments can be added and the order of the arguments sets the substitution order.
+
+## Reviewing how to pass shell variables to awk:
+
+**Question:** What if we have a shell variable that we want to use or pass to **awk**?
+
+Try this:
+```{r engine='bash', eval=F, echo=T, error=F}
+list="1 2 3"
+echo $list | awk '{print $list}'
+```
+\
+It doesn't work because a variable made in the shell cannot inherently be read by `awk`. You have to pass the variable to `awk`.  Here's how:
+```{r engine='bash', eval=T, echo=T}
+list="1 2 3"
+echo $list| awk -v nums="$list" '{print nums}'
+```
+
+Recall the `-v` option in the beginning of the awk command.\
+
+
+## In class exercise 1:
+In the class last week we used `color-table.txt` and learned how to isolate and parse different columns and rows with **cut, uniq** and **awk**.  Now, try writing a script that will use the color column to parse each row to a file with identical colors only.  That is, all the 'red' rows should go to 'red.txt' file, blue; to a 'blue.txt' file, etc.
+
+### Proper script structure and annotation
+Even though your code may have worked, the script is not considered finished as it stands.  We need to use indentation and add annotation to the code for several reasons.\
+**1.** Proper indentation of loop makes the code more readable. \
+**2.** To provide USAGE instructions \
+**3.** To describe the steps being taken.  This is important to remind yourself what your coding steps were or for other that might want to modify your script. \
+**4.** To track the progress of the script.  This is most important for debugging, so that one can know where in the code a script failed. \
+
+**Editing in a text editor with syntax highlighting will help construct a readable script**
+\pagebreak
+
+
+# Logging into the Xanadu cluster 
+
+To access the cluster you need to login with **ssh** (secure shell):
+
+```{r engine='bash', eval=F, echo=TRUE}
+ssh <user_name>@xanadu-submit-ext.cam.uchc.edu 
+
+# you user name looks like this:
+ssh meds5420usr17@xanadu-submit-ext.cam.uchc.edu 
+```
+Once you login you are in the head (or login) node. **DO NOT** run any resource intensive commands on the head node. We will go over the procedure for allocating resources using both interactive sessions and job submissions.  
+
+# Tranferring data between to and from cluster
+
+
+## For PC users:
+sdYou can use scp from a terminal window, or you can use `WinSCP` which is a convenient FTP client or user interface for transferring data between computers.  Below are some links with tutorials for downloading, installing, and using `WinSCP`.
+
+[https://winscp.net/eng/docs/guide_connect](https://winscp.net/eng/docs/guide_connect) \
+
+[https://www.youtube.com/watch?v=58KmUBaEW34](https://www.youtube.com/watch?v=58KmUBaEW34)
+
+
+To move files in between computer you can login with **sftp** use **scp** (secure copy):
+
+## **`sftp`**: 
+
+`ftp` stands for "File Transfer Protocol", `sftp` is " Secure File Transfer Protocol".  In other words, with sftp, a useraccount and password are required.\
+```{r engine='bash', eval=F, echo=TRUE}
+
+sftp  <your_username>@<host_name>
+```
+For the Xanadu cluster, there is a special partition for transferring data:
+
+```{r engine='bash', eval=F, echo=TRUE}
+
+sftp <your_username>@transfer.cam.uchc.edu
+```
+
+**1.** You can then navigate to the directory where you want to take files from.\
+**2.** `put` and `get` can be used to move files from or to your computer, respectively \
+
+```{r engine='bash', eval=F, echo=TRUE}
+# copy a document to the cluster
+put /Users/guertinlab/MEDS5420/color-table.txt
+
+# retrieve a copy of a document from the cluster (will go in whatever folder you logged in from)
+get /home/FCAM/meds5420/usr17/file.txt
+
+
+```
+
+
+## **`scp`**
+**scp** can be used without logging in provided you know the exact location where your file of interest is or will go. I find `sftp` easier and will use `sftp` for class.
+
+```{r engine='bash', eval=F, echo=TRUE}
+# for copying TO the server
+scp -r <path_to_directory> <your_username>@transfer.cam.uchc.edu:~/path/to/target/folder
+```
+
+You should be prompted for a password.  If not, the transfer probably failed.
+```{r engine='bash', eval=F, echo=TRUE}
+# for copying FROM the server
+scp -r <your_username>@<host_name>:@transfer.cam.uchc.edu <target_directory> 
+```
+
+# Logging into the Xanadu cluster 
+
+To access the cluster you need to login with **ssh** (secure shell):
+
+```{r engine='bash', eval=F, echo=TRUE}
+ssh <user_name>@xanadu-submit-ext.cam.uchc.edu 
+
+# you user name looks like this:
+ssh meds5420usr17@xanadu-submit-ext.cam.uchc.edu 
+```
+
+# Tranferring data to and from the cluster
+
+## For PC users:
+You can use scp from a terminal window, or you can use `WinSCP` which is a convenient FTP client or user interface for transferring data between computers.  Below are some links with tutorials for downloading, installing, and using `WinSCP`.
+
+[https://winscp.net/eng/docs/guide_connect](https://winscp.net/eng/docs/guide_connect) \
+
+[https://www.youtube.com/watch?v=58KmUBaEW34](https://www.youtube.com/watch?v=58KmUBaEW34)
+
+
+To move files in between computer you can login with **sftp** use **scp** (secure copy):
+
+## **`sftp`**: 
+
+`ftp` stands for "File Transfer Protocol", `sftp` is " Secure File Transfer Protocol".  In other words, with sftp, a useraccount and password are required.\
+```{r engine='bash', eval=F, echo=TRUE}
+
+sftp  <your_username>@<host_name>
+```
+For the Xanadu cluster, there is a special partition for transferring data:
+
+```{r engine='bash', eval=F, echo=TRUE}
+
+sftp <your_username>@transfer.cam.uchc.edu
+```
+
+**1.** You can then navigate to the directory where you want to take files from.\
+**2.** `put` and `get` can be used to move files from or to your computer, respectively \
+
+
+```{r engine='bash', eval=F, echo=TRUE}
+put /Users/guertinlab/MEDS5420/color-table.txt
+
+get 
+```
+
+
+## **`scp`**
+**scp** can be used without logging in provided you know the exact location where your file of interest is or will go. We will primarily use `sftp` in this course.
+
+```{r engine='bash', eval=F, echo=TRUE}
+# for copying TO the server
+scp -r <path_to_directory> <your_username>@transfer.cam.uchc.edu:~/path/to/target/folder
+```
+
+You should be prompted for a password.  If not, the transfer probably failed.
+```{r engine='bash', eval=F, echo=TRUE}
+# for copying FROM the server
+scp -r <your_username>@<host_name>:<target_directory> 
+```
+
+### How do we know if transfer was complete?
+
+There's a program called `md5` (mac) or `md5sum` (linux) that can help us with this.  It returns a compact digital fingerprint for each file.  Any change to the file will result in a different fingerprint.
+
+on a mac:
+```{r engine='bash', eval=T, echo=TRUE}
+md5 ./data-shell.tar
+```
+
+on Linux:
+```{r engine='bash', eval=F, echo=TRUE}
+md5sum ./data-shell.tar
+```
+
+## In class exercise 2: Inspecting, retrieving, and checking files from server
+
+**1** Log onto the server using ssh \
+**2** Navigate to the MEDS5420 folder in `/home/FCAM/meds5420/in_class` \
+**3** View the contents of the `data-shell.tar` file without unbundling it. \
+**4** View the checksum string for the file. \
+**5** Logout and return to your home directory or open a new terminal window (command-t) \
+**6** Transfer the file to your computer using sftp \
+**7** Confirm that the transfer was complete \
+
+
+\pagebreak
+
+# Answers to in class exercises:
+
+## In class exercise 1:
+```{r engine='bash', eval=F, echo=T}
+
+colors=$(cat "$1"| cut -f 3 | sort | uniq)
+
+for col in $colors
+	do	
+		touch ${col}_rows.txt
+		cat "$1" | awk -v col="$col" '{ if ($3 == col) print $0}' >> ${col}_rows.txt
+	done
+```
+
+Here's another version of the script with decent annotation:
+```{r engine='bash', eval=F, echo=T}
+# This script will parse unique items from column 3 to separate files
+# USAGE:bash parse_colors.sh <INPUT_FILE>
+
+#Create uniq list of colors.  Note that input file is first argument
+colors=$(cat "$1"| cut -f 3 | sort | uniq)
+echo $colors
+
+#iterate through list of colors and parse into new files
+for col in $colors
+	do	
+		echo parsing ${col} # this prints the progress to the screen
+		touch ${col}_rows.txt
+		cat "$1" | awk -v col="$col" '{ if ($3 == col) print $0}' >> ${col}_rows.txt
+		echo ${col} parsed	# this prints the progress to the screen
+	done
+```
+
+
+
+\
+The input file would be the color-table.txt file. The first argument then replaces the "$1" wherever it appears in the script.  
+\
+
+
+
+## In class exercise 2:
+
+### ssh 
+```{r engine='bash', eval=F, echo=T}
+ssh meds5420usr17@xanadu-submit-ext.cam.uchc.edu
+#the 17 refers to your user number
+cd /home/FCAM/meds5420/in_class
+tar -tvf data-shell.tar
+md5sum data-shell.tar
+# a174bf3795d25f39891f43571ba1c678 
+exit
+```
+Note that none of these commands demand significant compute resources.
+
+### sftp
+```{r engine='bash', eval=F, echo=T}
+cd ~
+sftp meds5420usr17@transfer.cam.uchc.edu
+cd /home/FCAM/meds5420/in_class
+get data-shell.tar
+exit
+md5 data-shell.tar # mac
+#OR
+md5sum data-shell.tar # linux
+```
+
