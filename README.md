@@ -10,6 +10,7 @@ https://guertinlab.github.io/meds5420/Lecture_1/Lecture_1.pdf
 https://guertinlab.github.io/meds5420/Lecture_2/Lecture_2.html \
 https://guertinlab.github.io/meds5420/Lecture_3/Lecture_3.html \
 https://guertinlab.github.io/meds5420/Lecture_4/Lecture_4.html \
+https://guertinlab.github.io/meds5420/Lecture_5/Lecture_5.html \
 https://guertinlab.github.io/meds5420/Lecture__21/Lectures_21_to_24.html 
 
 
