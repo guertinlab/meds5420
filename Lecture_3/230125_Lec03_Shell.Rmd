@@ -1,0 +1,525 @@
+---
+title: \sf MEDS5420 -  The Shell Part 2
+header-includes:
+- \usepackage{color}
+- \usepackage{float}
+- \DeclareUnicodeCharacter{2212}{-}
+date: "January 25, 2022"
+output:
+  bookdown::html_document2:
+    toc: true
+fontsize: 14pt
+geometry: margin=1in
+---
+
+
+# Readings
+
+Practical Computing for Biologists: Chapters 2, 5, 6, 16, Appendices 2, 3.\
+
+Unix "Basics" and "Finding Things" from UConn CBC: http://bioinformatics.uconn.edu/unix-basics/ \
+
+Software Carpentry Shell Novice lesson: Episodes 5-7:
+https://swcarpentry.github.io/shell-novice/
+
+Review basic commands and server access from [UConn_Unix_basics](http://bioinformatics.uconn.edu/unix-basics)
+
+# Last Time:
+
+## Command line navigation:
+\
+1. Complete path:
+```{r engine='bash', eval=F, echo=TRUE}
+head /home/username/MEDS5420/lec02_files/the_raven.txt
+head /Users/username/MEDS5420/lec02_files/the_raven.txt
+
+```
+```{r engine='bash', eval=F, echo=TRUE}
+head ~/MEDS5420/lec02_files/the_raven.txt
+```
+**OR** \
+
+2. By using the **relative path** starting from where you are.
+relative path:
+```{r engine='bash', eval=F, echo=TRUE}
+head ./username/MEDS5420/lec02_files/the_raven.txt
+```
+```{r engine='bash', eval=F, echo=TRUE}
+head username/MEDS5420/lec02_files/the_raven.txt
+```
+
+------
+
+# Pipes, filtering with wildcards, redirecting outputs to files
+
+One can select multiple files using the * wildcard.
+
+```{r engine='bash', eval=F, echo=T}
+wc *.txt
+```
+
+Instead of seeing the 3 columns of numbers for the number of lines,
+words and characters, we can limit the `wc` command to only show us
+the number of lines using the `-l` argument:
+
+```{r engine='bash', eval=F, echo=T}
+wc -l *.txt
+```
+
+One can also add some specificity to wild cards using  brackets: `[]`
+```{r engine='bash', eval=F, echo=T}
+wc -l [Wt]*.txt
+    # this is equivalent to saying files that start with a "W" or "t"
+```
+
+
+Let's find which file is shortest.  Let's save the `wc` output to disk
+with the redirection `>` operator; then we can verify the contents of
+`length.txt` are the same as what `wc` produces using `cat` or `less`:
+
+```{r engine='bash', eval=F, echo=T}
+wc -l *.txt > lengths.txt
+cat lengths.txt
+less lengths.txt
+```
+
+To find the shortest file, we then sort the lengths using the `sort`
+command.  We then pick the top shortest file using `head -n 1`:
+
+```{r engine='bash', eval=F, echo=T}
+sort -n lengths.txt > sorted-lengths.txt
+head -n 1 sorted-lengths.txt
+```
+
+Using the intermediate files can be confusing, especially in more
+complex problems.  We can save a lot of messy files and typing using
+pipes (`|`):
+
+```{r engine='bash', eval=F, echo=T}
+wc -l *.txt | sort -n | head -n 1
+```
+
+## Exercise 1: Pipe Reading Comprehension
+
+A file called animals.txt contains the following data:
+
+```
+deer
+rabbit
+raccoon
+rabbit
+deer
+fox
+rabbit
+bear
+```
+
+### Part 1:  
+What text passes through each of the pipes and the final redirect in the pipeline below?
+
+```{r engine='bash', eval=F, echo=T}
+cat animals.txt | head -n 5 | tail -n 3 | sort > final.txt
+```
+
+### Part 2:
+Alter the commands to get only all three rabbits as the final output.
+
+
+
+## Command line utlities so far:
+
+**1.** pwd - print working directory\
+**2.** ls - list directory contents\
+**3.** mkdir - create a directory\
+**4.** unzip - decompression\
+**5.** mv - move file\
+**6.** cp - copy file\
+**7.** cat - print contents of file\
+**8.** touch - create empty file\
+**9.** rm - remove file\
+**10.** wc - count lines/words/characters/ in file\
+**11.** '>' - redirects output to new file\
+**12.** '>>' - redirects output to append to existing file\
+**13.** '*' - wildcard that specifies any input\
+
+
+
+# Today's commands and concepts:
+
+## Commands - File Compression
+
+Command | Function
+--------|---------
+`gzip`  | compression/decompression tool using Lempel-Ziv coding (LZ77)
+`tar`  | Bundling files in folders
+
+## Finding things:
+- Files in directories
+- words in files
+
+
+|  Command    | Function                                                      |
+|-------------|---------------------------------------------------------------|
+| `grep`      | **G**lobal **R**egular **E**xpression **P**rint (useful flags: `-w`, `-i`, `-v`, `-n`)                        |
+| `find`      | Recursively list all files and directories and filter         |
+
+
+## Concepts:
+
+**1.** Variables (creating and printing to screen).\
+**2.** Basics of shell scripts.\
+
+
+
+
+# Dealing with compressed files (archives)
+
+Download and move the *data-shell.tar* from GitHub to your MEDS5420 folder. See the third code chunk of section 6 of Lecture 2 for how to accomplish this for Windows OS. \
+**OR**\
+If you are on the server, copy (`cp`) the data-shell.tar to your home directory.  It is located at `/home/FCAM/meds5420/in_class`
+
+
+We already unzipped a file using **unzip**:
+```{r engine='bash', eval=F, echo=TRUE}
+unzip -d Example_files Example_files.zip
+```
+Other types of archives you will encounter:\
+**.tar** # bundles multiple files or folders\
+**.gzip** # compressed file\
+\pagebreak 
+
+```{r  out.width = "120%", echo=F, fig.align = "center", fig.cap="XKCD: valid `tar` command"}
+#library(knitr)
+knitr::include_graphics("./fig/tar.png") 
+```
+
+
+To view contents of archive:
+```{r engine='bash', eval=F, echo=TRUE}
+tar -tvf data-shell.tar # displays tar contents
+```
+
+To extract contents of archive:
+```{r engine='bash', eval=F, echo=TRUE}
+tar -xvf data-shell.tar # extracts contents into original directories
+```
+
+
+To combine contents of a directory:
+```{r engine='bash', eval=F, echo=TRUE}
+tar -cvf data-shell.tar data-shell 
+
+#format is <target.tar> <directory-to-be-tarred>
+#For directories, execute command in parent directory (one level up). 
+#Don't use absolute path. 
+```
+
+
+Compressing files with gzip:
+```{r engine='bash', eval=F, echo=TRUE}
+gzip filename # compresses file
+```
+
+Let's look a specific example in the writing folder within data.shell
+
+```{r engine='bash', eval=F, echo=TRUE}
+cd ./data-shell/writing/leisure/
+
+ls
+```
+
+To view contents of a gzipped file (linux):
+```{r engine='bash', eval=F, echo=TRUE}
+zcat filename | head
+```
+
+On a Mac use this instead:
+```{r engine='bash', eval=F, echo=TRUE}
+gunzip -c filename | head
+```
+**OR**
+\
+`gzcat` on a Mac
+
+```{r engine='bash', eval=F, echo=TRUE}
+gzcat filename | head
+```
+
+**Note:** These commands are useful because they allow you to glance at or access the contents of large compressed files without spending the time of decompressing them.
+
+
+To extract gzipped files:
+```{r engine='bash', eval=F, echo=TRUE}
+gunzip filename #decompresses file
+```
+
+
+# Finding things
+
+## Searching inside files using `grep`
+
+We can search for patterns inside of files and print them using the `grep` command.
+Let's head over to the writing directory and try using `grep`:
+\
+Have a look at `haiku.txt`:
+
+```{r engine='bash', eval=T}
+cat haiku.txt
+```
+
+
+```{r engine='bash', echo=T, eval=T}
+grep mask haiku.txt
+```
+
+
+
+
+In the above command, the first argument "mask" is the pattern we are searching for.  The default action for `grep` is to return the entire line in which the pattern was found.
+
+
+Let's instead search for the word day:
+
+```{r engine='bash'}
+grep day haiku.txt
+```
+
+
+In this case that `grep` shows us results with larger words containing "day".
+We might instead only want to see exact words not part of larger words.
+To impose word boundaries, we use the `-w` flag:
+
+```{r engine='bash', error=T}
+grep -w day haiku.txt
+```
+
+
+There are no results because "day" is only part of larger words in `haiku.txt`
+
+Sometimes we want to search for more than a single word.
+To search for a phrase, we need to use double quotes so that `grep` treats the pattern as a single argument.
+
+```{r engine='bash'}
+grep -w "is not" haiku.txt
+```
+
+
+Other very useful `grep` flags are `-n`, `-i` and `-v`:
+
+```{r engine='bash'}
+grep -n "it" haiku.txt
+```
+
+
+```{r engine='bash'}
+grep -n -w -i "the" haiku.txt
+```
+
+As you might have guessed:
+
+- `-n` prints the line number of the matching line.
+- `-i` ignores capitalization (also called "case"; the "i" comes from case-**i**nsensitive)
+
+You can learn more about `grep` flags using `grep --help`
+
+The real power of `grep` is using a special class of wildcards known as "regular expressions" (the "re" in `grep`).
+Let's use regular expressions to find lines where the second letter is "o":
+
+```{r engine='bash'}
+grep '^.o' haiku.txt
+```
+
+Explanation of the pattern:
+
+- The caret (`^`) tells `grep` to only look from the start of a line rather than anywhere in the line.
+- The dot (`.`) tells `grep` to match any single character (letter, number, or symbol) - basically a single character **wild card**.
+- The "o" means to specifically only match the letter "o" (it will not match an upper case "O").
+
+Some other useful expression in grep:
+
+- `$` specifies the matching at end of a line. \
+- `*` in grep, the asterisk is a repetition operator. This is commonly coupled to `.` to act as a wild card of unspecified length 
+
+
+Learning the full power of regular expressions takes time,
+but for now just know that they exist.  If you want to make use of them, check out these **cheat sheets** and other online resources.  
+
+- [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet)
+
+- [https://cheatography.com/davechild/cheat-sheets/regular-expressions/](https://cheatography.com/davechild/cheat-sheets/regular-expressions/)
+
+## Exercise 2: 'regex' with grep
+
+1) Use the criteria below to print the appropriate lines from `haiku.txt`:
+
+- lines that begin with the letter s
+- lines that end in the letter d
+- lines that begin and end with the letters s and d 
+- lines with words that begin with the letter n
+
+
+## Exercise 3: Command practice and 'grepping' patterns
+Look in the `song_lyrics` folder inside the data-shell folder and you should see a single file: `TS_example.txt`
+The TS_example.txt file contains lyrics to a song by a well-known contemporary female artist. Using the command line utilities you have learned, try the following:\
+**1.** Print the number of lines in the file. \ 
+\
+\
+**2.** Print the lines **and line number** that have the word 'shake' in them to a new file called `shake-lines.txt`. \
+**3.** Print the number of lines that have the word 'shake' in them. \
+**4.** Devise a way to print the **number of times** 'shake' appears in the song.  Be sure to include all instances or forms of the word. \
+
+**\*hint:** use the manuals for different functions to see what your options could be.
+
+
+## Searching for file or directories using `find`
+
+```{r engine='bash', eval=F}
+find .
+```
+
+`find` shows us files and directories.
+This may seem like overkill, but the power of find is in specifying "tests" or "filters".
+
+```{r engine='bash', eval=F}
+find . -type f
+```
+
+```{r engine='bash', eval=F}
+find . -type d
+```
+
+The above filters search for files and directories, respectively.
+
+**Search depth:**\
+One can specify how far down the file hierarchy to go by controlling `depth`:
+
+```{r engine='bash', eval=F, echo=T, error=T}
+find ./data-shell -maxdepth 2 -mindepth 2 -type f
+```
+The above command searches for all files two directory levels within the data-shell folder.  \
+**Quick try:** Try other combinations of levels and types and verify by counting number of items in output.
+
+Let's try matching by name:
+```{r engine='bash', eval=F, echo=T, error=T}
+find ./data-shell *.txt
+```
+
+**Quick try:** Combine `find` and `grep` to find the number of text files within 2 and 3 levels inside of the data-shell folder.
+
+## Exercise 4: Finding Files With Different Properties
+The find command can be given several other criteria known as "tests"
+to locate files with specific attributes, such as creation time, size,
+permissions, or ownership. Use `man find` to explore these, and then
+write a single command to find all **.txt** files in or below the current
+directory that were modified in the last 72 hours.
+
+Hint 1: you will need to use three tests: `-type`, `-name`, and `-mtime`
+
+Hint 2: The value for `-mtime` will need to be negative - why?
+
+
+
+\pagebreak
+
+# Answers to in class exercises
+
+
+
+## Answers to Lecture 2 Exercise 2
+
+In the first instance, `cp` will make a copy of each of the files,
+`citations.txt` and `quotations.txt` into the directory `backup/`.
+
+In the second instances, `cp` gives an error when we provide 3 files
+as arguments.  To understand the error, see the output of `cp --help`
+or `man cp`.  The usage line towards the top indicates that the last
+argument must be a directory when we are providing more than 2
+arguments.
+
+## Answers to Exercise 1
+
+Part1:\
+`cat` prints all the contents of `animals.txt` and passes it on to
+`head`.  Standard output from `cat` (or standard input to `head`):
+
+```
+deer
+rabbit
+raccoon
+rabbit
+deer
+fox
+rabbit
+bear
+```
+
+`head` reads the first 5 lines of that output and passes it on to
+`tail`.  Standard output from `head` (or standard input to `tail`):
+
+
+```
+deer
+rabbit
+raccoon
+rabbit
+deer
+```
+
+`tail` reads the last 3 lines of the output and passes it on to
+`sort`.  Standard output from `tail` (or standard input to `sort`):
+
+```
+raccoon
+rabbit
+deer
+```
+
+`sort` rearranges the lines in alphabetical order (you can
+read the `man` pages of `sort` to discern the arguments, including  `-r` which is reverse alphabetical) and saves them into `final.txt`.  Standard output from `sort` (or contents of `final.txt`)
+
+```
+deer
+rabbit
+raccoon
+```
+Part 2: \
+```{r engine='bash', eval=F, echo=T}
+cat animals.txt | sort | tail -4 | head -3
+```
+
+
+## Exercise 2: Grep with 'regex'
+1) Use the criteria below to print the appropriate lines from `haiku.txt`:
+
+- lines that begin with the letter s:\
+  `grep -i '^s' haiku.txt`
+- lines that end in the letter d:\
+  `grep -i 'd$' haiku.txt`
+- lines that begin and end with the letters s and d:\
+  `grep -i '^s.*d$' haiku.txt`
+- lines with words that begin with the letter n. This requires a Google search, to specify the first and last letters of words use `\<` (start of word) and `\>` (end of word). \
+  `grep -i '\<n' haiku.txt` or `grep -w -i "n.*"`
+
+
+## Exercise 3: 'grepping' patterns
+Download, move, and unzip the *Example_file2.zip* from the HuskyCT site to your MEDS5420 folder. 
+The TS\_example.txt file contains lyrics to a song by a well-known contemporary female artist. Using the command line utilities you just learned, try the following: \
+**1.** Print the number of lines in the file: `wc -l TS_example.txt` \
+**2.** Print the lines  **and line number** that have the word 'shake' in them: `grep -n shake TS_example.txt` \
+**3.** Print the number of lines that have the word 'shake' in them: `grep -c shake TS_example.txt` \
+**4.** Devise a way to print the **number of times** 'shake' appears in the song: `grep -oi shake TS_example.txt | wc -w` \
+
+**\*Hint:** use the manuals for different functions to see what your options could be.
+
+
+## Exercise 4: finding files
+
+```{r engine='bash', eval=F}
+find . -type f -name '*.txt' -mtime -3
+```
+
+
+
+
+
+
