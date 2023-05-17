@@ -1,5 +1,5 @@
 ---
-title: \sf MEDS5420 - Batch and interactive jobs / Installing programs 
+title: \sf MEDS5420 -- Batch and interactive jobs / Installing programs 
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
