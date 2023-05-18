@@ -333,11 +333,11 @@ a7bc4f4691c79596a8598960e676f56f **sratoolkit.3.0.0.version.txt**\
 
 \
 Example checksums
-```{r engine='bash', eval=T, echo=TRUE}
+```{r engine='bash', eval=F, echo=TRUE}
 md5 sratoolkit.tar.gz
 ```
 To report only the checksum value to the screen, use the '-q' option:
-```{r engine='bash', eval=T, echo=TRUE}
+```{r engine='bash', eval=F, echo=TRUE}
 md5 -q sratoolkit.tar.gz
 ```
 It is now safe to unpack the software:
