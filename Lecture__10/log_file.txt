@@ -1,0 +1,2 @@
+This is a log entry
+This is the second log entry
