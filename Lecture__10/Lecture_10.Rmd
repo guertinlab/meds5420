@@ -1,5 +1,5 @@
 ---
-title: \sf MEDS5420 -- Aligning Illumina data
+title: \sf MEDS5420 - Aligning Illumina data
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
