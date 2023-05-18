@@ -15,6 +15,7 @@ https://guertinlab.github.io/meds5420/Lecture_6/Lecture_6.html \
 https://guertinlab.github.io/meds5420/Lecture_7/Lecture_7.html \
 https://guertinlab.github.io/meds5420/Lecture_8/Lecture_8.html \
 https://guertinlab.github.io/meds5420/Lecture_9/Lecture_9.html \
+https://guertinlab.github.io/meds5420/Lecture__10/Lecture_10.html \
 https://guertinlab.github.io/meds5420/Lecture__21/Lectures_21_to_24.html 
 
 
