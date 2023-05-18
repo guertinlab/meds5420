@@ -1,5 +1,5 @@
 ---
-title: \sf MEDS5420 - Fastx tools for preprocessing.
+title: \sf MEDS5420 -- Fastx tools for preprocessing.
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
