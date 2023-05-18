@@ -1,5 +1,5 @@
 ---
-title: \sf MEDS5420 - Illumina data format, QC, and preprocessing.
+title: \sf MEDS5420 -- Illumina data format, QC, and preprocessing.
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
