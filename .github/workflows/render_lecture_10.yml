@@ -2,7 +2,7 @@ name: Render Rmd to HTML
 on:
   push:
     paths:
-      - 'Lecture_10/Lecture_10.Rmd'
+      - 'Lecture__10/Lecture_10.Rmd'
 jobs:
   build:
     runs-on: macOS-latest
