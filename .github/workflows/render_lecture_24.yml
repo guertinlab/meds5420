@@ -25,6 +25,6 @@ jobs:
           sudo Rscript -e "rmarkdown::render(input = 'Lecture__24/Lectures_24_to_25.Rmd', BiocStyle::html_document())"
       - name: Commit and push changes
         run: |
-          git add Lecture__24/Lectures_24_to_25.Rmd
+          git add Lecture__24/Lectures_24_to_25.html
           git commit -m "Render Lectures_24_to_25.Rmd to HTML"
           git push origin HEAD:main
