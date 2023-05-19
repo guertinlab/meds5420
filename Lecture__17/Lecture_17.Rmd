@@ -1,5 +1,5 @@
 ---
-title: \sf MEDS5420 - Lecture 17 - motif queries
+title: \sf MEDS5420 -- Lecture 17 - motif queries
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
