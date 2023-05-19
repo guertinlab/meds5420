@@ -3,7 +3,7 @@ title: \sf MEDS5420 - Lectures 21, 22, & 23 -- RNA-seq mapping,  visualization, 
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
-date: "April 5, 10, 12, and 17 2023"
+date: "April 5, 10, and 12 2023"
 output:
   bookdown::html_document2:
     toc: true
