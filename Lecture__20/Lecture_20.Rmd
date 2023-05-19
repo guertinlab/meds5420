@@ -61,7 +61,7 @@ head(closest,3)
 
 ```{r, eval=T, echo=F}
 #read in table
-closest <- read.table("/Users/guertinlab/MEDS5420/peaks_promoters.bed")
+closest <- read.table("peaks_promoters.bed")
 
 #Check structure
 head(closest,3)
