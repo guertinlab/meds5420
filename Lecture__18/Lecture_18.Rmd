@@ -383,7 +383,12 @@ read.table("<FILENAME>", header=T, sep='\t')
 
 Read in the file `/home/FCAM/meds5420/data/ATF1/closest_peak_TSS/peaks_promoters.bed` from the server and save it as a variable:
 
+```{r, eval=T, echo=FALSE}
+install.packages(c("data.table"), repos="http://cran.rstudio.com/")
+```
+
 ```{r, eval=T, echo=TRUE}
+library(data.table)
 x.frame = read.table('peaks_promoters.bed', header=FALSE, sep = '\t')
 is.data.frame(x.frame)
 is.data.table(x.frame)
