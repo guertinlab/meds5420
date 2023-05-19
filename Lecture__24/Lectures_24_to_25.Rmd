@@ -1,5 +1,5 @@
 ---
-title: \sf MEDS5420 - Lectures 24 & 25 - Differential expression
+title: \sf MEDS5420 -- Lectures 24 & 25 - Differential expression
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
