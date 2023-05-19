@@ -1,5 +1,5 @@
 ---
-title: \sf MEDS5420 - Introduction to R
+title: \sf MEDS5420 -- Introduction to R
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
