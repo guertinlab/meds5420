@@ -20,8 +20,8 @@ https://guertinlab.github.io/meds5420/Lecture__11/Lecture_11_1.pdf \
 https://guertinlab.github.io/meds5420/Lecture__11/Lecture_11_2.pdf \
 https://guertinlab.github.io/meds5420/Lecture__12/Lecture_12.html \
 https://guertinlab.github.io/meds5420/Lecture__13/Lecture_13.html \
+https://guertinlab.github.io/meds5420/Lecture__13/Lecture_13.pdf \
 https://guertinlab.github.io/meds5420/Lecture__14/Lecture_14.html \
-https://guertinlab.github.io/meds5420/Lecture__14/Lecture_14.pdf \
 https://guertinlab.github.io/meds5420/Lecture__15/Lecture_15.html \
 https://guertinlab.github.io/meds5420/Lecture__16/Lecture_16.html \
 https://guertinlab.github.io/meds5420/Lecture__17/Lecture_17.html \
