@@ -44,13 +44,13 @@ Center for Cell Analysis and Modeling
 Until further notice, to ensure a safe learning environment for everyone, Dr. Guertin requests that approved masks/face coverings must be worn at all times in the classroom, regardless of vaccination status. No eating is permitted in the classroom; brief unmasking to drink is permitted. For any other activities that require unmasking, please leave the classroom. If an instructor is not wearing a mask/face covering, students should feel comfortable asking the instructor to put one on immediately.  More information about proper usage of masks is available from the following link: https://health.uconn.edu/coronavirus/mask-protocol/
 Although social distancing will not be required inside classrooms for vaccinated individuals, please be respectful of the wishes of others who prefer to maintain social distancing. For their own protection, unvaccinated individuals are requested to maintain 6 feet social distancing from others. 
 
-# Syllabus Spring 2023
+# Syllabus Spring 2024
 
 Excluding materials for purchase, syllabus information may be subject to change. The most up-to-date syllabus is located within the course here on GitHub.
 
 # Program Information
 
-Class size is limited to 15 total students and priority is given to students supported by the Genomic Medicine T32 and students in either the Systems Biology or Genetics and Developmental Biology area of concentration.
+Class size is limited to 12 total students and priority is given to students supported by the Genomic Medicine T32 and students in either the Systems Biology or Genetics and Developmental Biology area of concentration.
 
 Course and Instructor Information
 
@@ -58,9 +58,9 @@ Course Title:  Molecular Genomics Practicum
 
 Course Number: MEDS 5420
 
-Credits:  3
+Credits:  4
 
-Time: 1:15-3:15 pm, Monday and Wednesday
+Time: 1-3 pm, Monday and Thursday
 
 Room: R1401 Cell and Genome Sciences Building 400 Farmington Ave.
 
@@ -183,60 +183,60 @@ Module 1: Command Line
 Module 2: ChIP-seq analysis
 Module 3: RNA-seq analysis
 Calendar and Class Meeting Schedule 
-Proposed meeting times: MW 1:15-3:15pm
+Proposed meeting times: MR 1 -3 pm
 January 18: Overview of Molecular Genomics and High Throughput Sequencing Technology
 
-January 23: Introduction to the Command Line: navigating in the Terminal and basic utilities
+January 22: Introduction to the Command Line: navigating in the Terminal and basic utilities
 
 January 25: Introduction to the Command Line: parsing text files and piping (Homework 1 assigned)
 
-January 30: Introduction to the Command Line: constructing scripts and running loops
+January 29: Introduction to the Command Line: constructing scripts and running loops
 
 February 1: Introduction to the Command Line: installing programs and editing the $PATH
 
-February 6: Introduction to the Command Line: remote access and remote transfers 
+February 5: Introduction to the Command Line: remote access and remote transfers 
 
 February 8: Introduction to the Command Line: job submissions
 
-February 13: Quality Control and preprocessing of HTS data (Homework 2 assigned)
+February 12: Quality Control and preprocessing of HTS data (Homework 2 assigned)
 
 February 15: Aligning HTS data: aligning ChIP-seq data
 
-February 20: ChIP-seq lecture
+February 19: ChIP-seq lecture
 
 February 22:  Processing of ChIP-seq data (Homework 2 due)
 
-February 27: UCSC Genome Browser (Homework 3 assigned)
+February 26: UCSC Genome Browser (Homework 3 assigned)
 
-March 1: ChIP-seq Analysis: calling peaks
+February 29: ChIP-seq Analysis: calling peaks
 
-March 6: ChIP-seq Analysis: gene proximity
+March 4: ChIP-seq Analysis: gene proximity
 
-March 8: ChIP-seq Analysis: motif analysis (Homework 3 due)
+March 7: ChIP-seq Analysis: motif analysis (Homework 3 due)
 
-March 20: ChIP-seq Analysis: motif analysis continued
+March 18: ChIP-seq Analysis: motif analysis continued (pre-recorded, Dr. Guertin is away)
 
-March 22: ChIP-seq Analysis: catching up
+March 21: ChIP-seq Analysis: catching up
 
-March 27: Introduction to R
+March 25: Introduction to R
 
-March 29: Plotting in R continued
+March 28: Plotting in R continued
 
-April 3: Writing functions in R
+April 1: Writing functions in R
 
-April 5: Overview of RNA-seq lecture
+April 4: Overview of RNA-seq lecture
 
-April 10: RNA-seq Analysis: alignment (Homework 4 assigned)
+April 8: RNA-seq Analysis: alignment (Homework 4 assigned)
 
-April 12: RNA-seq Analysis: differential expression
+April 11: RNA-seq Analysis: differential expression
 
-April 17: RNA-seq Analysis: gene set enrichment analysis
+April 15: RNA-seq Analysis: gene set enrichment analysis
 
-April 19: RNA-seq Analysis: continued (Homework 4 due)
+April 18: RNA-seq Analysis: continued (Homework 4 due)
 
-April 24: RNA-seq Analysis: continued 
+April 22: RNA-seq Analysis: continued 
 
-April 26: RNA-seq Analysis: continued 
+April 25: RNA-seq Analysis: continued 
 
 # Resources for Students Experiencing Distress
 The University of Connecticut is committed to supporting students in their mental health, their psychological and social well-being, and their connection to their academic experience and overall wellness. The university believes that academic, personal, and professional development can flourish only when each member of our community is assured equitable access to mental health services. The university aims to make access to mental health attainable while fostering a community reflecting equity and diversity and understands that good mental health may lead to personal and professional growth, greater self-awareness, increased social engagement, enhanced academic success, and campus and community involvement. Students experiencing personal difficulties during the course may utilize the following services. Please familiarize yourself with these offices and the services they provide.
