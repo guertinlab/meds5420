@@ -180,10 +180,16 @@ You should expect to dedicate 10-15 hours a week to this course--this 10-15 hour
 Course Outline
 
 Module 1: Command Line
+
 Module 2: ChIP-seq analysis
+
 Module 3: RNA-seq analysis
+
 Calendar and Class Meeting Schedule 
+
 Proposed meeting times: MR 1 -3 pm
+
+
 January 18: Overview of Molecular Genomics and High Throughput Sequencing Technology
 
 January 22: Introduction to the Command Line: navigating in the Terminal and basic utilities
