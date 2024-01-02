@@ -192,57 +192,57 @@ Proposed meeting times: MR 1 -3 pm
 
 January 18: Overview of Molecular Genomics and High Throughput Sequencing Technology
 
-January 22: Introduction to the Command Line: navigating in the Terminal and basic utilities
+January 22: Introduction to the Command Line: directories, head, wc, etc.
 
-January 25: Introduction to the Command Line: parsing text files and piping (Homework 1 assigned)
+January 25: Introduction to the Command Line: pipes, compression, and grep
 
-January 29: Introduction to the Command Line: constructing scripts and running loops
+January 29: Introduction to the Command Line: find, cut, variables, scripting, and permissions (Homework 1 assigned)
 
-February 1: Introduction to the Command Line: installing programs and editing the $PATH
+February 1: Introduction to the Command Line: awk
 
-February 5: Introduction to the Command Line: remote access and remote transfers 
+February 5: Introduction to the Command Line: Logical operators, loops, and Xanadu (HW1 due)
 
-February 8: Introduction to the Command Line: job submissions
+February 8: Introduction to the Command Line: Batch scripts, interactive sessions, and software installs
 
-February 12: Quality Control and preprocessing of HTS data (Homework 2 assigned)
+February 12: lllumina data format, QC, and preprocessing (HW1 due)
 
-February 15: Aligning HTS data: aligning ChIP-seq data
+February 15: Illumina preprocessing: fastx tools
 
-February 19: ChIP-seq lecture
+February 19: Aligning Illumina data (Homework 2 assigned)
 
-February 22:  Processing of ChIP-seq data (Homework 2 due)
+February 22: Transcription Factors and ChIP-seq lecture
 
-February 26: UCSC Genome Browser (Homework 3 assigned)
+February 26: Post-mapping processing with samtools and bedtools
 
-February 29: ChIP-seq Analysis: calling peaks
+February 29: The UCSC genome browser (Dr. Guertin may pre-record or lecture remotely)
 
-March 4: ChIP-seq Analysis: gene proximity
+March 4: ChIP-seq Analysis: ChIP-seq peak calling
 
-March 7: ChIP-seq Analysis: motif analysis (Homework 3 due)
+March 7: ChIP-seq Analysis: Analyze ChIP-seq peaks with bedtools and awk (HW 2 due) (Midterm assigned)
 
-March 18: ChIP-seq Analysis: motif analysis continued (pre-recorded, Dr. Guertin is away)
+March 18: ChIP-seq Analysis: de novo motif analysis (pre-recorded) Dr. Guertin is in Utah
 
-March 21: ChIP-seq Analysis: catching up
+March 21: ChIP-seq Analysis: Motif queries to genomes and databases
 
 March 25: Introduction to R
 
-March 28: Plotting in R continued
+March 28: RNA-seq Lecture
 
-April 1: Writing functions in R
+April 1: R functions and plotting (Midterm due) (Homework 3 assigned)
 
-April 4: Overview of RNA-seq lecture
+April 4: RNA-seq Analysis: RNA-seq mapping
 
-April 8: RNA-seq Analysis: alignment (Homework 4 assigned)
+April 8: RNA-seq Analysis: visualization
 
-April 11: RNA-seq Analysis: differential expression
+April 11: RNA-seq Analysis: transcript assembly (recommended CCAM seminar at 4pm in Grossman Auditorium at 400 Farmington: Dr. Robin Dowell)
 
-April 15: RNA-seq Analysis: gene set enrichment analysis
+April 15: RNA-seq Analysis: Differential Expression (HW3 due) (Final Assigned)
 
-April 18: RNA-seq Analysis: continued (Homework 4 due)
+April 18: RNA-seq Analysis: Gene Set Enrichment analysis
 
-April 22: RNA-seq Analysis: continued 
+April 22: ATAC-seq Analysis
 
-April 25: RNA-seq Analysis: continued 
+April 25: ATAC-seq Analysis 
 
 # Resources for Students Experiencing Distress
 The University of Connecticut is committed to supporting students in their mental health, their psychological and social well-being, and their connection to their academic experience and overall wellness. The university believes that academic, personal, and professional development can flourish only when each member of our community is assured equitable access to mental health services. The university aims to make access to mental health attainable while fostering a community reflecting equity and diversity and understands that good mental health may lead to personal and professional growth, greater self-awareness, increased social engagement, enhanced academic success, and campus and community involvement. Students experiencing personal difficulties during the course may utilize the following services. Please familiarize yourself with these offices and the services they provide.
