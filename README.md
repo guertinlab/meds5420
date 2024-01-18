@@ -6,7 +6,9 @@ All 2023 documents are posted here:
 http://guertinlab.cam.uchc.edu/meds5420_2023/MEDS5420_2023_landing.html
 
 In 2024 all files will be hosted from GitHub with automatic updates: \
-https://guertinlab.github.io/meds5420/Lecture_1/Lecture_1.pdf  
+https://guertinlab.github.io/meds5420/Lecture_1/Lecture_1.pdf  \
+Lecture 1 Recording: \
+http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_1_2024.mp4 \
 https://guertinlab.github.io/meds5420/Lecture_2/Lecture_2.html \
 https://guertinlab.github.io/meds5420/Lecture_3/Lecture_3.html \
 https://guertinlab.github.io/meds5420/Lecture_4/Lecture_4.html \
