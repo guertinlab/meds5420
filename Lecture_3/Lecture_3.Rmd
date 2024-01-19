@@ -263,13 +263,13 @@ ls -l haiku.txt
 ```
 
 ```{r engine='bash', echo=T, eval=T}
-grep mask haiku.txt
+grep bug haiku.txt
 ```
 
 
 
 
-In the above command, the first argument "mask" is the pattern we are searching for.  The default action for `grep` is to return the entire line in which the pattern was found.
+In the above command, the first argument "bug" is the pattern we are searching for.  The default action for `grep` is to return the entire line in which the pattern was found.
 
 
 Let's instead search for the word day:
