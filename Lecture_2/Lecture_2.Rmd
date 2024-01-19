@@ -98,7 +98,24 @@ You can use the terminal window to:
 # Navigating and inspecting directories from the terminal
 
 ## Opening terminal
-* On a Mac, use **Command-Space**, type "Terminal" and hit enter to open a terminal window.
+* On a Mac, use **Command-Space**, type "Terminal" and hit enter to open a terminal window. \
+The default interactive shell on Macs is now `zsh`, but to stay consistent between other platforms, please change this to `bash`. \
+
+First open the preferences:
+
+```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Preferences Tab"}
+#library(knitr)
+knitr::include_graphics("./fig/preferences.png") 
+```
+
+Then change the shell to `/bin/bash`:
+```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Change shell opens with to `/bin/bash`"}
+#library(knitr)
+knitr::include_graphics("./fig/bash.png") 
+```
+
+
+
 * On Ubuntu Linux, use the search tab (top left icon in launch pad) to search for "Terminal". Open it and lock it to the launch pad by right clicking.\
 * For Windows users see this link: [https://www.laptopmag.com/articles/use-bash-shell-windows-10](https://www.laptopmag.com/articles/use-bash-shell-windows-10)\
 
