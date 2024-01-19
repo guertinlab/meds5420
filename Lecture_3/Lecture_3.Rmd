@@ -207,7 +207,7 @@ tar -cvf data-shell_retar.tar data-shell
 
 Compressing files with gzip:
 ```{r engine='bash', eval=F, echo=TRUE}
-gzip filename # compresses file
+gzip filename #  compresses file
 ```
 
 Let's look a specific example in the writing folder within data.shell
