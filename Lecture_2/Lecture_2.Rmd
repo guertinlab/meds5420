@@ -101,7 +101,7 @@ You can use the terminal window to:
 * On a Mac, use **Command-Space**, type "Terminal" and hit enter to open a terminal window. \
 The default interactive shell on Macs is now `zsh`, but to stay consistent between other platforms, please change this to `bash`. \
 
-First open the preferences:
+First open the preferences tab:
 
 ```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Preferences Tab"}
 #library(knitr)
