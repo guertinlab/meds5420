@@ -52,7 +52,7 @@ h4 {font-size: 18px;}
 h5 {font-size: 16px;}
 h6 {font-size: 12px;}
 code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-pre:not([class]) { background-color: white }</style>
+</style>
 <script>
 
 /**
@@ -926,7 +926,7 @@ Figure 1: <span class="caption-title">XKCD: valid <code>tar</code> command</span
 #For directories, execute command in parent directory (one level up). 
 #Don&#39;t use absolute path. </code></pre>
 <p>Compressing files with gzip:</p>
-<pre class="bash"><code>gzip filename # compresses file</code></pre>
+<pre class="bash"><code>gzip filename #  compresses file</code></pre>
 <p>Let’s look a specific example in the writing folder within data.shell</p>
 <pre class="bash"><code>cd ./data-shell/writing/leisure/
 
@@ -950,9 +950,9 @@ ls</code></pre>
 Let’s head over to the writing directory and try using <code>grep</code>:<br />
 Have a look at <code>haiku.txt</code>:</p>
 <pre class="bash"><code>cat haiku.txt</code></pre>
-<pre><code>## Some things can be hard
-## covering your face is not
-## wear a mask dammit
+<pre><code>## Errors teach, not taunt,
+## Each bug a lesson hidden,
+## Growth in every line.
 ## 
 ## With searching comes loss
 ## and the presence of absence:
@@ -963,10 +963,10 @@ Have a look at <code>haiku.txt</code>:</p>
 ## Software is like that.</code></pre>
 <p>When was <code>haiku.txt</code> last modified?</p>
 <pre class="bash"><code>ls -l haiku.txt</code></pre>
-<pre><code>## -rw-r--r--  1 runner  staff  216 May 17 17:26 haiku.txt</code></pre>
-<pre class="bash"><code>grep mask haiku.txt</code></pre>
-<pre><code>## wear a mask dammit</code></pre>
-<p>In the above command, the first argument “mask” is the pattern we are searching for. The default action for <code>grep</code> is to return the entire line in which the pattern was found.</p>
+<pre><code>## -rw-r--r--  1 runner  staff  220 Jan 20 00:35 haiku.txt</code></pre>
+<pre class="bash"><code>grep bug haiku.txt</code></pre>
+<pre><code>## Each bug a lesson hidden,</code></pre>
+<p>In the above command, the first argument “bug” is the pattern we are searching for. The default action for <code>grep</code> is to return the entire line in which the pattern was found.</p>
 <p>Let’s instead search for the word day:</p>
 <pre class="bash"><code>grep day haiku.txt</code></pre>
 <pre><code>## Yesterday it worked
@@ -979,12 +979,10 @@ To impose word boundaries, we use the <code>-w</code> flag:</p>
 <p>Sometimes we want to search for more than a single word.
 To search for a phrase, we need to use double quotes so that <code>grep</code> treats the pattern as a single argument.</p>
 <pre class="bash"><code>grep -w &quot;is not&quot; haiku.txt</code></pre>
-<pre><code>## covering your face is not
-## Today it is not working</code></pre>
+<pre><code>## Today it is not working</code></pre>
 <p>Other very useful <code>grep</code> flags are <code>-n</code>, <code>-i</code> and <code>-v</code>:</p>
 <pre class="bash"><code>grep -n &quot;it&quot; haiku.txt</code></pre>
-<pre><code>## 3:wear a mask dammit
-## 5:With searching comes loss
+<pre><code>## 5:With searching comes loss
 ## 9:Yesterday it worked
 ## 10:Today it is not working</code></pre>
 <pre class="bash"><code>grep -n -w -i &quot;the&quot; haiku.txt</code></pre>
@@ -998,9 +996,7 @@ To search for a phrase, we need to use double quotes so that <code>grep</code> t
 <p>The real power of <code>grep</code> is using a special class of wildcards known as “regular expressions” (the “re” in <code>grep</code>).
 Let’s use regular expressions to find lines where the second letter is “o”:</p>
 <pre class="bash"><code>grep &#39;^.o&#39; haiku.txt</code></pre>
-<pre><code>## Some things can be hard
-## covering your face is not
-## Today it is not working
+<pre><code>## Today it is not working
 ## Software is like that.</code></pre>
 <p>Explanation of the pattern:</p>
 <ul>
