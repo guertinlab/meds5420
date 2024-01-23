@@ -271,6 +271,7 @@ To save typing:
 5. *Control-a* will move cursor to the beginning of a line.
 6. *Control-e* will move cursor to the end of the line.
 7. *Control-k* to cut (kill) everything to the end of the line.
+8. *Option-Arrow(left or right)* to move multiple spaces to the next special character
 
 ---
 
@@ -464,21 +465,18 @@ cp the_raven.txt Thoreau_quotes.txt animal.txt
 ## TO DO: Get a scripting text editor
 
 **MAC USERS:** \
-Download Text Wrangler here: [http://download.cnet.com/TextWrangler/3000-2351_4-10220012.html](http://download.cnet.com/TextWrangler/3000-2351_4-10220012.html) and then install it.
-
-OR \
-
 BBedit:
 [https://www.barebones.com/products/bbedit/](https://www.barebones.com/products/bbedit/)
 
 
-
 **PC USERS:**
+download Visual Studio: [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/) \
+or \
 download notepad++ here: [https://notepad-plus-plus.org/](https://notepad-plus-plus.org/) \
-Can also use Sublime or Visual Studio
+
 
 \
-**Note:** You can also use emacs or other command line editors such as `nano` or `vim`.  We will be using `emacs` when we work on the server soon.\
+**Note:** You can also use emacs or other command line editors such as `nano` or `vim`.  We will be using `nano` when we work on the server soon.\
 
 
 
