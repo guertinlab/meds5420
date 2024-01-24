@@ -354,7 +354,7 @@ but for now just know that they exist.  If you want to make use of them, check o
 
 ## Exercise 3: Command practice and 'grepping' patterns
 Look in the `song_lyrics` folder inside the data-shell folder and you should see a single file: `TS_example.txt`
-The TS_example.txt file contains lyrics to a song by a well-known contemporary female artist. Using the command line utilities you have learned, try the following:
+The TS_example.txt file contains lyrics to a song by a well-known contemporary artist. Using the command line utilities you have learned, try the following:
 
 **1.** Print the number of lines in the file. \
 
