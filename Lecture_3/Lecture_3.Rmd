@@ -429,10 +429,10 @@ cat animals.txt | sort | tail -4 | head -3
   `grep -i '^s' haiku.txt`
 - lines that end in the letter d:\
   `grep -i 'd$' haiku.txt`
-- lines that begin and end with the letters s and d:\
+- lines that begin and end with the letters "t" and "g":\
   `grep -i '^t.*g$' haiku.txt`
-- lines with words that begin with the letter n. This requires a Google search, to specify the first and last letters of words use `\<` (start of word) and `\>` (end of word). \
-  `grep -i '\<n' haiku.txt` or `grep -w -i "n.*"`
+- lines with words that begin with the letter n. The second answer requires a Google search, to specify the first and last letters of words use `\<` (start of word) and `\>` (end of word). \
+`grep -w -i "n.*"` or `grep -i '\<n' haiku.txt` 
 
 
 ## Exercise 3: 'grepping' patterns
@@ -443,8 +443,6 @@ The TS\_example.txt file contains lyrics to a song by a well-known contemporary 
 **3.** Print the number of lines that have the word 'shake' in them: `grep -c shake TS_example.txt` -this answer is not sensitive to upper and lowercase \
 **4.** Devise a way to print the **number of times** 'shake' appears in the song: `grep -o -i shake TS_example.txt | wc -w` \
 -here the `-o` will only print the *shake* part of the line to a new line in the output and we can pipe to `wc` and count the number of words \
-
-**\*Hint:** use the manuals for different functions to see what your options could be.
 
 
 
