@@ -963,7 +963,7 @@ Have a look at <code>haiku.txt</code>:</p>
 ## Software is like that.</code></pre>
 <p>When was <code>haiku.txt</code> last modified?</p>
 <pre class="bash"><code>ls -l haiku.txt</code></pre>
-<pre><code>## -rw-r--r--  1 runner  staff  220 Jan 24 22:27 haiku.txt</code></pre>
+<pre><code>## -rw-r--r--  1 runner  staff  220 Jan 24 22:48 haiku.txt</code></pre>
 <pre class="bash"><code>grep bug haiku.txt</code></pre>
 <pre><code>## Each bug a lesson hidden,</code></pre>
 <p>In the above command, the first argument “bug” is the pattern we are searching for. The default action for <code>grep</code> is to return the entire line in which the pattern was found.</p>
@@ -1089,10 +1089,10 @@ raccoon</code></pre>
 <code>grep -i &#39;^s&#39; haiku.txt</code></li>
 <li>lines that end in the letter d:<br />
 <code>grep -i &#39;d$&#39; haiku.txt</code></li>
-<li>lines that begin and end with the letters s and d:<br />
+<li>lines that begin and end with the letters “t” and “g”:<br />
 <code>grep -i &#39;^t.*g$&#39; haiku.txt</code></li>
-<li>lines with words that begin with the letter n. This requires a Google search, to specify the first and last letters of words use <code>\&lt;</code> (start of word) and <code>\&gt;</code> (end of word).<br />
-<code>grep -i &#39;\&lt;n&#39; haiku.txt</code> or <code>grep -w -i &quot;n.*&quot;</code></li>
+<li>lines with words that begin with the letter n. The second answer requires a Google search, to specify the first and last letters of words use <code>\&lt;</code> (start of word) and <code>\&gt;</code> (end of word).<br />
+<code>grep -w -i &quot;n.*&quot;</code> or <code>grep -i &#39;\&lt;n&#39; haiku.txt</code></li>
 </ul>
 </div>
 <div id="exercise-3-grepping-patterns" class="section level2" number="7.3">
@@ -1104,7 +1104,6 @@ raccoon</code></pre>
 <strong>4.</strong> Devise a way to print the <strong>number of times</strong> ‘shake’ appears in the song: <code>grep -o -i shake TS_example.txt | wc -w</code><br />
 -here the <code>-o</code> will only print the <em>shake</em> part of the line to a new line in the output and we can pipe to <code>wc</code> and count the number of words<br />
 </p>
-<p><strong>*Hint:</strong> use the manuals for different functions to see what your options could be.</p>
 </div>
 </div>
 
