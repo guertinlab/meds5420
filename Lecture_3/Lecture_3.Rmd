@@ -332,7 +332,7 @@ Explanation of the pattern:
 Some other useful expression in grep:
 
 - `$` specifies the matching at end of a line. \
-- `*` in grep, the asterisk is a repetition operator. This is commonly coupled to `.` to act as a wild card of unspecified length 
+- `*` in grep, the asterisk is a repetition operator. This is commonly coupled to `.` as `.*` to act as a wild card of unspecified length 
 
 
 Learning the full power of regular expressions takes time,
@@ -348,7 +348,7 @@ but for now just know that they exist.  If you want to make use of them, check o
 
 - lines that begin with the letter s
 - lines that end in the letter d
-- lines that begin and end with the letters s and d 
+- lines that begin and end with the letters "t" and "g" 
 - lines with words that begin with the letter n
 
 
@@ -430,7 +430,7 @@ cat animals.txt | sort | tail -4 | head -3
 - lines that end in the letter d:\
   `grep -i 'd$' haiku.txt`
 - lines that begin and end with the letters s and d:\
-  `grep -i '^s.*d$' haiku.txt`
+  `grep -i '^t.*g$' haiku.txt`
 - lines with words that begin with the letter n. This requires a Google search, to specify the first and last letters of words use `\<` (start of word) and `\>` (end of word). \
   `grep -i '\<n' haiku.txt` or `grep -w -i "n.*"`
 
