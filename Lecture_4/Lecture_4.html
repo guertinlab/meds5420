@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2023-01-30" />
+<meta name="date" content="2024-01-29" />
 
 <title>MEDS5420 – The Shell Part 3</title>
 
@@ -701,7 +701,7 @@ function toggle_visibility(id1) {
 
 
 <h1 class="title toc-ignore">MEDS5420 – The Shell Part 3</h1>
-<h4 class="date">January 30, 2023</h4>
+<h4 class="date">January 29, 2024</h4>
 
 </div>
 
@@ -815,10 +815,10 @@ echo The date and time is: $info</code></pre>
 <p>vs.</p>
 <pre class="bash"><code>info=`date`
 echo The date and time is: $info</code></pre>
-<pre><code>## The date and time is: Thu Jan 25 00:40:00 UTC 2024</code></pre>
+<pre><code>## The date and time is: Thu Jan 25 20:27:32 UTC 2024</code></pre>
 <p>Backticks can cause problems when using other quotations, so there is another way to run a command in place:</p>
 <pre class="bash"><code>echo The date and time is: $(date)</code></pre>
-<pre><code>## The date and time is: Thu Jan 25 00:40:00 UTC 2024</code></pre>
+<pre><code>## The date and time is: Thu Jan 25 20:27:32 UTC 2024</code></pre>
 </div>
 </div>
 <div id="scripting-in-the-shell." class="section level1" number="3">
@@ -1019,9 +1019,9 @@ echo &quot;the time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4  
 </code></pre>
 <pre><code>## the date and time is:
-## Thu Jan 25 00:40:00 UTC 2024
+## Thu Jan 25 20:27:32 UTC 2024
 ## the time is:
-## 00:40:00</code></pre>
+## 20:27:32</code></pre>
 <p><code>-d</code>: is the delimiter set by user. Default is tab: <code>\t</code><br />
 <code>-f</code>: the fields to select for after splitting. Can list each (1,2,3) or list a range (1-3)<br />
 <br />
@@ -1031,16 +1031,16 @@ echo $(date) | cut -d &quot; &quot; -f 4
 
 echo `date` | rev
 </code></pre>
-<pre><code>## 4202 CTU 00:04:00 52 naJ uhT</code></pre>
+<pre><code>## 4202 CTU 23:72:02 52 naJ uhT</code></pre>
 <p>Can be done on any part of a pipe</p>
 <pre class="bash"><code>echo $(date)
 
 echo &quot;the reverse time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4 |rev
 </code></pre>
-<pre><code>## Thu Jan 25 00:40:00 UTC 2024
+<pre><code>## Thu Jan 25 20:27:32 UTC 2024
 ## the reverse time is:
-## 00:04:00</code></pre>
+## 23:72:02</code></pre>
 <p><strong>Extracting columns from tables:</strong> Cut can also be used to extract columns from tables.<br />
 </p>
 <p>Let’s just get the first column of <code>color-table.txt</code>:</p>
