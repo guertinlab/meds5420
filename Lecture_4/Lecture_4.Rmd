@@ -409,7 +409,7 @@ sort -k 2 color-table.txt | head -n 5
 # k followed by a number represents the column to sort by.
 ```
 
-Notice how numbers are handled.  They are handled as a string of numbers and each position in evaluated seperately.  If you want a true numeric sort, try this:
+Notice how numbers are handled.  They are handled as a string of numbers and each position in evaluated separately.  If you want a true numeric sort, try this:
 ```{r engine='bash', eval=T, echo=T}
 #numerical sort on column 2
 
