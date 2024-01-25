@@ -429,7 +429,7 @@ cat animals.txt | sort | tail -4 | head -3
   `grep -i '^s' haiku.txt`
 - lines that end in the letter d:\
   `grep -i 'd$' haiku.txt`
-- - lines that begin with the letter "t" and end with the letter "g" :\
+- lines that begin with the letter "t" and end with the letter "g" :\
   `grep -i '^t.*g$' haiku.txt`
 - lines with words that begin with the letter n. The second answer requires a Google search, to specify the first and last letters of words use `\<` (start of word) and `\>` (end of word). \
 `grep -w -i "n.*"` or `grep -i '\<n' haiku.txt` 
@@ -437,7 +437,7 @@ cat animals.txt | sort | tail -4 | head -3
 
 ## Exercise 3: 'grepping' patterns
  
-The TS\_example.txt file contains lyrics to a song by a well-known contemporary female artist. Using the command line utilities you just learned, try the following: \
+The TS\_example.txt file contains lyrics to a song by a well-known contemporary artist. Using the command line utilities you just learned, try the following: \
 **1.** Print the number of lines in the file: `wc -l TS_example.txt` \
 **2.** Print the lines **and line number** that have the word 'shake' in them to a new file called `shake-lines.txt`: `grep -n -i shake  TS_example.txt > shake-lines.txt` -this answer will print all instances of *shake* regardless of upper and lowercase letters due to the `-i` option.\
 **3.** Print the number of lines that have the word 'shake' in them: `grep -c shake TS_example.txt` -this answer is not sensitive to upper and lowercase \
