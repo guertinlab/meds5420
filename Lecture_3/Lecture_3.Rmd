@@ -348,7 +348,7 @@ but for now just know that they exist.  If you want to make use of them, check o
 
 - lines that begin with the letter s
 - lines that end in the letter d
-- lines that begin and end with the letters "t" and "g" 
+- lines that begin with the letter "t" and end with the letter "g" 
 - lines with words that begin with the letter n
 
 
@@ -429,7 +429,7 @@ cat animals.txt | sort | tail -4 | head -3
   `grep -i '^s' haiku.txt`
 - lines that end in the letter d:\
   `grep -i 'd$' haiku.txt`
-- lines that begin and end with the letters "t" and "g":\
+- - lines that begin with the letter "t" and end with the letter "g" :\
   `grep -i '^t.*g$' haiku.txt`
 - lines with words that begin with the letter n. The second answer requires a Google search, to specify the first and last letters of words use `\<` (start of word) and `\>` (end of word). \
 `grep -w -i "n.*"` or `grep -i '\<n' haiku.txt` 
