@@ -963,7 +963,7 @@ Have a look at <code>haiku.txt</code>:</p>
 ## Software is like that.</code></pre>
 <p>When was <code>haiku.txt</code> last modified?</p>
 <pre class="bash"><code>ls -l haiku.txt</code></pre>
-<pre><code>## -rw-r--r--  1 runner  staff  220 Jan 24 22:48 haiku.txt</code></pre>
+<pre><code>## -rw-r--r--  1 runner  staff  220 Jan 25 19:31 haiku.txt</code></pre>
 <pre class="bash"><code>grep bug haiku.txt</code></pre>
 <pre><code>## Each bug a lesson hidden,</code></pre>
 <p>In the above command, the first argument “bug” is the pattern we are searching for. The default action for <code>grep</code> is to return the entire line in which the pattern was found.</p>
@@ -1025,7 +1025,7 @@ but for now just know that they exist. If you want to make use of them, check ou
 <ul>
 <li>lines that begin with the letter s</li>
 <li>lines that end in the letter d</li>
-<li>lines that begin and end with the letters “t” and “g”</li>
+<li>lines that begin with the letter “t” and end with the letter “g”</li>
 <li>lines with words that begin with the letter n</li>
 </ul>
 </div>
@@ -1089,8 +1089,10 @@ raccoon</code></pre>
 <code>grep -i &#39;^s&#39; haiku.txt</code></li>
 <li>lines that end in the letter d:<br />
 <code>grep -i &#39;d$&#39; haiku.txt</code></li>
-<li>lines that begin and end with the letters “t” and “g”:<br />
+<li><ul>
+<li>lines that begin with the letter “t” and end with the letter “g” :<br />
 <code>grep -i &#39;^t.*g$&#39; haiku.txt</code></li>
+</ul></li>
 <li>lines with words that begin with the letter n. The second answer requires a Google search, to specify the first and last letters of words use <code>\&lt;</code> (start of word) and <code>\&gt;</code> (end of word).<br />
 <code>grep -w -i &quot;n.*&quot;</code> or <code>grep -i &#39;\&lt;n&#39; haiku.txt</code></li>
 </ul>
