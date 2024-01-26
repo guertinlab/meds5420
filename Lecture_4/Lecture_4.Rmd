@@ -57,7 +57,7 @@ The find command can be given several other criteria known as "tests"
 to locate files with specific attributes, such as creation time, size,
 permissions, or ownership. Use `man find` to explore these, and then
 write a single command to find all **.txt** files in or below the current
-directory that were modified in the last 168 hours.
+directory that were modified in the last 336 hours.
 
 Hint 1: you will need to use three tests: `-type`, `-name`, and `-mtime`
 
@@ -458,7 +458,7 @@ Devise a way to split the string and report the filename without referencing the
 ## Exercise 1: finding files
 
 ```{r engine='bash', eval=F}
-find . -type f -name '*.txt' -mtime -7
+find . -type f -name '*.txt' -mtime -14
 ```
 
 
