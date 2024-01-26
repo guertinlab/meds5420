@@ -101,7 +101,7 @@ cat mm9_genes.txt | awk 'NR>1{ print $0}' | head -3
 
 **1.** Reordering columns \
 **2.**  Simple math with columns \
-**3.** Printing certain rows of columns \
+**3.** Printing certain rows or columns \
 **4.** Adding rows or columns to large files \
 **5.** Adding/removing headers from large files \
  
