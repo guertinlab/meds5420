@@ -329,14 +329,14 @@ It is not immediately apparent how to download the file from GitHub, but you do 
 If you have a Mac, then `curl` is the default method to retrieve files from URLs:
 
 ```{r engine='bash', eval=F, echo=T}
-curl -O https://raw.githubusercontent.com/guertinlab/meds5420/main/Lecture4_command_line/color-table.txt
+curl -O https://raw.githubusercontent.com/guertinlab/meds5420/main/Lecture_4/color-table.txt
 #the manual will tell you what the -O (the letter, not a zero) option does 
 ```
 
 Linux OS have `wget`:
 
 ```{r engine='bash', eval=F, echo=T}
-wget https://raw.githubusercontent.com/guertinlab/meds5420/main/Lecture4_command_line/color-table.txt
+wget https://raw.githubusercontent.com/guertinlab/meds5420/main/Lecture_4/color-table.txt
 ```
 
 Let's tuck the color-table.txt file away into some new directories:
