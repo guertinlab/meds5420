@@ -43,7 +43,7 @@ cd ./in_class/coordinates
 
 Review the `cut` command by splitting the file name `chr_coordinates.bed` on the `r` character and then the `c` character to output `oo`. Remember to use `echo` to interpret the file name as a string and not a file.
 
-```{r engine='bash', eval=F, echo=T}
+```{r engine='bash', eval=T, echo=T}
 fileName="chr_coordinates.bed"
 echo $fileName | cut -f 2 -d 'r' | cut -f 2 -d 'c' 
 ```
@@ -66,7 +66,17 @@ sort -k 2,2n chr_coordinates.bed | head
 
 ## Selecting unique elements with `uniq`
 
-# Manipulation / parsing of tables with awk
+Trying to use `uniq` to get the unique chromosomes
+```{r engine='bash', eval=T, echo=T}
+cat chr_coordinates.bed | cut -f 1 | uniq
+```
+
+Recall that `uniq` operates on adjacent items, so lists must be sorted first:
+```{r engine='bash', eval=T, echo=T}
+cut -f 1 chr_coordinates.bed |sort | uniq
+```
+
+# Manipulation / parsing of tables with `awk`
 
 One bad thing about **cut** is that you cannot reorder columns (e.g. cut -f 3,1 table does not work)\
 
