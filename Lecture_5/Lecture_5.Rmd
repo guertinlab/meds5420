@@ -61,7 +61,7 @@ The option `-k 2` sorts on column 2, but if column 2 is identical, the row will 
 
 ```{r engine='bash', eval=T, echo=T}
 #numerical sort on column 2
-sort -k 2,2n chr_coordinates.bed | head 
+sort -s -k 2,2n chr_coordinates.bed | head 
 ```
 
 ## Selecting unique elements with `uniq`
