@@ -419,7 +419,6 @@ The option `-k 2` sorts on column 2, but if column 2 is identical, the row will 
 
 ```{r engine='bash', eval=T, echo=T}
 #numerical sort on column 2
-
 sort -s -k 2,2n color-table.txt | head -n 5
 ```
 
