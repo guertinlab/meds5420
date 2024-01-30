@@ -415,12 +415,12 @@ Notice how numbers are handled.  They are handled as a string of numbers and eac
 
 sort -k 2n color-table.txt | head -n 5
 ```
-The option `-k 2` sorts on column 2, but if column 2 is identical, the row will continue to be sorted until a distinct character can differentiate. The following will only sort on column 2 and retain the original relative order of row that have identical column 2 values. 
+The option `-k 2` sorts on column 2, but if column 2 is identical, the row will continue to be sorted until a distinct character can differentiate. The following will only sort on column 2 and retain the original relative order of row that have identical column 2 values. The `-s` refers to a stable sort and `-k 2,2` says only use column 2 to sort.  
 
 ```{r engine='bash', eval=T, echo=T}
 #numerical sort on column 2
 
-sort -k 2,2n color-table.txt | head -n 5
+sort -s -k 2,2n color-table.txt | head -n 5
 ```
 
 
