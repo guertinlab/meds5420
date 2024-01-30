@@ -716,7 +716,7 @@ function toggle_visibility(id1) {
 <li><a href="#sorting-numerically-with-sort" id="toc-sorting-numerically-with-sort"><span class="toc-section-number">1.4</span> Sorting numerically with <code>sort</code></a></li>
 <li><a href="#selecting-unique-elements-with-uniq" id="toc-selecting-unique-elements-with-uniq"><span class="toc-section-number">1.5</span> Selecting unique elements with <code>uniq</code></a></li>
 </ul></li>
-<li><a href="#manipulation-parsing-of-tables-with-awk" id="toc-manipulation-parsing-of-tables-with-awk"><span class="toc-section-number">2</span> Manipulation / parsing of tables with awk</a>
+<li><a href="#manipulation-parsing-of-tables-with-awk" id="toc-manipulation-parsing-of-tables-with-awk"><span class="toc-section-number">2</span> Manipulation / parsing of tables with <code>awk</code></a>
 <ul>
 <li><a href="#feedback-drop-the-awk" id="toc-feedback-drop-the-awk"><span class="toc-section-number">2.1</span> Feedback: drop the <strong>awk</strong></a></li>
 <li><a href="#more-awk-usage-and-syntax" id="toc-more-awk-usage-and-syntax"><span class="toc-section-number">2.2</span> More <code>awk</code> usage and syntax:</a></li>
@@ -756,6 +756,7 @@ cd ./in_class/coordinates</code></pre>
 <p>Review the <code>cut</code> command by splitting the file name <code>chr_coordinates.bed</code> on the <code>r</code> character and then the <code>c</code> character to output <code>oo</code>. Remember to use <code>echo</code> to interpret the file name as a string and not a file.</p>
 <pre class="bash"><code>fileName=&quot;chr_coordinates.bed&quot;
 echo $fileName | cut -f 2 -d &#39;r&#39; | cut -f 2 -d &#39;c&#39; </code></pre>
+<pre><code>## oo</code></pre>
 </div>
 <div id="sorting-numerically-with-sort" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Sorting numerically with <code>sort</code></h2>
@@ -790,10 +791,49 @@ sort -k 2,2n chr_coordinates.bed | head </code></pre>
 </div>
 <div id="selecting-unique-elements-with-uniq" class="section level2" number="1.5">
 <h2><span class="header-section-number">1.5</span> Selecting unique elements with <code>uniq</code></h2>
+<p>Trying to use <code>uniq</code> to get the unique chromosomes</p>
+<pre class="bash"><code>cat chr_coordinates.bed | cut -f 1 | uniq</code></pre>
+<pre><code>## chr1
+## chr11
+## chr12
+## chr14
+## chr15
+## chr16
+## chr17
+## chr2
+## chr19
+## chr2
+## chr20
+## chr22
+## chr3
+## chr5
+## chr6
+## chr7
+## chr8
+## chr13</code></pre>
+<p>Recall that <code>uniq</code> operates on adjacent items, so lists must be sorted first:</p>
+<pre class="bash"><code>cut -f 1 chr_coordinates.bed |sort | uniq</code></pre>
+<pre><code>## chr1
+## chr11
+## chr12
+## chr13
+## chr14
+## chr15
+## chr16
+## chr17
+## chr19
+## chr2
+## chr20
+## chr22
+## chr3
+## chr5
+## chr6
+## chr7
+## chr8</code></pre>
 </div>
 </div>
 <div id="manipulation-parsing-of-tables-with-awk" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Manipulation / parsing of tables with awk</h1>
+<h1><span class="header-section-number">2</span> Manipulation / parsing of tables with <code>awk</code></h1>
 <p>One bad thing about <strong>cut</strong> is that you cannot reorder columns (e.g. cut -f 3,1 table does not work)<br />
 </p>
 <p>A convenient way to reorder columns, especially with large files is with another language called <strong>awk</strong>.<br />
