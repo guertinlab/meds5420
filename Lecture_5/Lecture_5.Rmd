@@ -11,7 +11,7 @@ output:
 fontsize: 14pt
 geometry: margin=1in
 ---
-# A review of `rev`, `sort`, and `uniq`
+# A review of `wget`, `curl`, `cut`, `sort`, and `uniq`
 
 I asked you to complete section 7 from Lecture 4 for homework, so let's review these commands.
 
@@ -48,8 +48,6 @@ fileName="chr_coordinates.bed"
 echo $fileName | cut -f 2 -d 'r' | cut -f 2 -d 'c' 
 ```
 ## Sorting numerically with `sort`
-
-In the previosu lecture, my example did not make sense when discussing the difference between the arguments `-k 2n` and `-k 2,2n`. Why? \
 
 If you want a numeric sort:
 ```{r engine='bash', eval=T, echo=T}
