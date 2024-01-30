@@ -708,24 +708,92 @@ function toggle_visibility(id1) {
 <h1>Contents</h1>
 <div id="TOC">
 <ul>
-<li><a href="#manipulation-parsing-of-tables-with-awk" id="toc-manipulation-parsing-of-tables-with-awk"><span class="toc-section-number">1</span> Manipulation / parsing of tables with awk</a>
+<li><a href="#a-review-of-rev-sort-and-uniq" id="toc-a-review-of-rev-sort-and-uniq"><span class="toc-section-number">1</span> A review of <code>rev</code>, <code>sort</code>, and <code>uniq</code></a>
 <ul>
-<li><a href="#feedback-drop-the-awk" id="toc-feedback-drop-the-awk"><span class="toc-section-number">1.1</span> Feedback: drop the <strong>awk</strong></a></li>
-<li><a href="#more-awk-usage-and-syntax" id="toc-more-awk-usage-and-syntax"><span class="toc-section-number">1.2</span> More <code>awk</code> usage and syntax:</a></li>
-<li><a href="#passing-shell-variables-to-awk" id="toc-passing-shell-variables-to-awk"><span class="toc-section-number">1.3</span> Passing shell variables to awk:</a></li>
-<li><a href="#running-simple-tests-before-function-in-awk" id="toc-running-simple-tests-before-function-in-awk"><span class="toc-section-number">1.4</span> Running simple tests before function in awk:</a></li>
-<li><a href="#common-uses-for-awk-we-will-use-in-this-course" id="toc-common-uses-for-awk-we-will-use-in-this-course"><span class="toc-section-number">1.5</span> Common uses for <code>awk</code> we will use in this course:</a></li>
-<li><a href="#in-class-exercise-1-splitting-strings-and-parsing-files." id="toc-in-class-exercise-1-splitting-strings-and-parsing-files."><span class="toc-section-number">1.6</span> In class exercise 1: Splitting strings and parsing files.</a></li>
+<li><a href="#retrieving-files-from-a-url-using-curl-or-wget" id="toc-retrieving-files-from-a-url-using-curl-or-wget"><span class="toc-section-number">1.1</span> Retrieving files from a URL using <code>curl</code> or <code>wget</code></a></li>
+<li><a href="#move-the-bed-file-to-a-new-directory" id="toc-move-the-bed-file-to-a-new-directory"><span class="toc-section-number">1.2</span> Move the <code>bed</code> file to a new directory</a></li>
+<li><a href="#string-splitting-and-manipulation-with-cut" id="toc-string-splitting-and-manipulation-with-cut"><span class="toc-section-number">1.3</span> String splitting and manipulation with <code>cut</code></a></li>
+<li><a href="#sorting-numerically-with-sort" id="toc-sorting-numerically-with-sort"><span class="toc-section-number">1.4</span> Sorting numerically with <code>sort</code></a></li>
+<li><a href="#selecting-unique-elements-with-uniq" id="toc-selecting-unique-elements-with-uniq"><span class="toc-section-number">1.5</span> Selecting unique elements with <code>uniq</code></a></li>
 </ul></li>
-<li><a href="#answers-to-exercises" id="toc-answers-to-exercises"><span class="toc-section-number">2</span> Answers to exercises:</a>
+<li><a href="#manipulation-parsing-of-tables-with-awk" id="toc-manipulation-parsing-of-tables-with-awk"><span class="toc-section-number">2</span> Manipulation / parsing of tables with awk</a>
 <ul>
-<li><a href="#in-class-exercise-1" id="toc-in-class-exercise-1"><span class="toc-section-number">2.1</span> In class exercise 1:</a></li>
+<li><a href="#feedback-drop-the-awk" id="toc-feedback-drop-the-awk"><span class="toc-section-number">2.1</span> Feedback: drop the <strong>awk</strong></a></li>
+<li><a href="#more-awk-usage-and-syntax" id="toc-more-awk-usage-and-syntax"><span class="toc-section-number">2.2</span> More <code>awk</code> usage and syntax:</a></li>
+<li><a href="#passing-shell-variables-to-awk" id="toc-passing-shell-variables-to-awk"><span class="toc-section-number">2.3</span> Passing shell variables to awk:</a></li>
+<li><a href="#running-simple-tests-before-function-in-awk" id="toc-running-simple-tests-before-function-in-awk"><span class="toc-section-number">2.4</span> Running simple tests before function in awk:</a></li>
+<li><a href="#common-uses-for-awk-we-will-use-in-this-course" id="toc-common-uses-for-awk-we-will-use-in-this-course"><span class="toc-section-number">2.5</span> Common uses for <code>awk</code> we will use in this course:</a></li>
+<li><a href="#in-class-exercise-1-splitting-strings-and-parsing-files." id="toc-in-class-exercise-1-splitting-strings-and-parsing-files."><span class="toc-section-number">2.6</span> In class exercise 1: Splitting strings and parsing files.</a></li>
+</ul></li>
+<li><a href="#answers-to-exercises" id="toc-answers-to-exercises"><span class="toc-section-number">3</span> Answers to exercises:</a>
+<ul>
+<li><a href="#in-class-exercise-1" id="toc-in-class-exercise-1"><span class="toc-section-number">3.1</span> In class exercise 1:</a></li>
 </ul></li>
 </ul>
 </div>
 
-<div id="manipulation-parsing-of-tables-with-awk" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Manipulation / parsing of tables with awk</h1>
+<div id="a-review-of-rev-sort-and-uniq" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> A review of <code>rev</code>, <code>sort</code>, and <code>uniq</code></h1>
+<p>I asked you to complete section 7 from Lecture 4 for homework, so let’s review these commands.</p>
+<div id="retrieving-files-from-a-url-using-curl-or-wget" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Retrieving files from a URL using <code>curl</code> or <code>wget</code></h2>
+<p>Download <code>chr_coordinates.bed</code> from the Lecture 5 folder in GitHub and move this file to your MEDS5420 folder.<br />
+</p>
+<p>If you have a Mac, use <code>curl</code>:</p>
+<pre class="bash"><code>curl -O https://path/to/the/raw/file/on/github.bed</code></pre>
+<p>Linux OS have <code>wget</code>:</p>
+<pre class="bash"><code>wget https://path/to/the/raw/file/on/github.bed</code></pre>
+</div>
+<div id="move-the-bed-file-to-a-new-directory" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Move the <code>bed</code> file to a new directory</h2>
+<pre class="bash"><code>#start from the MEDS5420 folder:
+mkdir ./in_class/coordinates
+mv chr_coordinates.bed ./in_class/coordinates
+cd ./in_class/coordinates</code></pre>
+</div>
+<div id="string-splitting-and-manipulation-with-cut" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> String splitting and manipulation with <code>cut</code></h2>
+<p>Review the <code>cut</code> command by splitting the file name <code>chr_coordinates.bed</code> on the <code>r</code> character and then the <code>c</code> character to output <code>oo</code>. Remember to use <code>echo</code> to interpret the file name as a string and not a file.</p>
+<pre class="bash"><code>fileName=&quot;chr_coordinates.bed&quot;
+echo $fileName | cut -f 2 -d &#39;r&#39; | cut -f 2 -d &#39;c&#39; </code></pre>
+</div>
+<div id="sorting-numerically-with-sort" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Sorting numerically with <code>sort</code></h2>
+<p>In the previosu lecture, my example did not make sense when discussing the difference between the arguments <code>-k 2n</code> and <code>-k 2,2n</code>. Why?<br />
+</p>
+<p>If you want a numeric sort:</p>
+<pre class="bash"><code>#numerical sort on column 2
+sort -k 2n chr_coordinates.bed | head </code></pre>
+<pre><code>## chr1 41211   41412   2838.0198070899
+## chr1 41211   41812   2198.0898070422
+## chr2 88485   88686   3955.64306241152
+## chr2 88485   88786   34821.31213930861
+## chr12    949614  949815  4256.49496416131
+## chr19    1021286 1021487 4037.52556726285
+## chr19    1848461 1848662 3083.18956213698
+## chr1 3031905 3032106 3099.20803555552
+## chr16    3235246 3235447 3192.53014260632
+## chr1 8648371 8648472 2919.49220077002</code></pre>
+<p>The option <code>-k 2</code> sorts on column 2, but if column 2 is identical, the row will continue to be sorted until a distinct character can differentiate. The following will only sort on column 2 and retain the original relative order of row that have identical column 2 values.</p>
+<pre class="bash"><code>#numerical sort on column 2
+sort -k 2,2n chr_coordinates.bed | head </code></pre>
+<pre><code>## chr1 41211   41412   2838.0198070899
+## chr1 41211   41812   2198.0898070422
+## chr2 88485   88686   3955.64306241152
+## chr2 88485   88786   34821.31213930861
+## chr12    949614  949815  4256.49496416131
+## chr19    1021286 1021487 4037.52556726285
+## chr19    1848461 1848662 3083.18956213698
+## chr1 3031905 3032106 3099.20803555552
+## chr16    3235246 3235447 3192.53014260632
+## chr1 8648371 8648472 2919.49220077002</code></pre>
+</div>
+<div id="selecting-unique-elements-with-uniq" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Selecting unique elements with <code>uniq</code></h2>
+</div>
+</div>
+<div id="manipulation-parsing-of-tables-with-awk" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Manipulation / parsing of tables with awk</h1>
 <p>One bad thing about <strong>cut</strong> is that you cannot reorder columns (e.g. cut -f 3,1 table does not work)<br />
 </p>
 <p>A convenient way to reorder columns, especially with large files is with another language called <strong>awk</strong>.<br />
@@ -749,12 +817,12 @@ function toggle_visibility(id1) {
 <li><code>&quot;\t&quot;</code> specifies tabs in between fields.</li>
 </ul>
 <p><strong>awk</strong> has very cryptic syntax. Therefore, I recommend learning as needed for specific tasks and keeping track of useful operations by creating a repository to store them. For instance, I have an “awk one-liners” file where I keep useful operations.</p>
-<div id="feedback-drop-the-awk" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Feedback: drop the <strong>awk</strong></h2>
+<div id="feedback-drop-the-awk" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Feedback: drop the <strong>awk</strong></h2>
 <p>The only class feedback I ignored from last years evaluations is to not teach <strong>awk</strong>. I view computational analyses for genomics in two parts: 1) perform basic, routine, data processing that can usually be automated by using shell scripts; 2) exploratory data analyses in your favorite programming language, such as <code>python</code> or <code>R</code>. <strong>awk</strong> is extremely useful for shell scripting and you will learn 15 years of my accumulated (and frequently forgotten) <strong>awk</strong> knowledge from this class. Exploratory data analysis in <code>R</code> or <code>python</code> would be another class entirely. It is true that many tasks that <strong>awk</strong> performs can be performed in <code>R</code> or <code>python</code> and <strong>awk</strong> is more <em>awk</em>ward. However, <strong>awk</strong> is faster and easier to implement into workflows.</p>
 </div>
-<div id="more-awk-usage-and-syntax" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> More <code>awk</code> usage and syntax:</h2>
+<div id="more-awk-usage-and-syntax" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> More <code>awk</code> usage and syntax:</h2>
 <p><strong>Outer Field Separator (OFS)</strong> can be used to specify the delimiter<br />
 </p>
 <pre class="bash"><code>cat color-table.txt | awk &#39;{OFS=&quot;\t&quot;;} {print $3, $1, $2}&#39; &gt; newTable.txt
@@ -780,8 +848,8 @@ head -3 newTable.txt</code></pre>
 - <code>$0</code> prints the entire line instead of a specific column.<br />
 - The double equal sign <code>==</code> signifies that you are asking if the two items are equal to each other rather than setting the value of a variable.</p>
 </div>
-<div id="passing-shell-variables-to-awk" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Passing shell variables to awk:</h2>
+<div id="passing-shell-variables-to-awk" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Passing shell variables to awk:</h2>
 <p>There are times when you want to use a variable created in <code>shell</code> in an <code>awk</code> command. Try:</p>
 <pre class="bash"><code>y=yellow
 cat color-table.txt | awk &#39;{ if($3 == $y) print $0}&#39;</code></pre>
@@ -790,8 +858,8 @@ cat color-table.txt | awk &#39;{ if($3 == $y) print $0}&#39;</code></pre>
 cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}&#39; #readable to awk</code></pre>
 <p>In this case, the <code>-v</code> option allows you to create an awk variable from a shell variable. <strong>Note:</strong> this is done before the rest of the awk statement is wrapped in <code>&#39;{}&#39;</code>. I randomly named the variable <code>cols</code> within <code>awk</code>, but we can use any designation, including <code>y</code>.</p>
 </div>
-<div id="running-simple-tests-before-function-in-awk" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Running simple tests before function in awk:</h2>
+<div id="running-simple-tests-before-function-in-awk" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Running simple tests before function in awk:</h2>
 <p><strong>Example</strong>: sometimes we will want to work on the beginning of a file in order to add, remove, or alter the header for columns. We can run a simple test to determine which lines to work with in awk using the <strong><code>NR</code></strong> (row number) argument before we start awk functions.</p>
 <pre class="bash"><code>head -3 mm9_genes.txt</code></pre>
 <pre><code>## genename geneID  chr strand  start   stop
@@ -802,8 +870,8 @@ cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}
 ## Zfp85-rs1    NM_001001130    chr13   -   67848736    67856071
 ## Scap NM_001001144    chr9    +   110235821   110287450</code></pre>
 </div>
-<div id="common-uses-for-awk-we-will-use-in-this-course" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Common uses for <code>awk</code> we will use in this course:</h2>
+<div id="common-uses-for-awk-we-will-use-in-this-course" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Common uses for <code>awk</code> we will use in this course:</h2>
 <p><strong>1.</strong> Reordering columns<br />
 <strong>2.</strong> Simple math with columns<br />
 <strong>3.</strong> Printing certain rows or columns<br />
@@ -811,8 +879,8 @@ cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}
 <strong>5.</strong> Adding/removing headers from large files<br />
 </p>
 </div>
-<div id="in-class-exercise-1-splitting-strings-and-parsing-files." class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> In class exercise 1: Splitting strings and parsing files.</h2>
+<div id="in-class-exercise-1-splitting-strings-and-parsing-files." class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> In class exercise 1: Splitting strings and parsing files.</h2>
 <p>Consider the example path to the mm9_genes.txt:  <code>/users/tempdata3/MEDS5420/annotations/mm9-genes.txt</code></p>
 <p><strong>1.</strong> Use <code>cut</code> to get the file name without the extension (.txt)<br />
 Download the mm9_genes.txt file from GitHub Lecture 4 and move it to your MEDS5420 folder.<br />
@@ -825,10 +893,10 @@ Download the mm9_genes.txt file from GitHub Lecture 4 and move it to your MEDS54
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-<div id="answers-to-exercises" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Answers to exercises:</h1>
-<div id="in-class-exercise-1" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> In class exercise 1:</h2>
+<div id="answers-to-exercises" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Answers to exercises:</h1>
+<div id="in-class-exercise-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> In class exercise 1:</h2>
 <p>Consider the path to the mm9_genes.txt in the MEDS5420 folder on a server: <code>/archive/MEDS5420/annotations/mm9_genes.txt</code></p>
 <p><strong>1.</strong> Use cut (alone or in combination with other functions) to retrieve the file name without the extension (.txt):</p>
 <pre class="bash"><code>file=/archive/MEDS5420/annotations/mm9_genes.txt
