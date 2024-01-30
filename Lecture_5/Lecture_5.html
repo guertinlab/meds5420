@@ -777,11 +777,11 @@ sort -k 2n chr_coordinates.bed | head </code></pre>
 ## chr1 8648371 8648472 2919.49220077002</code></pre>
 <p>The option <code>-k 2</code> sorts on column 2, but if column 2 is identical, the row will continue to be sorted until a distinct character can differentiate. The following will only sort on column 2 and retain the original relative order of row that have identical column 2 values.</p>
 <pre class="bash"><code>#numerical sort on column 2
-sort -k 2,2n chr_coordinates.bed | head </code></pre>
-<pre><code>## chr1 41211   41412   2838.0198070899
-## chr1 41211   41812   2198.0898070422
-## chr2 88485   88686   3955.64306241152
+sort -s -k 2,2n chr_coordinates.bed | head </code></pre>
+<pre><code>## chr1 41211   41812   2198.0898070422
+## chr1 41211   41412   2838.0198070899
 ## chr2 88485   88786   34821.31213930861
+## chr2 88485   88686   3955.64306241152
 ## chr12    949614  949815  4256.49496416131
 ## chr19    1021286 1021487 4037.52556726285
 ## chr19    1848461 1848662 3083.18956213698
