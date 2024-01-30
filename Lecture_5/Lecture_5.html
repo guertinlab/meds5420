@@ -708,7 +708,7 @@ function toggle_visibility(id1) {
 <h1>Contents</h1>
 <div id="TOC">
 <ul>
-<li><a href="#a-review-of-rev-sort-and-uniq" id="toc-a-review-of-rev-sort-and-uniq"><span class="toc-section-number">1</span> A review of <code>rev</code>, <code>sort</code>, and <code>uniq</code></a>
+<li><a href="#a-review-of-wget-curl-cut-sort-and-uniq" id="toc-a-review-of-wget-curl-cut-sort-and-uniq"><span class="toc-section-number">1</span> A review of <code>wget</code>, <code>curl</code>, <code>cut</code>, <code>sort</code>, and <code>uniq</code></a>
 <ul>
 <li><a href="#retrieving-files-from-a-url-using-curl-or-wget" id="toc-retrieving-files-from-a-url-using-curl-or-wget"><span class="toc-section-number">1.1</span> Retrieving files from a URL using <code>curl</code> or <code>wget</code></a></li>
 <li><a href="#move-the-bed-file-to-a-new-directory" id="toc-move-the-bed-file-to-a-new-directory"><span class="toc-section-number">1.2</span> Move the <code>bed</code> file to a new directory</a></li>
@@ -732,8 +732,8 @@ function toggle_visibility(id1) {
 </ul>
 </div>
 
-<div id="a-review-of-rev-sort-and-uniq" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> A review of <code>rev</code>, <code>sort</code>, and <code>uniq</code></h1>
+<div id="a-review-of-wget-curl-cut-sort-and-uniq" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> A review of <code>wget</code>, <code>curl</code>, <code>cut</code>, <code>sort</code>, and <code>uniq</code></h1>
 <p>I asked you to complete section 7 from Lecture 4 for homework, so let’s review these commands.</p>
 <div id="retrieving-files-from-a-url-using-curl-or-wget" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Retrieving files from a URL using <code>curl</code> or <code>wget</code></h2>
@@ -760,8 +760,6 @@ echo $fileName | cut -f 2 -d &#39;r&#39; | cut -f 2 -d &#39;c&#39; </code></pre>
 </div>
 <div id="sorting-numerically-with-sort" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Sorting numerically with <code>sort</code></h2>
-<p>In the previosu lecture, my example did not make sense when discussing the difference between the arguments <code>-k 2n</code> and <code>-k 2,2n</code>. Why?<br />
-</p>
 <p>If you want a numeric sort:</p>
 <pre class="bash"><code>#numerical sort on column 2
 sort -k 2n chr_coordinates.bed | head </code></pre>
