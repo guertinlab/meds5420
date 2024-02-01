@@ -173,7 +173,7 @@ Consider the example path to the mm9_genes.txt: \ `/users/tempdata3/MEDS5420/ann
 
 **1.** Use `cut` to get the file name without the extension (.txt) \
 Download the mm9\_genes.txt file from GitHub Lecture 4 and move it to your MEDS5420 folder. \
-**2.** Determine size of your list by counting the number of lines in the file. \
+**2.** Count the number of rows with gene information in the file. \
 **3.** The number of genes names in the list (column 1) is not the same as the number of gene IDs (column 2).  Determine how many redundant gene names are listed in the table. \
 **4.** Use awk to move genes on the plus strand to another file - call it `PlusStrandGenes.txt` \
 **5.** Use awk to create a file with another column that has the gene length - call it `mm9GeneLengths.txt` \
@@ -200,7 +200,9 @@ echo $file | rev | cut -d "/" -f 1 | rev | cut -d "." -f 1
 \
 **2.** Count the number of lines in the file: 
 ```{r engine='bash', eval=F, echo=TRUE}
-wc -l mm9_genes.txt
+tail +2 mm9_genes.txt | wc -l
+# or
+awk 'NR>1{ print $0 }'  mm9_genes.txt | wc -l 
 ```
 \
 **3.** The number of genes in the list is not the same as the number of genetic loci.  Determine how many redundant gene names are listed in the table: \
