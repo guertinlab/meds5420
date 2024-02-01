@@ -922,7 +922,7 @@ cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}
 <p>Consider the example path to the mm9_genes.txt:  <code>/users/tempdata3/MEDS5420/annotations/mm9-genes.txt</code></p>
 <p><strong>1.</strong> Use <code>cut</code> to get the file name without the extension (.txt)<br />
 Download the mm9_genes.txt file from GitHub Lecture 4 and move it to your MEDS5420 folder.<br />
-<strong>2.</strong> Determine size of your list by counting the number of lines in the file.<br />
+<strong>2.</strong> Count the number of rows with gene information in the file.<br />
 <strong>3.</strong> The number of genes names in the list (column 1) is not the same as the number of gene IDs (column 2). Determine how many redundant gene names are listed in the table.<br />
 <strong>4.</strong> Use awk to move genes on the plus strand to another file - call it <code>PlusStrandGenes.txt</code><br />
 <strong>5.</strong> Use awk to create a file with another column that has the gene length - call it <code>mm9GeneLengths.txt</code><br />
@@ -946,7 +946,9 @@ echo $file | rev | cut -d &quot;/&quot; -f 1 | rev | cut -d &quot;.&quot; -f 1
 </code></pre>
 <p><br />
 <strong>2.</strong> Count the number of lines in the file:</p>
-<pre class="bash"><code>wc -l mm9_genes.txt</code></pre>
+<pre class="bash"><code>tail +2 mm9_genes.txt | wc -l
+# or
+awk &#39;NR&gt;1{ print $0 }&#39;  mm9_genes.txt | wc -l </code></pre>
 <p><br />
 <strong>3.</strong> The number of genes in the list is not the same as the number of genetic loci. Determine how many redundant gene names are listed in the table:<br />
 </p>
