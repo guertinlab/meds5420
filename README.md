@@ -22,7 +22,10 @@ Lecture 4: \
 https://guertinlab.github.io/meds5420/Lecture_4/Lecture_4.html \
 Lecture 4 Recording:\
 http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_4_2024.mp4 \
+Lecture 5: \
 https://guertinlab.github.io/meds5420/Lecture_5/Lecture_5.html \
+Lecture 5 Recording:\
+http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_5_2024.mp4 \
 https://guertinlab.github.io/meds5420/Lecture_6/Lecture_6.html \
 https://guertinlab.github.io/meds5420/Lecture_7/Lecture_7.html \
 https://guertinlab.github.io/meds5420/Lecture_8/Lecture_8.html \
