@@ -61,7 +61,7 @@ for x in $snow
     if [ $x -lt 3 ]
       then
       echo 'stay calm'
-    elif [ $x -lt 8 ] && [ ${type}=windy ]
+    elif [ $x -lt 8 ] && [ ${type} = windy ]
       then
       echo 'it is windy, take cover'
     else
