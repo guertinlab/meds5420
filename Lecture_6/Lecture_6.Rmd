@@ -344,7 +344,8 @@ for col in $colors
 	done
 ```
 
-Here's another version of the script with decent annotation:
+Here's another version of the script with decent annotation. The input file would be the color-table.txt file. The first argument then replaces the "$1" wherever it appears in the script.  
+
 ```{r engine='bash', eval=F, echo=T}
 # This script will parse unique items from column 3 to separate files
 # USAGE:bash parse_colors.sh <INPUT_FILE>
@@ -363,11 +364,22 @@ for col in $colors
 	done
 ```
 
+This version requires a Google search to figure out how to pass multiple variables to `awk`. This script is general and you can use it to parse any file based on unique elements in any user-defined column. Maybe whether genes are activated, unchanged, or repressed is in column 7, can we use this script to get a file for each gene category?
+
+```{r engine='bash', eval=F, echo=T}
+
+#! /bin/sh
+# positional argument 1 is the file with the color data
+# positional argument 2 is the column with the color 
+color=$(cat $1 | cut -f $2 | sort | uniq)
+for x in $color
+  do
+    echo "parsing the ${x} file"
+    cat $1 | awk -v col="$x" -v fileName="$1" -v column="$2" '{if ($column == col) print $0}' > ${x}.txt
+  done
+ ```
 
 
-\
-The input file would be the color-table.txt file. The first argument then replaces the "$1" wherever it appears in the script.  
-\
 
 
 
