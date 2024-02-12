@@ -4,7 +4,7 @@ header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "February 15, 2023"
+date: "February 15, 2024"
 output:
   bookdown::html_document2:
     toc: true
@@ -12,9 +12,19 @@ fontsize: 14pt
 geometry: margin=1in
 ---
 
+# Review:
+We had a first look at data and learned the initial considerations and steps for preprocessing data.\
 
-# Fastx toolkit: preprocessing of .fastq files
-Allows one to manipulate/filter/convert fastq files as well as perform QC analysis on reads.\
+```{r echo=F, fig.align = "center", fig.cap="QC flow chart"}
+#library(knitr)
+knitr::include_graphics("QC_flow.png") 
+```
+
+Another approach for assessing quality is to preprocess the data and determine how the preprocessing steps affect mapping results. First we need to learn how to preprocess the reads and map to genomes.\
+\
+
+# Fastx toolkit: preprocessing of `.fastq` files
+Allows one to manipulate/filter/convert `fastq` files as well as perform QC analysis on reads.\
 \
 **Common fastx tools and functions:**\
 \
@@ -67,18 +77,6 @@ These can be done on either of the test files or both. \
 **2.c** Use quality trimmer to remove low quality data from reads, keep a minimum length of 25 bases.\
 **3.** Collapse the reads from the quality trimmed file and the original file. View the beginning of the file. Do the sequences match the duplicate reads from the FastQC report?\
 
-# Review:
-We had a first look at data and learned the initial considerations and steps for preprocessing data.\
-
-
-```{r echo=F, fig.align = "center", fig.cap="QC flow chart"}
-#library(knitr)
-knitr::include_graphics("QC_flow.png") 
-```
-
-
-Another approach for assessing quality or processing strategies is to determine how the preprocessing steps affect mapping results. First we need to learn how to map to genomes.\
-\
 
 
 # Mapping raw short read data to genomes using `bowtie` or `bowtie2`.
