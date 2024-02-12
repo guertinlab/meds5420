@@ -45,7 +45,7 @@ sftp meds5420usrX@transfer.cam.uchc.edu
 ## interactive session
 
 ```{r engine='bash', eval=F, echo=TRUE}
-srun  --pty -p mcbstudent --qos=mcbstudent --mem=2G bash
+  --pty -p mcbstudent --qos=mcbstudent --mem=2G bash
 ```
 
 # Downloading precompiled software
@@ -316,7 +316,7 @@ Create a **/data/** folder within your home directory on the server.\
 Start an interactive session and load modules:
 ```{r engine='bash', eval=F, echo=TRUE}
 #start an interactive session
-srun --pty -p mcbstudent --qos=mcbstudent bash
+srun  --pty -p mcbstudent --qos=mcbstudent --mem=2G bash
 
 #load module:
 module load sratoolkit
