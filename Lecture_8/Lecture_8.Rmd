@@ -19,6 +19,13 @@ geometry: margin=1in
 * introduction to `apt-get` and `brew` package managers
 * Used `apt-get` or `brew` to install the `sratoolkit` on your local macine. 
 
+# HBD Chuck!
+
+```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="pipeline flow chart"}
+#library(knitr)
+knitr::include_graphics("./darwin.png") 
+```
+
 # Today: Download, QC and Preprocessing of Illumina data:
 * downloading `bowtie2` binaries
 * adding directories to the `$PATH`
