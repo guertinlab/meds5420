@@ -21,7 +21,7 @@ geometry: margin=1in
 
 # HBD Chuck!
 
-```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="pipeline flow chart"}
+```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Happy Brithday Darwin for all who celebrate"}
 #library(knitr)
 knitr::include_graphics("./darwin.png") 
 ```
