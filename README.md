@@ -38,7 +38,10 @@ Lecture 8: \
 https://guertinlab.github.io/meds5420/Lecture_8/Lecture_8.html \
 Lecture 8 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_8_2024.mp4 \
+Lecture 9: \
 https://guertinlab.github.io/meds5420/Lecture_9/Lecture_9.html \
+Lecture 9 Recording: \
+http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_9_2024.mp4 \
 https://guertinlab.github.io/meds5420/Lecture__10/Lecture_10.html \
 https://guertinlab.github.io/meds5420/Lecture__11/Lecture_11_1.pdf \
 https://guertinlab.github.io/meds5420/Lecture__11/Lecture_11_2.pdf \
