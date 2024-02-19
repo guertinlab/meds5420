@@ -48,8 +48,9 @@ head log_file.txt
 
 ## In class exercise 1:  logging `bowtie` output:
 
-**1)** Map the data from `test2.fastq` (original SRA SRR1552484) to the human genome and use `tee` to create a log file. \
-**2)** View the resulting log file to confirm it worked.\
+**1)** Count the number of lines of all the `.fastq` files in you `data` directory and print the results to the log file `log_file_wc.txt`. \
+**2)** Try mapping the data from test2.fastq and using `tee` to create a log file. \
+**3)** View the resulting log file to confirm it worked. \
 
 
 --------------------------------------------------------------------
@@ -231,16 +232,18 @@ bowtie -p4 -v2 -m1 $hg_bt ${atfFq}ATF1_chip_10m_230220.fastq  -S ${atfSam}ATF1_1
 # Answers to in-class exercises
 
 ## In class exercise 1:  logging bowtie output:
-
-**1)** Try mapping the data from test2.fastq and using `tee` to create a log file. \
-**2)** View the resulting log file to confirm it worked.
+**1)** Count the number of lines of all the `.fastq` files in you `data` directory and print the results to the log file `log_file_wc.txt`. \
+**2)** Try mapping the data from test2.fastq and using `tee` to create a log file. \
+**3)** View the resulting log file to confirm it worked. \
 
 ```{r engine='bash', eval=F, echo=TRUE}
+wc -l *fastq | tee -a log_file_wc.txt
+cat log_file_wc.txt
 #redirect standard error to standard out and pipe to Tee
 hg_bt="/home/FCAM/meds5420/genomes/hg38_bt/hg38"
 
 bowtie -p1 -m1 -v2 -x $hg_bt test2.fastq -S test2_align.sam | tee -a test2_log.txt
-
+cat test2_log.txt
 
 ```
 
