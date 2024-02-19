@@ -848,7 +848,7 @@ for file in ${fileList}
          echo running script on $prefix
      fastx_clipper -a &lt;sequence&gt; -i ${inPATH}${file} ${outPATH}${prefix}_clip.fq
      bowtie2 -t -x ${genome} -U ${outPATH}${prefix}_clip.fq -S ${outPATH}${prefix}.sam 
-done 2&gt;&amp;1 | tee ${outPATH}log_${prefix}.txt
+done 2&gt;&amp;1 | tee ${outPATH}log_alignment.txt
 #sent stdout and sterr to log file with tee</code></pre>
 <p><strong>Note:</strong> You can make the output subdirectories before starting, or you can have the script make them on the fly. To make them on the fly you can borrow the lines from the following script to do this:</p>
 <pre class="bash"><code>
