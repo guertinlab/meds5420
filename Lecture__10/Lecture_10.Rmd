@@ -144,7 +144,7 @@ You can create permanant variables for commonly used directories such as `inPATH
 
 ## In class exercise 3: Automation of data processing and genome alignment
 
-Use the the SRR039637.fastq.gz file from last time (test1.fastq) in addition to the last 1000000 lines (`tail`) of the same input data to create `test1_tail.fastq`.  Use the previous exercise commands as the base for a shell script that processes and maps the data.  Try using a loop and PATH/FILE variables to automate the processing as in the example above. Use `tee` to save the stderr and stdout to a log file.
+Make another smaller file from `SRR039637.fastq.gz` that only contains the last 1000000 lines (`tail`): `test1_tail.fastq`. Use the truncated `SRR039637.fastq.gz` file from last time (`test1.fastq`) in addition to `test1_tail.fastq` as inputs for the exercise.  Use the previous exercise commands as the base for a shell script that processes and maps the data. Construct a loop and PATH/FILE variables to automate the processing as in the example above. Use `tee` to save the `stderr` and `stdout` to a log file.
 
     
 
