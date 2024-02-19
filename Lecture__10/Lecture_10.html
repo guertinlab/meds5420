@@ -775,8 +775,9 @@ Let’s check the log file:</p>
 ## This is the second log entry</code></pre>
 <div id="in-class-exercise-1-logging-bowtie-output" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> In class exercise 1: logging <code>bowtie</code> output:</h2>
-<p><strong>1)</strong> Map the data from <code>test2.fastq</code> (original SRA SRR1552484) to the human genome and use <code>tee</code> to create a log file.<br />
-<strong>2)</strong> View the resulting log file to confirm it worked.<br />
+<p><strong>1)</strong> Count the number of lines of all the <code>.fastq</code> files in you <code>data</code> directory and print the results to the log file <code>log_file_wc.txt</code>.<br />
+<strong>2)</strong> Try mapping the data from test2.fastq and using <code>tee</code> to create a log file.<br />
+<strong>3)</strong> View the resulting log file to confirm it worked.<br />
 </p>
 <hr />
 </div>
@@ -942,12 +943,17 @@ bowtie -p4 -v2 -m1 $hg_bt ${atfFq}ATF1_chip_10m_230220.fastq  -S ${atfSam}ATF1_1
 <h1><span class="header-section-number">5</span> Answers to in-class exercises</h1>
 <div id="in-class-exercise-1-logging-bowtie-output-1" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> In class exercise 1: logging bowtie output:</h2>
-<p><strong>1)</strong> Try mapping the data from test2.fastq and using <code>tee</code> to create a log file.<br />
-<strong>2)</strong> View the resulting log file to confirm it worked.</p>
-<pre class="bash"><code>#redirect standard error to standard out and pipe to Tee
+<p><strong>1)</strong> Count the number of lines of all the <code>.fastq</code> files in you <code>data</code> directory and print the results to the log file <code>log_file_wc.txt</code>.<br />
+<strong>2)</strong> Try mapping the data from test2.fastq and using <code>tee</code> to create a log file.<br />
+<strong>3)</strong> View the resulting log file to confirm it worked.<br />
+</p>
+<pre class="bash"><code>wc -l *fastq | tee -a log_file_wc.txt
+cat log_file_wc.txt
+#redirect standard error to standard out and pipe to Tee
 hg_bt=&quot;/home/FCAM/meds5420/genomes/hg38_bt/hg38&quot;
 
 bowtie -p1 -m1 -v2 -x $hg_bt test2.fastq -S test2_align.sam | tee -a test2_log.txt
+cat test2_log.txt
 </code></pre>
 </div>
 <div id="in-class-exercise-2-logging-bowtie-output-with-stderr-1" class="section level2" number="5.2">
