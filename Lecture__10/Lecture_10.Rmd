@@ -123,7 +123,7 @@ for file in ${fileList}
        	 echo running script on $prefix
 	 fastx_clipper -a <sequence> -i ${inPATH}${file} ${outPATH}${prefix}_clip.fq
 	 bowtie2 -t -x ${genome} -U ${outPATH}${prefix}_clip.fq -S ${outPATH}${prefix}.sam 
-done 2>&1 | tee ${outPATH}log_${prefix}.txt
+done 2>&1 | tee ${outPATH}log_alignment.txt
 #sent stdout and sterr to log file with tee
 ```
 
