@@ -864,7 +864,7 @@ You can create permanant variables for commonly used directories such as <code>i
 </div>
 <div id="in-class-exercise-3-automation-of-data-processing-and-genome-alignment" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> In class exercise 3: Automation of data processing and genome alignment</h2>
-<p>Use the the SRR039637.fastq.gz file from last time (test1.fastq) in addition to the last 1000000 lines (<code>tail</code>) of the same input data to create <code>test1_tail.fastq</code>. Use the previous exercise commands as the base for a shell script that processes and maps the data. Try using a loop and PATH/FILE variables to automate the processing as in the example above. Use <code>tee</code> to save the stderr and stdout to a log file.</p>
+<p>Make another smaller file from <code>SRR039637.fastq.gz</code> that only contains the last 1000000 lines (<code>tail</code>): <code>test1_tail.fastq</code>. Use the truncated <code>SRR039637.fastq.gz</code> file from last time (<code>test1.fastq</code>) in addition to <code>test1_tail.fastq</code> as inputs for the exercise. Use the previous exercise commands as the base for a shell script that processes and maps the data. Construct a loop and PATH/FILE variables to automate the processing as in the example above. Use <code>tee</code> to save the <code>stderr</code> and <code>stdout</code> to a log file.</p>
 </div>
 <div id="sequence-filtering-using-bowtie-to-filter-out-reads-or-save-unaligned-data" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Sequence filtering: Using <code>bowtie</code> to filter out reads or save unaligned data</h2>
