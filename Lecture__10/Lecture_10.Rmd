@@ -200,7 +200,7 @@ mkdir fastq
 mkdir sam
 
 #move 10million reads to a new file, omit the first million
-zcat ${atfRaw}SRR5331338_ATF1_ChIP.fastq.gz | head -44000000 |tail -40000000 > ${atfFq}ATF1_chip_10m_230220.fastq
+zcat ${atfRaw}SRR5331338_ATF1_ChIP.fastq.gz | head -44000000 |tail -40000000 > ${atfFq}ATF1_chip_10m_240219.fastq
 
 #load bowtie2 module and run 
 module load bowtie2
