@@ -4,7 +4,7 @@ header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "February 27, 2023"  
+date: "February 26, 2024"  
 output:
   bookdown::html_document2:
     toc: true
@@ -46,12 +46,12 @@ mkdir fastq
 mkdir sam
 
 #move 10million reads to a new file, omit the first million
-zcat ${atfRaw}SRR5331338_ATF1_ChIP.fastq.gz | head -44000000 |tail -40000000 > ${atfFq}ATF1_chip_10m_230227.fastq
+zcat ${atfRaw}SRR5331338_ATF1_ChIP.fastq.gz | head -44000000 |tail -40000000 > ${atfFq}ATF1_chip_10m_240219.fastq
 
 #load bowtie module and run Bowtie
 module load bowtie2
 
-bowtie2 -p2 -t -x $hgGen -U ${atfFq}ATF1_chip_10m_230227.fastq -S ${atfSam}ATF1_chip_10m_230227.sam 2>&1 | tee ${atfSam}ATF1_chip_10m_230227_alignment_log.txt
+bowtie2 -p2 -t -x $hgGen -U ${atfFq}ATF1_chip_10m_240219.fastq -S ${atfSam}ATF1_chip_10m_240219.sam 2>&1 | tee ${atfSam}ATF1_chip_10m_240219_alignment_log.txt
 
 ##LOOK at manual for options description.
 
@@ -60,7 +60,7 @@ OR
 module load bowtie
 hg_bt="/home/FCAM/meds5420/genomes/hg38_bt/hg38"
 
-bowtie -p4 -v2 -m1 -x $hg_bt ${atfFq}ATF1_chip_10m_230227.fastq  -S ${atfSam}ATF1_10m_bt1_align_230227.sam 2>&1 | tee ${atfSam}ATF1_chip_10m_230227_alignment_bt1_log.txt
+bowtie -p4 -v2 -m1 -x $hg_bt ${atfFq}ATF1_chip_10m_240219.fastq  -S ${atfSam}ATF1_10m_bt1_align_240219.sam 2>&1 | tee ${atfSam}ATF1_chip_10m_240219_alignment_bt1_log.txt
 # Order is options, genome, reads-to-map, outfilename (can be designated with -S)
 ```
 
@@ -69,7 +69,7 @@ bowtie -p4 -v2 -m1 -x $hg_bt ${atfFq}ATF1_chip_10m_230227.fastq  -S ${atfSam}ATF
 
 * The beginning of this command skips the first million reads because they are often the most prone to errors due to technical artifacts of sequencing.\
 * setting long paths to variables can help declutter command lines.
-* The names of all the output files are messy and inconsistent (`ATF1_chip_10m_230227` and `ATF1_chip_10m_230227_alignment`). I should set a variable such as 'prefix' and appended `.sam`' and `_alignment_log.txt` to the output. This would ensure that the basename of all the files is the same and I can repurpose this script to process any file in a consistent manner. 
+* The names of all the output files are messy and inconsistent (`ATF1_chip_10m_240219` and `ATF1_chip_10m_240219_alignment`). I should set a variable such as 'prefix' and appended `.sam`' and `_alignment_log.txt` to the output. This would ensure that the basename of all the files is the same and I can repurpose this script to process any file in a consistent manner. 
 * I made all the directories manually, but I should have checked for the presence of the directory using an if statement and only made the directory if needed. What does the `-p` option of `mkdir` specify?
 
 # Overview through today:
