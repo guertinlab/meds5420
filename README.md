@@ -51,7 +51,10 @@ https://guertinlab.github.io/meds5420/Lecture__11/Lecture_11_1.pdf \
 https://guertinlab.github.io/meds5420/Lecture__11/Lecture_11_2.pdf \
 Lecture 11 Recording: \
 available upon request, email Dr. Guertin \
+Lecture 12: \
 https://guertinlab.github.io/meds5420/Lecture__12/Lecture_12.html \
+Lecture 12 Recording: \
+http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_12_2024.mp4 \
 https://guertinlab.github.io/meds5420/Lecture__13/Lecture_13.html \
 https://guertinlab.github.io/meds5420/Lecture__13/Lecture_13.pdf \
 https://guertinlab.github.io/meds5420/Lecture__14/Lecture_14.html \
