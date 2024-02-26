@@ -265,7 +265,7 @@ Mapping and post-processing of ChIP-seq data for viewing in the genome browser a
 **6.** Sort the `bed` file \
 **7.** Convert the file to a `bedGraph` file (`bedtools`) - look at the manual online.  \
 **8.** Create a variation `bedGraph`: \ 
-A `bedGraph1 file that computes coverage for only the 5' end of the read.\
+A `bedGraph` file that computes coverage for only the 5' end of the read.\
 
 
 # Adding browser and tracklines to browser files
