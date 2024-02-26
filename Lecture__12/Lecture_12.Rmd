@@ -256,7 +256,7 @@ Mapping and post-processing of ChIP-seq data for viewing in the genome browser a
 - there is a chromosome size file here : `/home/FCAM/meds5420/genomes/hg38.chrom.sizes`
 \
  
-**Map 10 million reads from each file to the genome with `bowtie2` (this should be completed already):** \
+**Map 10 million reads from each file to the genome with `bowtie2` or `bowtie` (this should be completed already):** \
 **1.** use 4G of RAM and 4CPUs (you may have to log in again and request more memory and cores: `srun --pty -p mcbstudent --qos=mcbstudent --mem=4G -c 2 bash`) \
 **2.** Before aligning the data, ignore the first 1,000,000 reads, use reads 1,000,001 - 11,000,000. \
 **3.** specify `.sam` output in the alignment \
