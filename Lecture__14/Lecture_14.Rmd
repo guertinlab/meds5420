@@ -14,7 +14,7 @@ geometry: margin=1in
 
 # Review and mapping of data for ChIP-seq data analysis:
 
-## Review of `bowtie` and `bowtie2` and mapping options
+## Review of `bowtie` and `bowtie2` and mapping options:
 
 In order for the output to be a proper .sam file use the `-S` option to explicitly say that you want a `.sam` output. This is required for `bowtie2`, and ensures that the header is included in the `.sam` file which is important for downstream steps.
 
