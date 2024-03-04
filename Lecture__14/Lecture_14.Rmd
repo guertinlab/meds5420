@@ -26,6 +26,12 @@ We will continue working with a ChIP-seq dataset from human cells.  The factor t
 You have already selected 10 million reads, aligned to a genome, converted to BED, sorted, converted to `bedGraph`, and visualized these data on the UCSC genome browser.
 
 
+```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="ChIP-seq fragment distribution"}
+#library(knitr)
+knitr::include_graphics("./chip_explained.png") 
+```
+
+
 # ChIP-seq analyses
 
 ```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="ChIP-seq overview"}
