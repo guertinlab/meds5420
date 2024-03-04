@@ -1,5 +1,5 @@
 ---
-title: \sf MEDS5420 -- UCSC and ChIP-seq peak calling.
+title: MEDS5420 -- UCSC and ChIP-seq peak calling.
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
