@@ -12,7 +12,7 @@ fontsize: 14pt
 geometry: margin=1in
 ---
 
-# Review and mapping of data for ChIP-seq analysis:
+# Review and mapping of data for ChIP-seq data analysis:
 
 ## Review of `bowtie` and `bowtie2` and mapping options
 
