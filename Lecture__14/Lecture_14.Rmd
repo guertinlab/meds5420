@@ -384,7 +384,20 @@ seq 1000 500 3000
 
 ```
 
-The next step is to loop through the sequence of numbers and use `shuf` to randomly select lines from the input file. These outputs can be converted to `bam` files and used for peak calling with `macs3`
+The next step is to loop through the sequence of numbers and use `shuf` to randomly select lines from the input file. These outputs can be converted to `bam` files and used for peak calling with `macs3` \
+
+\
+Alternatively, `samtools view` has an option `-s` to subsample a `BAM` file. You can select a step of 10 or 5 percent and subsample. The pseudocode is provided below: 
+
+```{r engine='bash', eval=T, echo=TRUE}
+x=$(seq 0.05 0.05 1)
+for i in $x
+do
+  samtools view -s $i <input>.bam > <output>_${i}.bam
+  macs3 callpeaks <output>_${i}.bam ...
+done
+```
+
 
 
 ```{r  out.width = "90%", echo=F, fig.align = "center", fig.cap="ChIP-seq saturation"}
