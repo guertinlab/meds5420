@@ -4,7 +4,7 @@ header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "March 8, 2023"
+date: "March 7, 2024"
 output:
   bookdown::html_document2:
     toc: true
@@ -283,9 +283,9 @@ knitr::include_graphics("./intersect.png")
 \pagebreak
 
 ## In Class Exercise 1:
-Today you will begin to analyze the ATF1\_ChIP-seq data for your chromosome by quantifying the number or reads in peaks and finding the closest genes in each peak. Your chromosome is the same as your usr#. I am `usr17`, so my chromosome is `chr17`. You must convert the format of several files.\
+Today you will begin to analyze the ATF1\_ChIP-seq data for your chromosome by quantifying the number or reads in peaks and finding the closest genes in each peak. Your chromosome is the same as your usr#. I am `usr15`, so my chromosome is `chr15`. You must convert the format of several files.\
 \
-1) You should have all 10 million ChIP-seq reads in a sorted bed file (if you cannot find this, then you will find one here: `/home/FCAM/meds5420/data/ATF1/bed`). First use `grep` and to make a bed file with only reads from your chromosome. I called mine `ATF1_chr17_sorted.bed`
+1) You should have all 10 million ChIP-seq reads in a sorted bed file (if you cannot find this, then you will find one here: `/home/FCAM/meds5420/data/ATF1/bed`). First use `grep` and to make a bed file with only reads from your chromosome. I called mine `ATF1_chr15_sorted.bed`
 \
 \
 2) Use your ATF1 peak file (MACS output from last time), and your reads file to determine the number of reads in the `narrowPeak` file genomic regions. Again, use grep to only pull out peaks from your chromosome in the `narrowPeak` file.  \
@@ -341,20 +341,20 @@ sort -k1,1 -k2,2n ATF_ChIP_10mil.bed > ATF_ChIP_10mil_sorted.bed
 
 1) 
 ```{r engine='bash', eval=F, echo=TRUE}
-grep -w "chr17" lec13/ATF_ChIP_10mil_sorted.bed > ATF1_reads_chr17.bed
+grep -w "chr15" lec13/ATF_ChIP_10mil_sorted.bed > ATF1_reads_chr15.bed
 ```
 
 2) Get number of reads in peaks
 
 ```{r engine='bash', eval=F, echo=TRUE}
-grep -w "chr17" peaks/atf_peaks/ATF1_peaks.narrowPeak > ATF1_peaks_chr17.narrowPeak 
-coverageBed -a ATF1_peaks_chr17.narrowPeak -b ATF1_reads_chr17.bed > ATF1_peak_coverage.bed
+grep -w "chr15" peaks/atf_peaks/ATF1_peaks.narrowPeak > ATF1_peaks_chr15.narrowPeak 
+coverageBed -a ATF1_peaks_chr15.narrowPeak -b ATF1_reads_chr15.bed > ATF1_peak_coverage.bed
 ```
 
 3) Reformat file to .bed and select genes on your chromosome
 
 ```{r engine='bash', eval=F, echo=TRUE}
-awk '{OFS="\t";} {print $3, $5, $6, $1, 1, $4}' Homo_sapiens.GRCh38.104.unique.txt | grep -w "chr17" > hg38_chr17_genes.bed 
+awk '{OFS="\t";} {print $3, $5, $6, $1, 1, $4}' Homo_sapiens.GRCh38.104.unique.txt | grep -w "chr15" > hg38_chr15_genes.bed 
 
 ```
 
@@ -362,13 +362,13 @@ awk '{OFS="\t";} {print $3, $5, $6, $1, 1, $4}' Homo_sapiens.GRCh38.104.unique.t
 
 ```{r engine='bash', eval=F, echo=TRUE}
 
-grep -w "chr17" peaks/atf_peaks/ATF1_summits.bed > ATF_chr15_summits.bed
-bedtools closest -t "first" -D b -a ATF_chr17_summits.bed -b hg38_chr17_genes.bed > ATF_gene_proximity.bed
+grep -w "chr15" peaks/atf_peaks/ATF1_summits.bed > ATF_chr15_summits.bed
+bedtools closest -t "first" -D b -a ATF_chr15_summits.bed -b hg38_chr15_genes.bed > ATF_gene_proximity.bed
 
 #This gives me an error. I need to sort! 
 
-sortBed -i hg38_chr17_genes.bed > hg38_chr17_genes_sorted.bed 
-bedtools closest -t "first" -D b -a ATF_chr17_summits.bed -b hg38_chr17_genes_sorted.bed > ATF_gene_proximity.bed 
+sortBed -i hg38_chr15_genes.bed > hg38_chr15_genes_sorted.bed 
+bedtools closest -t "first" -D b -a ATF_chr15_summits.bed -b hg38_chr15_genes_sorted.bed > ATF_gene_proximity.bed 
 ```
 
 5) list the bedtools command(s) in sequence that you could use to do the following:
