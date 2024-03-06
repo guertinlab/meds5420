@@ -171,7 +171,7 @@ head -4 hg38_genes_minus.bed
 
 ## Number of ChIP-seq reads in defined regions of the genome
 
-Bedtools has a `coverageBed` command that can calculate the depth and breadth of coverage of two bed files.  That is, given a sequencing 'reads' `.bed` file and a 'loci' `.bed` file one can calculate the number of reads found in each loci and the number of bases that are covered.
+Bedtools has a `coverageBed` command that can calculate the depth and breadth of coverage of two bed files.  That is, given a sequencing 'reads' `.bed` file and a 'loci' `.bed` file one can calculate the number of reads found at each locus and the number of bases that are covered.
 
 Link to manual here:  
 [http://bedtools.readthedocs.io/en/latest/content/bedtools-suite.html](http://bedtools.readthedocs.io/en/latest/content/bedtools-suite.html).
