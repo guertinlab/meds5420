@@ -23,7 +23,7 @@ knitr::include_graphics("./ChIPseq_pipe.png")
 
 An important piece of information that can be gained from genomic binding data is the discovery of the underlying DNA motif that is bound by the transcription factor.  There are many tools out there that will allow you to discover motifs.  The **MEME** analysis suite is a popular and powerful set of tools that can allow you to perform several useful analyses on DNA sequences of interest, such as: \
 
-* Indentify (de novo) enriched motifs with a set of sequences.\
+* Identify (de novo) enriched motifs with a set of sequences.\
 * Search for motifs of interest within a set of sequences.\
 * Scan large databases (genomes) for instances of specified motifs.\
 * Compare _de novo_ motifs to databases of known motifs.\
