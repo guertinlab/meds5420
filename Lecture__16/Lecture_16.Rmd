@@ -4,7 +4,7 @@ header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "March 20, 2023"
+date: "March 18, 2024"
 output:
   bookdown::html_document2:
     toc: true
@@ -12,36 +12,7 @@ fontsize: 14pt
 geometry: margin=1in
 ---
 
-
-# Last Time:
-
-Last time we used `bedtools` to tell us the number of reads within our peaks and also what the closest genes were to peaks. However, one caveat with `bedtools closest`, is that it chooses the closet edge of your targets (genes) to compare your peaks locations to. This means that it is not always obvious whether or not your peak is closest to the gene start or end. One way to get around this is to create a new annotation list that just contains TSSs. This would allow you to use `bedtools closest` to get the closest TSS to your peak.
-
-```{r  out.width = "90%", echo=F, fig.align = "center", fig.cap="peak assignment problem"}
-#library(knitr)
-knitr::include_graphics("Peak_assignment.png") 
-```
-
-
-
-Using `awk`, we can easily create such a TSS file. The awk sript below creates a new file and sets both the start and stop to the TSS of the gene, which is the 'start' for genes on the plus strand and the 'stop' for genes on the minus strand.
-
-```{r engine='bash', eval=F, echo=TRUE}
-awk '{OFS="\t";} { if($6=="+")
-print $1, $2, $2+1, $4, $5, $6;
-else 
-print $1, $3-1, $3, $4, $5, $6}' hg38_genes.bed > hg38_genes_strandedTSS.bed
-```
-One can then use `bedtools closest` to determine the closest TSS (or promoter) to each peak location.
-
-```{r engine='bash', eval=F, echo=TRUE}
-bedtools closest -a PEAKS.bed -b TSS.bed > OUTFILE.bed
-```
-
-This same type of manipulation can be used for creating bedfiles of different regions for comparing to ChIP-seq peak locations.  i.e. You can create promoter, genic and intergenic regions and determine where you ChIP-seq peaks tend to go to. A file that contains the closest gene to all ATF1 peaks is available at `/home/FCAM/meds5420/data/ATF1/closest_peak_TSS/peaks_promoters.bed`. The last column is the distance to the gene. What does a negative distance mean?
-
-## Review of analysis pipeline
-
+# Review of analysis pipeline
 
 ```{r  out.width = "90%", echo=F, fig.align = "center", fig.cap="ChIP-seq analysis workflow"}
 #library(knitr)
@@ -123,30 +94,31 @@ Then get the fasta sequences for the random regions:
 fastaFromBed -fi hg38.fa -bed hg38_random_intervals.bed -fo hg38_random_intervals.fa
 ```
 
-Then create a background file. You can create a Markov model of any order from an input FASTA file of sequences using  `fasta-get-markov`. 
+# Loading `meme`
+
+On Xanadu you should load meme version 5.4.1 every time. I worked with the HPC staff to ensure that `meme/5.4.1` can be run with the `-p` option, which allows for parallelization. 
+
+
+```{r engine='bash', eval=F, echo=TRUE}
+module load meme/5.4.1
+```
+
+## Generate a background model
+Use `meme` to create a background file. You can create a Markov model of any order from an input FASTA file of sequences using  `fasta-get-markov`. 
 
 ```{r engine='bash', eval=F, echo=TRUE}
 fasta-get-markov -m 3 hg38_random_intervals.fa > hg38_random_intervals_bkgrnd.txt
 ```
 This is optional because the end results are a simple probability of bases occuring based on frequency in your sequences.  Have a look at `hg38_random_intervals_bkgrnd.txt` to see.  `meme` will automatically create a background on the fly by creating a 'shuffled' version of your sequences.
 
-Now we can run MEME on the `.fasta` formatted sequences. On the Xanadu server `meme` functions are run as `singularity exec /isg/shared/apps/meme/5.4.1/meme.sif <function>`:
+## Running `meme`
+Now we can run MEME on the `.fasta` formatted sequences.
+
+I recommend running the classic function for more sensitive and wider motifs, but it takes longer. I employ `-markov_order 3` in the command, which incorporates a background model on the fly using the file that specifies all k-mer frequencies up to the specified value. I typically just calculate it from the input file as opposed to random regions or the entire genome. 
 
 ```{r engine='bash', eval=F, echo=TRUE}
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif fasta-get-markov -m 3 hg38_random_intervals.fa > hg38_random_intervals_bkgrnd.txt
-```
-I think running `meme` for motif analysis without the `singularity` command will work, but this also functions:
-
-```{r engine='bash', eval=F, echo=TRUE}
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif meme SUMMITS_100bp.fa -oc meme_OUT_FOLDER -bfile hg38_random_intervals_bkgrnd.txt -dna -nmotifs 2 -minw 5 -maxw 10 -revcomp -mod zoops
-```
-I am getting some weird warnings about perl when running on the server, but the results seem ok. \
-\
-
-I much prefer running the classic function for more sensitive and wider motifs, but it takes longer.  I employ `-markov_order 3` in the command, which incorporates a background model on the fly using the file that specifies all k-mer frequencies up to the specified value. I typically just calculate it from the input file as opposed to random regions or the entire genome. 
-
-```{r engine='bash', eval=F, echo=TRUE}
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif meme -oc ${name}.meme_output -objfun classic -evt 0.01 -searchsize 0 -minw 5 -maxw 18 -revcomp -dna -markov_order 3 -maxsize 100000000 SUMMITS_100bp.fa
+name=NAME_of EXPERIMENT
+meme -oc ${name}.meme_output -objfun classic -evt 0.01 -searchsize 0 -minw 5 -maxw 18 -revcomp -dna -markov_order 3 -maxsize 100000000 SUMMITS_100bp.fa
 ```
 
 There are a number of options to consider here:\
@@ -158,9 +130,9 @@ There are a number of options to consider here:\
 * `-minw`: minumum motif width in bases\
 * `-maxw`: maximum motif width in bases\
 * `-revcomp`: look for motif on both strands of DNA (do not assume strandedness)\
-* `-mod zoops`: MEME assumes that each sequence contains zero or one motif.  Opposed to `anr` where any number of motifs can be present per sequence.\
+* `-objfun`: this is a sensitive algorithm to detect motifs, but it can be slow\
 
-* There are more options avaiable.  See manual or [http://meme-suite.org/doc/meme.html?man_type=web](http://meme-suite.org/doc/meme.html?man_type=web).\
+* There are more options available.  See manual or [http://meme-suite.org/doc/meme.html?man_type=web](http://meme-suite.org/doc/meme.html?man_type=web).\
 
 The following files are placed in the designated output folder:\
 
@@ -185,13 +157,13 @@ Click on manual bar on left and view command line version for `MAST`.
 
 The basic usage is simple:
 ```{r engine='bash', eval=F, echo=TRUE}
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif mast MEME_output.txt SUMMITS_100bp.fa -oc mast_OUT_FOLDER
+mast MEME_output.txt SUMMITS_100bp.fa -oc mast_OUT_FOLDER
 # The first file is the meme output with motifs that you want to search for
 # The second file is the fasta formatted ChIP-seq regions we want to search for motifs within
 # The third is the output folder as in MEME
 ```
 
-The MAST output format is similar to meme and is placed in the designated output folder:\
+The MAST output format is similar to `meme` and is placed in the designated output folder:\
 
 * `.xml` file of output (machine readable)\
 * `.txt` file of output (human readable)\
@@ -203,7 +175,7 @@ Using the `-hit_list` option in mast creates a list of matches in a more easily 
 
 ```{r engine='bash', eval=F, echo=TRUE}
 #sending hits list to file by redirect
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif mast MEME_output.txt -hit_list SUMMITS_100bp.fa > mast_hits.txt
+mast MEME_output.txt -hit_list SUMMITS_100bp.fa > mast_hits.txt
 ```
 
 
@@ -212,13 +184,13 @@ MAST is useful for determining if a sequence (or lists of them) have a specific 
 
 FIMO can use a background sequence to account for biases in sequences. You can create this file as follows.
 ```{r engine='bash', eval=F, echo=TRUE}
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif fasta-get-markov -m 3 hg38.fa > hg38_bkgrnd.txt
+fasta-get-markov -m 3 hg38.fa > hg38_bkgrnd.txt
 ```
 
 You can then run FIMO to scan sequences for all occurrences of a motif. I usually set `--max-stored-scores` quite high and `--max-strand` provides the best match to identically overlapping sequences (only difference being the strand):
 
 ```{r engine='bash', eval=F, echo=TRUE}
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif fimo --max-strand --max-stored-scores 10000000 --oc fimo_OUT_FOLDER --bgfile hg38_bkgrnd.txt MEME_output.txt hg38.fa
+fimo --max-strand --max-stored-scores 10000000 --oc fimo_OUT_FOLDER --bgfile hg38_bkgrnd.txt MEME_output.txt hg38.fa
 ```
 
 This is a basic run, but there are several options one can implement:\ [http://meme-suite.org/doc/fimo.html?man_type=web](http://meme-suite.org/doc/fimo.html?man_type=web)
@@ -246,7 +218,7 @@ knitr::include_graphics("MAST_v_FIMO.png")
 
 Starting with the ChIP-seq summits file, try the following:  
 
-* Use bedtools to prepare a fasta input file for meme that contains the sequences under peak summits. Use the ChIP-seq summits for the whole genome since your chromosome may not have enough peaks for the following analysis.  It can be found here:  `/home/FCAM/meds5420/data/ATF1/ATF1_peaks/ATF1_summits.bed` \
+* Use `bedtools` to prepare a fasta input file for meme that contains the sequences under peak summits. Use the ChIP-seq summits for the whole genome since your chromosome may not have enough peaks for the following analysis.  It can be found here:  `/home/FCAM/meds5420/data/ATF1/ATF1_peaks/ATF1_summits.bed` \
     - Use 101bp window centered on summit. \
     - Use only the top 500 peaks.\
     - Fasta formatted `hg38.fa` and chromosomes (needed later) can be found here: \
@@ -264,7 +236,7 @@ Starting with the ChIP-seq summits file, try the following:
   - number of FIMO motifs on your chromosome\
   - number of FIMO motifs in peaks for your chromosome\
 * **If time permits:** Try running MEME with different conditions to see how the results change.\
-    - change -n, -maxw, -zoops to -anr
+    - change -n, -maxw, add -zoops or -anr options
 
 
 \pagebreak
@@ -272,7 +244,7 @@ Starting with the ChIP-seq summits file, try the following:
 # Answers to In Class Exercise:
 
 ```{r engine='bash', eval=F, echo=TRUE}
-module load meme
+module load meme/5.4.1
 module load bedtools
 
 #Let's set a variable to the chromInfo file so we don't have to type it every time:
@@ -300,7 +272,7 @@ fastaFromBed -fi hg38.fa -bed ATF1_summit_101bp.bed -fo ATF1_summit_101bp.fasta
 # Now run MAST on them to ID peaks with the MEME motifs.  
 # Check the manual for the options.
 
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif mast -hit_list meme_ATF1/meme.txt ATF1_summit_101bp.fasta > mast_ATF1_hits.txt
+mast -hit_list meme_ATF1/meme.txt ATF1_summit_101bp.fasta > mast_ATF1_hits.txt
 
 # To then run FIMO we should create a background file,
 
@@ -310,10 +282,10 @@ tar -xzf hg38.chromFa.tar.gz
 cp /home/FCAM/meds5420/genomes/chroms/chr17.fa ./
 # recall I put them here /home/FCAM/meds5420/genomes/chroms
 
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif fasta-get-markov -m 3 chr17.fa > chr17_bkgrnd.txt
+fasta-get-markov -m 3 chr17.fa > chr17_bkgrnd.txt
 
 #Next run FIMO with the background file, MEME output and your chr.fasta to search
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif fimo --text --max-strand --max-stored-scores 10000000 --bgfile chr17_bkgrnd.txt ./meme_ATF1/meme.txt chr17.fa > fimo_ATF1_chr17.txt
+fimo --text --max-strand --max-stored-scores 10000000 --bgfile chr17_bkgrnd.txt ./meme_ATF1/meme.txt chr17.fa > fimo_ATF1_chr17.txt
 
 #Convert FIMO output to bed
 
@@ -323,14 +295,14 @@ awk '{OFS="\t";} NR>1 {print $3, $4, $5, $7, $8, $6}' fimo_ATF1_chr17.txt > fimo
 intersectBed -wo -a fimo_ATF1_chr17.bed -b ATF1_summit_101bp.bed -g $genome > ATF1_chr17_motifs_in_peaks.txt
 
 # to get all the fimo output files, note the tsv files is nearly identical to the txt file above
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif fimo --max-strand --max-stored-scores 10000000 -oc fimo_ATF1 --bgfile chr17_bkgrnd.txt ./meme_ATF1/meme.txt chr17.fa 
+fimo --max-strand --max-stored-scores 10000000 -oc fimo_ATF1 --bgfile chr17_bkgrnd.txt ./meme_ATF1/meme.txt chr17.fa 
 
 # run meme with bfile on random intervals
 randomBed -n 1000 -l 101 -g $genome > hg38_random_intervals.bed
 
 fastaFromBed -fi hg38.fa -bed hg38_random_intervals.bed -fo hg38_random_intervals.fasta
 
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif fasta-get-markov -m 3 hg38_random_intervals.fasta > hg38_random_intervals_markov.txt
+fasta-get-markov -m 3 hg38_random_intervals.fasta > hg38_random_intervals_markov.txt
  
 meme ATF1_summit_101bp_top200.fasta -oc meme_ATF1_bfile -nmotifs 2 -objfun classic -evt 0.01 -searchsize 0 -minw 5 -maxw 10 -revcomp -dna -bfile hg38_random_intervals_markov.txt -maxsize 10000000
 
