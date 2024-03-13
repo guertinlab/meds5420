@@ -69,6 +69,9 @@ Lecture 15 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_15_2024.mp4 \
 Lecture 16: \
 https://guertinlab.github.io/meds5420/Lecture__16/Lecture_16.html \
+Play Me!\
+Lecture 16 Recording: \
+http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_16_2024.mp4 \
 https://guertinlab.github.io/meds5420/Lecture__17/Lecture_17.html \
 https://guertinlab.github.io/meds5420/Lecture__18/Lecture_18.html \
 https://guertinlab.github.io/meds5420/Lecture__19/Lecture_19.pdf \
