@@ -198,7 +198,7 @@ This is a basic run, but there are several options one can implement:\ [http://m
 FIMO returns `.html`, `.gff3`, and `.tsv` (tab-separated values) files. I usually invoke the option `--text` and redirect (`>`) the `stdout` to a file name to create a text file output that contains a list of the motifs, their locations, and significance. \
 
 
-Here is a run that I recently did on my local machine (it does not require `singularity exec ...`)
+Here is a run that I recently:
 
 ```{r engine='bash', eval=F, echo=TRUE}
 fimo --max-strand --text --max-stored-scores 10000000 --oc fimo_atf1_out meme.txt hg38.fa > fimo_output.txt
@@ -224,7 +224,7 @@ Starting with the ChIP-seq summits file, try the following:
     - Fasta formatted `hg38.fa` and chromosomes (needed later) can be found here: \
     `/home/FCAM/meds5420/genomes/`  and\
     `/home/FCAM/meds5420/genomes/chroms`
-* Search for underlying motifs on with MEME:\
+* Search for underlying motifs in the top 500 most intense peaks with MEME:\
 	- Use MAST to map the identified motifs back to your peak sequences (use all peaks from your `narrowPeaks` file for this): \
 	- Use FIMO to scan **your** chromosome for these motifs.\
 	- Create `.tar` files from the output and `scp` or `sftp` the folders to your machine.  		
@@ -236,7 +236,7 @@ Starting with the ChIP-seq summits file, try the following:
   - number of FIMO motifs on your chromosome\
   - number of FIMO motifs in peaks for your chromosome\
 * **If time permits:** Try running MEME with different conditions to see how the results change.\
-    - change -n, -maxw, add -zoops or -anr options
+    - change `-n`, `-maxw`, add `-zoops` or `-anr` options
 
 
 \pagebreak
