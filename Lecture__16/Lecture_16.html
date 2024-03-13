@@ -894,7 +894,7 @@ mast MEME_output.txt -hit_list SUMMITS_100bp.fa &gt; mast_hits.txt</code></pre>
 <p>This is a basic run, but there are several options one can implement: <a href="http://meme-suite.org/doc/fimo.html?man_type=web">http://meme-suite.org/doc/fimo.html?man_type=web</a></p>
 <p>FIMO returns <code>.html</code>, <code>.gff3</code>, and <code>.tsv</code> (tab-separated values) files. I usually invoke the option <code>--text</code> and redirect (<code>&gt;</code>) the <code>stdout</code> to a file name to create a text file output that contains a list of the motifs, their locations, and significance.<br />
 </p>
-<p>Here is a run that I recently did on my local machine (it does not require <code>singularity exec ...</code>)</p>
+<p>Here is a run that I recently:</p>
 <pre class="bash"><code>fimo --max-strand --text --max-stored-scores 10000000 --oc fimo_atf1_out meme.txt hg38.fa &gt; fimo_output.txt</code></pre>
 <p>After going through this workflow, there are a number of things one can do with these locations and bedtools.<br />
 </p>
@@ -925,7 +925,7 @@ Figure 3: <span class="caption-title">MAST vs FIMO</span><br>
 <code>/home/FCAM/meds5420/genomes/</code> and<br />
 <code>/home/FCAM/meds5420/genomes/chroms</code></li>
 </ul></li>
-<li>Search for underlying motifs on with MEME:<br />
+<li>Search for underlying motifs in the top 500 most intense peaks with MEME:<br />
 
 <ul>
 <li>Use MAST to map the identified motifs back to your peak sequences (use all peaks from your <code>narrowPeaks</code> file for this):<br />
@@ -954,7 +954,7 @@ Figure 3: <span class="caption-title">MAST vs FIMO</span><br>
 <li><strong>If time permits:</strong> Try running MEME with different conditions to see how the results change.<br />
 
 <ul>
-<li>change -n, -maxw, add -zoops or -anr options</li>
+<li>change <code>-n</code>, <code>-maxw</code>, add <code>-zoops</code> or <code>-anr</code> options</li>
 </ul></li>
 </ul>
 <div style="page-break-after: always;"></div>
