@@ -894,20 +894,12 @@ Output is a .html file and a text file. The file shows the name of the motifs (d
 <strong>Example:</strong><br />
 </p>
 <pre class="bash"><code>meme-chip -oc meme_chip_ATF1 -db JASPAR2022_CORE_vertebrates_non-redundant.meme ATF1_summit_101bp_top200.fasta -meme-nmotifs 2 -minw 5 -maxw 8 -meme-mod zoops </code></pre>
-<p><strong>Note:</strong> options for each program in the pipeline can be specified by prefixing the option with the program names as shown with <code>meme</code> above.</p>
-<p><strong>In Class Exercise:</strong></p>
-<ol style="list-style-type: decimal">
-<li>Complete the last exercise if you did not finish.<br />
-</li>
-</ol>
-<ul>
-<li>FIMO may take a while. Try to run it again in the background (add <code>&amp;</code> to end of command) and then work on the other exercises or the midterm.<br />
-</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li><p>There are converted JASPAR databases in the following location<br />
+<p><strong>Note:</strong> options for each program in the pipeline can be specified by running the command without inputs.</p>
+<p><strong>In Class Exercise:</strong>
+1) There are converted JASPAR databases in the following location<br />
 <code>/home/FCAM/meds5420/TF_db/JASPAR/</code>. Use either database to compare to your motif using <code>tomtom</code>.<br />
-</p></li>
+</p>
+<ol start="2" style="list-style-type: decimal">
 <li><p>View the beginning of the tomtom.tsv output—this is just a tab-separated values text file: <code>.tsv</code>. Notice that the protein ID is in the format like <code>MA0604.1</code> Use <code>grep</code> on the original JASPAR.meme file to find out the common transcription factor name of some of your top hits. Use <code>grep</code> to see if any Atf1 motifs are found<br />
 </p></li>
 <li><p>Copy the <code>.html</code> file to your local computer and view it in the browser. Any surprises regarding the TFs found?<br />
