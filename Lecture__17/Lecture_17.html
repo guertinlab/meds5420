@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2023-03-22" />
+<meta name="date" content="2024-03-21" />
 
 <title>MEDS5420 – Lecture 17 - motif queries</title>
 
@@ -52,7 +52,7 @@ h4 {font-size: 18px;}
 h5 {font-size: 16px;}
 h6 {font-size: 12px;}
 code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-pre:not([class]) { background-color: white }</style>
+</style>
 <script>
 
 /**
@@ -701,7 +701,7 @@ function toggle_visibility(id1) {
 
 
 <h1 class="title toc-ignore">MEDS5420 – Lecture 17 - motif queries</h1>
-<h4 class="date">March 22, 2023</h4>
+<h4 class="date">March 21, 2024</h4>
 
 </div>
 
@@ -770,8 +770,8 @@ Figure 2: <span class="caption-title">Position weight matrix</span><br>
 </p>
 </div>
 <p>Matrixes can be in many formats, see: <a href="http://meme-suite.org/doc/overview.html#motif_conversion_utilities">http://meme-suite.org/doc/overview.html#motif_conversion_utilities</a>.</p>
-<p>You can create Sequence Logos from your enriched sequences with weblogo: <a href="http://weblogo.berkeley.edu/logo.cgi">http://weblogo.berkeley.edu/logo.cgi</a> or a vector image using <code>meme ceqlogo</code>:</p>
-<pre class="bash"><code>singularity exec /isg/shared/apps/meme/5.4.1/meme.sif ceqlogo -i meme.txt -m 2 -f EPS -o atf1.eps</code></pre>
+<p>You can create Sequence Logos from your enriched sequences with weblogo: <a href="http://weblogo.berkeley.edu/logo.cgi">http://weblogo.berkeley.edu/logo.cgi</a> or a vector image using <code>ceqlogo</code>:</p>
+<pre class="bash"><code>ceqlogo -i meme.txt -m 2 -f EPS -o atf1.eps</code></pre>
 </div>
 <div id="comparing-your-motif-to-databases" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Comparing Your Motif to Databases</h2>
@@ -806,7 +806,7 @@ see: <a href="http://meme-suite.org/doc/overview.html#motif_conversion_utilities
 ## G  [ 3  1  1  0 23  0 26 26  0  0  4 ]
 ## T  [11 11 14 24  1 16  0  0 25 16  7 ]</code></pre>
 <p>To convert a whole directory of JASPAR motif files:</p>
-<pre class="bash"><code>singularity exec /isg/shared/apps/meme/5.4.1/meme.sif jaspar2meme -pfm DIRECTORY_INPUT &gt; jaspar.meme
+<pre class="bash"><code>jaspar2meme -pfm DIRECTORY_INPUT &gt; jaspar.meme
 </code></pre>
 <p><code>-pfm</code>: specifies input format</p>
 <pre class="bash"><code>head -28 ./jaspar.meme | tail -20</code></pre>
@@ -844,7 +844,7 @@ I found that you need to copy them locally to use the files as input for TOMTOM.
 See documentation: <a href="http://meme-suite.org/doc/tomtom.html?man_type=web">http://meme-suite.org/doc/tomtom.html?man_type=web</a>
 Output is a .html file and a text file. The file shows the name of the motifs (database ID), the significance of the match and the relevant consensus sequences.</p>
 <p>Basic usage:</p>
-<pre class="bash"><code>singularity exec /isg/shared/apps/meme/5.4.1/meme.sif tomtom -eps -oc tomtom_OUTPUT meme.txt DATABASE.meme</code></pre>
+<pre class="bash"><code>tomtom -eps -oc tomtom_OUTPUT meme.txt DATABASE.meme</code></pre>
 <ul>
 <li><code>-eps</code>: creates an seqLogo of your motif aligned to each known motif that is similar.<br />
 </li>
@@ -856,7 +856,7 @@ Output is a .html file and a text file. The file shows the name of the motifs (d
 </li>
 </ul>
 <p>Here’s an example usage with more options:</p>
-<pre class="bash"><code>singularity exec /isg/shared/apps/meme/5.4.1/meme.sif tomtom -no-ssc -oc tomtom_OUPUT -verbosity 1 -min-overlap 5 -mi 1 -evalue -thresh 0.05 meme.txt DATABASE.meme</code></pre>
+<pre class="bash"><code>tomtom -no-ssc -oc tomtom_OUPUT -verbosity 1 -min-overlap 5 -mi 1 -evalue -thresh 0.05 meme.txt DATABASE.meme</code></pre>
 <ul>
 <li><code>-m</code> which motif(s) to use (depends on the number in your meme.txt file)<br />
 </li>
@@ -892,7 +892,7 @@ Output is a .html file and a text file. The file shows the name of the motifs (d
 <a href="http://meme-suite.org/doc/meme-chip.html?man_type=web">http://meme-suite.org/doc/meme-chip.html?man_type=web</a><br />
 <strong>Example:</strong><br />
 </p>
-<pre class="bash"><code>singularity exec /isg/shared/apps/meme/5.4.1/meme.sif  meme-chip -oc meme_chip_ATF1 -db JASPAR2022_CORE_vertebrates_non-redundant.meme ATF1_summit_101bp_top200.fasta -meme-nmotifs 2 -minw 5 -maxw 8 -meme-mod zoops </code></pre>
+<pre class="bash"><code>meme-chip -oc meme_chip_ATF1 -db JASPAR2022_CORE_vertebrates_non-redundant.meme ATF1_summit_101bp_top200.fasta -meme-nmotifs 2 -minw 5 -maxw 8 -meme-mod zoops </code></pre>
 <p><strong>Note:</strong> options for each program in the pipeline can be specified by prefixing the option with the program names as shown with <code>meme</code> above.</p>
 <p><strong>In Class Exercise:</strong></p>
 <ol style="list-style-type: decimal">
@@ -937,7 +937,7 @@ Figure 3: <span class="caption-title">Paralogous TF DBDs</span><br>The heat map 
 <h1><span class="header-section-number">6</span> Answers to In Class Exercise:</h1>
 <p>running TomTom</p>
 <pre class="bash"><code>#switch to directory above where meme was performed:
-singularity exec /isg/shared/apps/meme/5.4.1/meme.sif tomtom -no-ssc -oc tomtom_OUPUT -verbosity 1 -min-overlap 5 -mi 1 -evalue -thresh 0.05 ATF1_classic.meme_output/meme.txt JASPAR2022_CORE_vertebrates_non-redundant.meme</code></pre>
+tomtom -no-ssc -oc tomtom_OUPUT -verbosity 1 -min-overlap 5 -mi 1 -evalue -thresh 0.05 ATF1_classic.meme_output/meme.txt JASPAR2022_CORE_vertebrates_non-redundant.meme</code></pre>
 <p>grep out some top hits:</p>
 <pre class="bash"><code>grep MA1131.1 /home/FCAM/meds5420/TF_db/JASPAR/JASPAR2022_CORE_vertebrates_redundant.meme
 grep MA0604.1 /home/FCAM/meds5420/TF_db/JASPAR/JASPAR2022_CORE_vertebrates_redundant.meme
@@ -946,7 +946,7 @@ grep MA0604.1 /home/FCAM/meds5420/TF_db/JASPAR/JASPAR2022_CORE_vertebrates_redun
 grep -i atf1 JASPAR2022_CORE_vertebrates_redundant.meme | cut -d &#39; &#39; -f2 | grep -f - tomtom.tsv </code></pre>
 <p>You can also search JASPAR online as well.</p>
 <p>Example working meme-ChIP command:</p>
-<pre class="bash"><code>singularity exec /isg/shared/apps/meme/5.4.1/meme.sif meme-chip -oc meme_chip_ATF1 -db JASPAR2022_CORE_vertebrates_non-redundant.meme ATF1_summit_101bp_top200.fasta -meme-nmotifs 2 -minw 5 -maxw 8 -meme-mod zoops </code></pre>
+<pre class="bash"><code>meme-chip -oc meme_chip_ATF1 -db JASPAR2022_CORE_vertebrates_non-redundant.meme ATF1_summit_101bp_top200.fasta -meme-nmotifs 2 -minw 5 -maxw 8 -meme-mod zoops </code></pre>
 </div>
 
 
