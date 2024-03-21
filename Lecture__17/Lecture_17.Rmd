@@ -151,26 +151,20 @@ I had to copy `JASPAR2022_CORE_vertebrates*redundant.meme` to my local directory
 ```{r engine='bash', eval=F, echo=TRUE}
 meme-chip -oc meme_chip_ATF1 -db JASPAR2022_CORE_vertebrates_non-redundant.meme ATF1_summit_101bp_top200.fasta -meme-nmotifs 2 -minw 5 -maxw 8 -meme-mod zoops 
 ```
-**Note:**  options for each program in the pipeline can be specified by prefixing the option with the program names as shown with `meme` above.
+**Note:**  options for each program in the pipeline can be specified by running the command without inputs.
 
 
 **In Class Exercise:**
-
-1) Complete the last exercise if you did not finish.\
-
-* FIMO may take a while.  Try to run it again in the background (add `&` to end of command) and then work on the other exercises or the midterm.\
-
-
-2)  There are converted JASPAR databases in the following location\
+1)  There are converted JASPAR databases in the following location\
 `/home/FCAM/meds5420/TF_db/JASPAR/`.  Use either database to compare to your motif using `tomtom`.\
 
-3) View the beginning of the tomtom.tsv output—this is just a tab-separated values text file: `.tsv`.  Notice that the protein ID is in the format like `MA0604.1` Use `grep` on the original JASPAR.meme file to find out the common transcription factor name of some of your top hits. Use `grep` to see if any Atf1 motifs are found\
+2) View the beginning of the tomtom.tsv output—this is just a tab-separated values text file: `.tsv`.  Notice that the protein ID is in the format like `MA0604.1` Use `grep` on the original JASPAR.meme file to find out the common transcription factor name of some of your top hits. Use `grep` to see if any Atf1 motifs are found\
 
-4) Copy the `.html` file to your local computer and view it in the browser. Any surprises regarding the TFs found?\
+3) Copy the `.html` file to your local computer and view it in the browser. Any surprises regarding the TFs found?\
 
-5) Try searching for your motif using the web version of TOMTOM.  Do you see any differences in the results?\
+4) Try searching for your motif using the web version of TOMTOM.  Do you see any differences in the results?\
 
-6) Optional: Try running `meme-chip` on your ATF1 data and viewing all the resulting files.\
+5) Optional: Try running `meme-chip` on your ATF1 data and viewing all the resulting files.\
 \
 
 # Motif similarity / redundancy 
