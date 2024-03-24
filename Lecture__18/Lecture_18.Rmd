@@ -85,6 +85,8 @@ knitr::include_graphics("./CRAN_bioC_num.png")
 
 To start an are session type `R` in the command line:
 ```{r engine='bash', eval=F, echo=TRUE}
+# this version on the server has some software libraries pre-installed
+module load R/4.1.2
 R
 ``` 
 You are now in an R environment.  Notice command prompt: `>` \
