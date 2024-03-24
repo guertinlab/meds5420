@@ -676,7 +676,7 @@ There are two tables (exp_untreated.txt, exp_treated.txt) in the following locat
 To Do:
 
 
-**1.** Either copy these files to your local machine (using `sfto`) or work with them on the server in an `R` session. \
+**1.** Either copy these files to your local machine (using `sftP`) or work with them on the server in an `R` session. \
 **2.** Read the tables into `R` and set them equal to a variable that makes sense (e.g. "untreated", "treated"). \
 **3.** Create column names for the data tables (i.e. "genes" for column 1, and "treated" or "untreated" for column 2) \
 **4.** Merge the tables into one table with the `merge()` function \
