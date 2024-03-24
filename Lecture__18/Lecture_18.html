@@ -821,7 +821,9 @@ Figure 3: <span class="caption-title">Cran and BioConductor packages over time</
 <div id="intro-to-r-sessions" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Intro to R sessions</h2>
 <p>To start an are session type <code>R</code> in the command line:</p>
-<pre class="bash"><code>R</code></pre>
+<pre class="bash"><code># this version on the server has some software libraries pre-installed
+module load R/4.1.2
+R</code></pre>
 <p>You are now in an R environment. Notice command prompt: <code>&gt;</code><br />
 </p>
 <p>R commands have their own syntax, and it is somewhat different than shell commands. In general the format for <code>R</code> commands or functions is as follows:</p>
@@ -1069,7 +1071,7 @@ dfC</code></pre>
 <pre><code>## also installing the dependencies &#39;Rcpp&#39;, &#39;plyr&#39;</code></pre>
 <pre><code>## 
 ## The downloaded binary packages are in
-##  /tmp/RtmpJb9hGU/downloaded_packages</code></pre>
+##  /tmp/RtmpcA09wN/downloaded_packages</code></pre>
 <pre class="r"><code>library(data.table)
 x.frame = read.table(&#39;peaks_promoters.bed&#39;, header=FALSE, sep = &#39;\t&#39;)
 is.data.frame(x.frame)</code></pre>
