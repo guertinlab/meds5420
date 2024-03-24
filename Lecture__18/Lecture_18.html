@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2023-03-27" />
+<meta name="date" content="2024-03-25" />
 
 <title>MEDS5420 – Introduction to R</title>
 
@@ -52,7 +52,7 @@ h4 {font-size: 18px;}
 h5 {font-size: 16px;}
 h6 {font-size: 12px;}
 code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-pre:not([class]) { background-color: white }</style>
+</style>
 <script>
 
 /**
@@ -701,7 +701,7 @@ function toggle_visibility(id1) {
 
 
 <h1 class="title toc-ignore">MEDS5420 – Introduction to R</h1>
-<h4 class="date">March 27, 2023</h4>
+<h4 class="date">March 25, 2024</h4>
 
 </div>
 
@@ -1069,7 +1069,7 @@ dfC</code></pre>
 <pre><code>## also installing the dependencies &#39;Rcpp&#39;, &#39;plyr&#39;</code></pre>
 <pre><code>## 
 ## The downloaded binary packages are in
-##  /tmp/RtmpHiRq5q/downloaded_packages</code></pre>
+##  /tmp/RtmptaLvZo/downloaded_packages</code></pre>
 <pre class="r"><code>library(data.table)
 x.frame = read.table(&#39;peaks_promoters.bed&#39;, header=FALSE, sep = &#39;\t&#39;)
 is.data.frame(x.frame)</code></pre>
@@ -1203,6 +1203,7 @@ head(Puromycin$rate) # just another way of doing the above</code></pre>
 DT&lt;- data.table(Puromycin)
 DT[,mean(rate), by= state]</code></pre>
 <pre><code>##        state       V1
+##       &lt;fctr&gt;    &lt;num&gt;
 ## 1:   treated 141.5833
 ## 2: untreated 110.7273</code></pre>
 <pre class="r"><code>#Format = DATA.TABLE[row, column, by= factor_column]
