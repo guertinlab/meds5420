@@ -1,10 +1,10 @@
 ---
-title: \sf MEDS5420 - Lecture 20 - R Functions and plotting
+title: \sf MEDS5420 - Lecture 19 - R Functions and plotting
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "April 3, 2023"
+date: "March 28, 2024"
 output:
   bookdown::html_document2:
     toc: true
