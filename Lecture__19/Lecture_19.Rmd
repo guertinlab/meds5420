@@ -310,7 +310,7 @@ dev.off()
 It is better to specify the file first, plot to it, and then close the device:
 ```{r, eval=F, echo=T}
 # can be done with jpeg, pdf, tiff, eps, png, etc. formats
-pdf(file="plot.jpg", width=4, height=4)
+pdf(file="plot.pdf", width=4, height=4)
 # Do your plotting
 # Add a Legend
 dev.off()
