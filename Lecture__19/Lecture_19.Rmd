@@ -17,7 +17,7 @@ geometry: margin=1in
 
 1) Software carpentry: [https://swcarpentry.github.io/r-novice-gapminder/](https://swcarpentry.github.io/r-novice-gapminder/)\
 2) Detailed R tutorial: [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/)\
-3) Several images in today's tutorial are from the book **R in Action**.  Can be purchased here: [http://www.manning.com/kabacoff/](http://www.manning.com/kabacoff/) or on Amazon.\
+3) Several images in today's tutorial are from the book **R in Action**.   Can be purchased here: [http://www.manning.com/kabacoff/](http://www.manning.com/kabacoff/) or on Amazon.\
 4) **Quick R** is also one of many good resources for plotting: [http://www.statmethods.net/](http://www.statmethods.net/)
 
 
