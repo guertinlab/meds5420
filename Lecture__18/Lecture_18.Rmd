@@ -425,7 +425,7 @@ Remove a item from environment
 ```{r, eval=T, echo=TRUE}
 rm() # list current tables in environment
 ```
-Remove all tables from envirnoment
+Remove all tables from environment
 ```{r, eval=F, echo=TRUE}
 rm(ls()) # list current tables in environment
 ```
