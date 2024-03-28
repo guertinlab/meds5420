@@ -384,7 +384,7 @@ Using one of the replicates for your chromosome, try plotting the following: \
 
 3) A CDF plot of absolute distance from peak to closest gene \
 
-  * Add horizonatal lines for the 50 percentile and median. \
+  * Add horizontal lines for the 50 percentile and median. \
   * Add a legend \
 
 ## Scatterplots
