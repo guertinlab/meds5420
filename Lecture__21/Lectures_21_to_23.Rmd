@@ -33,7 +33,7 @@ RNA-SeQC is not available on the Xanadu server, but you can prefilter for qualit
 * quality filter / trimming
 * adapter removal
 
-**NOTE:** Illumina adapters have barcodes these days, so when removing adapter from multiple files, just use the constant regions before the variable region (bolded below) to filter against.  Example:\
+**NOTE:** Illumina adapters have barcodes these days, so when removing adapter from multiple files, just use the constant regions before the variable region (bolded below) to filter against.  Example: \
 
 
 GATCGGAAGAGCACACGTCTGAACTCCAGTCAC**ATCACG**ATCTCGTATGCCGTCTTCTGCTTG\
