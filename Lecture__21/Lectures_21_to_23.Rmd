@@ -531,7 +531,7 @@ To ensure that I use the correct option, I always run both options and observe t
 
 # In class exercise 2:
 
-**1)** Count reads in genes and empirically determine the correct `stranded` parameter option for your `C1_RNAseq_rep1.fastq.gz` data aligned to your chromosome. Recall that `C7_RNAseq_rep1_F.sam` and `C7_RNAseq_rep1_R.sam` are found here: `/home/FCAM/meds5420/data/RNA_seq`. Confirm that `HTSeq` ignores the `--rna-strandedness` option from `hisat2` by counting with both SAM files.\
+**1)** Count reads in genes and empirically determine the correct `stranded` parameter option for your `C1_RNAseq_rep1.fastq.gz` data aligned to your chromosome. Recall that `C1_RNAseq_rep1_F.sam` and `C1_RNAseq_rep1_R.sam` are found here: `/home/FCAM/meds5420/data/RNA_seq`. Confirm that `HTSeq` ignores the `--rna-strandedness` option from `hisat2` by counting with both SAM files.\
 
 You should have already extracted only reads from your chromosome using `grep` and these input SAM files. Likewise, you should have subset your gtf annotation to only contain your chromosome using `grep`.  \
  
