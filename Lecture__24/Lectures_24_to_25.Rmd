@@ -4,7 +4,7 @@ header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "April 18 and 2, 2024"
+date: "April 18 and 22, 2024"
 output:
   bookdown::html_document2:
     toc: true
