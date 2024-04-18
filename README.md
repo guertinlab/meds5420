@@ -95,7 +95,9 @@ Lecture 22 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_22_2024.mp4 \
 Lecture 23 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_23_2024.mp4 \
-https://guertinlab.github.io/meds5420/Lecture__24/Lectures_24_to_25.html 
+https://guertinlab.github.io/meds5420/Lecture__24/Lectures_24_to_25.html \
+Lecture 24 Recording: \
+http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_24_2024.mp4 \
 https://guertinlab.github.io/meds5420/Lecture__26/Lectures_26_to_27.html 
 
 
