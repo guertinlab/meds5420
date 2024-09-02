@@ -7,7 +7,7 @@ https://guertinlab.github.io/meds5420/Landing_page/MEDS5420_2024_landing.html \
 All 2023 documents are posted here: \
 http://guertinlab.cam.uchc.edu/meds5420_2023/MEDS5420_2023_landing.html 
 
-%%% In 2024 all files will be hosted from GitHub with automatic updates: \
+<!--  In 2024 all files will be hosted from GitHub with automatic updates: \
 Lecture 1: \
 https://guertinlab.github.io/meds5420/Lecture_1/Lecture_1.pdf  \
 Lecture 1 Recording: \
@@ -106,7 +106,7 @@ http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_25_2024.mp4 \
 Bonus ATAC-seq vignette: \
 https://guertinlab.github.io/meds5420/Lecture__26/Lectures_26_to_27.html 
 
-%%%
+-->
 
 You should bookmark this site.
 
