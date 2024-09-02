@@ -13,7 +13,7 @@ geometry: margin=1in
 ---
 
 
-Thank you to everyone who took MEDS5420 in 2024. Also, A big thanks to Leighton Core, who shared his Functional Genomics class content with me. Dr. Core developed much of the basic command line utilities text and examples that were reproduced with his permission.  
+Thank you to everyone who took MEDS5420 in 2024. Also, A big thanks to Leighton Core, who shared his Functional Genomics class content with me. Dr. Core developed much of the basic command line utilities text and examples that were reproduced with his permission.
 
 
 # Lecture 1: Introduction to High Throughput Sequencing Technology Lecture
