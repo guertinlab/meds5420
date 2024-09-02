@@ -5,7 +5,7 @@ Course material for UCHC MEDS5420
 All 2024 documents are posted here: \
 https://guertinlab.github.io/meds5420/Landing_page/MEDS5420_2024_landing.html \
 All 2023 documents are posted here: \
-http://guertinlab.cam.uchc.edu/meds5420_2023/MEDS5420_2023_landing.html \
+http://guertinlab.cam.uchc.edu/meds5420_2023/MEDS5420_2023_landing.html 
 
 In 2024 all files will be hosted from GitHub with automatic updates: \
 Lecture 1: \
