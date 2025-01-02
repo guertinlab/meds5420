@@ -2,12 +2,12 @@
 Course material for UCHC MEDS5420
 
 # Accessing the HTML lecture vignettes, PDF slides, and recordings:
-All 2024 documents are posted here: \
+All 2024 documents are posted here and updated as the semester proceeds: \
 https://guertinlab.github.io/meds5420/Landing_page/MEDS5420_2024_landing.html \
 All 2023 documents are posted here: \
 http://guertinlab.cam.uchc.edu/meds5420_2023/MEDS5420_2023_landing.html 
 
-<!--  In 2024 all files will be hosted from GitHub with automatic updates: \
+<!--  In 2025 all files will be hosted from GitHub with automatic updates: \
 Lecture 1: \
 https://guertinlab.github.io/meds5420/Lecture_1/Lecture_1.pdf  \
 Lecture 1 Recording: \
@@ -125,7 +125,7 @@ Excluding materials for purchase, syllabus information may be subject to change.
 
 # Program Information
 
-Class size is limited to 12 total students and priority is given to students supported by the Genomic Medicine T32 and students in either the Systems Biology or Genetics and Developmental Biology area of concentration.
+Class size is limited to 16 total students and priority is given to students supported by the Genomic Medicine T32 and students in either the Systems Biology or Genetics and Developmental Biology area of concentration.
 
 Course and Instructor Information
 
@@ -133,11 +133,11 @@ Course Title:  Molecular Genomics Practicum
 
 Course Number: MEDS 5420
 
-Credits:  4
+Credits:  3
 
-Time: 1-3 pm, Monday and Thursday
+Time: 1:15-3:15 pm, Monday and Thursday
 
-Room: R1401 Cell and Genome Sciences Building 400 Farmington Ave.
+Room: [redacted]
 
 Format:  Lecture and immersive in class application. 
 
@@ -262,7 +262,7 @@ Module 3: RNA-seq analysis
 
 Calendar and Class Meeting Schedule 
 
-Proposed meeting times: MR 1 -3 pm
+Proposed meeting times: MW 1:15 -3:15 pm
 
 
 January 18: Overview of Molecular Genomics and High Throughput Sequencing Technology
