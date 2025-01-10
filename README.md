@@ -265,9 +265,9 @@ Calendar and Class Meeting Schedule
 Proposed meeting times: MW 1:15 -3:15 pm
 
 
-January 18: Overview of Molecular Genomics and High Throughput Sequencing Technology
+January 22: Overview of Molecular Genomics and High Throughput Sequencing Technology
 
-January 22: Introduction to the Command Line: directories, head, wc, etc.
+January 27: Introduction to the Command Line: directories, head, wc, etc.
 
 January 25: Introduction to the Command Line: pipes, compression, and grep
 
