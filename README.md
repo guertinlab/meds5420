@@ -262,62 +262,65 @@ Module 3: RNA-seq analysis
 
 Calendar and Class Meeting Schedule 
 
-Proposed meeting times: MW 1:15 -3:15 pm
-
+Proposed meeting times: MW 1:15 - 3:15 pm
 
 January 22: Overview of Molecular Genomics and High Throughput Sequencing Technology
 
 January 27: Introduction to the Command Line: directories, head, wc, etc.
 
-January 25: Introduction to the Command Line: pipes, compression, and grep
+January 29: Introduction to the Command Line: pipes, compression, and grep
 
-January 29: Introduction to the Command Line: find, cut, variables, scripting, and permissions (Homework 1 assigned)
+February 3: Introduction to the Command Line: find, cut, variables, scripting, and permissions (Homework 1 assigned)
 
-February 1: Introduction to the Command Line: awk
+February 5: Introduction to the Command Line: awk
 
-February 5: Introduction to the Command Line: Logical operators, loops, and Xanadu (HW1 due)
+February 10: Introduction to the Command Line: Logical operators, loops, and Xanadu (HW1 due) (Miura lecture)
 
-February 8: Introduction to the Command Line: Batch scripts, interactive sessions, and software installs
+February 12: Introduction to the Command Line: Batch scripts, interactive sessions, and software installs
 
-February 12: lllumina data format, QC, and preprocessing (HW1 due)
+February 17: lllumina data format, QC, and preprocessing (HW1 due)
 
-February 15: Illumina preprocessing: fastx tools
+February 19: Illumina preprocessing: fastx tools
 
-February 19: Aligning Illumina data (Homework 2 assigned)
+February 24: Aligning Illumina data (Homework 2 assigned)
 
-February 22: Transcription Factors and ChIP-seq lecture
+February 26: Transcription Factors and ChIP-seq lecture
 
-February 26: Post-mapping processing with samtools and bedtools
+March 3: Post-mapping processing with samtools and bedtools
 
-February 29: The UCSC genome browser (Dr. Guertin may pre-record or lecture remotely)
+March 5: The UCSC genome browser 
 
-March 4: ChIP-seq Analysis: ChIP-seq peak calling
+March 10: ChIP-seq Analysis: ChIP-seq peak calling
 
-March 7: ChIP-seq Analysis: Analyze ChIP-seq peaks with bedtools and awk (HW 2 due) (Midterm assigned)
+March 12: ChIP-seq Analysis: Analyze ChIP-seq peaks with bedtools and awk (HW 2 due) (Midterm assigned)
 
-March 18: ChIP-seq Analysis: de novo motif analysis (pre-recorded) Dr. Guertin is in Utah
+March 24: ChIP-seq Analysis: de novo motif analysis 
 
-March 21: ChIP-seq Analysis: Motif queries to genomes and databases
+March 26: ChIP-seq Analysis: Motif queries to genomes and databases
 
-March 25: Introduction to R
+March 31: Introduction to R and R Studio (Miura starts)
 
-March 28: RNA-seq Lecture
+April 2: R functions and plotting (Midterm due) 
 
-April 1: R functions and plotting (Midterm due) (Homework 3 assigned)
+April 7: R bioinformatics packages (tentative: HW3 assigned)
 
-April 4: RNA-seq Analysis: RNA-seq mapping
+April 9: RNA-Seq 1 (Intro to RNA-Seq: experimental design, library prep) 
 
-April 8: RNA-seq Analysis: visualization
+April 14: RNA-Seq 2 (alignment, pseudo-alignment methods) (tentative: HW4 assigned)
 
-April 11: RNA-seq Analysis: transcript assembly (recommended CCAM seminar at 4pm in Grossman Auditorium at 400 Farmington: Dr. Robin Dowell)
+April 16: RNA-Seq 3 (track visualization- IGV/UCSC)
 
-April 15: RNA-seq Analysis: Differential Expression (HW3 due) (Final Assigned)
+April 21: Differential Gene Expression, GO Enrichment Analysis, R Markdown 
 
-April 18: RNA-seq Analysis: Gene Set Enrichment analysis
+April 23: Alternative Splicing Analysis (tentative: Final Assigned)
 
-April 22: ATAC-seq Analysis
+April 28: Long Read RNA-Seq analysis (Alternative Polyadenylation analysis)
 
-April 25: ATAC-seq Analysis 
+April 30: Single Cell RNA-Seq 1 (Introduction of single cell concepts and methodology)
+
+TBD: Single Cell RNA-Seq 2 (Analysis– Seurat)
+
+TBD: Other Resources and tools (Conda, NextFlow), Review
 
 # Resources for Students Experiencing Distress
 The University of Connecticut is committed to supporting students in their mental health, their psychological and social well-being, and their connection to their academic experience and overall wellness. The university believes that academic, personal, and professional development can flourish only when each member of our community is assured equitable access to mental health services. The university aims to make access to mental health attainable while fostering a community reflecting equity and diversity and understands that good mental health may lead to personal and professional growth, greater self-awareness, increased social engagement, enhanced academic success, and campus and community involvement. Students experiencing personal difficulties during the course may utilize the following services. Please familiarize yourself with these offices and the services they provide.
