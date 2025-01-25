@@ -11,7 +11,7 @@ http://guertinlab.cam.uchc.edu/meds5420_2023/MEDS5420_2023_landing.html
 Lecture 1: \
 https://guertinlab.github.io/meds5420/Lecture_1/Lecture_1.pdf  \
 Lecture 1 Recording: \
-http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_1_2024.mp4 \
+http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_1.mp4 \
 Lecture 2: \
 https://guertinlab.github.io/meds5420/Lecture_2/Lecture_2.html \
 Lecture 2 Recording: \
