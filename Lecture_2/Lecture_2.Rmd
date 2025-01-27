@@ -16,7 +16,7 @@ geometry: margin=1in
 
 # Readings
 
-Practical Computing for Biologists: Chapters 1, 4, 5, Appendix 3. \
+Practical Computing for Biologists: Chapters 1, 4, 5, Appendix 3.  \
 
 Unix Basics from UConn CBC: http://bioinformatics.uconn.edu/unix-basics/ \
 
