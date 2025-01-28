@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2024-01-25" />
+<meta name="date" content="2025-01-29" />
 
 <title>MEDS5420 - The Shell Part 2</title>
 
@@ -701,7 +701,7 @@ function toggle_visibility(id1) {
 
 
 <h1 class="title toc-ignore">MEDS5420 - The Shell Part 2</h1>
-<h4 class="date">January 25, 2024</h4>
+<h4 class="date">January 29, 2025</h4>
 
 </div>
 
@@ -963,7 +963,7 @@ Have a look at <code>haiku.txt</code>:</p>
 ## Software is like that.</code></pre>
 <p>When was <code>haiku.txt</code> last modified?</p>
 <pre class="bash"><code>ls -l haiku.txt</code></pre>
-<pre><code>## -rw-r--r--  1 runner  staff  220 Jan 25 19:31 haiku.txt</code></pre>
+<pre><code>## -rw-r--r--  1 runner  staff  220 Jan 28 15:07 haiku.txt</code></pre>
 <pre class="bash"><code>grep bug haiku.txt</code></pre>
 <pre><code>## Each bug a lesson hidden,</code></pre>
 <p>In the above command, the first argument “bug” is the pattern we are searching for. The default action for <code>grep</code> is to return the entire line in which the pattern was found.</p>
@@ -1089,17 +1089,15 @@ raccoon</code></pre>
 <code>grep -i &#39;^s&#39; haiku.txt</code></li>
 <li>lines that end in the letter d:<br />
 <code>grep -i &#39;d$&#39; haiku.txt</code></li>
-<li><ul>
 <li>lines that begin with the letter “t” and end with the letter “g” :<br />
 <code>grep -i &#39;^t.*g$&#39; haiku.txt</code></li>
-</ul></li>
 <li>lines with words that begin with the letter n. The second answer requires a Google search, to specify the first and last letters of words use <code>\&lt;</code> (start of word) and <code>\&gt;</code> (end of word).<br />
 <code>grep -w -i &quot;n.*&quot;</code> or <code>grep -i &#39;\&lt;n&#39; haiku.txt</code></li>
 </ul>
 </div>
 <div id="exercise-3-grepping-patterns" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Exercise 3: ‘grepping’ patterns</h2>
-<p>The TS_example.txt file contains lyrics to a song by a well-known contemporary female artist. Using the command line utilities you just learned, try the following:<br />
+<p>The TS_example.txt file contains lyrics to a song by a well-known contemporary artist. Using the command line utilities you just learned, try the following:<br />
 <strong>1.</strong> Print the number of lines in the file: <code>wc -l TS_example.txt</code><br />
 <strong>2.</strong> Print the lines <strong>and line number</strong> that have the word ‘shake’ in them to a new file called <code>shake-lines.txt</code>: <code>grep -n -i shake  TS_example.txt &gt; shake-lines.txt</code> -this answer will print all instances of <em>shake</em> regardless of upper and lowercase letters due to the <code>-i</code> option.<br />
 <strong>3.</strong> Print the number of lines that have the word ‘shake’ in them: <code>grep -c shake TS_example.txt</code> -this answer is not sensitive to upper and lowercase<br />
