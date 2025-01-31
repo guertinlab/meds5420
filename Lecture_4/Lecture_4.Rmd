@@ -116,16 +116,6 @@ echo The date and time is: $(date)
 ```
 
 
-# Scripting in the shell.
-Scripts are a logially ordered set of commands used to process files.  They can be simple routines or complex programs.  There are three main things one needs when writing scripts in general: \
-**1.** The commands themselves \
-
-**2.** Information about what language should be used to interpret the commands \
-
-**3.** Permission to execute commands in script file. \
-
-
-
 ### Text editors: 
 Certain text editors are designed for scripting and can recognize code.  Importantly, they do not embed the document or fonts with hidden characteristics that can cause problems when running programs on you computer.  There are three features that you should look for in an editor:\
 
@@ -197,6 +187,15 @@ ctrl-O, then <Enter/Return> to save
 ctrl-X  to exit
 
 ```
+
+
+# Scripting in the shell.
+Scripts are a logially ordered set of commands used to process files.  They can be simple routines or complex programs.  There are three main things one needs when writing scripts in general: \
+**1.** The commands themselves \
+
+**2.** Information about what language should be used to interpret the commands \
+
+**3.** Permission to execute commands in script file. \
 
 
 The first line is the [Shebang](http://en.wikipedia.org/wiki/Shebang_%28Unix%29) line:
