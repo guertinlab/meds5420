@@ -52,16 +52,6 @@ find ./data-shell -name "*.txt"
 
 **Quick try:** Combine `find` and `grep` to find the number of text files within 2 and 3 levels inside of the data-shell folder.
 
-## Exercise 1: Finding Files With Different Properties
-The find command can be given several other criteria known as "tests"
-to locate files with specific attributes, such as creation time, size,
-permissions, or ownership. Use `man find` to explore these, and then
-write a single command to find all **.txt** files in or below the current
-directory that were modified in the last 336 hours.
-
-Hint 1: you will need to use three tests: `-type`, `-name`, and `-mtime`
-
-Hint 2: The value for `-mtime` will need to be negative - why?
 
 # Setting and viewing variables
 variables are strings that can be assigned values.  To create a variable use the following format:
@@ -296,7 +286,7 @@ done
 ```
 
 
-## Exercise 2: 
+## Exercise 1: 
 Create a shell script, called `grad_folders.sh` that does the following:\
 **1.** Create a variable that lists the following items: notebook, raw_data, figures, manuscripts.\
 **2.** Create a folder for each item that is named the same as each item.\
@@ -446,7 +436,7 @@ cat color-table.txt | cut -f 3 |sort | uniq -c | head
 
 ```
 
-## In class exercise 3: Extract the last item from a string of unknown length.
+## In class exercise 2: Extract the last item from a string of unknown length.
 Consider this filename at the end of the path: /tempdata3/MEDS5420/data/raw/chip_repA.txt\
 \
 Devise a way to split the string and report the filename without referencing the exact position. i.e. imagine that you want to get the last item in the path without knowing how long the path is.
@@ -454,14 +444,7 @@ Devise a way to split the string and report the filename without referencing the
 
 # Answers to in class questions:
 
-## Exercise 1: finding files
-
-```{r engine='bash', eval=F}
-find . -type f -name '*.txt' -mtime -14
-```
-
-
-## In class exercise 2: 
+## In class exercise 1: 
 
 ```{r engine='bash', eval=F}
 #! /bin/sh
@@ -477,7 +460,7 @@ done
 ```
 
 
-## In class exercise 3: 
+## In class exercise 2: 
 
 Retrieve the last item in a string of unknown length
 
