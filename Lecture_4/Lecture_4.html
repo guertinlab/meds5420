@@ -712,12 +712,14 @@ function toggle_visibility(id1) {
 <li><a href="#setting-and-viewing-variables" id="toc-setting-and-viewing-variables"><span class="toc-section-number">2</span> Setting and viewing variables</a>
 <ul>
 <li><a href="#setting-variables-using-single-vs.-double-quotes-vs.-back-ticks" id="toc-setting-variables-using-single-vs.-double-quotes-vs.-back-ticks"><span class="toc-section-number">2.1</span> Setting variables using single vs. double quotes vs. back ticks</a></li>
-<li><a href="#executing-commands-in-place-within-variables" id="toc-executing-commands-in-place-within-variables"><span class="toc-section-number">2.2</span> Executing commands ‘in place’ within variables</a></li>
+<li><a href="#executing-commands-in-place-within-variables" id="toc-executing-commands-in-place-within-variables"><span class="toc-section-number">2.2</span> Executing commands ‘in place’ within variables</a>
+<ul>
+<li><a href="#text-editors" id="toc-text-editors"><span class="toc-section-number">2.2.1</span> Text editors:</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#scripting-in-the-shell." id="toc-scripting-in-the-shell."><span class="toc-section-number">3</span> Scripting in the shell.</a>
 <ul>
-<li><a href="#text-editors" id="toc-text-editors"><span class="toc-section-number">3.0.1</span> Text editors:</a></li>
-<li><a href="#scripting-with-a-loop" id="toc-scripting-with-a-loop"><span class="toc-section-number">3.0.2</span> Scripting with a loop</a></li>
+<li><a href="#scripting-with-a-loop" id="toc-scripting-with-a-loop"><span class="toc-section-number">3.0.1</span> Scripting with a loop</a></li>
 <li><a href="#exercise-1" id="toc-exercise-1"><span class="toc-section-number">3.1</span> Exercise 1:</a></li>
 </ul></li>
 <li><a href="#what-weve-learned-so-far" id="toc-what-weve-learned-so-far"><span class="toc-section-number">4</span> What we’ve learned so far:</a></li>
@@ -801,23 +803,12 @@ echo The date and time is: $info</code></pre>
 <p>vs.</p>
 <pre class="bash"><code>info=`date`
 echo The date and time is: $info</code></pre>
-<pre><code>## The date and time is: Fri Jan 31 16:19:02 UTC 2025</code></pre>
+<pre><code>## The date and time is: Fri Jan 31 16:21:52 UTC 2025</code></pre>
 <p>Backticks can cause problems when using other quotations, so there is another way to run a command in place:</p>
 <pre class="bash"><code>echo The date and time is: $(date)</code></pre>
-<pre><code>## The date and time is: Fri Jan 31 16:19:02 UTC 2025</code></pre>
-</div>
-</div>
-<div id="scripting-in-the-shell." class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Scripting in the shell.</h1>
-<p>Scripts are a logially ordered set of commands used to process files. They can be simple routines or complex programs. There are three main things one needs when writing scripts in general:<br />
-<strong>1.</strong> The commands themselves<br />
-</p>
-<p><strong>2.</strong> Information about what language should be used to interpret the commands<br />
-</p>
-<p><strong>3.</strong> Permission to execute commands in script file.<br />
-</p>
-<div id="text-editors" class="section level3" number="3.0.1">
-<h3><span class="header-section-number">3.0.1</span> Text editors:</h3>
+<pre><code>## The date and time is: Fri Jan 31 16:21:52 UTC 2025</code></pre>
+<div id="text-editors" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Text editors:</h3>
 <p>Certain text editors are designed for scripting and can recognize code. Importantly, they do not embed the document or fonts with hidden characteristics that can cause problems when running programs on you computer. There are three features that you should look for in an editor:<br />
 </p>
 <p><strong>1.</strong> language specific highlighting<br />
@@ -878,6 +869,18 @@ ctrl-O, then &lt;Enter/Return&gt; to save
 
 ctrl-X  to exit
 </code></pre>
+</div>
+</div>
+</div>
+<div id="scripting-in-the-shell." class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Scripting in the shell.</h1>
+<p>Scripts are a logially ordered set of commands used to process files. They can be simple routines or complex programs. There are three main things one needs when writing scripts in general:<br />
+<strong>1.</strong> The commands themselves<br />
+</p>
+<p><strong>2.</strong> Information about what language should be used to interpret the commands<br />
+</p>
+<p><strong>3.</strong> Permission to execute commands in script file.<br />
+</p>
 <p>The first line is the <a href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29">Shebang</a> line:</p>
 <pre class="bash"><code>#! /bin/sh
 
@@ -918,9 +921,8 @@ Figure 2: <span class="caption-title">Permissions</span><br>
 <hr />
 <p>To give permission for everone to read, write, and execute a script use:</p>
 <pre class="bash"><code>chmod 777 ls.sh</code></pre>
-</div>
-<div id="scripting-with-a-loop" class="section level3" number="3.0.2">
-<h3><span class="header-section-number">3.0.2</span> Scripting with a loop</h3>
+<div id="scripting-with-a-loop" class="section level3" number="3.0.1">
+<h3><span class="header-section-number">3.0.1</span> Scripting with a loop</h3>
 <pre class="bash"><code>list=&quot;1 2 4 6&quot;
 for x in $list
 do
@@ -1005,9 +1007,9 @@ echo &quot;the time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4  
 </code></pre>
 <pre><code>## the date and time is:
-## Fri Jan 31 16:19:02 UTC 2025
+## Fri Jan 31 16:21:52 UTC 2025
 ## the time is:
-## 16:19:02</code></pre>
+## 16:21:52</code></pre>
 <p><code>-d</code>: is the delimiter set by user. Default is tab: <code>\t</code><br />
 <code>-f</code>: the fields to select for after splitting. Can list each (1,2,3) or list a range (1-3)<br />
 <br />
@@ -1017,16 +1019,16 @@ echo $(date) | cut -d &quot; &quot; -f 4
 
 echo `date` | rev
 </code></pre>
-<pre><code>## 5202 CTU 20:91:61 13 naJ irF</code></pre>
+<pre><code>## 5202 CTU 25:12:61 13 naJ irF</code></pre>
 <p>Can be done on any part of a pipe</p>
 <pre class="bash"><code>echo $(date)
 
 echo &quot;the reverse time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4 |rev
 </code></pre>
-<pre><code>## Fri Jan 31 16:19:02 UTC 2025
+<pre><code>## Fri Jan 31 16:21:52 UTC 2025
 ## the reverse time is:
-## 20:91:61</code></pre>
+## 25:12:61</code></pre>
 <p><strong>Extracting columns from tables:</strong> Cut can also be used to extract columns from tables.<br />
 </p>
 <p>Let’s just get the first column of <code>color-table.txt</code>:</p>
