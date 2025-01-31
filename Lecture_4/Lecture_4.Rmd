@@ -116,7 +116,7 @@ echo The date and time is: $(date)
 ```
 
 
-### Text editors: 
+# Text editors: 
 Certain text editors are designed for scripting and can recognize code.  Importantly, they do not embed the document or fonts with hidden characteristics that can cause problems when running programs on you computer.  There are three features that you should look for in an editor:\
 
 **1.** language specific highlighting \
