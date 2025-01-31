@@ -145,7 +145,7 @@ or \
 download notepad++ here: [https://notepad-plus-plus.org/](https://notepad-plus-plus.org/) \
 
 
-**Note:** You can also use **emacs** or other command line editors such as `nano` or `vim`. These command line editors are the functional equivalent of opening a file in BBEdit, Visual Studio, or NotePad. THe interface is a bit clunky and requires keyboard prompts to save, write, and exit. We will be using `emacs` or `nano` when we work on the server next time.\
+**Note:** You can also use **emacs** or other command line editors such as `nano` or `vim`. These command line editors are the functional equivalent of opening a file in BBEdit, Visual Studio, or NotePad. The interface is a bit clunky and requires keyboard prompts to save, write, and exit. We will be using `emacs` or `nano` when we work on the server next time.\
 
 ```{r  out.width = "120%", echo=F, fig.align = "center", fig.cap="XKCD: Real programmers"}
 #library(knitr)
