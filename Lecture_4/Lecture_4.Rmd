@@ -436,9 +436,9 @@ cat color-table.txt | cut -f 3 |sort | uniq -c | head
 ```
 
 ## In class exercise 2: Extract the last item from a string of unknown length.
-Consider this filename at the end of the path: /tempdata3/MEDS5420/data/raw/chip_repA.txt\
+Consider this filename at the end of the path: `/tempdata3/MEDS5420/data/raw/chip_repA.txt` \
 \
-Devise a way to split the string and report the filename without referencing the exact position. i.e. imagine that you want to get the last item in the path without knowing how long the path is.
+Devise a way to split the string and report the filename `chip_repA.txt` without referencing the exact position. This come in handy if you want to get the last item in the path without knowing how long the path is.
 \pagebreak
 
 # Answers to in class questions:
