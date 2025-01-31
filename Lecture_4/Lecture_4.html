@@ -801,10 +801,10 @@ echo The date and time is: $info</code></pre>
 <p>vs.</p>
 <pre class="bash"><code>info=`date`
 echo The date and time is: $info</code></pre>
-<pre><code>## The date and time is: Fri Jan 31 16:26:14 UTC 2025</code></pre>
+<pre><code>## The date and time is: Fri Jan 31 16:33:25 UTC 2025</code></pre>
 <p>Backticks can cause problems when using other quotations, so there is another way to run a command in place:</p>
 <pre class="bash"><code>echo The date and time is: $(date)</code></pre>
-<pre><code>## The date and time is: Fri Jan 31 16:26:14 UTC 2025</code></pre>
+<pre><code>## The date and time is: Fri Jan 31 16:33:25 UTC 2025</code></pre>
 </div>
 </div>
 <div id="text-editors" class="section level1" number="3">
@@ -1005,9 +1005,9 @@ echo &quot;the time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4  
 </code></pre>
 <pre><code>## the date and time is:
-## Fri Jan 31 16:26:15 UTC 2025
+## Fri Jan 31 16:33:25 UTC 2025
 ## the time is:
-## 16:26:15</code></pre>
+## 16:33:25</code></pre>
 <p><code>-d</code>: is the delimiter set by user. Default is tab: <code>\t</code><br />
 <code>-f</code>: the fields to select for after splitting. Can list each (1,2,3) or list a range (1-3)<br />
 <br />
@@ -1017,16 +1017,16 @@ echo $(date) | cut -d &quot; &quot; -f 4
 
 echo `date` | rev
 </code></pre>
-<pre><code>## 5202 CTU 51:62:61 13 naJ irF</code></pre>
+<pre><code>## 5202 CTU 52:33:61 13 naJ irF</code></pre>
 <p>Can be done on any part of a pipe</p>
 <pre class="bash"><code>echo $(date)
 
 echo &quot;the reverse time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4 |rev
 </code></pre>
-<pre><code>## Fri Jan 31 16:26:15 UTC 2025
+<pre><code>## Fri Jan 31 16:33:25 UTC 2025
 ## the reverse time is:
-## 51:62:61</code></pre>
+## 52:33:61</code></pre>
 <p><strong>Extracting columns from tables:</strong> Cut can also be used to extract columns from tables.<br />
 </p>
 <p>Let’s just get the first column of <code>color-table.txt</code>:</p>
@@ -1111,9 +1111,9 @@ cat color-table.txt | cut -f 3 |sort | uniq -c | head
 ##    3 yellow</code></pre>
 <div id="in-class-exercise-2-extract-the-last-item-from-a-string-of-unknown-length." class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> In class exercise 2: Extract the last item from a string of unknown length.</h2>
-<p>Consider this filename at the end of the path: /tempdata3/MEDS5420/data/raw/chip_repA.txt<br />
+<p>Consider this filename at the end of the path: <code>/tempdata3/MEDS5420/data/raw/chip_repA.txt</code><br />
 <br />
-Devise a way to split the string and report the filename without referencing the exact position. i.e. imagine that you want to get the last item in the path without knowing how long the path is.
+Devise a way to split the string and report the filename <code>chip_repA.txt</code> without referencing the exact position. This come in handy if you want to get the last item in the path without knowing how long the path is.
 </p>
 </div>
 </div>
