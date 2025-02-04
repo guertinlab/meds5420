@@ -98,9 +98,9 @@ In the example above:
 
 **awk** has very cryptic syntax.  Therefore, I recommend learning as needed for specific tasks and keeping track of useful operations by creating a repository to store them.  For instance, I have an "awk one-liners" file where I keep useful operations. 
 
-## Feedback: drop the **awk**
+## Feedback: drop the `awk`
 
-The only class feedback I ignored from last years evaluations is to not teach **awk**. I view computational analyses for genomics in two parts: 1) perform basic, routine, data processing that can usually be automated by using shell scripts; 2) exploratory data analyses in your favorite programming language, such as `python` or `R`. **awk** is extremely useful for shell scripting and you will learn 15 years of my accumulated (and frequently forgotten) **awk** knowledge from this class. Exploratory data analysis in `R` or `python` would be another class entirely. It is true that many tasks that **awk** performs can be performed in `R` or `python` and **awk** is more *awk*ward. However, **awk** is faster and easier to implement into workflows.
+The only class feedback I ignored from previous evaluations is to not teach **awk**. I view computational analyses for genomics in two parts: 1) perform basic, routine, data processing that can usually be automated by using shell scripts; 2) exploratory data analyses in your favorite programming language, such as `python` or `R`. **awk** is extremely useful for shell scripting and you will learn 16 years of my accumulated (and frequently forgotten) **awk** knowledge from this class. Exploratory data analysis in `R` or `python` would be another class entirely. It is true that many tasks that **awk** performs can be performed in `R` or `python` and **awk** is more *awk*ward. However, **awk** is faster and easier to implement into workflows.
 
 ## More `awk` usage and syntax:
 
