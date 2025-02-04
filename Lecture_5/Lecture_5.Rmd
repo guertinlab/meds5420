@@ -13,7 +13,7 @@ geometry: margin=1in
 ---
 # A review of `wget`, `curl`, `cut`, `sort`, and `uniq`
 
-I asked you to complete section 7 from Lecture 4 for homework, so let's review these commands.
+I asked you to complete section 8 from Lecture 4 for homework, so let's review these commands.
 
 ## Retrieving files from a URL using `curl` or `wget`
 
