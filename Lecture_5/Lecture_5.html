@@ -920,7 +920,7 @@ cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}
 <div id="in-class-exercise-1-splitting-strings-and-parsing-files." class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> In class exercise 1: Splitting strings and parsing files.</h2>
 <p>Consider the example path to the mm9_genes.txt:  <code>/users/tempdata3/MEDS5420/annotations/mm9-genes.txt</code></p>
-<p><strong>1.</strong> Use <code>cut</code> to get the file name without the extension (.txt)<br />
+<p><strong>1.</strong> Use <code>cut</code> to get the file name without the extension (.txt); modify the code extract the file name (minus the extension) regardless of how many directories deep the file is located.<br />
 Download the mm9_genes.txt file from GitHub Lecture 4 and move it to your MEDS5420 folder.<br />
 <strong>2.</strong> Count the number of rows with gene information in the file.<br />
 <strong>3.</strong> The number of genes names in the list (column 1) is not the same as the number of gene IDs (column 2). Determine how many redundant gene names are listed in the table.<br />
