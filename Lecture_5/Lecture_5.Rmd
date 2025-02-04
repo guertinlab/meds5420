@@ -171,7 +171,7 @@ cat mm9_genes.txt | awk 'NR>1{ print $0}' | head -3
 
 Consider the example path to the mm9_genes.txt: \ `/users/tempdata3/MEDS5420/annotations/mm9-genes.txt`
 
-**1.** Use `cut` to get the file name without the extension (.txt) \
+**1.** Use `cut` to get the file name without the extension (.txt); modify the code extract the file name (minus the extension) regardless of how many directories deep the file is located. \
 Download the mm9\_genes.txt file from GitHub Lecture 4 and move it to your MEDS5420 folder. \
 **2.** Count the number of rows with gene information in the file. \
 **3.** The number of genes names in the list (column 1) is not the same as the number of gene IDs (column 2).  Determine how many redundant gene names are listed in the table. \
