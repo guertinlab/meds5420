@@ -9,7 +9,7 @@ output:
   bookdown::html_document2:
     toc: true
 fontsize: 14pt
-geometry: margin=1in
+geometry: margin=1in 
 ---
 \sffamily
 
