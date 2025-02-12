@@ -36,6 +36,7 @@ http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_6.mp4 \
 Lecture 7: \
 https://guertinlab.github.io/meds5420/Lecture_7/Lecture_7.html \
 Lecture 7 Recording: \
+I do not plan to upload the 2025 lecture. The 2024 lecture should suffice. \
 http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_7_2024.mp4 \
 Lecture 8: \
 https://guertinlab.github.io/meds5420/Lecture_8/Lecture_8.html \
