@@ -4,7 +4,7 @@ header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "February 12, 2024"
+date: "February 17, 2024"
 output:
   bookdown::html_document2:
     toc: true
@@ -19,12 +19,6 @@ geometry: margin=1in
 * introduction to `apt-get` and `brew` package managers
 * Used `apt-get` or `brew` to install the `sratoolkit` on your local macine. 
 
-# HBD Chuck!
-
-```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Happy Brithday Darwin for all who celebrate"}
-#library(knitr)
-knitr::include_graphics("./darwin.png") 
-```
 
 # Today: Download, QC and Preprocessing of Illumina data:
 * downloading `bowtie2` binaries
