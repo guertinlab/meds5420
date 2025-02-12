@@ -302,12 +302,6 @@ Not all Macs will have **wget**.  In this case, you can use **curl**, as shown b
 wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.0.0-mac64.tar.gz
 ```
 
-Recall that the HTML files on GitHub are difficult to access with a user interface? Well you can right click on *Download* to copy the link address to the file and `wget` the file directly.
-
-```{r engine='bash', eval=F, echo=TRUE}
-wget https://github.com/guertinlab/meds5420/raw/main/Lecture2_command_line/230123_Lec02_Shell.html
-```
-
 How do you know if the download is complete?  Recall that you can check the file integrity by using **checksum**.
 Checksum is a string of characters that reflect the number of bytes in a file.  If the author-provided checksum matches yours after download, they are **likely identical** If they do not match, they are **definitely different** and the download should be repeated.
 
