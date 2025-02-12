@@ -931,13 +931,13 @@ brew uninstall &lt;filename&gt; # Mac</code></pre>
 <h2><span class="header-section-number">4.1</span> Custom installs: Installing binaries vs. installing from source code.</h2>
 <p><strong>Binaries</strong> are precompiled software that are readable by the computer provided it was compiled specifically for your computer and OS. These are generally easier to use since they can be used almost immediately after downloading. You can see the binaries available for sratoolkit here: <a href="https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit">https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit</a>.<br />
 <br />
-<strong>Source code</strong> is human-readable code that must be compiled in order to be read by the computer. This requires a compiler (usually not a problem with Linux or a Mac). Installing from source provides more flexibility since they can be installed on any computer that can compile the code, however, sometimes the process goes wrong or you might be lacking a dependent program which causes headaches. Another disadvantage of installing from source, is that unless the authors provided an unistall script, they can be laborious to completely remove from your machine.</p>
+<strong>Source code</strong> is human-readable code that must be compiled in order to be read by the computer. This requires a compiler (usually not a problem with Linux or a Mac). Installing from source provides more flexibility since they can be installed on any computer that can compile the code, however, sometimes the process goes wrong or you might be lacking a dependent program which causes headaches. Another disadvantage of installing from source, is that unless the authors provided an uninstall script, they can be laborious to completely remove from your machine.</p>
 </div>
 <div id="vs.-64-bit" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> 32 vs. 64 bit</h2>
 <p>Precompiled binaries are often made available for 32 bit or 64 bit operating systems. To find out what you have, type:</p>
 <pre class="bash"><code>uname -a</code></pre>
-<pre><code>## Darwin Mac-1739377455528.local 23.6.0 Darwin Kernel Version 23.6.0: Fri Nov 15 15:13:40 PST 2024; root:xnu-10063.141.1.702.7~1/RELEASE_ARM64_VMAPPLE arm64</code></pre>
+<pre><code>## Darwin Mac-1739378387633.local 23.6.0 Darwin Kernel Version 23.6.0: Fri Nov 15 15:13:40 PST 2024; root:xnu-10063.141.1.702.7~1/RELEASE_ARM64_VMAPPLE arm64</code></pre>
 <p>Or pipe the output to cut to get important part on page.</p>
 <pre class="bash"><code>uname -a | cut -d &quot;;&quot; -f 2  </code></pre>
 <pre><code>##  root:xnu-10063.141.1.702.7~1/RELEASE_ARM64_VMAPPLE arm64</code></pre>
@@ -946,8 +946,7 @@ brew uninstall &lt;filename&gt; # Mac</code></pre>
 <pre class="bash"><code>brew install wget</code></pre>
 <pre class="bash"><code>
 ## FORMAT: wget -output-document &lt;name_of_file&gt; &lt;weblink&gt;
-wget --output-document sratoolkit.tar.gz
-https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.0.0-ubuntu64.tar.gz</code></pre>
+wget --output-document sratoolkit.tar.gz https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.0.0-ubuntu64.tar.gz</code></pre>
 <p>Not all Macs will have <strong>wget</strong>. In this case, you can use <strong>curl</strong>, as shown below. We will use <code>wget</code> in class, so please install <code>wget</code> with brew.</p>
 <pre class="bash"><code>## FORMAT: curl -O &lt;name_of_file&gt; &lt;weblink&gt;
 
