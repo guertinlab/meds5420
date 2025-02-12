@@ -264,7 +264,7 @@ brew uninstall <filename> # Mac
 
 **Binaries** are precompiled software that are readable by the computer provided it was compiled specifically for your computer and OS.  These are generally easier to use since they can be used almost immediately after downloading. You can see the binaries available for sratoolkit here: [https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit](https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit).\
 \
-**Source code** is human-readable code that must be compiled in order to be read by the computer.  This requires a compiler (usually not a problem with Linux or a Mac).  Installing from source provides more flexibility since they can be installed on any computer that can compile the code, however, sometimes the process goes wrong or you might be lacking a dependent program which causes headaches. Another disadvantage of installing from source, is that unless the authors provided an unistall script, they can be laborious to completely remove from your machine.
+**Source code** is human-readable code that must be compiled in order to be read by the computer.  This requires a compiler (usually not a problem with Linux or a Mac).  Installing from source provides more flexibility since they can be installed on any computer that can compile the code, however, sometimes the process goes wrong or you might be lacking a dependent program which causes headaches. Another disadvantage of installing from source, is that unless the authors provided an uninstall script, they can be laborious to completely remove from your machine.
 
 ## 32 vs. 64 bit
 Precompiled binaries are often made available for 32 bit or 64 bit operating systems.  To find out what you have, type:
@@ -288,8 +288,7 @@ brew install wget
 ```{r engine='bash', eval=F, echo=TRUE}
 
 ## FORMAT: wget -output-document <name_of_file> <weblink>
-wget --output-document sratoolkit.tar.gz
-https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.0.0-ubuntu64.tar.gz
+wget --output-document sratoolkit.tar.gz https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.0.0-ubuntu64.tar.gz
 ```
 
 Not all Macs will have **wget**.  In this case, you can use **curl**, as shown below. We will use `wget` in class, so please install `wget` with brew.
