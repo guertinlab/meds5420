@@ -937,7 +937,7 @@ brew uninstall &lt;filename&gt; # Mac</code></pre>
 <h2><span class="header-section-number">4.2</span> 32 vs. 64 bit</h2>
 <p>Precompiled binaries are often made available for 32 bit or 64 bit operating systems. To find out what you have, type:</p>
 <pre class="bash"><code>uname -a</code></pre>
-<pre><code>## Darwin Mac-1739378387633.local 23.6.0 Darwin Kernel Version 23.6.0: Fri Nov 15 15:13:40 PST 2024; root:xnu-10063.141.1.702.7~1/RELEASE_ARM64_VMAPPLE arm64</code></pre>
+<pre><code>## Darwin Mac-1739378928182.local 23.6.0 Darwin Kernel Version 23.6.0: Fri Nov 15 15:13:40 PST 2024; root:xnu-10063.141.1.702.7~1/RELEASE_ARM64_VMAPPLE arm64</code></pre>
 <p>Or pipe the output to cut to get important part on page.</p>
 <pre class="bash"><code>uname -a | cut -d &quot;;&quot; -f 2  </code></pre>
 <pre><code>##  root:xnu-10063.141.1.702.7~1/RELEASE_ARM64_VMAPPLE arm64</code></pre>
@@ -954,8 +954,6 @@ wget --output-document sratoolkit.tar.gz https://ftp-trace.ncbi.nlm.nih.gov/sra/
 #is saved and not printed to screen
 
 wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.0.0-mac64.tar.gz</code></pre>
-<p>Recall that the HTML files on GitHub are difficult to access with a user interface? Well you can right click on <em>Download</em> to copy the link address to the file and <code>wget</code> the file directly.</p>
-<pre class="bash"><code>wget https://github.com/guertinlab/meds5420/raw/main/Lecture2_command_line/230123_Lec02_Shell.html</code></pre>
 <p>How do you know if the download is complete? Recall that you can check the file integrity by using <strong>checksum</strong>.
 Checksum is a string of characters that reflect the number of bytes in a file. If the author-provided checksum matches yours after download, they are <strong>likely identical</strong> If they do not match, they are <strong>definitely different</strong> and the download should be repeated.</p>
 <p>To get the checksum of your file after download use:</p>
