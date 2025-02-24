@@ -177,7 +177,7 @@ For the next part of the course we will be working with a ChIP-seq dataset from 
 `/home/FCAM/meds5420/data/ATF1/fastq/`
 \
 
-It may take a while to map the data, but please map 10 million reads from `SRR5331338` before February 26th.  Here are the commands I used:
+It may take a while to map the data, but please map 10 million reads from `SRR5331338` before March 3rd.  Here are the commands I used:
 
 ```{r engine='bash', eval=F, echo=TRUE}
 #request 2 CPUs and 4G of RAM
