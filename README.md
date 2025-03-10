@@ -70,7 +70,7 @@ http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_13.mp4 \
 Lecture 14: \
 https://guertinlab.github.io/meds5420/Lecture__14/Lecture_14.html \
 Lecture 14 Recording: \
-http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_14_2024.mp4 \
+http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_14.mp4 \
 Lecture 15: \
 https://guertinlab.github.io/meds5420/Lecture__15/Lecture_15.html \
 Lecture 15 Recording: \
