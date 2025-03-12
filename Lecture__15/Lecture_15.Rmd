@@ -390,7 +390,7 @@ Find peaks that are within genes. I like to use the summits file because peaks a
 
 Find peaks that are outside of genes
 
-* `intersect -v -a peaks/atf_peaks/ATF1_summits.bed -b hg38_genes.bed`
+* `intersectBed -v -a peaks/atf_peaks/ATF1_summits.bed -b hg38_genes.bed`
 OR
 
 * `complementBed -i hg38_genes.bed -g genomes/hg38.chrom.sizes | intersectBed -v -a peaks/atf_peaks/ATF1_summits.bed -b stdin`
