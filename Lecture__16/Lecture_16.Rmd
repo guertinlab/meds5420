@@ -103,14 +103,6 @@ On Xanadu you should load meme version 5.4.1 every time. I worked with the HPC s
 module load meme/5.4.1
 ```
 
-## Generate a background model
-Use `meme` to create a background file. You can create a Markov model of any order from an input FASTA file of sequences using  `fasta-get-markov`. 
-
-```{r engine='bash', eval=F, echo=TRUE}
-fasta-get-markov -m 3 hg38_random_intervals.fa > hg38_random_intervals_bkgrnd.txt
-```
-This is optional because the end results are a simple probability of bases occuring based on frequency in your sequences.  Have a look at `hg38_random_intervals_bkgrnd.txt` to see.  `meme` will automatically create a background on the fly by creating a 'shuffled' version of your sequences.
-
 ## Running `meme`
 Now we can run MEME on the `.fasta` formatted sequences.
 
@@ -182,15 +174,11 @@ mast MEME_output.txt -hit_list SUMMITS_100bp.fa > mast_hits.txt
 ## Scanning whole genomes for presence of motifs with FIMO: Find Individual Motif Occurrences
 MAST is useful for determining if a sequence (or lists of them) have a specific motif.  FIMO, is good for finding **ALL** significant occurrences of a motif within a sequence (i.e. a whole chromosome or genome).  
 
-FIMO can use a background sequence to account for biases in sequences. You can create this file as follows.
-```{r engine='bash', eval=F, echo=TRUE}
-fasta-get-markov -m 3 hg38.fa > hg38_bkgrnd.txt
-```
 
 You can then run FIMO to scan sequences for all occurrences of a motif. I usually set `--max-stored-scores` quite high and `--max-strand` provides the best match to identically overlapping sequences (only difference being the strand):
 
 ```{r engine='bash', eval=F, echo=TRUE}
-fimo --max-strand --max-stored-scores 10000000 --oc fimo_OUT_FOLDER --bgfile hg38_bkgrnd.txt MEME_output.txt hg38.fa
+fimo --max-strand --max-stored-scores 10000000 --oc fimo_OUT_FOLDER MEME_output.txt hg38.fa
 ```
 
 This is a basic run, but there are several options one can implement:\ [http://meme-suite.org/doc/fimo.html?man_type=web](http://meme-suite.org/doc/fimo.html?man_type=web)
