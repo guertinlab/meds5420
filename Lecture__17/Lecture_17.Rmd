@@ -4,7 +4,7 @@ header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "March 21, 2024"
+date: "March 26, 2025"
 output:
   bookdown::html_document2:
     toc: true
@@ -130,28 +130,6 @@ tomtom -no-ssc -oc tomtom_OUPUT -verbosity 1 -min-overlap 5 -mi 1 -evalue -thres
 * `-evalue` p-value for the match corrected for multiple testing\
 * `-thresh` threshold to apply to the significance testing.\
 
-## Stream-lining motif discovery and database comparison
-
-So far we have done the basic motif analysis in discreet steps.  MEME now offers a semi-customizable pipeline for motif discovery and comparison to databases.  However, it does not run MAST and FIMO.
-
-**MEME-ChIP can:**
-
-- discover novel DNA-binding motifs (with MEME and DREME),\
-- determine which motifs are most centrally enriched (with CentriMo),\
-- analyze them for similarity to known binding motifs (with Tomtom), and\
-- automatically group significant motifs by similarity,\
-- perform a motif spacing analysis (with SpaMo), and,\
-- create a GFF file for viewing each motif's predicted sites in a genome browser\
-
-I had to copy `JASPAR2022_CORE_vertebrates*redundant.meme` to my local directory for `tomtom` to work properly.
-
-**Documentation:**\
-[http://meme-suite.org/doc/meme-chip.html?man_type=web](http://meme-suite.org/doc/meme-chip.html?man_type=web) \
-**Example:**\
-```{r engine='bash', eval=F, echo=TRUE}
-meme-chip -oc meme_chip_ATF1 -db JASPAR2022_CORE_vertebrates_non-redundant.meme ATF1_summit_101bp_top200.fasta -meme-nmotifs 2 -minw 5 -maxw 8 -meme-mod zoops 
-```
-**Note:**  options for each program in the pipeline can be specified by running the command without inputs.
 
 
 **In Class Exercise:**
@@ -163,8 +141,6 @@ meme-chip -oc meme_chip_ATF1 -db JASPAR2022_CORE_vertebrates_non-redundant.meme 
 3) Copy the `.html` file to your local computer and view it in the browser. Any surprises regarding the TFs found?\
 
 4) Try searching for your motif using the web version of TOMTOM.  Do you see any differences in the results?\
-
-5) Optional: Try running `meme-chip` on your ATF1 data and viewing all the resulting files.\
 \
 
 # Motif similarity / redundancy 
@@ -201,9 +177,6 @@ grep -i atf1 JASPAR2022_CORE_vertebrates_redundant.meme | cut -d ' ' -f2 | grep 
 ```
 You can also search JASPAR online as well.
 
-Example working meme-ChIP command: 
-```{r engine='bash', eval=F, echo=TRUE}
-meme-chip -oc meme_chip_ATF1 -db JASPAR2022_CORE_vertebrates_non-redundant.meme ATF1_summit_101bp_top200.fasta -meme-nmotifs 2 -minw 5 -maxw 8 -meme-mod zoops 
 ```
 
 
