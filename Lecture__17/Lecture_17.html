@@ -721,7 +721,8 @@ function toggle_visibility(id1) {
 <ul>
 <li><a href="#question-.-.-.-why-do-we-get-so-many-hits-for-our-motifs-from-tf-databases" id="toc-question-.-.-.-why-do-we-get-so-many-hits-for-our-motifs-from-tf-databases"><span class="toc-section-number">5.1</span> Question . . . Why do we get so many hits for our motifs from TF databases?</a></li>
 </ul></li>
-<li><a href="#answers-to-in-class-exercise" id="toc-answers-to-in-class-exercise"><span class="toc-section-number">6</span> Answers to In Class Exercise:</a></li>
+<li><a href="#in-class-exercise" id="toc-in-class-exercise"><span class="toc-section-number">6</span> <strong>In Class Exercise:</strong></a></li>
+<li><a href="#answers-to-in-class-exercise" id="toc-answers-to-in-class-exercise"><span class="toc-section-number">7</span> Answers to In Class Exercise:</a></li>
 </ul>
 </div>
 
@@ -867,19 +868,6 @@ Output is a .html file and a text file. The file shows the name of the motifs (d
 <li><code>-thresh</code> threshold to apply to the significance testing.<br />
 </li>
 </ul>
-<p><strong>In Class Exercise:</strong>
-1) There are converted JASPAR databases in the following location<br />
-<code>/home/FCAM/meds5420/TF_db/JASPAR/</code>. Use either database to compare to your motif using <code>tomtom</code>.<br />
-</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>View the beginning of the tomtom.tsv output—this is just a tab-separated values text file: <code>.tsv</code>. Notice that the protein ID is in the format like <code>MA0604.1</code> Use <code>grep</code> on the original JASPAR.meme file to find out the common transcription factor name of some of your top hits. Use <code>grep</code> to see if any Atf1 motifs are found<br />
-</p></li>
-<li><p>Copy the <code>.html</code> file to your local computer and view it in the browser. Any surprises regarding the TFs found?<br />
-</p></li>
-<li><p>Try searching for your motif using the web version of TOMTOM. Do you see any differences in the results?<br />
-<br />
-</p></li>
-</ol>
 </div>
 <div id="motif-similarity-redundancy" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Motif similarity / redundancy</h1>
@@ -892,11 +880,26 @@ Output is a .html file and a text file. The file shows the name of the motifs (d
 Figure 3: <span class="caption-title">Paralogous TF DBDs</span><br>The heat map shows the degree of protein sequence conservation amongst transcription factor families that bind similar concensus motifs (indicated by the sequence logo at the top). Note that Twist and ZNF appear to be an example of convergent evolution.
 </p>
 </div>
+</div>
+</div>
+<div id="in-class-exercise" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> <strong>In Class Exercise:</strong></h1>
+<ol style="list-style-type: decimal">
+<li><p>There are converted JASPAR databases in the following location<br />
+<code>/home/FCAM/meds5420/TF_db/JASPAR/</code>. Use either database to compare to your motif using <code>tomtom</code>.<br />
+</p></li>
+<li><p>View the beginning of the tomtom.tsv output—this is just a tab-separated values text file: <code>.tsv</code>. Notice that the protein ID is in the format like <code>MA0604.1</code> Use <code>grep</code> on the original JASPAR.meme file to find out the common transcription factor name of some of your top hits. Use <code>grep</code> to see if any Atf1 motifs are found<br />
+</p></li>
+<li><p>Copy the <code>.html</code> file to your local computer and view it in the browser. Any surprises regarding the TFs found?<br />
+</p></li>
+<li><p>Try searching for your motif using the web version of TOMTOM. Do you see any differences in the results?<br />
+<br />
+</p></li>
+</ol>
 <div style="page-break-after: always;"></div>
 </div>
-</div>
-<div id="answers-to-in-class-exercise" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Answers to In Class Exercise:</h1>
+<div id="answers-to-in-class-exercise" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Answers to In Class Exercise:</h1>
 <p>running TomTom</p>
 <pre class="bash"><code>#switch to directory above where meme was performed:
 tomtom -no-ssc -oc tomtom_OUPUT -verbosity 1 -min-overlap 5 -mi 1 -evalue -thresh 0.05 ATF1_classic.meme_output/meme.txt JASPAR2022_CORE_vertebrates_non-redundant.meme</code></pre>
