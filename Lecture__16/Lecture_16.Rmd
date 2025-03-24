@@ -38,7 +38,6 @@ Several steps must be performed prior to MEME analysis.  Here is a summary list:
 **1.** Create `bed` file with peak locations to analyze.\
 - Short windows around summits.\
 - Only most intense peaks needed.\
-- Get random windows of the same size in for background estimation.\
 **2.** retrieve DNA sequences from regions to analyze \
 **3.** Create a background base frequency model (part of the MEME suite)\
 
@@ -82,17 +81,6 @@ Fasta formatted genome sequences and the genome sizes file for this class can be
 `/home/FCAM/meds5420/genomes/` \
 If you get the error: `could not open index file /home/FCAM/meds5420/genomes/hg38.fa.fai for writing!`, then just copy the file to your directory and operate directly on the local file.\
 
-**(Optional):** Create a file with background sequences for comparison to our enriched sequences.\
-We can generate the interval with `bedtools random` as below. 
-
-```{r engine='bash', eval=F, echo=TRUE}
-bedtools random -g hg38.chrom.sizes -n 1000 -l 101 > hg38_random_intervals.bed
-```
-Then get the fasta sequences for the random regions:
-
-```{r engine='bash', eval=F, echo=TRUE}
-fastaFromBed -fi hg38.fa -bed hg38_random_intervals.bed -fo hg38_random_intervals.fa
-```
 
 # Loading `meme`
 
@@ -122,7 +110,7 @@ There are a number of options to consider here:\
 * `-minw`: minumum motif width in bases\
 * `-maxw`: maximum motif width in bases\
 * `-revcomp`: look for motif on both strands of DNA (do not assume strandedness)\
-* `-objfun`: this is a sensitive algorithm to detect motifs, but it can be slow\
+* `-objfun`: `classic` is a sensitive algorithm to detect motifs, but it can be slow\
 
 * There are more options available.  See manual or [http://meme-suite.org/doc/meme.html?man_type=web](http://meme-suite.org/doc/meme.html?man_type=web).\
 
