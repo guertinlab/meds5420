@@ -112,7 +112,7 @@ A big thanks to Leighton Core, who shared his Functional Genomics class content 
 # Lecture 16: de novo motif analysis
 
 [Lecture 16 HTML](https://guertinlab.github.io/meds5420/Lecture__16/Lecture_16.html) \
-[Lecture 16 2024 Recording](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_16.mp4) \
+[Lecture 16 2025 Recording](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_16.mp4) \
 [Lecture 16 2024 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_16_2024.mp4)
 
 # Lecture 17: Motif queries to genomes and databases
