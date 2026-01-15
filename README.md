@@ -114,7 +114,7 @@ https://guertinlab.github.io/meds5420/Lecture__26/Lectures_26_to_27.html
 
 
 You should bookmark this site.
-
+'''
 # MEDS 5420
 Molecular Genomics Practicum
 Genetics and Genome Sciences/
@@ -398,6 +398,6 @@ This course uses the learning management platform, HuskyCT. If you have difficul
 
 # Evaluation of Course Experience
 
-Students will be given an opportunity to provide feedback on their course experience and instruction through a survey that will be available at the end of the course. Please complete the course survey. Courses are modified according to student feedback to provide a positive and effective learning experience.
+Students will be given an opportunity to provide feedback on their course experience and instruction through a survey that will be available at the end of the course. Please complete the course survey. Courses are modified according to student feedback to provide a positive and effective learning experience.'''
 
 
