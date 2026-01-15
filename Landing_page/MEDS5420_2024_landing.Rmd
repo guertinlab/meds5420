@@ -4,7 +4,7 @@ header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "Spring 2024"
+date: "Spring 2026"
 output:
   bookdown::html_document2:
     toc: true
@@ -13,7 +13,7 @@ geometry: margin=1in
 ---
 
 
-Thank you to everyone who took MEDS5420 in 2024. Also, A big thanks to Leighton Core, who shared his Functional Genomics class content with me. Dr. Core developed much of the basic command line utilities text and examples that were reproduced with his permission.
+A big thanks to Leighton Core, who shared his Functional Genomics class content with me. Dr. Core developed much of the basic command line utilities text and examples that were reproduced with his permission.
 
 
 # Lecture 1: Introduction to High Throughput Sequencing Technology Lecture
@@ -38,18 +38,21 @@ Thank you to everyone who took MEDS5420 in 2024. Also, A big thanks to Leighton 
 # Lecture 4: Command Line Basics (find, cut, variables, scripting, and permissions)
 
 [Lecture 4 HTML](https://guertinlab.github.io/meds5420/Lecture_4/Lecture_4.html) \
-[Lecture 4 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_4_2024.mp4)
-
+[Lecture 4 2025 Recording](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_4_1.mp4) \
+[Lecture 4 2025 Recording](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_4_2.mp4) \
+[Lecture 4 2024 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_4_2024.mp4) 
 
 # Lecture 5: awk 
 
 [Lecture 5 HTML](https://guertinlab.github.io/meds5420/Lecture_5/Lecture_5.html) \
-[Lecture 5 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_5_2024.mp4)
+[Lecture 5 2025 Recording](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_5.mp4) \
+[Lecture 5 2024 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_5_2024.mp4)
 
 # Lecture 6: Logical operators, loops, and Xanadu (the UCHC computing server)
 
 [Lecture 6 HTML](https://guertinlab.github.io/meds5420/Lecture_6/Lecture_6.html) \
-[Lecture 6 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_6_2024.mp4)
+[Lecture 6 2025 Recording](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_6.mp4) \
+[Lecture 6 2024 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_6_2024.mp4)
 
 # Lecture 7: Batch scripts, interactive sessions, and software installs
 
