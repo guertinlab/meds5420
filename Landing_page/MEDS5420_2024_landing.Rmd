@@ -62,17 +62,20 @@ A big thanks to Leighton Core, who shared his Functional Genomics class content 
 # Lecture 8: Illumina data format, QC, and preprocessing
 
 [Lecture 8 HTML](https://guertinlab.github.io/meds5420/Lecture_8/Lecture_8.html) \
-[Lecture 8 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_8_2024.mp4)
+[Lecture 8 2025 Recording](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_8.mp4) \
+[Lecture 8 2024 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_8_2024.mp4)
 
 # Lecture 9: fastx tools preprocessing
 
 [Lecture 9 HTML](https://guertinlab.github.io/meds5420/Lecture_9/Lecture_9.html) \
-[Lecture 9 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_9_2024.mp4)
+[Lecture 9 2025 Recording](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_9.mp4) \
+[Lecture 9 2024 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_9_2024.mp4)
 
 # Lecture 10: Aligning Illumina data
 
 [Lecture 10 HTML](https://guertinlab.github.io/meds5420/Lecture__10/Lecture_10.html) \
-[Lecture 10 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_10_2024.mp4)
+[Lecture 10 2025 Recording](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_10.mp4) \
+[Lecture 10 2024 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_10_2024.mp4)
 
 # Lecture 11: Transcription Factors Lecture
 
@@ -83,13 +86,16 @@ A big thanks to Leighton Core, who shared his Functional Genomics class content 
 # Lecture 12: Post-mapping processing with samtools and bedtools
 
 [Lecture 12 HTML](https://guertinlab.github.io/meds5420/Lecture__12/Lecture_12.html) \
-[Lecture 12 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_12_2024.mp4)
+[Lecture 12 2025 Recording 1](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_12_2.mp4) \
+[Lecture 12 2025 Recording 2](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_12.mp4) \
+[Lecture 12 2024 Recording](http://guertinlab.cam.uchc.edu/meds5420_2024/Lecture_12_2024.mp4)
 
 # Lecture 13: The UCSC genome browser
 
 [Lecture 13 PDF](https://guertinlab.github.io/meds5420/Lecture__13/Lecture_13.pdf) \
 [Lecture 13 HTML](https://guertinlab.github.io/meds5420/Lecture__13/Lecture_13.html) \
-[Lecture 13 Recording](http://guertinlab.cam.uchc.edu/meds5420_2023/230301_Lec13_recording.mp4)
+[Lecture 13 2025 Recording](http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_13.mp4) \
+[Lecture 13 2023 Recording](http://guertinlab.cam.uchc.edu/meds5420_2023/230301_Lec13_recording.mp4)
 
 # Lecture 14: ChIP-seq peak calling
 
