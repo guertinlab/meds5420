@@ -2,7 +2,7 @@
 Course material for UCHC MEDS5420
 
 # Accessing the HTML lecture vignettes, PDF slides, and recordings:
-All 2024 and 2025 documents are found here: 
+2024 and 2025 documents are found here: 
 https://guertinlab.github.io/meds5420/Landing_page/MEDS5420_2024_landing.html 
 <!-- All 2023 documents are posted here: \
 http://guertinlab.cam.uchc.edu/meds5420_2023/MEDS5420_2023_landing.html -->
