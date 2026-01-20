@@ -32,7 +32,7 @@ Command | Function
 `ls`    | **L**i**s**t files (`ls -F`, `ls --help`)
 `man`   | **Man**ual page for a command
 `mkdir` | **M**a**k**e a new **dir**ectory
-`emacs`  | A rudimentary command-line text editor
+`nano`  | A rudimentary command-line text editor
 `rm`    | Delete file(s); use `rm -r <directory>` to delete directory and contents
 `touch` | Create empty file
 `cp`    | **C**o**p**y files and directories
