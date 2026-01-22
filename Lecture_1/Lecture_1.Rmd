@@ -1,0 +1,160 @@
+---
+title: \sf MEDS5420 - The Shell Part 1
+header-includes:
+- \usepackage{color}
+- \usepackage{float}
+- \DeclareUnicodeCharacter{2212}{-}
+date: "January 21, 2026"
+output:
+  bookdown::html_document2:
+    toc: true
+fontsize: 14pt
+geometry: margin=1in
+---
+
+
+
+# Readings
+
+Practical Computing for Biologists: Chapters 1, 4, 5, Appendix 3.  \
+
+Unix Basics from UConn CBC: http://bioinformatics.uconn.edu/unix-basics/ \
+
+Software Carpentry Shell Novice lesson: Episodes 1-4:
+https://swcarpentry.github.io/shell-novice/
+
+# Lesson overview
+
+Command | Function
+--------|------------------------------
+`pwd`   | **P**rint **W**orking **D**irectory
+`cd`    | **C**hange **D**irectoy (`cd`, `cd -`, `cd ~/<directory>`, `cd ..`)
+`ls`    | **L**i**s**t files (`ls -F`, `ls --help`)
+`man`   | **Man**ual page for a command
+`mkdir` | **M**a**k**e a new **dir**ectory
+`nano`  | A rudimentary command-line text editor
+`rm`    | Delete file(s); use `rm -r <directory>` to delete directory and contents
+`touch` | Create empty file
+`cp`    | **C**o**p**y files and directories
+`mv`    | **M**o**v**e or rename files and directories
+`wc`    | **W**ord **C**ount (`wc -l`)
+`cat`   | Print an entire file, or con**cat**enate multiple files
+`less`  | Read a file, one page at a time
+`sort`  | Sort lines (`sort -n`, `sort -r`)
+`head`  | Read beginning lines of a file (`head -n #`)
+`tail`    | Read last few lines of a file (`tail -n #`)
+
+## Concepts:
+
+* Terminology and basic commands 
+* Directory structure 
+* Navigating through command line: relative vs absolute paths
+* Examining file contents
+* Using the `*` wildcard to select multiple files in a directory, using the `[]`
+  wildcard to select one or more letters, e.g. `*[AB].txt` for file names ending
+  in A or B.
+* Standard Output (stdout) and Standard Input (stdin) from commands can
+  be combined using with pipes (`|`).
+* Redirect stdout to files (`>`).
+
+## Why learn the command-line?
+
+* The majority of bioinformatics and computational software is developed for command-line use from the shell
+* Low system resource use (processor and memory)
+* Easier to automate and more adaptable than GUIs
+* Web-based tools are at risk of becoming obsolete (e.g. Galaxy, GenomeSpace) as more scientists devolop command-line competence 
+
+---
+
+**Notes about reading these documents:**
+
+Sections highlighted in grey are shell input or "standard input" (`stdin`).\
+Lines following it prefixed by `'##'` denote shell output or "standard output" (`stdout`):
+```{r engine='bash', eval=TRUE, echo=TRUE}
+x='Welcome to MEDS 5420'
+echo $x
+```
+
+---
+
+# Interacting with your computer: the terminal
+
+You will communicate with the operating system (OS) by typing commands into the **terminal window**.
+You can use the terminal window to:
+
+* navigate anywhere on your computer (including access to hidden files)
+* get information (e.g. list contents of a directory)
+* perform simple tasks (e.g. move files)
+* perform moderately complex tasks: (e.g. parse a file or invoke a pipeline)
+* launch applications (e.g. web browsers, bioinformatics utilities)
+* stop or 'kill' applications
+
+# Bash, Shell, Terminal, Command Line: What's the difference?
+**Command Line** is the most general and refers to typing commands directly into a terminal that can be executed by the computer.\
+**Shell** (sh) is specific program (language written by Steve Bourne while at Bell Labs) that processes commands and returns output.\
+**Bash** stands for **B**ourne **A**gain **Sh**ell and is an updated version of the Shell language. This is the most popular Shell.\
+**Terminal** is a user interface that takes input and provides an output in text format; the interface runs the input through Shell or Bash to process the command.\
+
+# Navigating and inspecting directories from the terminal
+
+## Opening terminal
+* On a Mac, use **Command-Space**, type "Terminal" and hit enter to open a terminal window. \
+The default interactive shell on Macs is now `zsh`, but to stay consistent between other platforms, please change this to `bash`. \
+
+First open the preferences tab:
+
+```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Preferences Tab"}
+#library(knitr)
+knitr::include_graphics("./fig/preferences.png") 
+```
+
+Then change the shell to `/bin/bash`:
+```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Change shell opens with to `/bin/bash`"}
+#library(knitr)
+knitr::include_graphics("./fig/bash.png") 
+```
+
+
+
+* On Ubuntu Linux, use the search tab (top left icon in launch pad) to search for "Terminal". Open it and lock it to the launch pad by right clicking.\
+* For Windows users see this link: [https://www.laptopmag.com/articles/use-bash-shell-windows-10](https://www.laptopmag.com/articles/use-bash-shell-windows-10)\
+
+## Directory structure
+Directories (or folders) are arranged based on how inclusive they are.
+Higher level directories are more inclusive and lower level directories are less inclusive or more specific.
+
+The highest directory is known as the root directory (`/`).
+The home directory is typically the directory of the user you logged in as,
+and is where your terminal sessions will open up.
+
+
+
+```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Directory Structure"}
+#library(knitr)
+knitr::include_graphics("./fig/directory_fig_2018.png") 
+```
+
+
+To find out where you are in the directory listings type the following: 
+
+```{r engine='bash', eval=F, echo=TRUE}
+pwd
+```
+**`pwd`** stands for **p**rint **w**orking **d**irectory.
+The answer you get from the shell is the **path** of your current location, which in this case is your home directory.
+
+To list the contents of the directory you can use **`ls`** (**l**i**s**t):
+```{r engine='bash', eval=F, echo=TRUE}
+ls
+```
+
+To differentiate between directories and files, use the `-F` argument:
+```{r engine='bash', eval=F, echo=TRUE}
+ls -F
+```
+
+**`ls`** like many shell programs can take on many arguments to change its behavior.
+To learn about the arguments of **`ls`**, read the **`man`** (manual) pages:
+```{r engine='bash', eval=F, echo=TRUE}
+man ls
+```
