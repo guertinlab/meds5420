@@ -10,6 +10,8 @@ http://guertinlab.cam.uchc.edu/meds5420_2023/MEDS5420_2023_landing.html -->
 In 2026 all files will be hosted from GitHub with automatic updates: \
 Lecture 1: \
 https://guertinlab.github.io/meds5420/Lecture_1/Lecture_1.pdf  \
+Lecture 1: \
+https://guertinlab.github.io/meds5420/Lecture_1/Lecture_1.html \
 Lecture 1 2026 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2026/2026_Lecture_1.mp4 \
 Lecture 1 2025 Recording: \
