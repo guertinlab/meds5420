@@ -156,7 +156,6 @@ ls -F
 **`ls`** like many shell programs can take on many arguments to change its behavior.
 To learn about the arguments of **`ls`**, one can use the `--help` argument or read the **`man`** (manual) pages:
 ```{r engine='bash', eval=F, echo=TRUE}
-ls --help
 man ls
 ```
 
