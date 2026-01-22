@@ -105,13 +105,13 @@ First open the preferences tab:
 
 ```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Preferences Tab"}
 #library(knitr)
-knitr::include_graphics("./fig/preferences.png") 
+knitr::include_graphics("./preferences.png") 
 ```
 
 Then change the shell to `/bin/bash`:
 ```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Change shell opens with to `/bin/bash`"}
 #library(knitr)
-knitr::include_graphics("./fig/bash.png") 
+knitr::include_graphics("./bash.png") 
 ```
 
 
@@ -131,7 +131,7 @@ and is where your terminal sessions will open up.
 
 ```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Directory Structure"}
 #library(knitr)
-knitr::include_graphics("./fig/directory_fig_2018.png") 
+knitr::include_graphics("directory_fig_2018.png") 
 ```
 
 
