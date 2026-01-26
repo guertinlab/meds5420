@@ -315,7 +315,7 @@ mkdir MEDS5420
 ```
 
 
-Go to GitHub */guertinlab/meds5420/Lecture2_command_line/* and download the *lec02_files.zip*. If your browser automatically unzips compressed files, you need to change this preference (on Safari: Preferences > General > uncheck open "safe" files after downloading)  
+Go to GitHub */guertinlab/meds5420/Lecture2_command_line/* and download the *lec02_files.zip*. If your browser automatically unzips compressed files, you need to change this preference (on Safari: Settings > General > uncheck open "safe" files after downloading)  
 
 Use the **Terminal** window to list the contents of the downloads folder to confirm the download.
 
