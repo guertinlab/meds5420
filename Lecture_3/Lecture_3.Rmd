@@ -235,7 +235,7 @@ echo $var  # the '$' designates that this is a variable
 *Try using echo without the dollar sign.\
 
 Whole sentences or lists can be designated as variables:
-```{r engine='bash', eval=T, echo=T}
+```{r engine='bash', eval=F, echo=T}
 fileList=*.txt
 echo $fileList
 ```
