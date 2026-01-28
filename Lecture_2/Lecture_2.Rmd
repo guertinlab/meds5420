@@ -701,3 +701,54 @@ as arguments.  To understand the error, see the output of `cp --help`
 or `man cp`.  The usage line towards the top indicates that the last
 argument must be a directory when we are providing more than 2
 arguments.
+
+## Answers to Exercise 3
+
+Part1:\
+`cat` prints all the contents of `animals.txt` and passes it on to
+`head`.  Standard output from `cat` (or standard input to `head`):
+
+```
+deer
+rabbit
+raccoon
+rabbit
+deer
+fox
+rabbit
+bear
+```
+
+`head` reads the first 5 lines of that output and passes it on to
+`tail`.  Standard output from `head` (or standard input to `tail`):
+
+
+```
+deer
+rabbit
+raccoon
+rabbit
+deer
+```
+
+`tail` reads the last 3 lines of the output and passes it on to
+`sort`.  Standard output from `tail` (or standard input to `sort`):
+
+```
+raccoon
+rabbit
+deer
+```
+
+`sort` rearranges the lines in alphabetical order (you can
+read the `man` pages of `sort` to discern the arguments, including  `-r` which is reverse alphabetical) and saves them into `final.txt`.  Standard output from `sort` (or contents of `final.txt`)
+
+```
+deer
+rabbit
+raccoon
+```
+Part 2: \
+```{r engine='bash', eval=F, echo=T}
+cat animals.txt | sort | tail -4 | head -3
+```
