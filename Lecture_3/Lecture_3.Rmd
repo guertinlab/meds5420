@@ -163,7 +163,7 @@ but for now just know that they exist.  If you want to make use of them, check o
 
 - [https://cheatography.com/davechild/cheat-sheets/regular-expressions/](https://cheatography.com/davechild/cheat-sheets/regular-expressions/)
 
-## Exercise 2: 'regex' with grep
+## Exercise 1: 'regex' with grep
 
 1) Use the criteria below to print the appropriate lines from `haiku.txt`:
 
@@ -173,7 +173,7 @@ but for now just know that they exist.  If you want to make use of them, check o
 - lines with words that begin with the letter n
 
 
-## Exercise 3: Command practice and 'grepping' patterns
+## Exercise 2: Command practice and 'grepping' patterns
 Look in the `song_lyrics` folder inside the data-shell folder and you should see a single file: `TS_example.txt`
 The TS_example.txt file contains lyrics to a song by a well-known contemporary artist. Using the command line utilities you have learned, try the following:
 
@@ -191,59 +191,10 @@ The TS_example.txt file contains lyrics to a song by a well-known contemporary a
 # Answers to in class exercises
 
 
-## Answers to Exercise 1
-
-Part1:\
-`cat` prints all the contents of `animals.txt` and passes it on to
-`head`.  Standard output from `cat` (or standard input to `head`):
-
-```
-deer
-rabbit
-raccoon
-rabbit
-deer
-fox
-rabbit
-bear
-```
-
-`head` reads the first 5 lines of that output and passes it on to
-`tail`.  Standard output from `head` (or standard input to `tail`):
 
 
-```
-deer
-rabbit
-raccoon
-rabbit
-deer
-```
 
-`tail` reads the last 3 lines of the output and passes it on to
-`sort`.  Standard output from `tail` (or standard input to `sort`):
-
-```
-raccoon
-rabbit
-deer
-```
-
-`sort` rearranges the lines in alphabetical order (you can
-read the `man` pages of `sort` to discern the arguments, including  `-r` which is reverse alphabetical) and saves them into `final.txt`.  Standard output from `sort` (or contents of `final.txt`)
-
-```
-deer
-rabbit
-raccoon
-```
-Part 2: \
-```{r engine='bash', eval=F, echo=T}
-cat animals.txt | sort | tail -4 | head -3
-```
-
-
-## Exercise 2: Grep with 'regex'
+## Exercise 1: Grep with 'regex'
 1) Use the criteria below to print the appropriate lines from `haiku.txt`:
 
 - lines that begin with the letter s:\
@@ -256,7 +207,7 @@ cat animals.txt | sort | tail -4 | head -3
 `grep -w -i "n.*"` or `grep -i '\<n' haiku.txt` 
 
 
-## Exercise 3: 'grepping' patterns
+## Exercise 2: 'grepping' patterns
  
 The TS\_example.txt file contains lyrics to a song by a well-known contemporary artist. Using the command line utilities you just learned, try the following: \
 **1.** Print the number of lines in the file: `wc -l TS_example.txt` \
