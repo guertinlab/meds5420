@@ -420,9 +420,20 @@ Use touch to create an empty file
 touch empty_file.txt
 ```
 
-Anything that is printed to screen can be saved in a file using the redirection operator (>):
+Anything that is printed to screen can be saved in a file using the redirection operator (`>`):
 ```{r engine='bash', eval=T, echo=TRUE}
 cat the_raven.txt > raven_copy.txt
+```
+
+Alternatively, the command `cp` copies the file to a new directory or a new file name. If the copy is within the current directory, the second positional argument is the new file name.
+```{r engine='bash', eval=F, echo=TRUE}
+cp the_raven.txt raven_cp.txt
+```
+
+If the copy should go into a new folder/directory, the second positional argument is the relative or absolute path to the directory. Below we make the `raven_files` directory.
+```{r engine='bash', eval=F, echo=TRUE}
+mkdir raven_files
+cp the_raven.txt raven_files/
 ```
 
 Screen output can also be appended to the end of an existing file:
@@ -451,6 +462,190 @@ What does `cp` do when given three or more filenames, as in:
 ```{r engine='bash', eval=F, echo=T}
 cp the_raven.txt Thoreau_quotes.txt animal.txt
 ```
+
+
+
+# Pipes, filtering with wildcards, redirecting outputs to files
+
+One can select multiple files using the `*` wildcard. Navigate to the `~/MEDS5420/lec02_files` directory and type:
+
+```{r engine='bash', eval=F, echo=T}
+wc *.txt
+```
+
+Instead of seeing the 3 columns of numbers for the number of lines,
+words and characters, we can limit the `wc` command to only show us
+the number of lines using the `-l` argument:
+
+```{r engine='bash', eval=F, echo=T}
+wc -l *.txt
+```
+
+One can also add some specificity to wild cards using  brackets: `[]`
+```{r engine='bash', eval=F, echo=T}
+wc -l [Wt]*.txt
+    # this is equivalent to saying files that start with a "W" or "t"
+```
+
+Let's find which file is shortest.  Let's save the `wc` output to disk
+with the redirection `>` operator; then we can verify the contents of
+`length.txt` are the same as what `wc` produces using `cat` or `less`:
+
+```{r engine='bash', eval=F, echo=T}
+wc -l *.txt > lengths.txt
+cat lengths.txt
+less lengths.txt
+```
+
+To find the shortest file, we then sort the lengths using the `sort`
+command.  We then pick the top shortest file using `head -n 1`:
+
+```{r engine='bash', eval=F, echo=T}
+sort -n lengths.txt > sorted-lengths.txt
+head -n 1 sorted-lengths.txt
+```
+
+Using the intermediate files can be confusing, especially in more
+complex problems.  We can save a lot of messy files and typing using
+pipes (`|`):
+
+```{r engine='bash', eval=F, echo=T}
+wc -l *.txt | sort -n | head -n 1
+```
+
+## Exercise 3: Pipe Reading Comprehension
+
+A file called animals.txt contains the following data:
+
+```
+deer
+rabbit
+raccoon
+rabbit
+deer
+fox
+rabbit
+bear
+```
+
+### Part 1:  
+What text passes through each of the pipes and the final redirect in the pipeline below? Manually rearrange and parse the input before you run or deconstruct the command.
+
+```{r engine='bash', eval=F, echo=T}
+cat animals.txt | head -n 5 | tail -n 3 | sort > final.txt
+```
+
+### Part 2:
+Alter the commands to get only all three rabbits as the final output.
+
+
+# Additional Commands:
+## File Compression
+
+Command | Function
+--------|---------
+`gzip`  | compression/decompression tool using Lempel-Ziv coding (LZ77)
+`tar`  | Bundling files in folders
+
+## Finding things:
+- Files in directories
+- words in files
+
+
+|  Command    | Function                                                      |
+|-------------|---------------------------------------------------------------|
+| `grep`      | **G**lobal **R**egular **E**xpression **P**rint (useful flags: `-w`, `-i`, `-v`, `-n`)                        |
+| `find`      | Recursively list all files and directories and filter         |
+
+
+## Concepts:
+
+**1.** Variables (creating and printing to screen).\
+**2.** Basics of shell scripts.\
+
+
+
+
+# Dealing with compressed files (archives)
+
+Download and move the *data-shell.tar* from GitHub to your MEDS5420 folder. See the third code chunk of section 6 of Lecture 2 for how to accomplish this for Windows OS. \
+
+We already unzipped a file using **unzip**:
+```{r engine='bash', eval=F, echo=TRUE}
+unzip -d Example_files Example_files.zip
+```
+Other types of archives you will encounter:\
+**.tar** # bundles multiple files or folders\
+**.gzip** # compressed file\
+\pagebreak 
+
+```{r  out.width = "120%", echo=F, fig.align = "center", fig.cap="XKCD: valid `tar` command"}
+#library(knitr)
+knitr::include_graphics("./fig/tar.png") 
+```
+
+
+To view contents of archive:
+```{r engine='bash', eval=F, echo=TRUE}
+tar -tvf data-shell.tar # displays tar contents
+```
+
+To extract contents of archive:
+```{r engine='bash', eval=F, echo=TRUE}
+tar -xvf data-shell.tar # extracts contents into original directories
+```
+
+
+To combine contents of a directory:
+```{r engine='bash', eval=F, echo=TRUE}
+tar -cvf data-shell_retar.tar data-shell 
+
+#format is <target.tar> <directory-to-be-tarred>
+#For directories, execute command in parent directory (one level up). 
+#Don't use absolute path. 
+```
+
+
+Compressing files with gzip:
+```{r engine='bash', eval=F, echo=TRUE}
+gzip filename #  compresses file
+```
+
+Let's look a specific example in the writing folder within data.shell
+
+```{r engine='bash', eval=F, echo=TRUE}
+cd ./data-shell/writing/leisure/
+
+ls
+```
+
+To view contents of a gzipped file (linux):
+```{r engine='bash', eval=F, echo=TRUE}
+zcat haiku.txt.gz | head
+```
+
+On a Mac use this instead:
+```{r engine='bash', eval=F, echo=TRUE}
+gunzip -c haiku.txt.gz | head
+```
+**OR**
+\
+`gzcat` on a Mac
+
+```{r engine='bash', eval=F, echo=TRUE}
+gzcat haiku.txt.gz | head
+```
+
+**Note:** These commands are useful because they allow you to glance at or access the contents of large compressed files without spending the time of decompressing them.
+
+
+To extract gzipped files:
+```{r engine='bash', eval=F, echo=TRUE}
+gunzip haiku.txt.gz #decompresses file
+```
+
+
+
 
 
 # Next Time
