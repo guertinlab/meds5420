@@ -717,14 +717,13 @@ function toggle_visibility(id1) {
 <li><a href="#finding-things" id="toc-finding-things"><span class="toc-section-number">3</span> Finding things</a>
 <ul>
 <li><a href="#searching-inside-files-using-grep" id="toc-searching-inside-files-using-grep"><span class="toc-section-number">3.1</span> Searching inside files using <code>grep</code></a></li>
-<li><a href="#exercise-2-regex-with-grep" id="toc-exercise-2-regex-with-grep"><span class="toc-section-number">3.2</span> Exercise 2: ‘regex’ with grep</a></li>
-<li><a href="#exercise-3-command-practice-and-grepping-patterns" id="toc-exercise-3-command-practice-and-grepping-patterns"><span class="toc-section-number">3.3</span> Exercise 3: Command practice and ‘grepping’ patterns</a></li>
+<li><a href="#exercise-1-regex-with-grep" id="toc-exercise-1-regex-with-grep"><span class="toc-section-number">3.2</span> Exercise 1: ‘regex’ with grep</a></li>
+<li><a href="#exercise-2-command-practice-and-grepping-patterns" id="toc-exercise-2-command-practice-and-grepping-patterns"><span class="toc-section-number">3.3</span> Exercise 2: Command practice and ‘grepping’ patterns</a></li>
 </ul></li>
 <li><a href="#answers-to-in-class-exercises" id="toc-answers-to-in-class-exercises"><span class="toc-section-number">4</span> Answers to in class exercises</a>
 <ul>
-<li><a href="#answers-to-exercise-1" id="toc-answers-to-exercise-1"><span class="toc-section-number">4.1</span> Answers to Exercise 1</a></li>
-<li><a href="#exercise-2-grep-with-regex" id="toc-exercise-2-grep-with-regex"><span class="toc-section-number">4.2</span> Exercise 2: Grep with ‘regex’</a></li>
-<li><a href="#exercise-3-grepping-patterns" id="toc-exercise-3-grepping-patterns"><span class="toc-section-number">4.3</span> Exercise 3: ‘grepping’ patterns</a></li>
+<li><a href="#exercise-1-grep-with-regex" id="toc-exercise-1-grep-with-regex"><span class="toc-section-number">4.1</span> Exercise 1: Grep with ‘regex’</a></li>
+<li><a href="#exercise-2-grepping-patterns" id="toc-exercise-2-grepping-patterns"><span class="toc-section-number">4.2</span> Exercise 2: ‘grepping’ patterns</a></li>
 </ul></li>
 </ul>
 </div>
@@ -781,8 +780,12 @@ head /Users/username/MEDS5420/lec02_files/the_raven.txt
 <p>We can search for patterns inside of files and print them using the <code>grep</code> command.
 Let’s head over to the writing directory and try using <code>grep</code>:<br />
 Have a look at <code>haiku.txt</code>:</p>
-<pre class="bash"><code>cat haiku.txt</code></pre>
-<pre><code>## Errors teach, not taunt,
+<pre class="bash"><code># first we must navigate to the correct folder:
+cd ~/MEDS5420/data-shell/writing/leisure/
+
+cat haiku.txt</code></pre>
+<pre><code>## bash: line 1: cd: /Users/runner/MEDS5420/data-shell/writing/leisure/: No such file or directory
+## Errors teach, not taunt,
 ## Each bug a lesson hidden,
 ## Growth in every line.
 ## 
@@ -795,7 +798,7 @@ Have a look at <code>haiku.txt</code>:</p>
 ## Software is like that.</code></pre>
 <p>When was <code>haiku.txt</code> last modified?</p>
 <pre class="bash"><code>ls -l haiku.txt</code></pre>
-<pre><code>## -rw-r--r--  1 runner  staff  220 Jan 28 13:29 haiku.txt</code></pre>
+<pre><code>## -rw-r--r--  1 runner  staff  220 Jan 28 13:46 haiku.txt</code></pre>
 <pre class="bash"><code>grep bug haiku.txt</code></pre>
 <pre><code>## Each bug a lesson hidden,</code></pre>
 <p>In the above command, the first argument “bug” is the pattern we are searching for. The default action for <code>grep</code> is to return the entire line in which the pattern was found.</p>
@@ -849,8 +852,8 @@ but for now just know that they exist. If you want to make use of them, check ou
 <li><p><a href="https://cheatography.com/davechild/cheat-sheets/regular-expressions/">https://cheatography.com/davechild/cheat-sheets/regular-expressions/</a></p></li>
 </ul>
 </div>
-<div id="exercise-2-regex-with-grep" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Exercise 2: ‘regex’ with grep</h2>
+<div id="exercise-1-regex-with-grep" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Exercise 1: ‘regex’ with grep</h2>
 <ol style="list-style-type: decimal">
 <li>Use the criteria below to print the appropriate lines from <code>haiku.txt</code>:</li>
 </ol>
@@ -861,8 +864,8 @@ but for now just know that they exist. If you want to make use of them, check ou
 <li>lines with words that begin with the letter n</li>
 </ul>
 </div>
-<div id="exercise-3-command-practice-and-grepping-patterns" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Exercise 3: Command practice and ‘grepping’ patterns</h2>
+<div id="exercise-2-command-practice-and-grepping-patterns" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Exercise 2: Command practice and ‘grepping’ patterns</h2>
 <p>Look in the <code>song_lyrics</code> folder inside the data-shell folder and you should see a single file: <code>TS_example.txt</code>
 The TS_example.txt file contains lyrics to a song by a well-known contemporary artist. Using the command line utilities you have learned, try the following:</p>
 <p><strong>1.</strong> Print the number of lines in the file.<br />
@@ -877,42 +880,8 @@ The TS_example.txt file contains lyrics to a song by a well-known contemporary a
 </div>
 <div id="answers-to-in-class-exercises" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Answers to in class exercises</h1>
-<div id="answers-to-exercise-1" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Answers to Exercise 1</h2>
-<p>Part1:<br />
-<code>cat</code> prints all the contents of <code>animals.txt</code> and passes it on to
-<code>head</code>. Standard output from <code>cat</code> (or standard input to <code>head</code>):</p>
-<pre><code>deer
-rabbit
-raccoon
-rabbit
-deer
-fox
-rabbit
-bear</code></pre>
-<p><code>head</code> reads the first 5 lines of that output and passes it on to
-<code>tail</code>. Standard output from <code>head</code> (or standard input to <code>tail</code>):</p>
-<pre><code>deer
-rabbit
-raccoon
-rabbit
-deer</code></pre>
-<p><code>tail</code> reads the last 3 lines of the output and passes it on to
-<code>sort</code>. Standard output from <code>tail</code> (or standard input to <code>sort</code>):</p>
-<pre><code>raccoon
-rabbit
-deer</code></pre>
-<p><code>sort</code> rearranges the lines in alphabetical order (you can
-read the <code>man</code> pages of <code>sort</code> to discern the arguments, including <code>-r</code> which is reverse alphabetical) and saves them into <code>final.txt</code>. Standard output from <code>sort</code> (or contents of <code>final.txt</code>)</p>
-<pre><code>deer
-rabbit
-raccoon</code></pre>
-<p>Part 2:<br />
-</p>
-<pre class="bash"><code>cat animals.txt | sort | tail -4 | head -3</code></pre>
-</div>
-<div id="exercise-2-grep-with-regex" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Exercise 2: Grep with ‘regex’</h2>
+<div id="exercise-1-grep-with-regex" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Exercise 1: Grep with ‘regex’</h2>
 <ol style="list-style-type: decimal">
 <li>Use the criteria below to print the appropriate lines from <code>haiku.txt</code>:</li>
 </ol>
@@ -927,8 +896,8 @@ raccoon</code></pre>
 <code>grep -w -i &quot;n.*&quot;</code> or <code>grep -i &#39;\&lt;n&#39; haiku.txt</code></li>
 </ul>
 </div>
-<div id="exercise-3-grepping-patterns" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Exercise 3: ‘grepping’ patterns</h2>
+<div id="exercise-2-grepping-patterns" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Exercise 2: ‘grepping’ patterns</h2>
 <p>The TS_example.txt file contains lyrics to a song by a well-known contemporary artist. Using the command line utilities you just learned, try the following:<br />
 <strong>1.</strong> Print the number of lines in the file: <code>wc -l TS_example.txt</code><br />
 <strong>2.</strong> Print the lines <strong>and line number</strong> that have the word ‘shake’ in them to a new file called <code>shake-lines.txt</code>: <code>grep -n -i shake  TS_example.txt &gt; shake-lines.txt</code> -this answer will print all instances of <em>shake</em> regardless of upper and lowercase letters due to the <code>-i</code> option.<br />
