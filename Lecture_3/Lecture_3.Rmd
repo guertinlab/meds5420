@@ -75,6 +75,9 @@ Let's head over to the writing directory and try using `grep`:
 Have a look at `haiku.txt`:
 
 ```{r engine='bash', eval=T}
+# first we must navigate to the correct folder:
+cd ~/MEDS5420/data-shell/writing/leisure/
+
 cat haiku.txt
 ```
 
@@ -86,8 +89,6 @@ ls -l haiku.txt
 ```{r engine='bash', echo=T, eval=T}
 grep bug haiku.txt
 ```
-
-
 
 
 In the above command, the first argument "bug" is the pattern we are searching for.  The default action for `grep` is to return the entire line in which the pattern was found.
