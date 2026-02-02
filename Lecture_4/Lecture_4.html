@@ -714,16 +714,28 @@ function toggle_visibility(id1) {
 <li><a href="#exercise-1" id="toc-exercise-1"><span class="toc-section-number">1.1</span> Exercise 1:</a></li>
 </ul></li>
 <li><a href="#what-weve-learned-so-far" id="toc-what-weve-learned-so-far"><span class="toc-section-number">2</span> What we’ve learned so far:</a></li>
-<li><a href="#more-commands" id="toc-more-commands"><span class="toc-section-number">3</span> More commands</a></li>
-<li><a href="#creating-path-and-filename-shortcuts-with-variables" id="toc-creating-path-and-filename-shortcuts-with-variables"><span class="toc-section-number">4</span> Creating path and filename shortcuts with variables</a></li>
-<li><a href="#string-splitting-and-manipulation" id="toc-string-splitting-and-manipulation"><span class="toc-section-number">5</span> String splitting and manipulation</a>
+<li><a href="#retrieving-files-from-a-url-using-curl-or-wget" id="toc-retrieving-files-from-a-url-using-curl-or-wget"><span class="toc-section-number">3</span> Retrieving files from a URL using <code>curl</code> or <code>wget</code></a></li>
+<li><a href="#more-commands" id="toc-more-commands"><span class="toc-section-number">4</span> More commands</a></li>
+<li><a href="#creating-path-and-filename-shortcuts-with-variables" id="toc-creating-path-and-filename-shortcuts-with-variables"><span class="toc-section-number">5</span> Creating path and filename shortcuts with variables</a></li>
+<li><a href="#string-splitting-and-manipulation" id="toc-string-splitting-and-manipulation"><span class="toc-section-number">6</span> String splitting and manipulation</a>
 <ul>
-<li><a href="#in-class-exercise-2-extract-the-last-item-from-a-string-of-unknown-length." id="toc-in-class-exercise-2-extract-the-last-item-from-a-string-of-unknown-length."><span class="toc-section-number">5.1</span> In class exercise 2: Extract the last item from a string of unknown length.</a></li>
+<li><a href="#in-class-exercise-2-extract-the-last-item-from-a-string-of-unknown-length." id="toc-in-class-exercise-2-extract-the-last-item-from-a-string-of-unknown-length."><span class="toc-section-number">6.1</span> In class exercise 2: Extract the last item from a string of unknown length.</a></li>
 </ul></li>
-<li><a href="#answers-to-in-class-questions" id="toc-answers-to-in-class-questions"><span class="toc-section-number">6</span> Answers to in class questions:</a>
+<li><a href="#manipulation-parsing-of-tables-with-awk" id="toc-manipulation-parsing-of-tables-with-awk"><span class="toc-section-number">7</span> Manipulation / parsing of tables with <code>awk</code></a>
 <ul>
-<li><a href="#in-class-exercise-1" id="toc-in-class-exercise-1"><span class="toc-section-number">6.1</span> In class exercise 1:</a></li>
-<li><a href="#in-class-exercise-2" id="toc-in-class-exercise-2"><span class="toc-section-number">6.2</span> In class exercise 2:</a></li>
+<li><a href="#feedback-drop-the-awk" id="toc-feedback-drop-the-awk"><span class="toc-section-number">7.1</span> Feedback: drop the <code>awk</code></a></li>
+<li><a href="#more-awk-usage-and-syntax" id="toc-more-awk-usage-and-syntax"><span class="toc-section-number">7.2</span> More <code>awk</code> usage and syntax:</a></li>
+<li><a href="#passing-shell-variables-to-awk" id="toc-passing-shell-variables-to-awk"><span class="toc-section-number">7.3</span> Passing shell variables to awk:</a></li>
+<li><a href="#running-simple-tests-before-function-in-awk" id="toc-running-simple-tests-before-function-in-awk"><span class="toc-section-number">7.4</span> Running simple tests before function in <code>awk</code>:</a></li>
+<li><a href="#common-uses-for-awk-we-will-use-in-this-course" id="toc-common-uses-for-awk-we-will-use-in-this-course"><span class="toc-section-number">7.5</span> Common uses for <code>awk</code> we will use in this course:</a></li>
+<li><a href="#in-class-exercise-3-splitting-strings-and-parsing-files." id="toc-in-class-exercise-3-splitting-strings-and-parsing-files."><span class="toc-section-number">7.6</span> In class exercise 3: Splitting strings and parsing files.</a></li>
+</ul></li>
+<li><a href="#answers-to-exercises" id="toc-answers-to-exercises"><span class="toc-section-number">8</span> Answers to exercises:</a></li>
+<li><a href="#answers-to-in-class-questions" id="toc-answers-to-in-class-questions"><span class="toc-section-number">9</span> Answers to in class questions:</a>
+<ul>
+<li><a href="#in-class-exercise-1" id="toc-in-class-exercise-1"><span class="toc-section-number">9.1</span> In class exercise 1:</a></li>
+<li><a href="#in-class-exercise-2" id="toc-in-class-exercise-2"><span class="toc-section-number">9.2</span> In class exercise 2:</a></li>
+<li><a href="#in-class-exercise-3" id="toc-in-class-exercise-3"><span class="toc-section-number">9.3</span> In class exercise 3:</a></li>
 </ul></li>
 </ul>
 </div>
@@ -821,21 +833,29 @@ done</code></pre>
 <strong>6.</strong> The beginnings of shell scripting.<br />
 </p>
 </div>
-<div id="more-commands" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> More commands</h1>
+<div id="retrieving-files-from-a-url-using-curl-or-wget" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Retrieving files from a URL using <code>curl</code> or <code>wget</code></h1>
+<p>Download <code>chr_coordinates.bed</code> from the Lecture 4 folder in GitHub and move this file to your MEDS5420 folder.<br />
+</p>
+<p>It is not immediately apparent how to download the file from GitHub, but you do have access to the <strong>Raw</strong> file by clicking <strong>Raw</strong>. Copy the URL <code>https://raw.githubusercontent.com/guertinlab/meds5420/refs/heads/main/Lecture_4/chr_coordinates.bed</code> We can use a command in the Terminal to directly retrive this raw file without having to click <strong>Save As</strong> in the browser.</p>
+<p>If you have a Mac, use <code>curl</code>:</p>
+<pre class="bash"><code>curl -O https://path/to/the/raw/file/on/github.bed</code></pre>
+<p>Linux OS have <code>wget</code>:</p>
+<pre class="bash"><code>wget https://path/to/the/raw/file/on/github.bed</code></pre>
+</div>
+<div id="more-commands" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> More commands</h1>
 <p><strong>1.</strong> Learn a few more useful terminal commands: <strong>sort, cut, uniq</strong><br />
 </p>
 </div>
-<div id="creating-path-and-filename-shortcuts-with-variables" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Creating path and filename shortcuts with variables</h1>
+<div id="creating-path-and-filename-shortcuts-with-variables" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Creating path and filename shortcuts with variables</h1>
 <p>Download <code>color-table.txt</code> from the Lecture 4 folder in GitHub and move this file to your MEDS5420 folder.<br />
 </p>
-<p>It is not immediately apparent how to download the file from GitHub, but you do have access to the <strong>Raw</strong> file by clicking <strong>Raw</strong>. We can use a command in the Terminal to directly retrive this raw file without having to click <strong>Save As</strong> in the browser.<br />
-</p>
-<p>If you have a Mac, then <code>curl</code> is the default method to retrieve files from URLs:</p>
+<p>If you have a Mac, then <code>curl</code> to retrieve files from URLs:</p>
 <pre class="bash"><code>curl -O https://raw.githubusercontent.com/guertinlab/meds5420/main/Lecture_4/color-table.txt
 #the manual will tell you what the -O (the letter, not a zero) option does </code></pre>
-<p>Linux OS have <code>wget</code>:</p>
+<p>Linux OS use <code>wget</code>:</p>
 <pre class="bash"><code>wget https://raw.githubusercontent.com/guertinlab/meds5420/main/Lecture_4/color-table.txt</code></pre>
 <p>Let’s tuck the color-table.txt file away into some new directories:</p>
 <pre class="bash"><code>#start from the MEDS5420 folder:
@@ -855,8 +875,8 @@ head $table</code></pre>
 ## test 100 yellow
 ## if   6   green</code></pre>
 </div>
-<div id="string-splitting-and-manipulation" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> String splitting and manipulation</h1>
+<div id="string-splitting-and-manipulation" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> String splitting and manipulation</h1>
 <p>The <strong>cut</strong> command is useful for splitting strings based on user-defined delimiters. For instance, if I want to extract only the time from the <strong>date</strong> command you can try this:</p>
 <pre class="bash"><code># selects the 4th item after the line is split by spaces (&quot; &quot;)
 echo &quot;the date and time is:&quot;
@@ -866,9 +886,9 @@ echo &quot;the time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4  
 </code></pre>
 <pre><code>## the date and time is:
-## Wed Jan 28 23:04:07 UTC 2026
+## Mon Feb 2 16:42:08 UTC 2026
 ## the time is:
-## 23:04:07</code></pre>
+## 16:42:08</code></pre>
 <p><code>-d</code>: is the delimiter set by user. Default is tab: <code>\t</code><br />
 <code>-f</code>: the fields to select for after splitting. Can list each (1,2,3) or list a range (1-3)<br />
 <br />
@@ -878,16 +898,16 @@ echo $(date) | cut -d &quot; &quot; -f 4
 
 echo `date` | rev
 </code></pre>
-<pre><code>## 6202 CTU 70:40:32 82 naJ deW</code></pre>
+<pre><code>## 6202 CTU 80:24:61 2 beF noM</code></pre>
 <p>Can be done on any part of a pipe</p>
 <pre class="bash"><code>echo $(date)
 
 echo &quot;the reverse time is:&quot;
 echo $(date) | cut -d &quot; &quot; -f 4 |rev
 </code></pre>
-<pre><code>## Wed Jan 28 23:04:07 UTC 2026
+<pre><code>## Mon Feb 2 16:42:08 UTC 2026
 ## the reverse time is:
-## 70:40:32</code></pre>
+## 80:24:61</code></pre>
 <p><strong>Extracting columns from tables:</strong> Cut can also be used to extract columns from tables.<br />
 </p>
 <p>Let’s just get the first column of <code>color-table.txt</code>:</p>
@@ -970,18 +990,122 @@ cat color-table.txt | cut -f 3 |sort | uniq -c | head
 ##    2 purple
 ##    3 red
 ##    3 yellow</code></pre>
-<div id="in-class-exercise-2-extract-the-last-item-from-a-string-of-unknown-length." class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> In class exercise 2: Extract the last item from a string of unknown length.</h2>
+<div id="in-class-exercise-2-extract-the-last-item-from-a-string-of-unknown-length." class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> In class exercise 2: Extract the last item from a string of unknown length.</h2>
 <p>Consider this filename at the end of the path: <code>/tempdata3/MEDS5420/data/raw/chip_repA.txt</code><br />
 <br />
-Devise a way to split the string and report the filename <code>chip_repA.txt</code> without referencing the exact position. This come in handy if you want to get the last item in the path without knowing how long the path is.
+Devise a way to split the string and report the filename <code>chip_repA.txt</code> without referencing the exact position. This come in handy if you want to get the last item in the path without knowing how long the path is.</p>
+</div>
+</div>
+<div id="manipulation-parsing-of-tables-with-awk" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Manipulation / parsing of tables with <code>awk</code></h1>
+<p>One bad thing about <strong>cut</strong> is that you cannot reorder columns (e.g. cut -f 3,1 table does not work)<br />
+</p>
+<p>A convenient way to reorder columns, especially with large files is with another language called <strong>awk</strong>.<br />
+<strong>Awk user manual:</strong>
+<a href="https://www.cs.unibo.it/~renzo/doc/awk/nawkA4.pdf">https://www.cs.unibo.it/~renzo/doc/awk/nawkA4.pdf</a></p>
+<p>Here’s an example:</p>
+<pre class="bash"><code>cat color-table.txt | awk &#39;{print $3, &quot;\t&quot;, $2, &quot;\t&quot;, $1}&#39; &gt; newTable.txt</code></pre>
+<pre><code>## red   1   This
+## orange    2   is
+## yellow    4   a
+## green     4   test
+## blue      7   this
+## purple    6   is
+## red   80      only
+## orange    19      a
+## yellow    100     test
+## green     6   if</code></pre>
+<p>In the example above:</p>
+<ul>
+<li><code>$#</code> specifies the field or column number.</li>
+<li><code>&quot;\t&quot;</code> specifies tabs in between fields.</li>
+</ul>
+<p><strong>awk</strong> has very cryptic syntax. Therefore, I recommend learning as needed for specific tasks and keeping track of useful operations by creating a repository to store them. For instance, I have an “awk one-liners” file where I keep useful operations.</p>
+<div id="feedback-drop-the-awk" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Feedback: drop the <code>awk</code></h2>
+<p>The only class feedback I ignored from previous evaluations is to not teach <strong>awk</strong>. I view computational analyses for genomics in two parts: 1) perform basic, routine, data processing that can usually be automated by using shell scripts; 2) exploratory data analyses in your favorite programming language, such as <code>python</code> or <code>R</code>. <strong>awk</strong> is extremely useful for shell scripting and you will learn 16 years of my accumulated (and frequently forgotten) <strong>awk</strong> knowledge from this class. Exploratory data analysis in <code>R</code> or <code>python</code> would be another class entirely. It is true that many tasks that <strong>awk</strong> performs can be performed in <code>R</code> or <code>python</code> and <strong>awk</strong> is more <em>awk</em>ward. However, <strong>awk</strong> is faster and easier to implement into workflows.</p>
+</div>
+<div id="more-awk-usage-and-syntax" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> More <code>awk</code> usage and syntax:</h2>
+<p><strong>Outer Field Separator (OFS)</strong> can be used to specify the delimiter<br />
+</p>
+<pre class="bash"><code>cat color-table.txt | awk &#39;{OFS=&quot;\t&quot;;} {print $3, $1, $2}&#39; &gt; newTable.txt
+head -3 newTable.txt</code></pre>
+<pre><code>## red  This    1
+## orange   is  2
+## yellow   a   4</code></pre>
+<p><strong>Input files</strong> can be passed in at the end of command instead of using a pipe <code>|</code> and <code>cat</code>:</p>
+<pre class="bash"><code>awk &#39;{OFS=&quot;\t&quot;;} {print $3, $1, $2}&#39; &lt; color-table.txt &gt; newTable.txt
+head -3 newTable.txt</code></pre>
+<pre><code>## red  This    1
+## orange   is  2
+## yellow   a   4</code></pre>
+<p><strong>left caret/arrow/less than sign <code>&lt;</code></strong> before input file is not necessary, but can be used to avoid ambiguity.<br />
+<br />
+</p>
+<p>One can quickly parse columns with awk using “if” statements:</p>
+<pre class="bash"><code>cat color-table.txt | awk &#39;{ if($3 == &quot;yellow&quot;) print $0}&#39;</code></pre>
+<pre><code>## a    4   yellow  
+## test 100 yellow
+## real     4   yellow</code></pre>
+<p>In this example, the if statement is followed by a test (in parentheses), followed by the desired action if the test result is true.<br />
+- <code>$0</code> prints the entire line instead of a specific column.<br />
+- The double equal sign <code>==</code> signifies that you are asking if the two items are equal to each other rather than setting the value of a variable.</p>
+</div>
+<div id="passing-shell-variables-to-awk" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Passing shell variables to awk:</h2>
+<p>There are times when you want to use a variable created in <code>shell</code> in an <code>awk</code> command. Try:</p>
+<pre class="bash"><code>y=yellow
+cat color-table.txt | awk &#39;{ if($3 == $y) print $0}&#39;</code></pre>
+<p>As you can see, <code>awk</code> does not recognize shell variables, but they can be <strong>“passed”</strong> into <code>awk</code> as follows:</p>
+<pre class="bash"><code>y=yellow
+cat color-table.txt | awk -v cols=&quot;$y&quot; &#39;{ if($3 == cols) print $0}&#39; #readable to awk</code></pre>
+<p>In this case, the <code>-v</code> option allows you to create an awk variable from a shell variable. <strong>Note:</strong> this is done before the rest of the awk statement is wrapped in <code>&#39;{}&#39;</code>. I randomly named the variable <code>cols</code> within <code>awk</code>, but we can use any designation, including <code>y</code>.</p>
+</div>
+<div id="running-simple-tests-before-function-in-awk" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Running simple tests before function in <code>awk</code>:</h2>
+<p><strong>Example</strong>: sometimes we will want to work on the beginning of a file in order to add, remove, or alter the header for columns. We can run a simple test to determine which lines to work with in awk using the <strong><code>NR</code></strong> (row number) argument before we start awk functions.</p>
+<pre class="bash"><code>head -3 mm9_genes.txt</code></pre>
+<pre><code>## genename geneID  chr strand  start   stop
+## 4930594M22Rik    AK157947    chr14   +   123312252   123328664
+## Zfp85-rs1    NM_001001130    chr13   -   67848736    67856071</code></pre>
+<pre class="bash"><code>cat mm9_genes.txt | awk &#39;NR&gt;1{ print $0}&#39; | head -3</code></pre>
+<pre><code>## 4930594M22Rik    AK157947    chr14   +   123312252   123328664
+## Zfp85-rs1    NM_001001130    chr13   -   67848736    67856071
+## Scap NM_001001144    chr9    +   110235821   110287450</code></pre>
+</div>
+<div id="common-uses-for-awk-we-will-use-in-this-course" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Common uses for <code>awk</code> we will use in this course:</h2>
+<p><strong>1.</strong> Reordering columns<br />
+<strong>2.</strong> Simple math with columns<br />
+<strong>3.</strong> Printing certain rows or columns<br />
+<strong>4.</strong> Adding rows or columns to large files<br />
+<strong>5.</strong> Adding/removing headers from large files<br />
 </p>
 </div>
+<div id="in-class-exercise-3-splitting-strings-and-parsing-files." class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> In class exercise 3: Splitting strings and parsing files.</h2>
+<p>Consider the example path to the mm9_genes.txt:  <code>/users/tempdata3/MEDS5420/annotations/mm9-genes.txt</code></p>
+<p><strong>1.</strong> Use <code>cut</code> to get the file name without the extension (.txt); modify the code extract the file name (minus the extension) regardless of how many directories deep the file is located.<br />
+Download the mm9_genes.txt file from GitHub Lecture 4 and move it to your MEDS5420 folder.<br />
+<strong>2.</strong> Count the number of rows with gene information in the file.<br />
+<strong>3.</strong> The number of genes names in the list (column 1) is not the same as the number of gene IDs (column 2). Determine how many redundant gene names are listed in the table.<br />
+<strong>4.</strong> Use awk to move genes on the plus strand to another file - call it <code>PlusStrandGenes.txt</code><br />
+<strong>5.</strong> Use awk to create a file with another column that has the gene length - call it <code>mm9GeneLengths.txt</code><br />
+<strong>6.</strong> Create a .bed file (used later in course) by reordering the columns as follows and separate the columns with a tab: chromosome, start, end, geneID, strand<br />
+</p>
+<div style="page-break-after: always;"></div>
 </div>
-<div id="answers-to-in-class-questions" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Answers to in class questions:</h1>
-<div id="in-class-exercise-1" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> In class exercise 1:</h2>
+</div>
+<div id="answers-to-exercises" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Answers to exercises:</h1>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="answers-to-in-class-questions" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Answers to in class questions:</h1>
+<div id="in-class-exercise-1" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> In class exercise 1:</h2>
 <pre class="bash"><code>#! /bin/sh
 folders=&quot;notebook raw_data figures manuscripts&quot;
 
@@ -993,11 +1117,52 @@ do
 done
   </code></pre>
 </div>
-<div id="in-class-exercise-2" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> In class exercise 2:</h2>
+<div id="in-class-exercise-2" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> In class exercise 2:</h2>
 <p>Retrieve the last item in a string of unknown length</p>
 <pre class="bash"><code>file=&quot;/tempdata3/MEDS5420/data/raw/chip_repA.txt&quot;
 echo $file | rev | cut -d &quot;/&quot; -f 1 | rev</code></pre>
+</div>
+<div id="in-class-exercise-3" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> In class exercise 3:</h2>
+<p>Consider the path to the mm9_genes.txt in the MEDS5420 folder on a server: <code>/archive/MEDS5420/annotations/mm9_genes.txt</code></p>
+<p><strong>1.</strong> Use cut (alone or in combination with other functions) to retrieve the file name without the extension (.txt):</p>
+<pre class="bash"><code>file=/archive/MEDS5420/annotations/mm9_genes.txt
+echo $file | cut -d &quot;/&quot; -f 4 | cut -d &quot;.&quot; -f 1
+
+# OR independent of positional information:
+
+echo $file | rev | cut -d &quot;/&quot; -f 1 | rev | cut -d &quot;.&quot; -f 1
+</code></pre>
+<p><br />
+<strong>2.</strong> Count the number of lines in the file:</p>
+<pre class="bash"><code>tail +2 mm9_genes.txt | wc -l
+# or
+awk &#39;NR&gt;1{ print $0 }&#39;  mm9_genes.txt | wc -l </code></pre>
+<p><br />
+<strong>3.</strong> The number of genes in the list is not the same as the number of genetic loci. Determine how many redundant gene names are listed in the table:<br />
+</p>
+<pre class="bash"><code>
+
+# to get number of unique gene names
+cat mm9_genes.txt | cut -f 1| sort | uniq| wc -l 
+
+# to get the number of duplicated gene names
+cat mm9_genes.txt | cut -f 1| sort | uniq -d| wc -l </code></pre>
+<p><strong>4.</strong> Use awk to move genes on the plus strand to another file:<br />
+</p>
+<pre class="bash"><code>cat mm9_genes.txt | awk &#39;{if($4 == &quot;+&quot;) print $0}&#39; &gt; PlusStrandGenes.txt</code></pre>
+<p><strong>5.</strong> Use awk to create another column that has the gene length<br />
+Use awk to create another column that has the gene length<br />
+</p>
+<pre class="bash"><code>cat mm9_genes.txt | awk &#39;{print $0, $6-$5}&#39; &gt; mm9_plus_genes.txt
+# Above command works, but the header is not correct. Try it and see.
+
+cat mm9_genes.txt | awk &#39;NR&lt;2{ print $0 &quot;\t&quot; &quot;geneLength&quot;} NR&gt;1 {print $0 &quot;\t&quot; $6-$5}&#39;
+#Above commands use &quot;NR&quot;&quot; to create the proper header and data running commands on specific rows.
+</code></pre>
+<p><strong>6.</strong> Create a <code>.bed.</code> file by reordering columns and separate the columns with a tab delimiter</p>
+<pre class="bash"><code>cat mm9_genes.txt | awk &#39;{OFS=&quot;\t&quot;;} {print $3, $5, $6, $2, $4}&#39; &gt; mm9_genes.bed</code></pre>
 </div>
 </div>
 
