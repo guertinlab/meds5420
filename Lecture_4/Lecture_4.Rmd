@@ -154,7 +154,7 @@ wget https://path/to/the/raw/file/on/github.bed
 
 **1.** Learn a few more useful terminal commands: **sort, cut, uniq** \
 
-# Creating path and filename shortcuts with variables
+## Creating path and filename shortcuts with variables
 
 Download `color-table.txt` from the Lecture 4 folder in GitHub and move this file to your MEDS5420 folder.  \
 
@@ -187,7 +187,7 @@ head $table
 ```
 
 
-# String splitting and manipulation
+## String splitting and manipulation
 
 The **cut** command is useful for splitting strings based on user-defined delimiters.  For instance, if I want to extract only the time from the **date** command you can try this:
 
@@ -233,7 +233,9 @@ table="./in_class/colors/color-table.txt"
 cat $table | cut -f 1
 ```
 
-**Sorting columns:** Simple sorting of columns
+## Sorting columns
+
+Simple sorting of columns
 
 ```{r engine='bash', eval=T, echo=T}
 sort -k 2 color-table.txt | head -n 5
@@ -264,7 +266,9 @@ sort -k 2nr color-table.txt | head -n 5
 
 ```
 
-Finding unique items in list.  You can use `uniq` to determine how many times an item appears in a list.  
+## Finding unique items in list.  
+
+You can use `uniq` to determine how many times an item appears in a list.  
 
 ```{r engine='bash', eval=T, echo=T}
 # -c prints the number of each item
