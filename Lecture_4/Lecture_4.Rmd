@@ -17,9 +17,6 @@ geometry: margin=1in
 Review basic commands and server access from [UConn_Unix_basics](http://bioinformatics.uconn.edu/unix-basics)
 
 
-
-
-
 # Scripting in the shell.
 Scripts are a logially ordered set of commands used to process files.  They can be simple routines or complex programs.  There are three main things one needs when writing scripts in general: \
 **1.** The commands themselves \
@@ -135,6 +132,23 @@ Create a shell script, called `grad_folders.sh` that does the following:\
 **5.** The importance of quoting syntax. \
 **6.** The beginnings of shell scripting. \
 
+# Retrieving files from a URL using `curl` or `wget`
+
+Download `chr_coordinates.bed` from the Lecture 4 folder in GitHub and move this file to your MEDS5420 folder.  \
+
+It is not immediately apparent how to download the file from GitHub, but you do have access to the **Raw** file by clicking **Raw**. Copy the URL `https://raw.githubusercontent.com/guertinlab/meds5420/refs/heads/main/Lecture_4/chr_coordinates.bed` We can use a command in the Terminal to directly retrive this raw file without having to click **Save As** in the browser.
+
+If you have a Mac, use `curl`:
+```{r engine='bash', eval=F, echo=T}
+curl -O https://path/to/the/raw/file/on/github.bed
+```
+
+Linux OS have `wget`:
+
+```{r engine='bash', eval=F, echo=T}
+wget https://path/to/the/raw/file/on/github.bed
+```
+
 
 # More commands 
 
@@ -144,16 +158,14 @@ Create a shell script, called `grad_folders.sh` that does the following:\
 
 Download `color-table.txt` from the Lecture 4 folder in GitHub and move this file to your MEDS5420 folder.  \
 
-It is not immediately apparent how to download the file from GitHub, but you do have access to the **Raw** file by clicking **Raw**. We can use a command in the Terminal to directly retrive this raw file without having to click **Save As** in the browser. \
-
-If you have a Mac, then `curl` is the default method to retrieve files from URLs:
+If you have a Mac, then `curl` to retrieve files from URLs:
 
 ```{r engine='bash', eval=F, echo=T}
 curl -O https://raw.githubusercontent.com/guertinlab/meds5420/main/Lecture_4/color-table.txt
 #the manual will tell you what the -O (the letter, not a zero) option does 
 ```
 
-Linux OS have `wget`:
+Linux OS use `wget`:
 
 ```{r engine='bash', eval=F, echo=T}
 wget https://raw.githubusercontent.com/guertinlab/meds5420/main/Lecture_4/color-table.txt
