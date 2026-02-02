@@ -5,7 +5,7 @@ header-includes:
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
 date: "February 2, 2026" 
-output:
+output: 
   bookdown::html_document2:
     toc: true
 fontsize: 14pt
