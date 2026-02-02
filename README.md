@@ -24,13 +24,15 @@ Lecture 2 2025 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_2.mp4 \
 Lecture 3: \
 https://guertinlab.github.io/meds5420/Lecture_3/Lecture_3.html \
-Lecture 3 2026cRecording:\
+Lecture 3 2026 Recording:\
 http://guertinlab.cam.uchc.edu/meds5420_2026/2026_Lecture_3.mp4 \
 Lecture 3 2025 Recording:\
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_3.mp4 \
 Lecture 4: \
 https://guertinlab.github.io/meds5420/Lecture_4/Lecture_4.html \
-Lecture 4 Recordings (broken up because of internet loss):\
+Lecture 4 2026 Recording:\
+http://guertinlab.cam.uchc.edu/meds5420_2026/2026_Lecture_4.mp4 \
+Lecture 4 2025 Recordings (broken up because of internet loss):\
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_4_1.mp4 \
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_4_2.mp4 \
 Lecture 5: \
