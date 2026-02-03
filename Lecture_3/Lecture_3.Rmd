@@ -21,7 +21,7 @@ Unix "Basics" and "Finding Things" from UConn CBC: http://bioinformatics.uconn.e
 Software Carpentry Shell Novice lesson: Episodes 5-7:
 https://swcarpentry.github.io/shell-novice/
 
-Review basic commands and server access from [UConn_Unix_basics](http://bioinformatics.uconn.edu/unix-basics)
+Review basic commands and server access from [UConn_Unix_basics](http://bioinformatics.uconn.edu/unix-basics) 
 
 # Last Time:
 
