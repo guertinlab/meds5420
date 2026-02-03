@@ -1,10 +1,10 @@
 ---
-title: \sf MEDS5420 - awk
+title: \sf MEDS5420 - Xanadu
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "February 4, 2026" 
+date: "February 4, 2026"
 output:
   bookdown::html_document2:
     toc: true
