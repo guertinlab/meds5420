@@ -3,6 +3,10 @@ on:
   push:
     paths:
       - 'Lecture_5/Lecture_5.Rmd'
+concurrency:
+  group: render-lecture-5
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: macOS-latest
@@ -26,5 +30,7 @@ jobs:
       - name: Commit and push changes
         run: |
           git add Lecture_5/Lecture_5.html
-          git commit -m "Render Lecture_5.Rmd to HTML"
-          git push origin HEAD:main
+          git commit -m "Render Lecture_5.Rmd to HTML" || exit 0
+          git fetch origin main
+          git pull --rebase origin main
+          git push origin main
