@@ -15,7 +15,7 @@ geometry: margin=1in
 
 I asked you to complete section 5.6 from Lecture 4 for homework, so let's review these commands.
 
-## Retrieving files from a URL using `curl` or `wget`
+## Retrieving files from a URL using `curl` or `wget` 
 
 Download `chr_coordinates.bed` from the Lecture 5 folder in GitHub and move this file to your MEDS5420 folder.  \
 
