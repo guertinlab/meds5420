@@ -14,7 +14,7 @@ geometry: margin=1in
 
 # A review of `wget`, `curl`, and `cut` 
 
-I asked you to complete section 5.6 from Lecture 4 for homework, so let's review these commands. 
+I asked you to complete section 5.6 from Lecture 4 for homework, so let's review these commands.
 
 ## Retrieving files from a URL using `curl` or `wget` 
 
