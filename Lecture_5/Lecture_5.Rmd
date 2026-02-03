@@ -21,7 +21,7 @@ Download `chr_coordinates.bed` from the Lecture 5 folder in GitHub and move this
 
 If you have a Mac, use `curl`:
 ```{r engine='bash', eval=F, echo=T}
-curl -O https://path/to/the/raw/file/on/github.bed
+curl -O https://path/to/the/raw/file/on/github.bed 
 ```
 
 Linux OS have `wget`:
