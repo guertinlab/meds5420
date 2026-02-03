@@ -16,7 +16,6 @@ geometry: margin=1in
 
 Review basic commands and server access from [UConn_Unix_basics](http://bioinformatics.uconn.edu/unix-basics)
 
-
 # Scripting in the shell.
 Scripts are a logially ordered set of commands used to process files.  They can be simple routines or complex programs.  There are three main things one needs when writing scripts in general: \
 **1.** The commands themselves \
