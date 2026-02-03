@@ -215,7 +215,7 @@ Once you login you are in the head (or login) node. **DO NOT** run any resource 
 
 
 ## For PC users:
-sdYou can use scp from a terminal window, or you can use `WinSCP` which is a convenient FTP client or user interface for transferring data between computers.  Below are some links with tutorials for downloading, installing, and using `WinSCP`.
+You can use `scp` from a terminal window, or you can use `WinSCP` which is a convenient FTP client or user interface for transferring data between computers.  Below are some links with tutorials for downloading, installing, and using `WinSCP`.
 
 [https://winscp.net/eng/docs/guide_connect](https://winscp.net/eng/docs/guide_connect) \
 
