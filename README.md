@@ -41,7 +41,9 @@ Lecture 5 Recording:\
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_5.mp4 \
 Lecture 6: \
 https://guertinlab.github.io/meds5420/Lecture_6/Lecture_6.html \
-Lecture 6 Recording: \
+Lecture 6 2026 Recording: \
+http://guertinlab.cam.uchc.edu/meds5420_2026/2026_Lecture_6.mp4 \
+Lecture 6 2025 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_6.mp4 \
 Lecture 7: \
 https://guertinlab.github.io/meds5420/Lecture_7/Lecture_7.html \
