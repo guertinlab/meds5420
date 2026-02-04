@@ -199,72 +199,7 @@ Even though your code may have worked, the script is not considered finished as 
 \pagebreak
 
 
-# Logging into the Xanadu cluster 
 
-To access the cluster you need to login with **ssh** (secure shell):
-
-```{r engine='bash', eval=F, echo=TRUE}
-ssh <user_name>@xanadu-submit-ext.cam.uchc.edu 
-
-# you user name looks like this:
-ssh meds5420usr17@xanadu-submit-ext.cam.uchc.edu 
-```
-Once you login you are in the head (or login) node. **DO NOT** run any resource intensive commands on the head node. We will go over the procedure for allocating resources using both interactive sessions and job submissions.  
-
-# Tranferring data between to and from cluster
-
-
-## For PC users:
-You can use `scp` from a terminal window, or you can use `WinSCP` which is a convenient FTP client or user interface for transferring data between computers.  Below are some links with tutorials for downloading, installing, and using `WinSCP`.
-
-[https://winscp.net/eng/docs/guide_connect](https://winscp.net/eng/docs/guide_connect) \
-
-[https://www.youtube.com/watch?v=58KmUBaEW34](https://www.youtube.com/watch?v=58KmUBaEW34)
-
-
-To move files in between computer you can login with **sftp** use **scp** (secure copy):
-
-## **`sftp`**: 
-
-`ftp` stands for "File Transfer Protocol", `sftp` is " Secure File Transfer Protocol".  In other words, with sftp, a useraccount and password are required.\
-```{r engine='bash', eval=F, echo=TRUE}
-
-sftp  <your_username>@<host_name>
-```
-For the Xanadu cluster, there is a special partition for transferring data:
-
-```{r engine='bash', eval=F, echo=TRUE}
-
-sftp <your_username>@transfer.cam.uchc.edu
-```
-
-**1.** You can then navigate to the directory where you want to take files from.\
-**2.** `put` and `get` can be used to move files from or to your computer, respectively \
-
-```{r engine='bash', eval=F, echo=TRUE}
-# copy a document to the cluster
-put /Users/guertinlab/MEDS5420/color-table.txt
-
-# retrieve a copy of a document from the cluster (will go in whatever folder you logged in from)
-get /home/FCAM/meds5420/usr17/file.txt
-
-
-```
-
-
-## **`scp`**
-**scp** can be used without logging in provided you know the exact location where your file of interest is or will go. I find `sftp` easier and will use `sftp` for class.
-
-```{r engine='bash', eval=F, echo=TRUE}
-# for copying TO the server
-scp -r <path_to_directory> <your_username>@transfer.cam.uchc.edu:~/path/to/target/folder
-```
-
-You should be prompted for a password.  If not, the transfer probably failed.
-```{r engine='bash', eval=F, echo=TRUE}
-# for copying FROM the server
-scp -r <your_username>@<host_name>:@transfer.cam.uchc.edu <target_directory> 
-```
 
 # Logging into the Xanadu cluster 
 
