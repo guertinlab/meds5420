@@ -103,7 +103,7 @@ Note that I also included a variable that is used for interpretation.
 
 # Passing files and options into scripts from command line:
 
-I uploaded a file to the Lecture 6 directory in GitHub with rain data and I want to process with this script.
+I uploaded a file to the Lecture 5 directory in GitHub with rain data and I want to process with this script.
 ```{r engine='bash', eval=T, echo=TRUE}
 cat rain_data.txt
 ```
