@@ -65,17 +65,17 @@ Download bowtie binaries compatible with your architecture, in my case it is `ma
 
 
 ```{r engine='bash', eval=F, echo=TRUE}
-unzip /Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64.zip
-cd /Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64
+unzip /Users/guertinlab/Downloads/bowtie2-2.5.4-macos-arm64.zip
+cd /Users/guertinlab/Downloads/bowtie2-2.5.4-macos-arm64
 ```
 
 These are executable files, so we can invoke the software by just typing the full directory structure (or relative path) to the `bowtie` executable binary. I typically invoke the `-h` flag option when testing software, because it is usually the usage documentation or **h**elp.
 
-/Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64.zip
+/Users/guertinlab/Downloads/bowtie2-2.5.4-macos-arm64.zip
 
 
 ```{r engine='bash', eval=F, echo=TRUE}
-/Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64/bowtie2 -h 
+/Users/guertinlab/Downloads/bowtie2-2.5.4-macos-arm64/bowtie2 -h 
 ```
 
 MacOS does not like opening software from outside the AppStore, so you have to attempt to run `bowtie` and manually navigate to *Security and Privacy* to allow the developer.
@@ -130,7 +130,7 @@ There is another directory in the PATH that is convenient for custom installs by
 
 Temporary path changes:
 ```{r engine='bash', eval=T, echo=TRUE}
-export PATH=$PATH:/Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64
+export PATH=$PATH:/Users/guertinlab/Downloads/bowtie2-2.5.4-macos-arm64
 
 echo $PATH
 ```
@@ -149,7 +149,7 @@ nano .bash_profile #.bash_profile on a Mac
 Type this line at the end:
 
 ```{r engine='bash', eval=F, echo=TRUE}
-export PATH="$PATH:/Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64" 
+export PATH="$PATH:/Users/guertinlab/Downloads/bowtie2-2.5.4-macos-arm64" 
 ```
 
 This line overwrites the old PATH after appending the new path to the current PATH. \
