@@ -1,10 +1,10 @@
 ---
-title: \sf MEDS5420 - Illumina data format, QC, and preprocessing.
+title: \sf MEDS5420 - Fastx tools for preprocessing.
 header-includes:
 - \usepackage{color}
 - \usepackage{float}
 - \DeclareUnicodeCharacter{2212}{-}
-date: "February 17, 2025" 
+date: "February 16, 2026"
 output:
   bookdown::html_document2:
     toc: true
@@ -12,560 +12,322 @@ fontsize: 14pt
 geometry: margin=1in
 ---
 
+# Review:
+We had a first look at data and learned the initial considerations and steps for preprocessing data.\
 
-# Last time:
-* Running interactive sessions
-* submitting job with `sbatch`
-* introduction to `apt-get` and `brew` package managers
-* Used `apt-get` or `brew` to install the `sratoolkit` on your local macine. 
-
-
-# Today: Download, QC and Preprocessing of Illumina data:
-* downloading `bowtie2` binaries
-* adding directories to the `$PATH`
-* Using `fastqc` to check the quality of library or sequencing run.
-* Using command line tools to pre-process .fastq data.
-
-```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="pipeline flow chart"}
+```{r echo=F, fig.align = "center", fig.cap="QC flow chart"}
 #library(knitr)
-knitr::include_graphics("./2021_MEDS5420_flow.png") 
+knitr::include_graphics("QC_flow.png") 
 ```
 
-# Login commands
-
-## `ssh`
-```{r engine='bash', eval=F, echo=TRUE}
-ssh meds5420usrX@xanadu-submit-ext.cam.uchc.edu
-```
-
-## `sftp`
-```{r engine='bash', eval=F, echo=TRUE}
-sftp meds5420usrX@transfer.cam.uchc.edu
-```
-
-## interactive session
-
-```{r engine='bash', eval=F, echo=TRUE}
-srun --pty -p mcbstudent --qos=mcbstudent --mem=2G bash
-```
-
-# Downloading precompiled software
-
-Recall that you can use the command `uname -a` to get information about the achitecture of your computer.
-
-We will download binary files for the popular alignment software `bowtie2`, using a  Google search and a few clicks you should arrive here: \
-
-https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#obtaining-bowtie-2 \
-
-click the Download link and arrive here: \
-
-https://sourceforge.net/projects/bowtie-bio/files/bowtie2/
-
-Download bowtie binaries compatible with your architecture, in my case it is `macos arm64`. They go to my Downloads folder, so I can navigate there and `unzip` the file.
-
-
-```{r engine='bash', eval=F, echo=TRUE}
-unzip /Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64.zip
-cd /Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64
-```
-
-These are executable files, so we can invoke the software by just typing the full directory structure (or relative path) to the `bowtie` executable binary. I typically invoke the `-h` flag option when testing software, because it is usually the usage documentation or **h**elp.
-
-/Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64.zip
-
-
-```{r engine='bash', eval=F, echo=TRUE}
-/Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64/bowtie2 -h 
-```
-
-MacOS does not like opening software from outside the AppStore, so you have to attempt to run `bowtie` and manually navigate to *Security and Privacy* to allow the developer.
-
-```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="tell your computer to trust the software"}
-#library(knitr)
-knitr::include_graphics("./allow_bowtie.png") 
-```
-
-
-You do not want to specify the full directory structure to `bowtie2` every time you run the software, so you can tell your computer where to look for *any* installed software. The computer needs to be told the `$PATH` where programs or commands should be found.\
+Another approach for assessing quality is to preprocess the data and determine how the preprocessing steps affect mapping results. First we need to learn how to preprocess the reads and map to genomes.\
 \
 
---------------------------------------------------------------------------
-
-# Introduction to search path: `$PATH`
-
-## Where do we put the software after download?
-
-In order to run a command from the terminal, the computer must know where the program is.  You can do this manually, by specifying the full path to the program every time you use it.  This is laboroious.  To make life easier, each user has a **'search path'** that tells the computer where to look for commands that are typed into the terminal.  To view your path type:
-```{r engine='bash', eval=FALSE, echo=TRUE}
-echo $PATH
-```
-The search path is a list of paths that are separated by a colon.  When you type a command the computer will look in each directory specified in the variable **$PATH**. If found, there is attempt to run the program. If not, you will get the error: `command not found`.  To get your program to run, you can do any of three things:
-
-**1.** Use the full path to the program when running it. \
-**2.** Move the program into one of the PATHs so that it is automatically recognized by bash. \
-**3.**  Change the `$PATH` variable so that it includes the path to the program. \
-
-
-First let's put the software in an appropriate place:\
-Many of the built in functions for your computer and some installed ones are in the `/bin/` or `/usr/bin/` directories.
-For example try:
-```{r engine='bash', eval=TRUE, echo=TRUE}
-which python3
-```
-and
-
-```{r engine='bash', eval=TRUE, echo=TRUE}
-which grep
-```
-**which** tells you where the program is, and these are indeed targets of the `$PATH` variable.
-
-However, it isn't a good habit to add custom installs to these directories because:\
-- Mistakes in altering directories with built-in functions can lead to corruption of core functions. \
-- it can be difficult to remove or alter your custom software in these directories. \
-
-
-There is another directory in the PATH that is convenient for custom installs by the user: **/usr/local/bin/**. It should be empty on new linux machines. One could move their `bowtie2` folder contents to `/usr/local/bin/` with `mv`. We could unload all the programs to the `/usr/local/bin/` folder, but since other software will likely go here, things could get crowded. I like to keep them separate, by leaving programs from software packages in their respective folders and then just change my PATH variable to point directly to those folders.
-
-## Changing your path
-
-Temporary path changes:
-```{r engine='bash', eval=T, echo=TRUE}
-export PATH=$PATH:/Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64
-
-echo $PATH
-```
-The above command will add the directory where the `bowtie2` binaries are to your `$PATH`.  However, this is a temporary change that is only used for the current session.  Thus, the altered path will be ignored when starting a new session.  To make it permanent, you need to change the path in your **bash profile**
+# Fastx toolkit: preprocessing of `.fastq` files
+Allows one to manipulate/filter/convert `fastq` files as well as perform QC analysis on reads.\
 \
-Your PATH variable is set inside your **bash profile**.  This is a file called `.bashrc` (Linux) or `.bash_profile` (Linux or Mac).  This file is located in your home directory, but is hidden from normal viewing. On Xanadu, I empirically determined that `.bashrc` is not used at login, so modify `.bash_profile` for software installed on the server.
-
+**Common fastx tools and functions:**\
 \
-To see your bash profile, move to your home directory and type `ls -a`.  You can use `nano` to alter your path in the following way (you may need `sudo`):
+`fastx_trimmer`:  trim all reads at a defined based\
+`fastq_quality_filter`:  remove reads with an overall quality score below threshold (-q) one must specify the percent of bases meeting -q threshold\
+`fastq_quality_trimmer`: trim bases from end of reads with q-scores lower than threshold (-t)\
+`fastx_clipper`: trim known adapter sequence from the ends of reads\
+`fastx_barcode_splitter`: separate reads into new files based on barcodes\
+`fastq_to_fasta `: convert .fastq to .fasta format\
+`fastx_collapser`: collapse identical sequences into list of unique sequences in descending order of frequency\
 
-```{r engine='bash', eval=FALSE, echo=TRUE}
-nano .bashrc #.bash_profile on Linux
-nano .bash_profile #.bash_profile on a Mac
-```
 
-Type this line at the end:
+**TIP:** when calling `fastx` commands, pay attention to whether **`fastx`** or **`fastq`** is in the name.\
 
+## Fastx tools usage:
 ```{r engine='bash', eval=F, echo=TRUE}
-export PATH="$PATH:/Users/guertinlab/Downloads/bowtie2-2.5.1-macos-arm64" 
+#example to look at the usage instructions:
+module load fastx/0.0.14
+
+fastq_quality_trimmer -h
+
+#Usage
+fastx_tool [options] -i <infile> -o <outfile>
 ```
 
-This line overwrites the old PATH after appending the new path to the current PATH. \
-Save the file and exit `nano`.\
-Try to see what the new PATH looks like.  **NOTE:** For the changes to take effect, you first need to start a new termial session.
-```{r engine='bash', eval=FALSE, echo=TRUE}
-echo $PATH 
+I recommend running fastx tools with the -v option when getting familiar with it.  -v stands for **verbose**, and tells the program to print some basic information or statistics about what is happening and what the results are.
+
+**Important note on interpreting quality scores with fastx tools**:\
+Fastx tools were written to deal with Illumina's original Q-scores (ASCII+64). An option was later added to deal with this.  The option is **-Q 33**. The latest version (2014!) of [fastx\_tools](https://github.com/agordon/fastx_toolkit) has some functions that automatically detects the quality score.  When using an older version tool, or just to be safe when using the newest version, that interprets Q-scores (fastx\_quality\_filter, fastx\_quality\_trimmer) use this option as follows:
+```{r engine='bash', eval=F, echo=TRUE}
+#Usage when interpreting newer Illumina Q-scores
+fastx_tool -Q 33 -i <infile> -o <outfile>
 ```
-The new PATH destination should be reflected and typing `bowtie2` from any directory should allow the computer to find it and print the usage to the screen.
+
+## Note on trimming adapters
+Fastx-tools provided one of the original adapter clipping programs, and still works reasonably well.  However, there are now newer, more versatile adapter clippers out there.  Here are two that are most commonly used today.  They are also installed on the server, and so can be used there.\
 \
-Congrats, you have completed a custom install of software binaries and used a package manger to install software!
+**1)** Cutadapt: [https://pypi.python.org/pypi/cutadapt](https://pypi.python.org/pypi/cutadapt)
+
+**2)** Sickle: [https://github.com/najoshi/sickle](https://github.com/najoshi/sickle)
 
 
-# What if binaries are not available for your OS?
-## Installing from source
+## In class exercise 1: Fastx-tools for pre-processing
+These can be done on either of the test files or both. \
 
-Installing from source is becoming less and less common as package managers are gaining in popularity. I tried to find a good example for you to install from source. I found that the most common tools `sra-tools`, `bowtie2`, `meme`, `macs3`, and `bedtools` all have different, sometimes complicated, and sometimes poorly documented installation instructions. The only general advice I have is to carefully read the README and INSTALL files.    \
+**1.** Copy some of the identified **adapter sequences** from the fastqc `html` reports and filter out these sequences from the files and rerun `fastQC`.  Did `fastx_clipper` remove all the adapters? \
+**2.** Using your fastQC results for `test1.fastq` as a guide, try the following and compare the results by running fastqc again: \
+**2.a** Trim reads to a length where quality seem to be decent. Does this change the per base and per sequence read quality profile?\
+**2.b** Use the `fastq_quality_filter` to remove the reads with Q-scores lower than 30. Read the help screen, this is not an average read quality score. \
+**2.c** Use quality trimmer to remove low quality data from reads, keep a minimum length of 25 bases.\
+**3.** Collapse the reads from the quality trimmed file and the original file. View the beginning of the file. Do the sequences match the duplicate reads from the FastQC report?\
 
-Fortunately, most packages are available through package managers, preloaded in modules on the server, or available as binaries that are compatible for your system.\
 
-This link provides an explanation on what is happening during an install from source:\
-[https://robots.thoughtbot.com/the-magic-behind-configure-make-make-install](https://robots.thoughtbot.com/the-magic-behind-configure-make-make-install)
- 
 
-# Server operations: Using `module` to temporarily load functions:
+# Mapping raw short read data to genomes using `bowtie` or `bowtie2`.
 
-We're going to use the `sratoolkit`, `fastqc`, and `fastx-tools` amongst other things today and next time.  These programs are on the server, however, we need to load them into our session for use. On our own machine we made sure the programs were in our **`$PATH`**.  On the server we can use the **`module`** to load and have access to specific functions during your session without altering your **`$PATH`**.  This provides flexibility and specificity in running software versions.
+**Considerations for mapping:** 
+
+* Speed \
+* accuracy \
+* sensitivity \
+* indels \
+* SNPs \
+* flexibilty of input /output \
+* customizable options \
+
+**Which to choose?:** 
+
+* For short reads (<50bp): Bowtie \
+* For longer reads: Bowtie2 \
+* For SNPs and Indels: Bowtie2, BWA, GSNAP \
+* For RNA-seq: HISAT2 (covered later) \
+
+
+Original Bowtie paper: [https://doi.org/10.1186/gb-2009-10-3-r25](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2009-10-3-r25)\
+
+For our purposes today, we can stick with the original Bowtie, but there is a more detailed comparison of the two [here.](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#how-is-bowtie-2-different-from-bowtie-1)
+
+## Note: Do read the differences between `bowtie` and `bowtie2`.
+
+The complete manual for Bowtie is here: [http://bowtie-bio.sourceforge.net/manual.shtml](http://bowtie-bio.sourceforge.net/manual.shtml)
+
+The complete manual for Bowtie2 is here: [http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
+
+
+Here's a protocol paper describing the background and uses for bowtie: [http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3010897/](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3010897/)
+
+## Building a genome index
+First you must create a genome 'index' for the aligner to use:
+```{r engine='bash', eval=F, echo=TRUE}
+bowtie-build [options] <reference_in> <bt_base>
+  
+  #OR 
+  
+bowtie2-build [options] <reference_in> <bt2_base>
+#reference in is your genome file- typically a fasta file
+#  The last arg. will create 6 index files with the prefix <bt2_base>
+```
+For instance, If I used 'genome' for the base name, the following indexes would be built:
+
+```{r engine='bash', eval=F, echo=TRUE}
+genome.1.ebwt  genome.2.ebwt  genome.3.ebwt  genome.4.ebwt genome.rev.1.ebwt  genome.rev.2.ebwt
+
+#or the following for bowtie2
+
+genome.1.bt2  genome.2.bt2  genome.3.bt2  genome.4.bt2 genome.rev.1.bt2  genome.rev.2.bt2
+
+```
+
+It is not practical for us to build indices for large genomes in this class.  Genomes we will be using are pre-built and can be found in the following locations:
+
+* Human (bowtie):\
+`/home/FCAM/meds5420/genomes/hg38_bt` \
+or
+* Human (bowtie2):\
+`/home/FCAM/meds5420/genomes/hg38_bt2` \
+
+* Drosophila (bowtie2): \
+`/home/FCAM/meds5420/genomes/dm6` 
+
+\ 
+Information on other genome builds and databases on the Xanadu server can be found here:
+
+[https://bioinformatics.uconn.edu/databases/](https://bioinformatics.uconn.edu/databases/)
+
+For practice, we can build a small genome from an artificial chromosome.
+
+## In class exercise 2: Build a genome index with `bowtie`.
+
+Use the fasta file of the human rDNA locus:  `/home/FCAM/meds5420/genomes/human_rDNA.fa`. \
+**1.**  Make a 'genomes' folder in your class directory and another folder `human_rDNA` inside of it.\
+**2.**  Copy over the rDNA fasta file to the new subfolder `human_rDNA` \
+**3.** Move to that directory and try building a `bowtie` or `bowtie2` index using the simple base name `hs_rDNA`.\
+
+## Running Bowtie
+There are several types of options to consider for running bowtie:\
+
+* Inputs (genome, input format, paired-end, single-end, Qscore-type, trimming, number of reads)\
+* Alignment mode (mismatch allowance)\
+* Reporting mode (number of matches to report)\
+* Output format (usually a SAM file)\
+* How to deal with indels (Bowtie2 only)\
+* Multithreading\
+
+
+To start alignments, the usage for each is as follows:
+```
+bowtie [options]* <ebwt> {-1 <m1> -2 <m2> | --12 <r> | <s>} [<hit>]
+
+bowtie2 [options]* -x <bt2-idx> {-1 <m1> -2 <m2> | -U <r>} -S [<hit>]
+```
+
+Here's a typical bowtie example:
+```{r engine='bash', eval=F, echo=TRUE}
+bowtie -p3 -v2 -m1 -S -x <genome> <infile.fq> <outfile.sam>    
+```
+The command above will use 3 processors (-p), allow 2 mismatches or less per read (-v), and require read to map uniquely to the genome (-m).
+
+Here is a basic bowtie2 example:
+```{r engine='bash', eval=F, echo=TRUE}
+bowtie2 -p2 -t -x <genome> -U <infile.fq> -S <outfile.sam> 
+```
+I like to use the **-t (time)** option because it logs the time taken for mapping.
 \
-First, view which modules are available:
-```{r engine='bash', eval=F, echo=TRUE}
-ssh <user_name>@xanadu-submit-ext.cam.uchc.edu 
-
-module avail  
-```
-
-We can check specifically for sratoolkit:
-
-```{r engine='bash', eval=F, echo=TRUE}
-module avail sratoolkit
-```
-Once you find the one you're looking for:
-
-```{r engine='bash', eval=F, echo=TRUE}
-module load <software>  
-```
-
-This is **convenient** because you can add module functions to your shell scripts to be sure that you are using the correct software versions.  \
-
-**AND** \
-You don't have to waste time adding lots of programs to your `$PATH`\
 \
-It is **flexible** because it allows you to even switch between version of software on the fly.  For instance: \
+**How many processors does my machine have?**
+
+On a linux machine you can use:
+```{r engine='bash', eval=F, echo=TRUE}
+cat /proc/cpuinfo | grep processor | wc -l
+```
+OR SIMPLY
+```{r engine='bash', eval=F, echo=TRUE}
+nproc
+```
+On a Mac use:
+```{r engine='bash', eval=F, echo=TRUE}
+sysctl hw.ncpu | awk '{print $2}'
+```
+
+## Requesting multiple CPUs on the server in batch script
+
+To use multiple processors on the server, you can adjust the line **(-c = # cores)** in your `sbatch` job script. Each of the the MCB nodes has CPUs but I would recommend using up to 4.  \
+Note that your job will not run unless all of your requested CPUs are available on the same node.
 
 ```{r engine='bash', eval=F, echo=TRUE}
-# load software
-module load <software_v.2>   
+#!/bin/bash
 
-# do something
-some commands, etc.
-#unload software and load another version
-module unload <software_v.2>
-module load <software_v.1>
+#SBATCH --job-name=scriptname.sh     # name for job
+#SBATCH -N 1                    # number of nodes (always 1)
+#SBATCH -n 1                    # number of jobs / tasks (always 1)
+#SBATCH -c 1                    # number of cores (1-4)
+#SBATCH -p mcbstudent           # SLURM partition (always mcbstudent)
+#SBATCH --qos=mcbstudent        # SLURM Quality of service (always mcbstudent)
+#SBATCH --mem=2G                # RAM (memory) requested 
+#SBATCH --mail-type=ALL 
+#SBATCH --mail-user=FIRST.LAST@uchc.edu
+#SBATCH -o scriptname.sh_%j.out
+#SBATCH -e scriptname.sh_%j.err
 
-# do something else
-more commands, etc.
+hostname # have this at beginning of every script for  troubleshooting
+
+<your script>
 ```
-## Server operations: Running jobs in the background 
+* Recall that `%j` is a Slurm variable that specify job ID number \
 
-* One problem with working on the server is that if you start a command and it takes a while, you're stuck.  
-* To get around this you can run the operation in the background using the **'&'** symbol.
-* This runs the program in the **background**, allowing you to continue using your command prompt while the program is executed. \
-* To start a command in the background just add **`&`** to the end of the command. 
-* You should get a process ID number: a unique identifier that allows you to track that operation.\
-
-To see what processes are running you can use several commands:  
-
-* **top**: continuous monitoring of activity
-* **ps** or 'process': shows the activity under your user and only shows that activity at that instance (snapshot).
-* **qstat**: when you're on the server.
-* **squeue**: (covered previously) can show jobs by, user, ID, or node.\
+**See Lecture 06 section 2.2** for sbatch script construction, usage, and how to check job status.
 
 
-## Killing jobs
-To stop runaway processes or ones that are taking too long in the background, you cannot use the normal **Control-c**.  You can, however, **scancel** the process using the process ID number.
+You can also log into an interactive session and request multiple cores (aka CPUs) with `srun`:
 ```{r engine='bash', eval=F, echo=TRUE}
-# when on the Xanadu server
-scancel <process_ID>
-```
-You can also run jobs in the background on your own machine.  In this case, you can use **`kill`** to cancel jobs.
+srun --pty -p mcbstudent --qos=mcbstudent --mem=2G -c 2 bash
 
-```{r engine='bash', eval=F, echo=TRUE}
-kill <process_ID>
+#requested 2G of RAM and 2 CPUs for bash session
 ```
 
-You can review other ways to view activities on the server and kill processes here: [http://bioinformatics.uconn.edu/unix-basics/](http://bioinformatics.uconn.edu/unix-basics/)
+## In class exercise 3: Genome alignment with Bowtie in sbatch
 
-# Downloading data from sra archive
+Use the the SRR039637.fastq.gz file from last time (`test1.fastq`). 
 
-## Downloading options with sratoolkit:
+**Note: ONLY USE ONE OR TWO PROCESSORS** (i.e. don't use the -p option or set to -p 2)\
+**1)** Map the data to the human genome with `bowtie`. \
+  *Genome location and prefix for bowtie: `/home/FCAM/meds5420/genomes/hg38_bt/hg38` \
+  **2)** Use `fastq_quality_trimmer` to trim reads with bases with Q-scores lower than 35 and maintain a minumum length of 25 bases for each read. \
+ **3)** Remap the quality trimmed data with `bowtie`. **Did the preprocessing help with mapping?**
 
-`prefetch`: Downloads `.sra` file. 
 
-* Works quickly \
-* Data must be converted to fastq locally with `fastq-dump` \
-* Can easily check for complete download `vdb-validate` \
-* .sra files contain pre- and post-mapping information and QC. \
 
-`fastq-dump`: Downloads `.fastq` files.
 
-* Combines .sra download and simultaneous conversion to .fastq \
-* Checksum not automated  \
-* Can check data integrity by comparing # seqs with output from `vdb-dump --info` \
 
-`fasterq-dump`: Downloads `.fastq` files and automatically splits paired end reads
 
-* https://github.com/ncbi/sra-tools/wiki/HowTo:-fasterq-dump \ 
-* like `fastq-dump` but enables ***multithreading*** \
-* available in sratoolkit v2.8+ \
 
-### `prefetch`
-This program directly downloads `.sra` files to you machine.
-```{r engine='bash', eval=F, echo=TRUE}
-prefetch <options> <SRR-number> &  
-```
-`prefetch` will typically add a folder called **`ncbi`** to your home directory, in which a copy of the sra file will be placed in the following location:
-```{r engine='bash', eval=F, echo=TRUE}
-~/ncbi/public/sra/
-```
-You should first validate that the download is complete with `vdb-validate`:
-```{r engine='bash', eval=F, echo=TRUE}
-vdb-validate <SRR-number>
-```
-`sratoolkit` maintains a database of checksums for each data set. This will essentially run a checksum on the file (in the `~/ncbi/public/sra/` directory tree) to confirm that the download was complete./
 
-You can then use `fastq-dump` to convert the .sra file to fastq.
-```{r engine='bash', eval=F, echo=TRUE}
-fastq-dump <options> <SRR-number> &  
-```
 
-### `fastq-dump`
-This program directly downloads .sra files to you machine and converts to fastq on the fly.
-```{r engine='bash', eval=F, echo=TRUE}
-fastq-dump <options> <SRR-number> &  
-```
-The data should be in whichever directory you specify (default is current directory).
-
-### `fasterq-dump`
-This program directly downloads .sra files to you machine and converts to fastq on the fly.
-```{r engine='bash', eval=F, echo=TRUE}
-fasterq-dump <options> <SRR-number> &  
-```
-The data should be in whichever directory you specify (default is current directory).
-
-## Let's try downloading some data.\
-
-There are two data sets that we will practice with today.\
-Their accession #'s are:\
-SRR039637\
-and\
-SRR1552484
-
-Create a **/data/** folder within your home directory on the server.\
-
-\
-Start an interactive session and load modules:
-```{r engine='bash', eval=F, echo=TRUE}
-#start an interactive session
-srun --pty -p mcbstudent --qos=mcbstudent --mem=2G bash
-
-#load module:
-module load sratoolkit
-
-#change to /data directory
-cd ~/data
-
-```
-Now let's use `prefetch` and `fastq-dump` to download data.
-
-## TRICK with `prefetch`: string together prefetch with validation and `.fastq` conversion
-```{r engine='bash', eval=F, echo=TRUE}
-prefetch SRR039637 && vdb-validate SRR039637 && fastq-dump --gzip SRR039637
-```
-`fasterq-dump` is quicker and it will automatically split paired-end files, but doesn't include the option to compress:
-
-```{r engine='bash', eval=F, echo=TRUE}
-prefetch SRR039637 && vdb-validate SRR039637 && fasterq-dump SRR039637
-```
-
-## `fastq-dump` only:
-
-```{r engine='bash', eval=F, echo=TRUE}
-fastq-dump -F --gzip -X 20000000 SRR039637  
-  # -F: downloads the original format of the data
-  # --gzip: compresses the data upon downloading
-```
-
-then use `vdb-dump` to get information about the file resulting from `fastq-dump` 
-
-```{r engine='bash', eval=F, echo=TRUE}
-vdb-dump --info SRR039637  
-```
-
-Compare the number of sequences to number of lines in downloaded data. See how many lines there are in each file using **`zcat`** and **`wc`**.\
-
-Recall that `zcat` allows you to access gzipped files without actually uncompressing them completely.  This can save a lot of time with decompressing/compressing large files. \
-
-Can you infer what the `-X` option specifies?
-
-If you cannot retrieve the files, they are also in the **data** folder for our class: `/home/FCAM/meds5420/data/`\
-
-
-```{r engine='bash', eval=F, echo=TRUE}
-#For Linux (server)
-zcat SRR039637.fastq.gz | wc -l 
-```
-
-```{r engine='bash', eval=F, echo=TRUE}
-#On a Mac
-gzcat -c SRR039637.fastq.gz | wc -l 
-```
-
-You should get **23313288** lines.
- 
-# Interpreting .fastq (.fq) format and Phred scores
- 
-## Inspecting data
-For today's exercises, we don't need all the data, so let's subset some of it into your home directory for practice.\
-Subsetting data is generally useful as it allows you to quickly do the following: \
-
-**1.** Get the general idea of how a dataset is constructed \
-**2.** Assess the quality of a dataset \
-**3.** Debug processing or analysis scripts \
-
-
-Using `zcat` again output the first 1000000 lines from `SRR039637.fastq.gz` into a new file called `test1.fq` and place it in your data folder.\
-Example:
-```{r engine='bash', eval=F, echo=TRUE}
-
-zcat SRR039637.fastq.gz | head -1000000 > ./data/test1.fastq
-
-```
-
-Now go to your data folder and we'll look at the data:
-
-```{r engine='bash', eval=T, echo=T}
-head -8 test1.fastq
-``` 
-
-`.fastq` files consist of 4 lines for each sequence.  The lines are: \
-
-**1.** A unique identifier for that sequence \
-**2.** The sequence itself \
-**3.** Often a repeat of the unique identifier, but it can be anything \
-**4.** String of phred quality scores \
-
-**What are phred quality scores?:** They give the probability that the base call is correct.  This convention was originally developed to aid interpretation of Sanger sequencing traces.
-
-
-```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Sanger Q-scores from traces"}
-#library(knitr)
-knitr::include_graphics("./sanger_trace.png") 
-```
-
-The phred quality score (Q) is related to the log of the error probability (E):
-```
-Q=-10* log10(E)
-```
-
-This table shows the probabilities associated with different phred scores.
-
-
-```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="Phred interpretation"}
-#library(knitr)
-knitr::include_graphics("./phred_probs.png") 
-```
-
-Illumina phred (Q) scores: \
-
-**1.** In current HTS data, the max quality score is typically 40. \
-**2.** These phred scores are represented by ASCII characters that put the scores into a single character per byte (or base). \
-**3.** The scores are typcially ASCII +33, in order to avoid odd characters and functions of the first 32 ASCII characters.  \
-**4.** Illumina originally made their q-scores ASCII +64 so they would correspond to letters, however they switched due to pressure from the rest of the community (that already used ASCII +33). \
-
-You can check out the ASCII table here: [http://www.asciitable.com/](http://www.asciitable.com/).
-
-```{r  out.width = "100%", echo=F, fig.align = "center", fig.cap="ASCII-Phred conversion"}
-#library(knitr)
-knitr::include_graphics("./Ascii_conv_phred.png") 
-```
-
-# QC and preprocessing
-Two useful Quality control and read processing programs to use before mapping to genomes: \
-[FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/).\
-and\
-[Fastx toolkit](https://github.com/agordon/fastx_toolkit) \
-
-
-Both programs are on the Xanadu server and can be loaded with `module`.
-
-# `FastQC`: quality control for .fastq files
-Performs moderately thorough QC and is extremely easy to use.\
-\
-
-**Concerns for QC:**\
-**1.** Quality scores (Phred) for each base and average for reads \
-**2.** Adapter contamination (no DNA or RNA insert) \
-**3.** Duplicate sequences (library complexity) \
-**4.** Sequence lengths \
-
-
-**Type of common preprocessing manipulations (`fastx_tools`):**
-
-**1.** Remove adapter sequences from reads (`fastx_clipper`) \ 
-
-**2.** Trim reads to a defined size (`fastx trimmer`) \
-**3.** View duplicate sequences (`fastq_collapser`) \
-**4.** Filter out low quality reads (`fastq_quality_filter`) \
-**5.** Filter out low quality portions of reads (`fastq_quality_trimmer`) \
-
-**USAGE:**
-For FastQC, it is simple:
-```{r engine='bash', eval=F, echo=TRUE}
-#To Look at the usage instructions:
-module load fastqc
-
-fastqc -h
-
-#To run an analysis
-fastqc  <data.fastq>
-```
-**Helpful tip: Opening html files from command line.**
-
-FastQC creates individual files of the evaluation of each criteria. All of the results are viewable within a browser with the supplied HTML file.  You can use the following command format to open fastQCreports. 
-
-```{r engine='bash', eval=F, echo=TRUE}
-open -a "/Applications/Google Chrome.app" <FILENAME.html>
-```
-
-However, I typically navigate to the directory and open the Finder.
-```{r engine='bash', eval=F, echo=TRUE}
-cd </path/containing/the/html_file> # I am usually already there
-open .
-
-# OR
-
-open /path/containing/the/html_file
-```
-I often have HTML files on a cluster and I do not view them remotely, so I use sftp to transfer them to my machine and open them locally. This is clunky, but it works. 
-
-
-## In class exercise 1: FastQC
-**Remember to use an interactive session when running these commands!**
-
-**fastQC exercise:**
-
-**1.** Use the `sratoolkit` to download `SRR1552484` to your `data` folder. \
-**2.** Write only the first 1000000 lines to a new file: call it `test2.fastq` \
-**3.** Go to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)  website. View reports from some of types of data (Good, Bad, Contaminated) under Example reports. \
-**4.** Run `fastQC` on the `test2.fastq` data as well as the `test1.fastq` data (from `SRR039637` data we already downloaded). \
-**5.** View the contents of the resulting .zip file(s).  All of these files can be viewed in the included `.html` file. \
-**6.** Open a new terminal window on your computer and use `sftp` or `scp` to copy the html link to your computer and view the report on a local browser. \
-
-
-**Note:** There is also a multiQC program on the server that you can use to compile all fastqc results from a single experiment together. This makes for easy comparisions between samples and/or replicates\
-
-See [https://multiqc.info/](https://multiqc.info/).
-
-To use it: 
-```{r engine='bash', eval=F, echo=TRUE}
-module load multiqc  # load multiqc software
-
-multiqc --help  # view usage and option
-
-```
 
 
 \pagebreak
 
-# Answers to in class exercises 
+# Answers to in-class exercises
 
 
 ## In class exercise 1 (answers): FastQC
-\
-1) Use the sratoolkit to download `SRR1552484` to your data folder.
-```{r engine='bash', eval=F, echo=TRUE}
-cd data
-
-module load sratoolkit
-
-fastq-dump SRR1552484 -F --gzip
-```
-
-2) Just as in class, move only the first 1000000 lines to a new file: call it test2.fastq
+1) Command for fastx-clipper:
 
 ```{r engine='bash', eval=F, echo=TRUE}
-zcat SRR1552484.fastq.gz | head -1000000 > test2.fastq
+module load fastx/0.0.14
+
+fastx_clipper -Q 33 -a <sequence> -i test2.fastq -o test2_clipped.fastq
+
+#Then run fastqc:
+
+fastqc test2_clipped.fastq
 ```
 
-3-4) Run `fastQC` on the test2.fastq data as well as the test1.fastq data (from `SRR039637` data we already downloaded).
-
+2) 
 ```{r engine='bash', eval=F, echo=TRUE}
-module load fastqc 
+#a)
+# -l option is the 'last' base you want to keep
+fastx_trimmer -Q 33 -l 25 -i test1.fastq -o test1_trimmed.fastq
 
-fastqc test1.fastq
+#b) TIP: Also explore the -p option
+fastq_quality_filter -Q 33 -q 30 -i test1.fastq -o test1_qfilter.fastq
 
-fastqc test2.fastq
+fastq_quality_filter -Q 33 -q 30 -p 99 -i test1.fastq -o test1_qfilterp99.fastq
+
+
+#c) 
+fastq_quality_trimmer -Q 33 -t 30 -l 25 -i test1.fastq -o test1_qtrimmed.fastq
 ```
 
-5) View the contents of the resulting .zip file(s).  All of these files can be viewed in the included .html file. \
-
-6) Open a new terminal window on your computer and use `sftp` (or `scp` if you prefer) to copy the html link to your computer and view the report on the internet.\
-
-From your machine:
+3)
 ```{r engine='bash', eval=F, echo=TRUE}
-sftp meds5420usrX@transfer.cam.uchc.edu
+#It can be a good habit to run with the -v option to learn what is happening 
 
-get <path/to/html/file.html>
+fastx_collapser -Q 33 -v -i test1.fastq -o test1_collapse.fastq
 ```
 
+
+## In class exercise 2: Build a genome index with bowtie.
+
+build a bowtie index from human rDNA sequence
+```{r engine='bash', eval=F, echo=TRUE}
+mkdir ~/meds5420/genomes/
+mkdir ~/meds5420/genomes/hs_rDNA
+cd ~/meds5420/genomes/hs_rDNA
+cp /home/FCAM/meds5420/genomes/human_rDNA.fa ./
+
+bowtie-build human_rDNA.fa hs_rDNA   
+```
+
+
+## In class exercise 3: Genome alignment with Bowtie  
+
+Use the the SRR039637.fastq.gz file from last time.
+    
+```{r engine='bash', eval=F, echo=TRUE}
+# perform trimming
+fastq_quality_trimmer -Q 33 -t 35 -l 25 -i test1.fastq -o test1_qTrim.fastq
+
+# map original and trimmed data with Bowtie
+hg_bt="/home/FCAM/meds5420/genomes/hg38_bt/hg38"
+
+bowtie -p1 -m1 -v2 -x $hg_bt test1.fastq -S test1_align.sam
+
+bowtie -p1 -m1 -v2 -x $hg_bt test1_qTrim.fastq -S test1_qTrim_align.sam
+```
