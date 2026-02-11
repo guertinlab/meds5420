@@ -465,7 +465,7 @@ Performs moderately thorough QC and is extremely easy to use.\
 **1.** Remove adapter sequences from reads (`fastx_clipper`) \ 
 
 **2.** Trim reads to a defined size (`fastx trimmer`) \
-**3.** View duplicate sequences (`fastq_collapser`) \
+**3.** View duplicate sequences (`fastx_collapser`) \
 **4.** Filter out low quality reads (`fastq_quality_filter`) \
 **5.** Filter out low quality portions of reads (`fastq_quality_trimmer`) \
 
