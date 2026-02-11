@@ -519,7 +519,7 @@ See [https://multiqc.info/](https://multiqc.info/).
 
 To use it: 
 ```{r engine='bash', eval=F, echo=TRUE}
-module load multiqc  # load multiqc software
+module load MultiQC  # load multiqc software
 
 multiqc --help  # view usage and option
 
