@@ -231,7 +231,7 @@ hostname # have this at beginning of every script for  troubleshooting
 ```
 * Recall that `%j` is a Slurm variable that specify job ID number \
 
-**See Lecture 07 section 2.2** for sbatch script construction, usage, and how to check job status.
+**See Lecture 06 section 2.2** for sbatch script construction, usage, and how to check job status.
 
 
 You can also log into an interactive session and request multiple cores (aka CPUs) with `srun`:
