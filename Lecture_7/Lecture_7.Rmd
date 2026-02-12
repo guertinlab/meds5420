@@ -488,6 +488,16 @@ FastQC creates individual files of the evaluation of each criteria. All of the r
 open -a "/Applications/Google Chrome.app" <FILENAME.html>
 ```
 
+If you are running Ubuntu on a Windows OS, then the following command should work to open an HTML file.
+
+```{r engine='bash', eval=F, echo=TRUE}
+explorer.exe <FILENAME.html>
+```
+
+```{r engine='bash', eval=F, echo=TRUE}
+open -a "/Applications/Google Chrome.app" <FILENAME.html>
+```
+
 However, I typically navigate to the directory and open the Finder.
 ```{r engine='bash', eval=F, echo=TRUE}
 cd </path/containing/the/html_file> # I am usually already there
