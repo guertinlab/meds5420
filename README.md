@@ -59,15 +59,18 @@ Lecture 8 2025 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_8.mp4 \
 Lecture 9: \
 https://guertinlab.github.io/meds5420/Lecture_9/Lecture_9.html \
-Lecture 9 Recording: \
+Lecture 9 2026 Recording: \
+http://guertinlab.cam.uchc.edu/meds5420_2026/2026_Lecture_9.mp4 \
+Lecture 9 2025 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_9.mp4 \
 Lecture 10: \
-https://guertinlab.github.io/meds5420/Lecture__10/Lecture_10.html \
-Lecture 10 Recording: \
+PDF forthcoming \
+Lecture 10 2026 Recording: \
+http://guertinlab.cam.uchc.edu/meds5420_2026/2026_Lecture_10.mp4 \
+Lecture 10 2025 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_10.mp4 \
-Lecture 11 PDFs (2023): \
-https://guertinlab.github.io/meds5420/Lecture__11/Lecture_11_1.pdf \
-https://guertinlab.github.io/meds5420/Lecture__11/Lecture_11_2.pdf \
+Lecture 11: \
+https://guertinlab.github.io/meds5420/Lecture__11/Lecture_11.html \
 Lecture 11 Recording: \
 available upon request, email Dr. Guertin \
 Lecture 12: \
