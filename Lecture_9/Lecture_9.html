@@ -891,7 +891,7 @@ bowtie -p2 -v 2 -m 1 -t $hg_bt rDNA_unalign.fastq -S hg_align.sam
 <p>For the next part of the course we will be working with a ChIP-seq dataset from human cells. The factor that was IP’ed was ATF1 (SRR5331338). The <code>fastq</code> file for the experiment and control (Input SRR5331584) is here:<br />
 <code>/home/FCAM/meds5420/data/ATF1/fastq/</code><br />
 </p>
-<p>It may take a while to map the data, but please map 10 million reads from <code>SRR5331338</code> before March 3rd. Here are the commands I used:</p>
+<p>It may take a while to map the data, but please map 10 million reads from <code>SRR5331338</code> before February 23rd. Here are the commands I used:</p>
 <pre class="bash"><code>#request 2 CPUs and 4G of RAM
 srun --pty -p mcbstudent --qos=mcbstudent --mem=4G -c 2 bash
 
@@ -902,7 +902,7 @@ atfRaw=/home/FCAM/meds5420/data/ATF1/fastq/
 #set variable to where i want output fq to go
 atfFq=/home/FCAM/meds5420/data/ATF1/fastq/
 #set variable to where I want output sam to go
-atfSam=/home/FCAM/meds5420/usr15/proceed_chip/
+atfSam=/home/FCAM/meds5420/usr17/proceed_chip/
 
 mkdir data
 cd data 
@@ -912,12 +912,12 @@ mkdir fastq
 mkdir sam
 
 #move 10million reads to a new file, omit the first million
-zcat ${atfRaw}SRR5331338_ATF1_ChIP.fastq.gz | head -44000000 |tail -40000000 &gt; ${atfFq}ATF1_chip_10m_240219.fastq
+zcat ${atfRaw}SRR5331338_ATF1_ChIP.fastq.gz | head -44000000 |tail -40000000 &gt; ${atfFq}ATF1_chip_10m_260218.fastq
 
 #load bowtie2 module and run 
 module load bowtie2
 
-bowtie2 -p2 -t -x $hgGen -U ${atfFq}ATF1_chip_10m_240219.fastq -S ${atfSam}ATF1_10m_align_240219.sam 2&gt;&amp;1 | tee ${atfSam}ATF1_chip_10m_240219_alignment_log.txt
+bowtie2 -p2 -t -x $hgGen -U ${atfFq}ATF1_chip_10m_260218.fastq -S ${atfSam}ATF1_10m_align_260218.sam 2&gt;&amp;1 | tee ${atfSam}ATF1_chip_10m_260218_alignment_log.txt
 
 ##LOOK at manual for options description.
 
@@ -926,14 +926,14 @@ OR
 module load bowtie
 hg_bt=&quot;/home/FCAM/meds5420/genomes/hg38_bt/hg38&quot;
 
-bowtie -p4 -v2 -m1 $hg_bt ${atfFq}ATF1_chip_10m_240219.fastq  -S ${atfSam}ATF1_10m_bt1_align_240219.sam 2&gt;&amp;1 | tee ${atfSam}ATF1_chip_10m_240219_alignment_bt1_log.txt
+bowtie -p4 -v2 -m1 $hg_bt ${atfFq}ATF1_chip_10m_260218.fastq  -S ${atfSam}ATF1_10m_bt1_align_260218.sam 2&gt;&amp;1 | tee ${atfSam}ATF1_chip_10m_260218_alignment_bt1_log.txt
 # Order is: options, genome, reads-to-map, outfilename (can be designated with -S)</code></pre>
 <p><strong>Notes (take note and let me know if you have questions!):</strong></p>
 <ul>
 <li>The beginning of this command skips the first million reads because they are often the most prone to errors due to technical artifacts of sequencing.<br />
 </li>
 <li>setting long paths to variables can help declutter command lines.</li>
-<li>The names of all the output files are messy and inconsistent (<code>ATF1_chip_10m_240219</code> and <code>ATF1_10m_align_240219</code>). I should have set a variable such as ‘prefix’ and appended <code>.sam</code> and <code>_alignment_log.txt</code> to the output. This would ensure that the basename of all the files is the same and I can repurpose this script to process any file in a consistent manner.</li>
+<li>The names of all the output files are messy and inconsistent (<code>ATF1_chip_10m_260218</code> and <code>ATF1_10m_align_260218</code>). I should have set a variable such as ‘prefix’ and appended <code>.sam</code> and <code>_alignment_log.txt</code> to the output. This would ensure that the basename of all the files is the same and I can repurpose this script to process any file in a consistent manner.</li>
 <li>I made all the directories manually, but I should have checked for the presence of the directory using an if statement and only made the directory if needed. What does the <code>-p</code> option of <code>mkdir</code> specify?</li>
 </ul>
 <div style="page-break-after: always;"></div>
