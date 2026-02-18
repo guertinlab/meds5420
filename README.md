@@ -63,8 +63,9 @@ Lecture 9 2026 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2026/2026_Lecture_9.mp4 \
 Lecture 9 2025 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_9.mp4 \
-Lecture 10: \
-PDF forthcoming \
+Lecture 10 PDFs (large files/split into two): \
+https://guertinlab.github.io/meds5420/Lecture__10/Lecture_10_1.pdf \
+https://guertinlab.github.io/meds5420/Lecture__10/Lecture_10_2.pdf \
 Lecture 10 2026 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2026/2026_Lecture_10.mp4 \
 Lecture 10 2025 Recording: \
