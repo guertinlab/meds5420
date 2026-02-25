@@ -319,7 +319,7 @@ I include three `addTrackLine*.sh` scripts: to `/home/FCAM/meds5420/scripts/`
 knitr::include_graphics("./Bed_score_usage.png") 
 ```
 
-## Exercise 2
+# In class exercise 2
 
 You will run MACS on the ATF1 ChIP-seq data. Previously, we mapped this data to the genome, converted in into `bed` and `bedGraph` and uploaded to the UCSC genome browser. Now we will call peaks on this data with MACS and upload the tracks to the browser to compare with our raw data. 
 
@@ -328,7 +328,7 @@ You will run MACS on the ATF1 ChIP-seq data. Previously, we mapped this data to 
 
 * To run MACS, you will need information regarding the size of your 'genome'.  You can find this info in the `chrom.sizes` file: `/home/FCAM/meds5420/genomes/hg38.chrom.sizes`. We did not explicitly learn how to add column values using the command line, but you should have sufficient basic `awk` knowledge to Google and come up with a solution like this:\
  `awk  '{sum+=$2;} END {print sum;}' hg38.chrom.sizes` \
-**1.** Move to your 'peaks' directory and run MACS (use the `-B` option) from there on this data using the experimental and control (Input) samples. Everyone should have their own experimental and input `bam` files from **Lecture 12-in class exercise 1: Processing ChIP-seq data**. However, if you did not do this exercise, you can find preprocessed files to copy here: `/home/FCAM/meds5420/data/ATF1/bam`\
+**1.** Move to your 'peaks' directory and run MACS (use the `-B` option) from there on this data using the experimental and control (Input) samples. Everyone should have their own experimental and input `bam` files from **Lecture 11-in class exercise 1: Processing ChIP-seq data**. However, if you did not do this exercise, you can find preprocessed files to copy here: `/home/FCAM/meds5420/data/ATF1/bam`\
 **2.** When finished, generate the model figure by running the R script `NAME_model.r` as follows:
 
 ```{r, eval=F, echo=TRUE}
@@ -364,6 +364,100 @@ How could you determine if you have sequenced enough of the library to capture a
 ## In class exercise 1: 
 **For answers and hints, see UCSC browser slides**
 I will demonstrate in class
+
+
+# Answers to exercises:
+
+## In class exercise 2: 
+
+1) run MACS: the number is the size of the genome from the hg38.chrom.sizes file or hs
+```{r engine='bash', eval=F, echo=TRUE}
+module load macs3
+
+macs3 callpeak -t ATF_ChIP_10mil.bam -c Input_10mil.bam -f BAM -g hs -n ATF1 -B -q 0.01 --outdir atf_peaks 2>&1 | tee -a ATF1_peaks_log.txt
+```
+
+2) Move to MACS output directory and run Rscript to make figure of model
+
+```{r engine='bash', eval=F, echo=TRUE}
+cd atf_peaks
+
+Rscript ATF1_model.r
+```
+```{r  out.width = "90%", echo=F, fig.align = "center", fig.cap="Plus and Minus read distribution for 10 million ATF1 reads"}
+#library(knitr)
+knitr::include_graphics("./ATF1_model.png") 
+```
+
+3) add tracklines using the `addTrackline*.sh` scripts we modified from last week.
+
+
+```{r engine='bash', eval=F, echo=TRUE}
+/home/FCAM/meds5420/scripts/addTrackLines.sh Input_macs3 ATF1_control_lambda.bdg
+/home/FCAM/meds5420/scripts/addTrackLines.sh ATF1_macs3 ATF1_treat_pileup.bdg 
+gzip ATF1_treat_pileup_header.bedGraph
+gzip ATF1_control_lambda_header.bedGraph
+
+/home/FCAM/meds5420/scripts/addTrackLine_macs_narrowPeak.sh ATF1_narrow ATF1_peaks.narrowPeak 
+/home/FCAM/meds5420/scripts/addTrackLine_macs_bed.sh ATF1_summits ATF1_summits.bed
+
+```
+
+4) Make it open to the largest peak: Use the result from below to set the  browser position in a modified `addTrackLiness.sh` script.
+
+```{r engine='bash', eval=F, echo=TRUE}
+sort -k5nr ATF1_peaks_summits.bed | head -1
+```
+5) copy to your machine and upload to browser (see previous lessons).
+
+
+
+\pagebreak
+
+## Thought question:
+One can subsample the ChIP-seq data and record the number of peaks called at certain read depths.  Plotting of the number of peaks called vs. read depth, will reveal whether you are at saturation.  This is outlined nicely [in Figure 6A of Kharchenko, et. al., 2008](https://www.nature.com/articles/nbt.1508) \
+\
+
+### Implementation
+
+To select random lines from a file you can use the `shuf` command in shell as follows:
+```{r engine='bash', eval=F, echo=TRUE}
+
+shuf -n #of_lines <INPUT.file> > <OUTPUT.file>
+```
+However, it is not as easy as just choosing random lines from a FASTQ or SAM file. Why? Can you think of solutions? \
+
+It is easiest to operate on a `sam` file (without the header), because `fastq` have four lines per read. Then you would have to add back a header.\
+\
+You can also use `seq` in combination with shuffle in a shell script to get random lines in defined intervals for doing the analysis. 
+
+```{r engine='bash', eval=T, echo=TRUE}
+
+seq 1000 500 3000 
+# gives a sequence of numbers from 1000 to 3000 in increments of 500.
+
+```
+
+The next step is to loop through the sequence of numbers and use `shuf` to randomly select lines from the input file. These outputs can be converted to `bam` files and used for peak calling with `macs3` \
+
+\
+Alternatively, `samtools view` has an option `-s` to subsample a `BAM` file. You can select a step of 10 or 5 percent and subsample. The pseudocode is provided below: 
+
+```{r engine='bash', eval=F, echo=TRUE}
+x=$(seq 0.05 0.05 1)
+for i in $x
+do
+  samtools view -s $i <input>.bam > <output>_${i}.bam
+  macs3 callpeaks <output>_${i}.bam ...
+done
+```
+
+
+
+```{r  out.width = "90%", echo=F, fig.align = "center", fig.cap="ChIP-seq saturation"}
+#library(knitr)
+knitr::include_graphics("./ChIP-seq_saturation.png") 
+```
 
 
 
