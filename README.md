@@ -72,8 +72,8 @@ Lecture 10 2025 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2025/2025_Lecture_10.mp4 \
 Lecture 11: \
 https://guertinlab.github.io/meds5420/Lecture__11/Lecture_11.html \
-Lecture 11 Recording: \
-available upon request, email Dr. Guertin \
+Lecture 11 2026 Recording: \
+http://guertinlab.cam.uchc.edu/meds5420_2026/2026_Lecture_11.mp4 \
 Lecture 12: \
 https://guertinlab.github.io/meds5420/Lecture__12/Lecture_12.html \
 Lecture 12 Recording 1: \
