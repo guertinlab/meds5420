@@ -76,7 +76,7 @@ Lecture 11 2026 Recording: \
 http://guertinlab.cam.uchc.edu/meds5420_2026/2026_Lecture_11.mp4 \
 Lecture 12: \
 https://guertinlab.github.io/meds5420/Lecture__12/Lecture_12.html \
-Lecture 12 PDF:
+Lecture 12 PDF: \
 https://guertinlab.github.io/meds5420/Lecture__12/Lecture_12.pdf \
 Lecture 13: \
 https://guertinlab.github.io/meds5420/Lecture__13/Lecture_13.html \
