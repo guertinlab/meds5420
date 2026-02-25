@@ -361,12 +361,14 @@ How could you determine if you have sequenced enough of the library to capture a
 
 \pagebreak
 
+# Answers to exercises:
+
 ## In class exercise 1: 
 **For answers and hints, see UCSC browser slides**
 I will demonstrate in class
 
 
-# Answers to exercises:
+
 
 ## In class exercise 2: 
 
