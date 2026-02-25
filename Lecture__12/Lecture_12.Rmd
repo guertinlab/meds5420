@@ -13,7 +13,7 @@ geometry: margin=1in
 ---
 
 
-# Uploading to the browser
+# Review: uploading to the browser
 You can upload these data (`.bed` and `.bedGraph` files) as custom tracks on the browser.  Just go to 'custom tracks' -> 'add custom tracks' and follow instructions.  \
 
 **Uploading Tips:**
