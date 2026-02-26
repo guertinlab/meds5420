@@ -1,0 +1,69 @@
+INFO  @ Tue, 25 Jan 2022 10:56:18: 
+# Command line: callpeak -t ATF1_ChIP_10mil.bam -c ATF1_input_10mil.bam -f BAM -g hs -n ATF1_10mil_peaks --outdir peaks_10mil
+# ARGUMENTS LIST:
+# name = ATF1_10mil_peaks
+# format = BAM
+# ChIP-seq file = ['ATF1_ChIP_10mil.bam']
+# control file = ['ATF1_input_10mil.bam']
+# effective genome size = 2.70e+09
+# band width = 300
+# model fold = [5, 50]
+# qvalue cutoff = 5.00e-02
+# Larger dataset will be scaled towards smaller dataset.
+# Range for calculating regional lambda is: 1000 bps and 10000 bps
+# Broad region calling is off
+# Paired-End mode is off
+ 
+INFO  @ Tue, 25 Jan 2022 10:56:18: #1 read tag files... 
+INFO  @ Tue, 25 Jan 2022 10:56:18: #1 read treatment tags... 
+INFO  @ Tue, 25 Jan 2022 10:56:21:  1000000 
+INFO  @ Tue, 25 Jan 2022 10:56:23:  2000000 
+INFO  @ Tue, 25 Jan 2022 10:56:25:  3000000 
+INFO  @ Tue, 25 Jan 2022 10:56:28:  4000000 
+INFO  @ Tue, 25 Jan 2022 10:56:30:  5000000 
+INFO  @ Tue, 25 Jan 2022 10:56:32:  6000000 
+INFO  @ Tue, 25 Jan 2022 10:56:34:  7000000 
+INFO  @ Tue, 25 Jan 2022 10:56:37:  8000000 
+INFO  @ Tue, 25 Jan 2022 10:56:39:  9000000 
+INFO  @ Tue, 25 Jan 2022 10:56:41:  10000000 
+INFO  @ Tue, 25 Jan 2022 10:56:42: #1.2 read input tags... 
+INFO  @ Tue, 25 Jan 2022 10:56:44:  1000000 
+INFO  @ Tue, 25 Jan 2022 10:56:47:  2000000 
+INFO  @ Tue, 25 Jan 2022 10:56:49:  3000000 
+INFO  @ Tue, 25 Jan 2022 10:56:52:  4000000 
+INFO  @ Tue, 25 Jan 2022 10:56:55:  5000000 
+INFO  @ Tue, 25 Jan 2022 10:56:57:  6000000 
+INFO  @ Tue, 25 Jan 2022 10:57:00:  7000000 
+INFO  @ Tue, 25 Jan 2022 10:57:03:  8000000 
+INFO  @ Tue, 25 Jan 2022 10:57:05:  9000000 
+INFO  @ Tue, 25 Jan 2022 10:57:08:  10000000 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1 tag size is determined as 50 bps 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1 tag size = 50 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1  total tags in treatment: 7252908 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1 user defined the maximum tags... 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1  tags after filtering in treatment: 7194167 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1  Redundant rate of treatment: 0.01 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1  total tags in control: 8970801 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1 user defined the maximum tags... 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1  tags after filtering in control: 8662724 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1  Redundant rate of control: 0.03 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #1 finished! 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #2 Build Peak Model... 
+INFO  @ Tue, 25 Jan 2022 10:57:08: #2 looking for paired plus/minus strand peaks... 
+INFO  @ Tue, 25 Jan 2022 10:57:11: #2 number of paired peaks: 24219 
+INFO  @ Tue, 25 Jan 2022 10:57:11: start model_add_line... 
+INFO  @ Tue, 25 Jan 2022 10:57:11: start X-correlation... 
+INFO  @ Tue, 25 Jan 2022 10:57:11: end of X-cor 
+INFO  @ Tue, 25 Jan 2022 10:57:11: #2 finished! 
+INFO  @ Tue, 25 Jan 2022 10:57:11: #2 predicted fragment length is 127 bps 
+INFO  @ Tue, 25 Jan 2022 10:57:11: #2 alternative fragment length(s) may be 127 bps 
+INFO  @ Tue, 25 Jan 2022 10:57:11: #2.2 Generate R script for model : peaks_10mil/ATF1_10mil_peaks_model.r 
+INFO  @ Tue, 25 Jan 2022 10:57:11: #3 Call peaks... 
+INFO  @ Tue, 25 Jan 2022 10:57:11: #3 Pre-compute pvalue-qvalue table... 
+INFO  @ Tue, 25 Jan 2022 10:57:39: #3 Call peaks for each chromosome... 
+INFO  @ Tue, 25 Jan 2022 10:57:53: #4 Write output xls file... peaks_10mil/ATF1_10mil_peaks_peaks.xls 
+INFO  @ Tue, 25 Jan 2022 10:57:53: #4 Write peak in narrowPeak format file... peaks_10mil/ATF1_10mil_peaks_peaks.narrowPeak 
+INFO  @ Tue, 25 Jan 2022 10:57:53: #4 Write summits bed file... peaks_10mil/ATF1_10mil_peaks_summits.bed 
+INFO  @ Tue, 25 Jan 2022 10:57:53: Done! 
