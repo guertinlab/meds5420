@@ -190,7 +190,7 @@ After going through this workflow, there are a number of things one can do with 
 knitr::include_graphics("MAST_v_FIMO.png") 
 ```
 
-## In class exercise:
+# In class exercise 1:
 
 Starting with the ChIP-seq summits file, try the following:  
 
@@ -216,7 +216,7 @@ Starting with the ChIP-seq summits file, try the following:
 
 
 
-# Inspect MEME results (quick exercise)
+# Inspect MEME results 
 
 First, let's look at the results from our `meme` analysis.  You can copy it to from the server at this location: \
 `/home/FCAM/meds5420/motif`\
@@ -338,7 +338,7 @@ knitr::include_graphics("./paralogous_TFBS_MJG.png")
 ```
 
 
-# **In Class Exercise 2:**
+# In Class Exercise 2:
 1)  There are converted JASPAR databases in the following location\
 `/home/FCAM/meds5420/TF_db/JASPAR/`.  Use either database to compare to your motif using `tomtom`.\
 
@@ -464,7 +464,6 @@ grep MA0604.1 /home/FCAM/meds5420/TF_db/JASPAR/JASPAR2022_CORE_vertebrates_redun
 #the - means that stdin is passed to grep:
 grep -i atf1 JASPAR2022_CORE_vertebrates_redundant.meme | cut -d ' ' -f2 | grep -f - tomtom.tsv 
 ```
-You can also search JASPAR online as well.
+You can also search JASPAR online.
 
-```
 
