@@ -50,7 +50,7 @@ last time we used MACS to call peaks in our ChIP-seq data and create a model tha
 To do this, we will **extend the reads by this estimation of the fragment size**. Stated differently, the reads will no longer be as long as the aligned sequence, they will all the the same length, which is the average sonication size. \
 
 
-Awk can also be used for simple manipulations of columns. Let's add a column that adds fragment size (120 in our case) to column 2 of `ATF_ChIP_10mil_sorted.bed` from the post-processing lecture 12:
+Awk can also be used for simple manipulations of columns. Let's add a column that adds fragment size (120 in our case) to column 2 of `ATF_ChIP_10mil_sorted.bed` from the post-processing lecture 11:
 
 ```{r engine='bash', eval=T, echo=TRUE}
 head -4 ./ATF_ChIP_10mil_sorted.bed
