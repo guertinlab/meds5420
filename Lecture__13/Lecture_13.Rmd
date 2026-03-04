@@ -67,7 +67,7 @@ head -4 ./ATF1_ChIP_10mil_extended.bed
 ### awk syntax notes (a review):
 * `\t` Specifies that the fields will be tab-delimited
 * `$<col_num>` Specifies the column number to be printed.  $0 prints entire line.
-* Pay close attention to formatting:  `awk` commands are surrounded by single quotes and curly brackets: '{}'
+* Pay close attention to formatting:  `awk` commands are surrounded by single quotes and curly brackets: `'{}'`
 
 
 We are not finished yet since we have strand specific reads, we need to add to the + strand reads and subtract from the - strand reads.\
@@ -137,7 +137,7 @@ To convert to `.bed` format, we simply need to reorder the columns. Remember, th
 **5.** score  \
 **6.** strand \
 
-We will review using the `awk` language to reorder and manipulate columns from large tables very easily using the print command. I uploaded an annotation file to `/home/FCAM/meds5420/annotations`. You should also have downloaded a GENCODE annotation file in BED format in Lecture 13.
+We will review using the `awk` language to reorder and manipulate columns from large tables very easily using the print command. I uploaded an annotation file to `/home/FCAM/meds5420/annotations`. You should also have downloaded a GENCODE annotation file in BED format in Lecture 12.
 
 ```{r engine='bash', eval=F, echo=TRUE}
 awk '{OFS="\t";} {print $3, $5, $6, $1, 1, $4}' Homo_sapiens.GRCh38.104.unique.txt > hg38_genes.bed
