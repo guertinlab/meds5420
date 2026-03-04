@@ -319,7 +319,36 @@ to an `annotations` folder within your home directory tree. \
 6) Thought experiment:  You are trying to find the closest ChIP-seq peak to the transcription start site of genes (TSS) of your genes. Can you see a problem with how bedtools commands used above in 5) would report this?
 
 
+\pagebreak
 
+# Creating custom annotations lists for ChIP-seq analysis:
+
+One caveat with `closestBed`, is that it chooses the closet edge of your targets (genes) to compare your peaks locations to.  This means that it is not always obvious whether or not your peak is closest to the gene start or end.  One way to get around this is to create a new annotation list that just contains TSSs.  This would allow you to use `bedtools closest` to get the closest TSS to your peak.
+
+
+```{r  out.width = "90%", echo=F, fig.align = "center", fig.cap="peak assignment problem"}
+#library(knitr)
+knitr::include_graphics("peak_assignment.png") 
+```
+
+Using `awk`, we can easily create such a TSS file. The `awk` script below creates a new file and sets both the start and stop to the TSS of the gene, which is the 'start' for genes on the plus strand and the 'end' for genes on the minus strand.
+
+```{r engine='bash', eval=F, echo=TRUE}
+
+awk '{OFS="\t";} 
+{ if($6=="+")
+print $1, $2, $2+1, $4,$5,$6;
+else 
+print $1, $3-1, $3, $4,$5,$6}' hg38_genes.bed > hg38_genes_strandedTSS.bed
+```
+One can then use `bedtools closest` to determine the closest TSS (or promoter) to each peak location.
+
+```{r engine='bash', eval=F, echo=TRUE}
+sortBed -i hg38_genes_strandedTSS.bed > hg38_genes_strandedTSS_sorted.bed
+closestBed -D a -a peaks/atf_peaks/ATF1_summits.bed -b hg38_genes_strandedTSS_sorted.bed > peaks_promoters.bed
+```
+
+This same type of manipulation can be used for creating bedfiles of different regions for comparing to ChIP-seq peak locations.  i.e. You can create promoter, genic and intergenic regions and determine where you ChIP-seq peaks tend to go to.
 
 \pagebreak
 
@@ -398,39 +427,10 @@ Define a promoter region that is +/- 500 base pairs around the TSS
 
 * `flankBed -s -i hg38_genes.bed -g genomes/hg38.chrom.sizes -l 500 -r 0 | flankBed -s -i stdin -g genomes/hg38.chrom.sizes -l 0 -r 500 > outfile.bed`
 \
-6) Bedtools will report the closest gene regardless of whether the peak is closer to the gene start or end (see below).\
+6) Bedtools will report the closest gene regardless of whether the peak is closer to the gene start or end (see "Creating custom annotations lists for ChIP-seq analysis").\
 
 
-\pagebreak
 
-# Creating custom annotations lists for ChIP-seq analysis:
-
-One caveat with `closestBed`, is that it chooses the closet edge of your targets (genes) to compare your peaks locations to.  This means that it is not always obvious whether or not your peak is closest to the gene start or end.  One way to get around this is to create a new annotation list that just contains TSSs.  This would allow you to use `bedtools closest` to get the closest TSS to your peak.
-
-
-```{r  out.width = "90%", echo=F, fig.align = "center", fig.cap="peak assignment problem"}
-#library(knitr)
-knitr::include_graphics("peak_assignment.png") 
-```
-
-Using `awk`, we can easily create such a TSS file. The `awk` script below creates a new file and sets both the start and stop to the TSS of the gene, which is the 'start' for genes on the plus strand and the 'end' for genes on the minus strand.
-
-```{r engine='bash', eval=F, echo=TRUE}
-
-awk '{OFS="\t";} 
-{ if($6=="+")
-print $1, $2, $2+1, $4,$5,$6;
-else 
-print $1, $3-1, $3, $4,$5,$6}' hg38_genes.bed > hg38_genes_strandedTSS.bed
-```
-One can then use `bedtools closest` to determine the closest TSS (or promoter) to each peak location.
-
-```{r engine='bash', eval=F, echo=TRUE}
-sortBed -i hg38_genes_strandedTSS.bed > hg38_genes_strandedTSS_sorted.bed
-closestBed -D a -a peaks/atf_peaks/ATF1_summits.bed -b hg38_genes_strandedTSS_sorted.bed > peaks_promoters.bed
-```
-
-This same type of manipulation can be used for creating bedfiles of different regions for comparing to ChIP-seq peak locations.  i.e. You can create promoter, genic and intergenic regions and determine where you ChIP-seq peaks tend to go to.
 
 
 
