@@ -248,7 +248,7 @@ ceqlogo -i meme.txt -m 2 -f EPS -o atf1.eps
 ```
 ## Comparing Your Motif to Databases
 
-Motif databases:
+Motif databases: \
 Jeff Vierstra: [https://resources.altius.org/~jvierstra/projects/motif-clustering-v2.1beta/consensus_pwms.meme](https://resources.altius.org/~jvierstra/projects/motif-clustering-v2.1beta/consensus_pwms.meme) \
 JASPAR:[http://jaspardev.genereg.net/](http://jaspardev.genereg.net/).\
 CisBP: [http://cisbp.ccbr.utoronto.ca/TFTools.php](http://cisbp.ccbr.utoronto.ca/TFTools.php)\
